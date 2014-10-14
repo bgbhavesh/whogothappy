@@ -1,13 +1,18 @@
 <head>
-  <title>sixteensmiles</title>
+  <meta name="viewport" content="initial-scale=1, maximum-scale=1, user-scalable=no, width=device-width">
+  
+  	<title>sixteensmiles</title>
+  	<link rel="stylesheet" href="/lib/foundation/css/foundation.css" />
+  	<script src="/lib/foundation/js/vendor/modernizr.js"></script>
+
+  	<script src="/lib/foundation/js/vendor/jquery.js"></script>
+    <script src="/lib/foundation/js/foundation.min.js"></script>
 </head>
 
 <body>
 <!--   {{> hello}} --> 
- {{> route}}
+	 {{> route}}
+	 <script>
+			$(document).foundation();
+    </script>
 </body>
-
-<template name="hello">
-  <button>Click Me</button>
-  <p>You've pressed the button {{counter}} times.</p>
-</template>

@@ -2,7 +2,6 @@
 // 	layoutTemplate: 'layout',
 // 	loadingTemplate: 'loading'
 // });
-
 Template.route.helpers({
 	"route" : function(first){
 		if(Session.get("route") == first){
@@ -20,10 +19,10 @@ Template.route.helpers({
 });
 app.router = {
 	//"default" : "homepage",
-	"#login" : "login"  ,
-	// "#worldlist" : "worldlist"  ,
-	"#register" : "register"  ,
-	// "#mywords" : "mywords"  ,
+	"#login" : "login",
+	"#admin" : "admin",
+	"#register" : "register",
+	"#users" : "users"  ,
 	
 	// "#loginScreen" : "loginScreen"  ,
 	// "#addword" : "addword"  ,
@@ -40,16 +39,15 @@ app.routerFunction = {
 		// app.backnone();
         Session.set("headerName","<div class='divi'><img src='http://thumb.dance/img/header/lock.png'/> </div><div class='divh'>Login with Email</div><div class='divi'></div>");
     },
-	"#worldlist" : function (pause) {
+	"#admin" : function (pause) {
 		// app.backblock();
-		Session.set("headerName", "<div class='divi'><img src='http://thumb.dance/img/header/cloud.png' /> </div><div class='divh'>"+
-		Session.get("placeName") +"</div><div class='divi'><a id='addanewword' href='#addword' ><img src='http://thumb.dance/img/header/add.png'/></a></div>"); //"<i class='cloud icon'></i>" +            
+		// Session.set("headerName", "<div class='divi'><img src='http://thumb.dance/img/header/cloud.png' /> </div><div class='divh'>";
     },
 	"#register" : function () {
 		// app.backnone();
         Session.set("headerName","<div class='divi'><img src='http://thumb.dance/img/header/lock.png'/> </div><div class='divh'> Sign up</div><div class='divi'></div>");
 	},
-	"#mywords" : function () {
+	"#users" : function () {
 		// app.backnone();
         Session.set("headerName","<div class='divi'><img src='http://thumb.dance/img/header/cloud.png' /> </div><div class='divh'>My Words</div><div class='divi'></div>");
     },

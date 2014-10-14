@@ -1,0 +1,32 @@
+<template name="users"> 
+	{{#if isInRole 'admin'}}
+	<div class="main container page textCenter" route="#admin">
+
+	   <table>
+	   	<caption>Users</caption>
+		  <thead>
+		    <tr>
+		      <th width="100">Username</th>
+		      <th>Email</th>
+		      <th width="100">Role</th>
+		      <!-- <th width="150">Table Header</th> -->
+		    </tr>
+		  </thead>
+		  <tbody>
+		  	{{#each userlist}}
+		    <tr>
+		      <td>{{username}}</td>
+		      <td>{{emails.[0].address}}</td>
+		      {{#if roles}}
+		      	<td>{{roles.[0]}}</td>
+		      {{else}}
+		      	<td>Client</td>
+		      {{/if}}
+
+		    </tr>
+		    {{/each}}
+		  </tbody>
+		</table>
+	</div>
+		{{/if}}
+</template>
