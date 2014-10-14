@@ -1,0 +1,44 @@
+<template name="route">
+	{{#if route "#home"}}
+		{{> homepage}}
+	{{/if}}
+	{{#if route "#login"}}
+		{{> login}}
+	{{/if}}
+	{{#if route "#register"}}
+		{{> register}}
+	{{/if}}
+	<!-- {{#if route "#worldlist"}}
+		{{> worldlist}}
+	{{/if}}
+	
+	{{#if route "#loginScreen"}}
+		{{> loginScreen}}
+	{{/if}}
+	{{#if route "#addword"}}
+		{{> addword}}
+	{{/if}}
+	{{#if route "#debug"}}
+		{{> debug}}
+	{{/if}}
+	{{#if route "#feedback"}}
+		{{> feedback}}
+	{{/if}}
+	{{#if route "#forgot"}}
+		{{> forgot}}
+	{{/if}}
+	{{#if route "#profile"}}
+		{{> profile}}
+	{{/if}}
+	{{#if route "#mywords"}}
+		{{> mywords}}
+	{{/if}}
+	{{#if route "#feedSend"}}
+		{{> feedSend}}
+	{{/if}} -->
+	{{#if default}}
+		{{> homepage}}
+	{{/if}}
+	
+</template>
+

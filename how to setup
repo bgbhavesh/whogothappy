@@ -1,0 +1,3 @@
+meteor create sixteensmiles
+meteor add  sixteensmiles
+meteor add accounts-password
