@@ -1,4 +1,4 @@
-adminUser = ["nicolsondsouza","bgbhavesh","hastenf"];
+adminUser = ["nicolsondsouza","bgbhavesh","hastenf","wiber"];
 function isAdmin(user){
 	for(var i=0,il=adminUser.length;i<il;i++){
 		if(user.username == adminUser[i]){
