@@ -1,5 +1,5 @@
-Deps.autorun(function() {
-    if(!Meteor.userId()){
-      Router.go('login');
-    }
-})
+// Deps.autorun(function() {
+//     if(!Meteor.userId()){
+//       Router.go('login');
+//     }
+// })
