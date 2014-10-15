@@ -30,10 +30,15 @@ else{
 			
 			if(Meteor.isClient)
 				insert.side = "client";
+			else if (Meteor.isCordova)
+				insert.side = "cordova";
 			else
 				insert.side = "server";
-			if(Meteor.userId())
+			
+			try{
 				insert.userId = Meteor.userId();
+			}catch(err){}
+				
 			
 			collection.Log.insert(insert);
 		}
