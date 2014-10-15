@@ -5,7 +5,8 @@ Template.users.events({
 	// 	Session.set("placeName",this.name);
 	// }
 });
-Template.users.userlist = function(){
-	// Session.get("reactivePlace");
-	return Meteor.users.find()
-}
+Template.users.helpers({
+	userlist : function(){
+		return Meteor.users.find()
+	}
+}) 
