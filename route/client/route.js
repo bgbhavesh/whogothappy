@@ -16,7 +16,8 @@ app.router = {
 	"#users" : "users",
 	"#docs" : "docs",
 	"#famous" : "famous",
-	"#home" : "home"
+	"#home" : "home",
+	"#allinone" : "allinone"
 }
 app.routerFunction = {
 	"#login" : function () {
@@ -41,7 +42,7 @@ app.routerFunction = {
     },
 	"#forgot" : function (pause) {
     },
-	"#profile" : function (pause) {
+	"#allinone" : function (pause) {
     },
     "#famous" : function (pause) {
     },
