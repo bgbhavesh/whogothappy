@@ -8,7 +8,7 @@ app.famousCarousel = function(){
 			setTimeout(app.famousCarousel,1000);
 			return;
 		}
-			
+		$("#carousel").html("");
 		var require = app.famous.carousel.require
 	    var Engine      = require("famous/core/Engine");
 	    var Surface     = require("famous/core/Surface");
