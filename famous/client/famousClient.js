@@ -19,7 +19,7 @@ app.famousCarousel = function(){
 	    var edgeswapper = new EdgeSwapper();
 
 	    var primary = new Surface({
-	        size: [undefined, undefined],
+	        size: [window.innerWidth, window.innerWidth],
 	        content: content,
 	        classes: ["red-bg"],
 	        properties: {
@@ -29,7 +29,7 @@ app.famousCarousel = function(){
 	    });
 
 	    var secondary = new Surface({
-	        size: [undefined, undefined],
+	        size: [window.innerWidth, window.innerWidth],
 	        content: secondcontent,
 	        classes: ["grey-bg"],
 	        properties: {
