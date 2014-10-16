@@ -1,7 +1,7 @@
 /* CSS declarations go here */
  a:link, a:visited, a:hover, a:active {
    text-decoration: none !important;
-
+}
 .textCenter{
 	text-align: center;
 }
