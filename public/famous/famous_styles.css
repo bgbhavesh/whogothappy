@@ -465,7 +465,7 @@ small {
 
 .button {
   padding: 18px;
-  border-radius: 3px;
+  /*border-radius: 3px;*/
   margin: 29px 0px; }
 
 .backface-visible {
