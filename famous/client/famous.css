@@ -1,12 +1,11 @@
 #carousel{
-    height: 200px;
-    width: 200px;
-    position: absolute;
+    width : 275px;
+    height: 275px;
 }
 .blue{
     background-color: blue;
 }
-.ui.small.rounded.image{
+.th.image{
     position: relative;
     float: left;
     height: 25%;
