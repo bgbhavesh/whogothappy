@@ -7,12 +7,27 @@
 
   	<script src="/lib/foundation/js/vendor/jquery.js"></script>
     <script src="/lib/foundation/js/foundation.min.js"></script>
+
+    
+    <!-- famous -->
+    <!-- shims for backwards compatibility -->
+    <script type="text/javascript" src="/famous/lib/functionPrototypeBind.js"></script>
+    <script type="text/javascript" src="/famous/lib/classList.js"></script>
+    <script type="text/javascript" src="/famous/lib/requestAnimationFrame.js"></script>
+
+    <!-- module loader -->
+    <script type="text/javascript" src="/famous/lib/require.js"></script>
+
+    <!-- famous -->
+    <link rel="stylesheet" type="text/css" href="/famous/famous.css" />
+    <script type="text/javascript" src="/famous/famous.js"></script>
+
+    <link rel="stylesheet" type="text/css" href="/famous/famous_styles.css" />
+    <script type="text/javascript">require(['/famous/src/main.js']);</script>
+    <!-- famous -->
 </head>
 
 <body>
 <!--   {{> hello}} --> 
 	 {{> route}}
-	 <script>
-			$(document).foundation();
-    </script>
 </body>

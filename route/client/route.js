@@ -15,7 +15,8 @@ app.router = {
 	"#register" : "register",
 	"#users" : "users",
 	"#docs" : "docs",
-	"#home" : "homepage"
+	"#famous" : "famous",
+	"#home" : "home"
 }
 app.routerFunction = {
 	"#login" : function () {
@@ -42,7 +43,7 @@ app.routerFunction = {
     },
 	"#profile" : function (pause) {
     },
-    "#feedSend" : function (pause) {
+    "#famous" : function (pause) {
     },
     "#home" : function (pause) {
     },  
@@ -60,7 +61,7 @@ app.onHashChange = function(){
 	if(app.routerFunction[hash])
 		app.routerFunction[hash]()
 	else
-		app.routerFunction["home"]()
+		app.routerFunction["#home"]()
 }
 Router = {};
 Router.go = function(hash){
