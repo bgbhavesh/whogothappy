@@ -1,12 +1,12 @@
-home=/home/nicolsondsouza/
-apphome=/home/nicolsondsouza/ubuntu/meteor/sixteensmiles/
-meteorhome=/home/nicolsondsouza/ubuntu/meteor/sixteensmiles/
-appname="SixteenSmiles"
+home=/opt/
+apphome=/root/sixteensmiles/
+meteorhome=/root/sixteensmiles/
+appname="sixteensmiles"
 bundlename="sixteensmiles.tar.gz"
 
 ####################
 
-ROOT_URL='http://128.199.196.222:3000'
+ROOT_URL='http://128.199.196.222:8000'
 MONGO_URL='mongodb://bookmark:123456@paulo.mongohq.com:10017/youtap'
 MONGO_OPLOG_URL='mongodb://bookmark:123456@paulo.mongohq.com:10017/local?authSource=WORDdance'
 MAIL_URL='smtp://postmaster%40sandbox77539.mailgun.org:2l9s4cmzqic2@smtp.mailgun.org:587'
@@ -29,6 +29,7 @@ cd bundle/programs/server
 npm install
 cd .. 
 cd ..
+cd ..
 pm2 stop $appname
 
 rm -rf $home$appname/app
@@ -43,6 +44,6 @@ export ROOT_URL=$ROOT_URL
 export MAIL_URL=$MAIL_URL
 export PORT=$PORT
 
-node main.js
+pm2 start main.js $appname
 
 exit
