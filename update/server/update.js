@@ -53,6 +53,6 @@ Meteor.methods({
         ls.stdout.on('data', stdoutWrapper);
 
         ls.stderr.on('data',stderrWrapper);
-
+        return true;
     }
 });

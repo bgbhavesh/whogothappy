@@ -44,6 +44,8 @@ export ROOT_URL=$ROOT_URL
 export MAIL_URL=$MAIL_URL
 export PORT=$PORT
 
-pm2 start main.js $appname
+mv ./main.js ./$appname.js
+
+pm2 start $appname.js
 
 exit
