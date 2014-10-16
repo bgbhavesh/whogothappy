@@ -48,7 +48,7 @@ app.famousCarousel = function(){
 	    //     }
 	    // });
 
-	    mainContext.add(edgeswapper); 
+	    mainContext.add(edgeswapper); mainContext.add(edgeswapper); 
 
 	    edgeswapper.show(primary);
 
