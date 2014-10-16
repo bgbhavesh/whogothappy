@@ -11,6 +11,7 @@ else{
 	app.debug = false;
 	log = function(){
 		var string = "";
+		var level = "";
 		for(var i=0,il=arguments.length;i<il;i++){
 			if(typeof arguments[i] == "object"){
 				if(app.isJsonString(arguments[i])){
@@ -24,21 +25,23 @@ else{
 				}
 			}
 			else{
-				string = arguments[i];
+				// console.log(arguments[0])
+				// console.log(arguments[1])
+				string = arguments[0];
+				level = arguments[1];
 			}
-			var insert = {"log":string,"date": new Date().getTime()};
+			if(level){
+				var insert = {"log":string,"level":level,"date": new Date().getTime()};
+			}else{
+				var insert = {"log":string,"level":1,"date": new Date().getTime()};
+			}
 			
 			if(Meteor.isClient)
 				insert.side = "client";
-			else if (Meteor.isCordova)
-				insert.side = "cordova";
 			else
 				insert.side = "server";
-			
-			try{
+			if(Meteor.userId())
 				insert.userId = Meteor.userId();
-			}catch(err){}
-				
 			
 			collection.Log.insert(insert);
 		}

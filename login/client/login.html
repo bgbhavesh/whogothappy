@@ -1,0 +1,40 @@
+<template name="login">
+    <div class="main container page textCenter " id="loginContent"> 
+        <form onsubmit="">
+            <div class="loginPage message row">
+                <div class="errorMessage large-12 columns">
+                    <div class="ui error small  panel textLeft" style="">
+                        <div class="header ">Action Forbidden</div>
+                        <p>You can only sign up for an account once with a given e-mail address.</p>
+                    </div>
+                </div>
+                <div class="ui input listItem " >                    
+                    <div class="large-6 medium-6 columns">
+                        <input id="loginUsername" type="text" placeholder="username">                   
+                    </div>                    
+                </div>
+                <div class="ui input listItem ">                   
+                    <div class="large-6 medium-6 columns">
+                        <input id="loginPassword" type="password" placeholder="password" > 
+                    </div>
+                </div>
+            </div>  
+            <div class="huge forgot textCenter large-12 medium-12 columns" style="">            
+                <a class="item " href="#forgot">Forgot Password?</a>           
+            </div>   
+            <div class=" textCenter large-6 medium-6 columns" style="">    
+                <div id="loginButton" class="button ui " style="background:cyan; ">            
+                    Login
+                </div>
+            </div>
+        </form >
+        <a class="item" href="#register">
+            <div id="haveAnAcc"  class="button ui  ">            
+                sign up         
+            </div>
+        </a>  
+        <div id="loginScreenFacebook" class="large-12 columns ">
+            <a class="button expand">Login with Facebook</a>
+        </div>
+    </div>
+</template>
