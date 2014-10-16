@@ -8,14 +8,6 @@ app.famousCarousel = function(){
 	for(var i=0,il=16;i<il;i++){
 		content += '<img class="th image" src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/p180x540/10679607_10152700860443291_2608149880326614773_o.jpg">';
 		secondcontent += '<img class="th image" src="https://scontent-b.xx.fbcdn.net/hphotos-xfp1/t1.0-9/10590609_10152701576576554_111158067907161837_n.jpg">';
-// 		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
-//   <li><!-- Your content goes here --></li>
-//   <li><!-- Your content goes here --></li>
-//   <li><!-- Your content goes here --></li>
-//   <li><!-- Your content goes here --></li>
-//   <li><!-- Your content goes here --></li>
-//   <li><!-- Your content goes here --></li>
-// </ul>
 	}
 	// content += '</ul>';
 	// secondcontent += '</ul>';
@@ -24,7 +16,8 @@ app.famousCarousel = function(){
 			setTimeout(app.famousCarousel,1000);
 			return;
 		}
-		$("#carousel").html("");
+		var width = window.innerWidth - 50;
+		$("#carousel").html("").css({"height": width+"px","width": width+"px"});
 		var require = app.famous.carousel.require
 	    var Engine      = require("famous/core/Engine");
 	    var Surface     = require("famous/core/Surface");
@@ -35,7 +28,7 @@ app.famousCarousel = function(){
 	    var edgeswapper = new EdgeSwapper();
 
 	    var primary = new Surface({
-	        size: [window.innerWidth, window.innerWidth],
+	        size: [undefined, undefined],
 	        content: content,
 	        classes: ["red-bg"],
 	        properties: {
@@ -45,11 +38,11 @@ app.famousCarousel = function(){
 	    });
 
 	    var secondary = new Surface({
-	        size: [window.innerWidth, window.innerWidth],
+	        size: [undefined, undefined],
 	        content: secondcontent,
 	        classes: ["grey-bg"],
 	        properties: {
-	            lineHeight: window.innerHeight + "px",
+	            lineHeight: 2 + "px",
 	            textAlign: "center"
 	        }
 	    });
