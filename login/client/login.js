@@ -1,12 +1,12 @@
 Template.login.events({
     'click #registerform .submit': function () {
-      app.register
+      	app.register();
     },
     'click #goToRegister': function () {
-      app.setRoute("#register");
+      	app.setRoute("#register");
     },
     'click #loginButton': function () {
-      app.login();
+      	app.login();
     },
     "click #loginScreenFacebook" : function(){
 		app.loginWithFacebook();

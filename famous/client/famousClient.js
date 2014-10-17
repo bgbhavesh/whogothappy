@@ -24,7 +24,8 @@ app.famousCarousel = function(){
 			setTimeout(app.famousCarousel,1000);
 			return;
 		}
-		$("#carousel").html("");
+		var width = window.innerWidth - 50;
+		$("#carousel").html("").css({"height": width+"px","width": width+"px"});
 		var require = app.famous.carousel.require
 	    var Engine      = require("famous/core/Engine");
 	    var Surface     = require("famous/core/Surface");
@@ -35,7 +36,7 @@ app.famousCarousel = function(){
 	    var edgeswapper = new EdgeSwapper();
 
 	    var primary = new Surface({
-	        size: [window.innerWidth*0.95, window.innerWidth*0.95],
+	        size: [undefined, undefined],
 	        content: content,
 	        classes: ["red-bg"],
 	        properties: {
@@ -45,11 +46,11 @@ app.famousCarousel = function(){
 	    });
 
 	    var secondary = new Surface({
-	        size: [window.innerWidth*0.95, window.innerWidth*0.95],
+	        size: [undefined, undefined],
 	        content: secondcontent,
 	        classes: ["grey-bg"],
 	        properties: {
-	            lineHeight: window.innerHeight + "px",
+	            lineHeight: 2 + "px",
 	            textAlign: "center"
 	        }
 	    });
@@ -65,6 +66,7 @@ app.famousCarousel = function(){
 	    // });
 
 	    mainContext.add(edgeswapper); 
+
 	    edgeswapper.show(primary);
 
 	    var showing = true;
@@ -79,5 +81,5 @@ app.famousCarousel = function(){
 	    });
 }
 
-Template.famous.rendered = app.famousCarousel;
+// Template.famous.rendered = app.famousCarousel;
 
