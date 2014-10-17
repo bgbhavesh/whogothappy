@@ -73,4 +73,5 @@ app.famousCarousel = function(){
 	    });
 }
 
-Template.famous.rendered = app.famousCarousel;
+// Template.famous.rendered = app.famousCarousel;
+

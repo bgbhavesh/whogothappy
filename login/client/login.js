@@ -1,12 +1,12 @@
 Template.login.events({
     'click #registerform .submit': function () {
-      app.register
+      	app.register();
     },
     'click #goToRegister': function () {
-      app.setRoute("#register");
+      	app.setRoute("#register");
     },
     'click #loginButton': function () {
-      app.login();
+      	app.login();
     },
     "click #loginScreenFacebook" : function(){
 		app.loginWithFacebook();
@@ -172,71 +172,3 @@ app.createFacebookUser = function(user,authResponse){
 	users.profile.profile_picture  = profilePictureUrl;
 	Meteor.loginAsFacebook(users,app.facebookCallback);
 }
-// Garbage
-
-
-// increment the counter when button is clicked
-// Session.set("counter", Session.get("counter") + 1);
-
-// increment the counter when button is clicked
-// Session.set("counter", Session.get("counter") + 1);
-
-// increment the counter when button is clicked
-// Session.set("counter", Session.get("counter") + 1);
-// app.register = function(options){
-// 	// $("#registerform .submit").append('<i class="loading icon"></i>');
-// 	// var username = $("#registerform input[placeholder='Username']").val();
-// 	// var password = $("#registerform input[type='password']").val();
-// 	// var email = $("#registerform input[placeholder='Email']").val();
-// 	// var options = {"username":username,"password":password,"email":email};
-// 	$("#registerButton").html('Register ' +app.onLoad);
-// 	if(device)
-// 		options.uuid = device.uuid;
-	
-// 	app.beforeInfo = options;
-// 	api.register(options,app.registerCallback);
-// }
-// $("#registerform .submit").bind("click",app.register);
-
-		// $("#registerform").addClass("error");	
-		// $("#registerform .error div").html("Error");
-		// $("#registerform .error p").html(err);
-
-		// $("#registerform .ui.message").removeClass("error").addClass("success");
-		// $("#registerform .ui.message .header").html("Complete");
-		// $("#registerform .ui.message p").html("Please wait loggin you in.");
-		// $("#registerform input[placeholder='Username']").val("");
-		// $("#registerform input[type='password']").val("");
-		// $("#registerform input[placeholder='Email']").val("");
-		// $("#loginform input[placeholder='Username']").val(app.beforeInfo.username);
-		// $("#loginform input[type='password']").val(app.beforeInfo.password);
-// app.login = function(options){
-// 	// $("#loginform .submit").append('<i class="loading icon"></i>');
-// 	log("login");
-
-
-// 	var username = $("#loginUsername").val();
-// 	var password = $("#loginPassword").val();
-// 	// var options = {"username":username,"password":password};
-// 	$("#loginButton").html('Login with Email ' +app.onLoad);
-// 	log(options);
-// 	app.beforeInfo = options;
-// 	Meteor.loginWithPassword(username, password);
-// }
-// $("#loginform .submit").bind("click",app.login);
-// app.loginCallback = function(err,success){
-// 	if(err){
-// 		app.visualEffect("loginButton",app.onError);
-// 		$("#loginform").addClass("error");	
-// 		$("#loginform .error div").html(err);
-// 	}
-// 	else{
-// 		app.visualEffect("loginButton",app.onSuccess);
-// 		// app.user = success;
-// 		// app.user.username = app.beforeInfo.user || app.beforeInfo.username;
-// 		// app.user.password = app.beforeInfo.pass || app.beforeInfo.password;
-// 		// app.set("user",success);
-// 		// app.scope.AppCtrl.closeLogin();
-// 		app.onSendPushId();
-// 	}
-// }

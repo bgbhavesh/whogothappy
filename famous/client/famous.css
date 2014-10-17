@@ -13,3 +13,23 @@
     height: 25%;
     width: 25%;
 }
+#clickEvent img{
+    position: relative;
+    float: left;
+    height: 25%;
+    width: 25%;
+}
+#clickEvent{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.green-bg{
+	background-color: green;
+}
+.red-bg{
+	background-color: red;
+}
+.blue-bg{
+	background-color: blue;
+}
