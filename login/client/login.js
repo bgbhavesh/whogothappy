@@ -1,17 +1,3 @@
-Template.login.events({
-    'click #registerform .submit': function () {
-      app.register
-    },
-    'click #goToRegister': function () {
-      app.setRoute("#register");
-    },
-    'click #loginButton': function () {
-      app.login();
-    },
-    "click #loginScreenFacebook" : function(){
-		app.loginWithFacebook();
-	}
-});
 app.user = null;
 app.user = app.get("user");
 app.beforeInfo = null;
