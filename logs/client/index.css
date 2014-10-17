@@ -5,3 +5,11 @@
 .textCenter{
 	text-align: center;
 }
+
+.famous-container{
+	position: relative !important;
+}
+.famous-root {
+	overflow-x: hidden !important;
+	overflow-y: scroll !important; 
+}
