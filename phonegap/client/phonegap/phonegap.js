@@ -1,4 +1,3 @@
-
 app.deviceready = function(){
 	app.phonegap = true;
 	app.device = device;
