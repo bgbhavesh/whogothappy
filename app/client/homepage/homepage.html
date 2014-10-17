@@ -28,25 +28,12 @@
     <aside class="right-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Users</label></li>
-        <li><a href="#">Hari Seldon</a></li>
-        <li><a href="#">...</a></li>
       </ul>
     </aside>
 
     <section class="main-section">
-        <div class="large-6 columns daTe">
-            <div class="panel textCenter">
-                <div id="timeView"><h2></h2></div>
-                <div id="dateView"></div>
-                
-            </div>
-        </div>
-        <div class="large-6 columns countDown">
-            <div class="panel textCenter">
-                <div id="countDown"><h2></h2></div>
-                <div > Game will be start soon</div>
-            </div>
-        </div>
+        {{> timeShow}}
+        {{> countDownShow}}
     </section>
 
   <a class="exit-off-canvas"></a>
