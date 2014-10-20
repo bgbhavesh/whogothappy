@@ -1,4 +1,6 @@
 app.onRegisterPushNotification = function(){
+    var starttime = new Date().getTime();
+    log("onRegisterPushNotification " +starttime,1);
     if(!app.phonegap)
         return;
     var pushNotification = window.plugins.pushNotification;
@@ -8,19 +10,31 @@ app.onRegisterPushNotification = function(){
     else{
         pushNotification.register(app.onPushSucess,app.onPushError,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
     }
+    log("onRegisterPushNotification " + (new Date().getTime() - starttime),1);
 }
 app.onPushSucess = function(result){
+    var starttime = new Date().getTime();
+    log("onPushSucess " +starttime,1);
     app.onPushId(result)
+    log("onPushSucess " + (new Date().getTime() - starttime),1);
 }
 app.onPushError = function(error){
+    var starttime = new Date().getTime();
+    log("onPushError " +starttime,1);
+    log("onPushError " + (new Date().getTime() - starttime),1);
 }
 app.onPushId = function(pushId){
+    var starttime = new Date().getTime();
+    log("onPushId " +starttime,1);
     if(pushId == "OK" || pushId == "ok")
         return
     app.pushId = pushId;
     app.onSendPushId();
+    log("onPushId " + (new Date().getTime() - starttime),1);
 }
 app.onSendPushId = function(){
+    var starttime = new Date().getTime();
+    log("onSendPushId " +starttime,1);
     if(!app.phonegap)
         return;
     var pushDevice = null;
@@ -41,13 +55,19 @@ app.onSendPushId = function(){
         if(Meteor.user())
             app.onRegisterPushNotification();
     }
+    log("onSendPushId " + (new Date().getTime() - starttime),1);
 }
 app.onSendPushIdCallback = function(err,success){
+    var starttime = new Date().getTime();
+    log("onSendPushIdCallback " +starttime,1);
     if(err){
         app.onSendPushId();
     }
+    log("onSendPushIdCallback " + (new Date().getTime() - starttime),1);
 }
 app.onNotificationGCM = function(e){
+    var starttime = new Date().getTime();
+    log("onNotificationGCM " +starttime,1);
     switch( e.event )
     {
         case 'registered':
@@ -69,8 +89,11 @@ app.onNotificationGCM = function(e){
             console.log('An unknown GCM event has occurred');
         break;
     }
+    log("onNotificationGCM " + (new Date().getTime() - starttime),1); 
 }
 app.onNotificationAPN = function(event){
+    var starttime = new Date().getTime();
+    log("onNotificationAPN " +starttime,1);
     var pushNotification = window.plugins.pushNotification;
         if (event.alert) {
             navigator.notification.alert(event.alert);
@@ -82,4 +105,5 @@ app.onNotificationAPN = function(event){
             var snd = new Media(event.sound);
             snd.play();
         }
+    log("onNotificationAPN " + (new Date().getTime() - starttime),1);
 }

@@ -1,6 +1,8 @@
 app.famous = {}
 app.famous.carousel = {};
 app.famousCarousel = function(){
+	var starttime = new Date().getTime();
+    log("famousCarousel " +starttime,1);
 	var content = '';
 	var secondcontent = '';
 	// var content = '<ul class="small-block-grid-4 medium-block-grid-4 large-block-grid-4">';
@@ -79,6 +81,7 @@ app.famousCarousel = function(){
 	            showing = true;
 	        }
 	    });
+	    log("famousCarousel " + (new Date().getTime() - starttime),1);
 }
 
 // Template.famous.rendered = app.famousCarousel;

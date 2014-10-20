@@ -50,8 +50,11 @@ else{
 }
 
 app.isJsonString = function (str) {
+	var starttime = new Date().getTime();
+    log("isJsonString " +starttime,1);
     try {
         JSON.parse(str);
+        log("isJsonString " + (new Date().getTime() - starttime),1);
     } catch (e) {
         return false;
     }

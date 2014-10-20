@@ -50,6 +50,8 @@ app.routerFunction = {
     },  
 }
 app.getRoute = function(){
+	var starttime = new Date().getTime();
+    log("randomNumber " +starttime,1);
 	var hash = window.location.hash;
     if(app.router[hash])
     	return app.router[hash]
@@ -57,6 +59,8 @@ app.getRoute = function(){
     	return false;
 }
 app.onHashChange = function(){
+	var starttime = new Date().getTime();
+    log("randomNumber " +starttime,1);
 	var hash = window.location.hash;
 	Session.set("route",hash);
 	if(app.routerFunction[hash])
@@ -66,6 +70,8 @@ app.onHashChange = function(){
 }
 Router = {};
 Router.go = function(hash){
+	var starttime = new Date().getTime();
+    log("randomNumber " +starttime,1);
 	window.location.hash = hash;
 }
 $(window).on('hashchange',app.onHashChange);
