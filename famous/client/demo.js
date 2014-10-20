@@ -1,6 +1,9 @@
 
 function randomNumber(snum, bnum){
+	var starttime = new Date().getTime();
+    log("randomNumber " +starttime,1);
 	var value = Math.floor((Math.random()*100%bnum)+1);
+	log("randomNumber " + (new Date().getTime() - starttime),1);
 	if(value >= snum && value <= bnum)
 		return value
 	else
