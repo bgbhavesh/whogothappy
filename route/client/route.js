@@ -49,19 +49,25 @@ app.routerFunction = {
     },  
 }
 app.getRoute = function(){
+	var startTime = new Date().getTime();
+    log("getRoute " +startTime,1);
 	var hash = window.location.hash;
     if(app.router[hash])
     	return app.router[hash]
     else
     	return false;
+    log("getRoute " +(new Date().getTime() - startTime),1);
 }
 app.onHashChange = function(){
+	var startTime = new Date().getTime();
+    log("onHashChange " +startTime,1);
 	var hash = window.location.hash;
 	Session.set("route",hash);
 	if(app.routerFunction[hash])
 		app.routerFunction[hash]()
 	else
 		app.routerFunction["#home"]()
+	log("onHashChange " +(new Date().getTime() - startTime),1);
 }
 Router = {};
 Router.go = function(hash){
