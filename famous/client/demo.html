@@ -1,0 +1,26 @@
+<template name="views_EdgeSwapper">
+	{{#EdgeSwapper size="[275,275]" translate="[0,0,5]"}}
+		{{>showTemplate name=esTemplate}}
+	{{/EdgeSwapper}}
+</template>
+<template name="es_surface1">
+	{{#Surface class="red-bg" size="[undefined,undefined]"}}
+		{{> content}}
+	{{/Surface}}
+</template>
+<template name="es_surface2">
+	{{#Surface class="green-bg" size="[undefined,undefined]"}}
+		{{> content}}
+	{{/Surface}}
+</template>
+<template name="es_surface3">
+	{{#Surface class="blue-bg" size="[undefined,undefined]"}}
+		{{> content}}
+	{{/Surface}}
+</template>
+
+<template name="content"> 
+	<div id="clickEvent"> 
+		{{{image}}}
+	</div>
+</template>

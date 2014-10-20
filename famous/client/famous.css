@@ -1,14 +1,35 @@
 #carousel{
-    /*height: 200px;*/
-    /*width: 200px;*/
-    position: absolute;
+    width : 275px;
+    height: 275px;
+    position: relative;
+    overflow: hidden;
 }
 .blue{
     background-color: blue;
 }
-.ui.small.rounded.image{
+.th.image{
     position: relative;
     float: left;
     height: 25%;
     width: 25%;
+}
+#clickEvent img{
+    position: relative;
+    float: left;
+    height: 25%;
+    width: 25%;
+}
+#clickEvent{
+    position: relative;
+    height: 100%;
+    width: 100%;
+}
+.green-bg{
+	background-color: green;
+}
+.red-bg{
+	background-color: red;
+}
+.blue-bg{
+	background-color: blue;
 }
