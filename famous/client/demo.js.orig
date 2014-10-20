@@ -56,4 +56,8 @@ Template.content.events({
 	"click #clickEvent" : function(){
 		Session.set("esTemplate", "es_surface" +randomNumber(1,3))
 	}
+<<<<<<< HEAD
 });
+=======
+});
+>>>>>>> origin/master

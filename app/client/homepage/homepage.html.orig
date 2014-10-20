@@ -28,11 +28,11 @@
     <aside class="right-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Users</label></li>
-
       </ul>
     </aside>
 
     <section class="main-section">
+<<<<<<< HEAD
         <div class="large-6 columns daTe">
             <div class="panel textCenter">
                 <div id="timeView"><h2></h2></div>
@@ -46,6 +46,9 @@
                 <div > Game will be start soon</div>
             </div>
         </div>     
+=======
+       
+>>>>>>> origin/master
     </section>
 
   <a class="exit-off-canvas"></a>

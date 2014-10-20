@@ -1,0 +1,15 @@
+/* CSS declarations go here */
+ a:link, a:visited, a:hover, a:active {
+   text-decoration: none !important;
+}
+.textCenter{
+	text-align: center;
+}
+
+.famous-container{
+	position: relative !important;
+}
+.famous-root {
+	overflow-x: hidden !important;
+	overflow-y: scroll !important; 
+}

@@ -1,4 +1,4 @@
-Log = new Meteor.Collection("Log");
+
 
 var inital = "Meteor Shell Logs";
 Log.remove({});
