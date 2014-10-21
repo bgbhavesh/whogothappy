@@ -7,77 +7,7 @@ if(window.Pince){
 
 app.famous = {}
 app.famous.carousel = {};
-var expressionImage = [];
-expressionImage.push("anger.anger");
-expressionImage.push("anger.disgust");
-expressionImage.push("anger.fear");
-expressionImage.push("anger.joy");
-expressionImage.push("anger.neutral");
-expressionImage.push("anger.sadness");
-expressionImage.push("anger.surprise");
 
-expressionImage.push("disgust.anger");
-expressionImage.push("disgust.disgust");
-expressionImage.push("disgust.fear");
-expressionImage.push("disgust.joy");
-expressionImage.push("disgust.neutral");
-expressionImage.push("disgust.sadness");
-expressionImage.push("disgust.anger");
-expressionImage.push("disgust.surprise");
-
-expressionImage.push("fear.anger");
-expressionImage.push("fear.disgust");
-expressionImage.push("fear.fear");
-expressionImage.push("fear.joy");
-expressionImage.push("fear.neutral");
-expressionImage.push("fear.sadness");
-expressionImage.push("fear.anger");
-expressionImage.push("fear.surprise");
-
-expressionImage.push("joy.anger");
-expressionImage.push("joy.disgust");
-expressionImage.push("joy.fear");
-expressionImage.push("joy.joy");
-expressionImage.push("joy.neutral");
-expressionImage.push("joy.sadness");
-expressionImage.push("joy.anger");
-expressionImage.push("joy.surprise");
-
-expressionImage.push("neutral.anger");
-expressionImage.push("neutral.disgust");
-expressionImage.push("neutral.fear");
-expressionImage.push("neutral.joy");
-expressionImage.push("neutral.neutral");
-expressionImage.push("neutral.sadness");
-expressionImage.push("neutral.anger");
-expressionImage.push("neutral.surprise");
-
-expressionImage.push("sadness.anger");
-expressionImage.push("sadness.disgust");
-expressionImage.push("sadness.fear");
-expressionImage.push("sadness.joy");
-expressionImage.push("sadness.neutral");
-expressionImage.push("sadness.sadness");
-expressionImage.push("sadness.anger");
-expressionImage.push("sadness.surprise");
-
-expressionImage.push("anger.anger");
-expressionImage.push("anger.disgust");
-expressionImage.push("anger.fear");
-expressionImage.push("anger.joy");
-expressionImage.push("anger.neutral");
-expressionImage.push("anger.sadness");
-expressionImage.push("anger.anger");
-expressionImage.push("anger.surprise");
-
-expressionImage.push("surprise.anger");
-expressionImage.push("surprise.disgust");
-expressionImage.push("surprise.fear");
-expressionImage.push("surprise.joy");
-expressionImage.push("surprise.neutral");
-expressionImage.push("surprise.sadness");
-expressionImage.push("surprise.anger");
-expressionImage.push("surprise.surprise");
 
 // /images/expression/{}/.gif
 app.famousCarousel = function(){
@@ -85,11 +15,13 @@ app.famousCarousel = function(){
     log("famousCarousel" + setTime,1);
 	var content = '';
 	var secondcontent = '';
+	var thirdcontent = '';
 	// var content = '<ul class="small-block-grid-4 medium-block-grid-4 large-block-grid-4">';
 	// var secondcontent = '<ul class="small-block-grid-4 medium-block-grid-4 large-block-grid-4">';
 	for(var i=0,il=16;i<il;i++){
-		content += '<img class="th image" src="">';
-		secondcontent += '<img class="th image" src="https://scontent-b.xx.fbcdn.net/hphotos-xfp1/t1.0-9/10590609_10152701576576554_111158067907161837_n.jpg">';
+		content += '<img class="th image" src="/image/expression/' +expressionImage[app.randomNumber(0,63)] +' +">';
+		secondcontent += '<img class="th image" src="/image/expression/' +expressionImage[app.randomNumber(0,63)] +' +">';
+		thirdcontent += '<img class="th image" src="/image/expression/' +expressionImage[app.randomNumber(0,63)] +' +">';
 // 		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
 //   <li><!-- Your content goes here --></li>
 //   <li><!-- Your content goes here --></li>
