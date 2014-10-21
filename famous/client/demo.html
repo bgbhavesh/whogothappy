@@ -1,17 +1,7 @@
-<template name="famousInit">
-    {{> views_EdgeSwapper}}
-</template>
-
-
-
 <template name="views_EdgeSwapper">
-	{{#Scrollview size="[undefined,undefined]"}}
-		{{#View size="[undefined,800]" translate="[20,0]"}}
-			{{#EdgeSwapper size="[275,275]" translate="[0,0,5]"}}
-				{{>showTemplate name=esTemplate}}
-			{{/EdgeSwapper}}
-		{{/View}}
-	{{/Scrollview}}
+	{{#EdgeSwapper size="[375,375]" translate="[0,0,5]"}}
+		{{>showTemplate name=esTemplate}}
+	{{/EdgeSwapper}}
 </template>
 
 

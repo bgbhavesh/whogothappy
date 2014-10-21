@@ -1,0 +1,5 @@
+app = {};
+
+app.startup = function(){
+
+}
