@@ -25,11 +25,14 @@ Meteor.startup(function () {
 
 Meteor.methods({
     "updateApp" : function (command) {
+        var setTime = new Date().getTime();
+        log("updateApp" + setTime,1);
         if(!command)
             command = "sh /root/shell/sixteensmiles.sh";
         if(command == "clear"){
             Log.remove({});
             Log.insert({Log : inital});
+            log("updateApp" + (new Date().getTime() - setTime),1);
             return;
         }
 
@@ -53,6 +56,7 @@ Meteor.methods({
         ls.stdout.on('data', stdoutWrapper);
 
         ls.stderr.on('data',stderrWrapper);
+        log("updateApp" + (new Date().getTime() - setTime),1);
         return true;
     }
 });

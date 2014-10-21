@@ -50,15 +50,21 @@ app.routerFunction = {
     },  
 }
 app.getRoute = function(){
+	var setTime = new Date().getTime();
+    log("getRoute" + setTime,1);
 	var hash = window.location.hash;
+	log("getRoute" + (new Date().getTime() - setTime),1);
     if(app.router[hash])
     	return app.router[hash]
     else
     	return false;
 }
 app.onHashChange = function(){
+	var setTime = new Date().getTime();
+    log("onHashChange" + setTime,1);
 	var hash = window.location.hash;
 	Session.set("route",hash);
+	log("onHashChange" + (new Date().getTime() - setTime),1);
 	if(app.routerFunction[hash])
 		app.routerFunction[hash]()
 	else

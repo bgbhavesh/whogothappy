@@ -1,6 +1,8 @@
 app.famous = {}
 app.famous.carousel = {};
 app.famousCarousel = function(){
+	var setTime = new Date().getTime();
+    log("famousCarousel" + setTime,1);
 	var content = '';
 	var secondcontent = '';
 	// var content = '<ul class="small-block-grid-4 medium-block-grid-4 large-block-grid-4">';
@@ -34,9 +36,9 @@ app.famousCarousel = function(){
 	    var mainContext = Engine.createContext(document.getElementById('carousel'));
 
 	    var edgeswapper = new EdgeSwapper();
-
+	    var squareSize = (window.innerWidth < window.innerHeight)? window.innerWidth : window.innerHeight;
 	    var primary = new Surface({
-	        size: [undefined, undefined],
+	        size: [squareSize, squareSize],
 	        content: content,
 	        classes: ["red-bg"],
 	        properties: {
@@ -46,7 +48,7 @@ app.famousCarousel = function(){
 	    });
 
 	    var secondary = new Surface({
-	        size: [undefined, undefined],
+	        size: [squareSize, squareSize],
 	        content: secondcontent,
 	        classes: ["grey-bg"],
 	        properties: {
@@ -79,6 +81,7 @@ app.famousCarousel = function(){
 	            showing = true;
 	        }
 	    });
+	log("famousCarousel" + (new Date().getTime() - setTime),1);
 }
 
 // Template.famous.rendered = app.famousCarousel;
