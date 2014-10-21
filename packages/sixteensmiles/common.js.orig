@@ -1,8 +1,14 @@
 app = {};
 collection = {};
+<<<<<<< HEAD
 // collection.Word = new Meteor.Collection("word");
 // collection.Feedback = new Meteor.Collection("feedback");
 // collection.Log = new Meteor.Collection("logs");
+=======
+collection.Word = new Meteor.Collection("word");
+collection.Feedback = new Meteor.Collection("feedback");
+collection.Log = new Meteor.Collection("logs");
+>>>>>>> 7430c577c9d4a74f997439f4a40705217fd9e124
 if(Meteor.absoluteUrl.defaultOptions.rootUrl.match("localhost:3000") || Meteor.absoluteUrl.defaultOptions.rootUrl.match("192.168.")){
 	app.debug = true;
 	log = console.log.bind(console);
@@ -11,7 +17,10 @@ else{
 	app.debug = false;
 	log = function(){
 		var string = "";
+<<<<<<< HEAD
+=======
 		var level = "";
+>>>>>>> 7430c577c9d4a74f997439f4a40705217fd9e124
 		for(var i=0,il=arguments.length;i<il;i++){
 			if(typeof arguments[i] == "object"){
 				if(app.isJsonString(arguments[i])){
@@ -25,6 +34,11 @@ else{
 				}
 			}
 			else{
+<<<<<<< HEAD
+				string = arguments[i];
+			}
+			var insert = {"log":string,"date": new Date().getTime()};
+=======
 				// console.log(arguments[0])
 				// console.log(arguments[1])
 				string = arguments[0];
@@ -35,6 +49,7 @@ else{
 			}else{
 				var insert = {"log":string,"level":1,"date": new Date().getTime()};
 			}
+>>>>>>> 7430c577c9d4a74f997439f4a40705217fd9e124
 			
 			if(Meteor.isClient)
 				insert.side = "client";
@@ -50,11 +65,16 @@ else{
 }
 
 app.isJsonString = function (str) {
-	var setTime = new Date().getTime();
+<<<<<<< HEAD
+    try {
+        JSON.parse(str);
+=======
+	var startTime = new Date().getTime();
     log("isJsonString " +startTime,1);
     try {
         JSON.parse(str);
-        log("isJsonString " +(new Date().getTime() - setTime),1);
+        log("isJsonString " +(new Date().getTime() - startTime),1);
+>>>>>>> 7430c577c9d4a74f997439f4a40705217fd9e124
     } catch (e) {
         return false;
     }

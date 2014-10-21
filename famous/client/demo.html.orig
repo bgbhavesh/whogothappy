@@ -1,18 +1,31 @@
 <template name="views_EdgeSwapper">
-	{{#EdgeSwapper size="[375,375]" translate="[0,0,5]"}}
+	{{#EdgeSwapper size="[275,275]" translate="[0,0,5]"}}
 		{{>showTemplate name=esTemplate}}
 	{{/EdgeSwapper}}
 </template>
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> origin/master
 <template name="es_surface1">
 	{{#Surface class="red-bg" size="[undefined,undefined]"}}
 		{{> content}}
 	{{/Surface}}
 </template>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 <template name="es_surface2">
 	{{#Surface class="green-bg" size="[undefined,undefined]"}}
 		{{> content}}
 	{{/Surface}}
 </template>
+<<<<<<< HEAD
+=======
+
+>>>>>>> origin/master
 <template name="es_surface3">
 	{{#Surface class="blue-bg" size="[undefined,undefined]"}}
 		{{> content}}

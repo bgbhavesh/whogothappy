@@ -16,7 +16,32 @@ Template.home.events({
     'click .right-off-canvas-toggle': function (e){
        $(".off-canvas-wrap").addClass('move-left')      
     },
+<<<<<<< HEAD
+    'click .daTe': function (e) {
+        // $(".daTe").css("display","none") 
+        // $(".countDown").css("display","block")
+        $(".daTe").slideUp('fast',function(){
+            $(".daTe").addClass('hide')
+                 .slideDown(0);
+          });
+        $(".countDown").slideUp(0,function(){
+            $(".countDown").removeClass('hide')
+                 .slideDown('fast');
+          });
+    },
+    'click .countDown': function () {
+        $(".countDown").slideUp('fast',function(){
+            $(".countDown").addClass('hide')
+                 .slideDown(0);
+          });
+        $(".daTe").slideUp(0,function(){
+            $(".daTe").removeClass('hide')
+                 .slideDown('fast');
+          }); 
+    }
+=======
     
+>>>>>>> origin/master
 });
 
 Template.home.place = function(){
@@ -24,6 +49,7 @@ Template.home.place = function(){
 	// return app.places;
 }
 
+<<<<<<< HEAD
 function callTime() {
   var startTime = new Date().getTime();
   log("callTime " +startTime,1);
@@ -90,3 +116,5 @@ setInterval(function () {
    
  
 }, 1000);
+=======
+>>>>>>> origin/master
