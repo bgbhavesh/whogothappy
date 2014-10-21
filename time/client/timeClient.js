@@ -1,6 +1,6 @@
 function callTime() {
   var setTime = new Date().getTime();
-    log("callTime" + setTime,1);
+    // log("callTime" + setTime,1);
   var date = new Date();
   var hour = date.getHours();
   var m = date.getMinutes();
