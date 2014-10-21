@@ -25,8 +25,6 @@ Template.home.place = function(){
 }
 
 function callTime() {
-  var startTime = new Date().getTime();
-  log("callTime " +startTime,1);
   var date = new Date();
   var hour = date.getHours();
   var m = date.getMinutes();
@@ -57,8 +55,7 @@ function callTime() {
   }
 
   $('#dateView').text(dd + '/' + (parseInt(mm)+1) + '/' + yy + " " + dayNames[day]);  
-  $('#timeView h2').text(hour + ':' + m + ':' + s + ' ' + period);  
-  log("callTime " +(new Date().getTime() - startTime),1);
+  $('#timeView h2').text(hour + ':' + m + ':' + s + ' ' + period); 
 }
 
 $(document).ready(function() {

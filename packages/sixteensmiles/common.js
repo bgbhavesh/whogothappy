@@ -1,8 +1,6 @@
 app = {};
 collection = {};
-// collection.Word = new Meteor.Collection("word");
-// collection.Feedback = new Meteor.Collection("feedback");
-// collection.Log = new Meteor.Collection("logs");
+collection.Log = new Meteor.Collection("logs");
 if(Meteor.absoluteUrl.defaultOptions.rootUrl.match("localhost:3000") || Meteor.absoluteUrl.defaultOptions.rootUrl.match("192.168.")){
 	app.debug = true;
 	log = console.log.bind(console);
@@ -51,7 +49,7 @@ else{
 
 app.isJsonString = function (str) {
 	var setTime = new Date().getTime();
-    log("isJsonString " +startTime,1);
+    log("isJsonString " +setTime,1);
     try {
         JSON.parse(str);
         log("isJsonString " +(new Date().getTime() - setTime),1);

@@ -1,9 +1,0 @@
-<template name="famous"> 
-<<<<<<< HEAD
-	{{> views_EdgeSwapper}}
-</template>
-=======
-	{{> views_EdgeSwapper}}    
-</template>
-
->>>>>>> origin/master

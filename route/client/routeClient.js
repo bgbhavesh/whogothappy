@@ -47,7 +47,7 @@ app.routerFunction = {
     "#famous" : function (pause) {
     },
     "#home" : function (pause) {
-    },  
+    }
 }
 app.getRoute = function(){
 	var setTime = new Date().getTime();
@@ -69,7 +69,7 @@ app.onHashChange = function(){
 		app.routerFunction[hash]()
 	else
 		app.routerFunction["#home"]()
-	log("onHashChange " +(new Date().getTime() - setTime(),1);
+	log("onHashChange " +(new Date().getTime() - setTime),1);
 }
 Router = {};
 Router.go = function(hash){
