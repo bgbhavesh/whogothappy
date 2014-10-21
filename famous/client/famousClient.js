@@ -1,3 +1,10 @@
+if(window.Pince){
+	Pince._browserOut = function(){};
+	Pince._browserErr = function(){};
+	Pince.out = function(){};
+	Pince.err = function(){};
+}
+
 app.famous = {}
 app.famous.carousel = {};
 app.famousCarousel = function(){
@@ -37,6 +44,7 @@ app.famousCarousel = function(){
 
 	    var edgeswapper = new EdgeSwapper();
 	    var squareSize = (window.innerWidth < window.innerHeight)? window.innerWidth : window.innerHeight;
+	    var squareSize = squareSize * 0.99;
 	    var primary = new Surface({
 	        size: [squareSize, squareSize],
 	        content: content,

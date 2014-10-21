@@ -1,30 +1,9 @@
-Template.home.events({
-	// 'click .clickEvent': function () {
-	// 	Session.set("placeId",null);
-	// 	Session.set("placeId",this.place_id);
-	// 	Session.set("placeName",this.name);
-	// }
-    'click .move-left': function (e){
-        $(".move-left").removeClass('move-left')                    
-    },
-    'click .move-right': function (e){
-        $(".move-right").removeClass('move-right')                    
-    },
-    'click .left-off-canvas-toggle': function (e){
-        $(".off-canvas-wrap").addClass('move-right')                    
-    },
-    'click .right-off-canvas-toggle': function (e){
-       $(".off-canvas-wrap").addClass('move-left')      
-    },
-    
-});
-
-Template.home.place = function(){
-	// Session.get("reactivePlace");
-	// return app.places;
-}
-
 function callTime() {
+<<<<<<< HEAD
+=======
+  var setTime = new Date().getTime();
+    // log("callTime" + setTime,1);
+>>>>>>> 12875fa6e8fab9f7ce69b4ad77d9653bf9246636
   var date = new Date();
   var hour = date.getHours();
   var m = date.getMinutes();
@@ -55,7 +34,7 @@ function callTime() {
   }
 
   $('#dateView').text(dd + '/' + (parseInt(mm)+1) + '/' + yy + " " + dayNames[day]);  
-  $('#timeView h2').text(hour + ':' + m + ':' + s + ' ' + period); 
+  $('#timeView h2').text(hour + ':' + m + ':' + s + ' ' + period);
 }
 
 $(document).ready(function() {
@@ -87,3 +66,29 @@ setInterval(function () {
    
  
 }, 1000);
+Template.timeShow.events({
+'click .daTe': function (e) {
+        // $(".daTe").css("display","none")
+        // $(".countDown").css("display","block")
+        $(".daTe").slideUp('fast',function(){
+            $(".daTe").addClass('hide')
+                 .slideDown(0);
+          });
+        $(".countDown").slideUp(0,function(){
+            $(".countDown").removeClass('hide')
+                 .slideDown('fast');
+          });
+    },
+  });
+Template.countDownShow.events({
+    'click .countDown': function () {
+        $(".countDown").slideUp('fast',function(){
+            $(".countDown").addClass('hide')
+                 .slideDown(0);
+          });
+        $(".daTe").slideUp(0,function(){
+            $(".daTe").removeClass('hide')
+                 .slideDown('fast');
+          }); 
+    }
+  });

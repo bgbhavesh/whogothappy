@@ -48,9 +48,13 @@ app.routerFunction = {
     "#famous" : function (pause) {
     },
     "#home" : function (pause) {
+<<<<<<< HEAD
     }, 
     "#morpher" : function (pause) {
     }, 
+=======
+    }
+>>>>>>> origin/master
 }
 app.getRoute = function(){
 	var setTime = new Date().getTime();
