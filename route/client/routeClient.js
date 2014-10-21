@@ -17,6 +17,7 @@ app.router = {
 	"#docs" : "docs",
 	"#famous" : "famous",
 	"#home" : "home",
+	"#morpher" : "morpher",
 	"#seeall" : "seeall"
 }
 app.routerFunction = {
@@ -47,7 +48,9 @@ app.routerFunction = {
     "#famous" : function (pause) {
     },
     "#home" : function (pause) {
-    },  
+    }, 
+    "#morpher" : function (pause) {
+    }, 
 }
 app.getRoute = function(){
 	var setTime = new Date().getTime();
