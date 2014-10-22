@@ -9,10 +9,7 @@ Template.__define__("seeall", (function() {
 	var returnArray = [];
 	$.each(Template,function(key,value){
 		if(app.isSeeAll(value)){
-			// try{
-				returnArray.push(Spacebars.include(view.lookupTemplate(key)));	
-			// }catch(err){}
-			
+			returnArray.push(Spacebars.include(view.lookupTemplate(key)));
 		}
 	});
 	return returnArray;
