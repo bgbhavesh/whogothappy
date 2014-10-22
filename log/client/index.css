@@ -13,3 +13,32 @@
 	overflow-x: hidden !important;
 	overflow-y: scroll !important; 
 }
+.testRight{
+	text-align: right;
+}
+.testCenter{
+	text-align: center;
+}
+.testLeft{
+	text-align: left;
+}
+.overlay .popups{
+        position: relative;
+        top: 50%;
+        -webkit-transform: translateY(-50%);
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+
+}
+.overlay div{
+        position: relative;
+}
+.overlay{
+        position: fixed;
+        width: 100%;
+        height: 100%;
+        z-index: 21;
+        top: 0;
+        left: 0;
+        background-color: rgba(0,0,0,0.5);
+}

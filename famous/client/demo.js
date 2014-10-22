@@ -108,9 +108,13 @@ for(var i=0,il=16;i<il;i++){
 	content[2] += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,63)]  +".gif'/>";
 	content[3] += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,63)]  +".gif'/>";
 }
+var endtime;
+var totalTime;
+var result;
+var score = {};
+score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
-		console.log(arguments);
 		return Template[this.name];
 	}
 });
@@ -122,12 +126,34 @@ Template.content.image = function(){
 
 Session.setDefault('esTemplate', 'es_surface1'); 
 Template.views_EdgeSwapper.esTemplate = function() {
+	endtime = new Date().getTime();
 	return Session.get('esTemplate');
 }
 
 
 Template.content.events({
 	"click #clickEvent" : function(){
+		var str = event.target.src; 
+		var res = str.match(/joy/g);
+		if(res){
+			event.target.src = "/images/expression/smily.jpg"
+			result = 1;
+		}else{
+			result = 0;
+		}
+		var slideStartTime = new Date().getTime()
+		totalTime = slideStartTime - endtime;
+		// console.log(slideStartTime);
+		// console.log(endtime);
+		// console.log(totalTime);
+        score.method.push({
+            "slideStartTime": slideStartTime,
+            "endtime": endtime,
+            "totalTime": totalTime,
+            "result": result,
+            "extra": ""
+        });
+        console.log(score);
 		Session.set("esTemplate", "es_surface" +randomNumber(1,3))
 	}
 });
