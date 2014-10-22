@@ -31,10 +31,11 @@ var images = [
 ];
 
 var expressionImage = [];
+var expressionImageJoy = [];
+
 expressionImage.push("anger.anger");
 expressionImage.push("anger.disgust");
 expressionImage.push("anger.fear");
-expressionImage.push("anger.joy");
 expressionImage.push("anger.neutral");
 expressionImage.push("anger.sadness");
 expressionImage.push("anger.surprise");
@@ -42,7 +43,6 @@ expressionImage.push("anger.surprise");
 expressionImage.push("disgust.anger");
 expressionImage.push("disgust.disgust");
 expressionImage.push("disgust.fear");
-expressionImage.push("disgust.joy");
 expressionImage.push("disgust.neutral");
 expressionImage.push("disgust.sadness");
 expressionImage.push("disgust.anger");
@@ -51,25 +51,14 @@ expressionImage.push("disgust.surprise");
 expressionImage.push("fear.anger");
 expressionImage.push("fear.disgust");
 expressionImage.push("fear.fear");
-expressionImage.push("fear.joy");
 expressionImage.push("fear.neutral");
 expressionImage.push("fear.sadness");
 expressionImage.push("fear.anger");
 expressionImage.push("fear.surprise");
 
-expressionImage.push("joy.anger");
-expressionImage.push("joy.disgust");
-expressionImage.push("joy.fear");
-expressionImage.push("joy.joy");
-expressionImage.push("joy.neutral");
-expressionImage.push("joy.sadness");
-expressionImage.push("joy.anger");
-expressionImage.push("joy.surprise");
-
 expressionImage.push("neutral.anger");
 expressionImage.push("neutral.disgust");
 expressionImage.push("neutral.fear");
-expressionImage.push("neutral.joy");
 expressionImage.push("neutral.neutral");
 expressionImage.push("neutral.sadness");
 expressionImage.push("neutral.anger");
@@ -78,41 +67,44 @@ expressionImage.push("neutral.surprise");
 expressionImage.push("sadness.anger");
 expressionImage.push("sadness.disgust");
 expressionImage.push("sadness.fear");
-expressionImage.push("sadness.joy");
 expressionImage.push("sadness.neutral");
 expressionImage.push("sadness.sadness");
 expressionImage.push("sadness.anger");
 expressionImage.push("sadness.surprise");
 
-expressionImage.push("anger.anger");
-expressionImage.push("anger.disgust");
-expressionImage.push("anger.fear");
-expressionImage.push("anger.joy");
-expressionImage.push("anger.neutral");
-expressionImage.push("anger.sadness");
-expressionImage.push("anger.anger");
-expressionImage.push("anger.surprise");
-
 expressionImage.push("surprise.anger");
 expressionImage.push("surprise.disgust");
 expressionImage.push("surprise.fear");
-expressionImage.push("surprise.joy");
 expressionImage.push("surprise.neutral");
 expressionImage.push("surprise.sadness");
 expressionImage.push("surprise.anger");
 expressionImage.push("surprise.surprise");
 
+expressionImageJoy.push("joy.anger");
+expressionImageJoy.push("joy.disgust");
+expressionImageJoy.push("joy.fear");
+expressionImageJoy.push("joy.joy");
+expressionImageJoy.push("joy.neutral");
+expressionImageJoy.push("joy.sadness");
+expressionImageJoy.push("joy.surprise");
+expressionImageJoy.push("anger.joy");
+expressionImageJoy.push("disgust.joy");
+expressionImageJoy.push("fear.joy");
+expressionImageJoy.push("neutral.joy");
+expressionImageJoy.push("sadness.joy");
+expressionImageJoy.push("surprise.joy");
+
 for(var i=0,il=16;i<il;i++){
 	content[0] = ""
-	content[1] += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,63)]  +".gif'/>"; //images[randomNumber(0,12)]
-	content[2] += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,63)]  +".gif'/>";
-	content[3] += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,63)]  +".gif'/>";
+	content[1] += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,35)]  +".gif'/>"; //images[randomNumber(0,12)]
+	content[2] += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,35)]  +".gif'/>";
+	content[3] += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,35)]  +".gif'/>";
 }
 var endtime;
 var totalTime;
 var result;
 var score = {};
-score.method = [];
+app.score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
 		return Template[this.name];
