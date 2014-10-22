@@ -13,10 +13,11 @@ app.closeCounter = function(){
     		$("#pin").text(1);
     	},2000);
     	setTimeout(function(){
-    		$("#pin").text(0);
-    	},3000);
-    	$(".beforeStartGame").css("display","none");
-    	$("#startGame").css("display","none");
+           $("#pin").text(0);
+        },3000);
+        setTimeout(function(){
+           $("#tapTap").css("display","none");
+        },4000);
 }
 
 Template.gamePopUp.events({
