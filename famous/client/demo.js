@@ -110,7 +110,6 @@ for(var i=0,il=16;i<il;i++){
 }
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
-		console.log(arguments);
 		return Template[this.name];
 	}
 });

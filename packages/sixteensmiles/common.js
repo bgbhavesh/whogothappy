@@ -3,50 +3,54 @@ collection = {};
 collection.Log = new Meteor.Collection("logs");
 if(Meteor.absoluteUrl.defaultOptions.rootUrl.match("localhost:3000") || Meteor.absoluteUrl.defaultOptions.rootUrl.match("192.168.")){
 	app.debug = true;
-	log = console.log.bind(console);
 }	
 else{
 	app.debug = false;
-	log = function(){
-		var string = "";
-		var level = "";
-		for(var i=0,il=arguments.length;i<il;i++){
-			if(typeof arguments[i] == "object"){
-				if(app.isJsonString(arguments[i])){
-					string = JSON.stringify(arguments[i]);
-				}
-				else{
-					if(arguments[i].toString() == "[object Object]")
-						string = arguments[i];
-					else
-						string = arguments[i].toString();
-				}
-			}
-			else{
-				// console.log(arguments[0])
-				// console.log(arguments[1])
-				string = arguments[0];
-				level = arguments[1];
-			}
-			if(level){
-				var insert = {"log":string,"level":level,"date": new Date().getTime()};
-			}else{
-				var insert = {"log":string,"level":1,"date": new Date().getTime()};
-			}
-			
-			if(Meteor.isClient)
-				insert.side = "client";
-			else
-				insert.side = "server";
-			if(Meteor.userId())
-				insert.userId = Meteor.userId();
-			
-			collection.Log.insert(insert);
-		}
-	}
-	// will think of this later
 }
+log = function(message,endtime,args,level){
+	self = this;
+	self.log = console.log.bind(console);
+	self.debug = app.debug;
+	if(self.debug && level < 1){
+		self.log(message);
+		return;
+	}
 
+	// for(var i=0,il=arguments.length;i<il;i++){
+	// 	if(typeof arguments[i] == "object"){
+	// 		if(app.isJsonString(arguments[i])){
+	// 			string = JSON.stringify(arguments[i]);
+	// 		}
+	// 		else{
+	// 			if(arguments[i].toString() == "[object Object]")
+	// 				string = arguments[i];
+	// 			else
+	// 				string = arguments[i].toString();
+	// 		}
+	// 	}
+	// 	else{
+	// 		// console.log(arguments[0])
+	// 		// console.log(arguments[1])
+	// 		string = arguments[0];
+	// 		level = arguments[1];
+	// 	}
+		
+	// }
+	var insert = {"log":message,"date": new Date().getTime()};
+	insert.level = level||1;
+	insert.args = args;
+	if(Meteor.isClient)
+		insert.side = "client";
+	else if(Meteor.isCordova)
+		insert.side = "cordova";		
+	else
+		insert.side = "server";
+	try{insert.userId = Meteor.userId();}catch(err){}
+		
+	
+	collection.Log.insert(insert);
+}
+	// will think of this later
 app.isJsonString = function (str) {
 	var setTime = new Date().getTime();
     log("isJsonString " +setTime,1);
