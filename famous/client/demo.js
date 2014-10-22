@@ -74,8 +74,8 @@ expressionImageJoy.push("surprise.joy");
 var endtime;
 var totalTime;
 var result;
-var score = {};
-score.method = [];
+app.score = {};
+app.score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
 		return Template[this.name];
@@ -99,7 +99,7 @@ Template.content.image = function(){
 
 Session.setDefault('esTemplate', 'es_surface1'); 
 Template.views_EdgeSwapper.esTemplate = function() {
-	endtime = new Date().getTime();
+	app.slideStartTime = new Date().getTime();
 	return Session.get('esTemplate');
 }
 
@@ -111,12 +111,12 @@ app.getEdgerSwapper = function(){
 		app.edgeswapperNumber = 1;
 	return app.edgeswapperNumber;
 }
+
 Template.content.events({
 	"click #clickEvent" : function(){
 		var str = event.target.src; 
 		var res = str.match("joy");
 		var delay = 100;
-		console.log(res)
 		if(res){
 			event.target.src = "/images/expression/smily.jpg"
 			result = 1;
@@ -124,19 +124,20 @@ Template.content.events({
 		}else{
 			result = 0;
 		}
-		var slideStartTime = new Date().getTime()
-		totalTime = slideStartTime - endtime;
+		endtime = new Date().getTime()
+		totalTime = endtime - app.slideStartTime;
 		// console.log(slideStartTime);
 		// console.log(endtime);
 		// console.log(totalTime);
-        score.method.push({
-            "slideStartTime": slideStartTime,
+        app.score.method.push({
+            "slideStartTime": app.slideStartTime,
             "endtime": endtime,
             "totalTime": totalTime,
             "result": result,
             "extra": ""
         });
-        console.log(score);
-		setTimeout(function(){Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())},delay);
+		setTimeout(function(){
+			Session.set("esTemplate", "es_surface" +app.getEdgerSwapper());
+		},delay);
 	}
 });
