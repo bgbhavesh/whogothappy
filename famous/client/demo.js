@@ -110,12 +110,14 @@ for(var i=0,il=16;i<il;i++){
 }
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
+		console.log(arguments);
 		return Template[this.name];
 	}
 });
 
 Template.content.image = function(){
-	return content[randomNumber(1,3)]; 
+	return content[randomNumber(1,2)]; 
+	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
 }
 
 Session.setDefault('esTemplate', 'es_surface1'); 

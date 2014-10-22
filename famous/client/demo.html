@@ -2,19 +2,20 @@
 	{{#EdgeSwapper size="[300,300]" translate="[0,0,5]"}}
 		{{>showTemplate name=esTemplate}}
 	{{/EdgeSwapper}}
+	{{> gamePopUp}}
 </template>
 <template name="es_surface1">
-	{{#Surface class="red-bg" size="[undefined,undefined]"}}
+	{{#Surface size="[undefined,undefined]"}}
 		{{> content}}
 	{{/Surface}}
 </template>
 <template name="es_surface2">
-	{{#Surface class="green-bg" size="[undefined,undefined]"}}
+	{{#Surface size="[undefined,undefined]"}}
 		{{> content}}
 	{{/Surface}}
 </template>
 <template name="es_surface3">
-	{{#Surface class="blue-bg" size="[undefined,undefined]"}}
+	{{#Surface size="[undefined,undefined]"}}
 		{{> content}}
 	{{/Surface}}
 </template>
