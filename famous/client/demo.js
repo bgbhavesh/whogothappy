@@ -104,7 +104,7 @@ var endtime;
 var totalTime;
 var result;
 var score = {};
-app.score.method = [];
+score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
 		return Template[this.name];
