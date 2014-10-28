@@ -1,6 +1,6 @@
 app.onRegisterPushNotification = function(){
-    var startTime = new Date().getTime();
-    log("onRegisterPushNotification " +startTime,1);
+    var starttime = new Date().getTime();
+    log("app.onRegisterPushNotification started",null,arguments,1);
     if(!app.phonegap)
         return;
     var pushNotification = window.plugins.pushNotification;
@@ -10,31 +10,31 @@ app.onRegisterPushNotification = function(){
     else{
         pushNotification.register(app.onPushSucess,app.onPushError,{"badge":"true","sound":"true","alert":"true","ecb":"app.onNotificationAPN"});
     }
-    log("onRegisterPushNotification " +(new Date().getTime() - startTime),1);
+    log("app.onRegisterPushNotification ended",new Date().getTime() - starttime,arguments,1);
 }
 app.onPushSucess = function(result){
-    var startTime = new Date().getTime();
-    log("onPushSucess " +startTime,1);
+    var starttime = new Date().getTime();
+    log("app.onPushSucess started",null,arguments,1);
     app.onPushId(result)
-    log("onPushSucess " +(new Date().getTime() - startTime),1);
+    log("app.onPushSucess ended",new Date().getTime() - starttime,arguments,1);
 }
 app.onPushError = function(error){
-    var startTime = new Date().getTime();
-    log("onPushError " +startTime,1);
-    log("onPushError " +(new Date().getTime() - startTime),1);
+    var starttime = new Date().getTime();
+    log("app.onPushError started",null,arguments,1);
+    log("app.onPushError ended",new Date().getTime() - starttime,arguments,1);
 }
 app.onPushId = function(pushId){
-    var startTime = new Date().getTime();
-    log("onPushId " +startTime,1);
+    var starttime = new Date().getTime();
+    log("app.onPushId started",null,arguments,1);
     if(pushId == "OK" || pushId == "ok")
         return
     app.pushId = pushId;
-    app.onSendPushId();
-    log("onPushId " +(new Date().getTime() - startTime),1);
+    app.onSendPushId(); 
+    log("app.onPushId ended",new Date().getTime() - starttime,arguments,1);
 }
 app.onSendPushId = function(){
-    var startTime = new Date().getTime();
-    log("onSendPushId " +startTime,1);
+    var starttime = new Date().getTime();
+    log("app.onSendPushId started",null,arguments,1);
     if(!app.phonegap)
         return;
     var pushDevice = null;
@@ -48,26 +48,25 @@ app.onSendPushId = function(){
         if(!Meteor.user().profile.pushId){
             var options = {"pushId":app.pushId,"pushDevice":pushDevice};
             Meteor.call("getPushId",options,function(){});
-        }
-            
+        }            
     }
     else{
         if(Meteor.user())
             app.onRegisterPushNotification();
-    }
-    log("onSendPushId " +(new Date().getTime() - startTime),1);
+    } 
+    log("app.onSendPushId ended",new Date().getTime() - starttime,arguments,1);
 }
 app.onSendPushIdCallback = function(err,success){
-    var startTime = new Date().getTime();
-    log("onSendPushIdCallback " +startTime,1);
+    var starttime = new Date().getTime();
+    log("app.onSendPushIdCallback started",null,arguments,1);
     if(err){
         app.onSendPushId();
-    }
-    log("onSendPushIdCallback " +(new Date().getTime() - startTime),1);
+    } 
+    log("app.onSendPushIdCallback ended",new Date().getTime() - starttime,arguments,1);
 }
 app.onNotificationGCM = function(e){
-    var startTime = new Date().getTime();
-    log("onNotificationGCM " +startTime,1);
+    var starttime = new Date().getTime();
+    log("app.onNotificationGCM started",null,arguments,1);
     switch( e.event )
     {
         case 'registered':
@@ -88,12 +87,12 @@ app.onNotificationGCM = function(e){
         default:
             console.log('An unknown GCM event has occurred');
         break;
-    }
-    log("onNotificationGCM " +(new Date().getTime() - startTime),1);
+    } 
+    log("app.onNotificationGCM ended",new Date().getTime() - starttime,arguments,1);
 }
 app.onNotificationAPN = function(event){
-    var startTime = new Date().getTime();
-    log("onNotificationAPN " +startTime,1);
+    var starttime = new Date().getTime();
+    log("app.onNotificationAPN started",null,arguments,1);
     var pushNotification = window.plugins.pushNotification;
         if (event.alert) {
             navigator.notification.alert(event.alert);
@@ -104,6 +103,6 @@ app.onNotificationAPN = function(event){
         if (event.sound) {
             var snd = new Media(event.sound);
             snd.play();
-        }
-    log("onNotificationAPN " +(new Date().getTime() - startTime),1);
+        } 
+    log("app.onNotificationAPN ended",new Date().getTime() - starttime,arguments,1);
 }

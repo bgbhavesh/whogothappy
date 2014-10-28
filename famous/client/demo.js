@@ -1,10 +1,16 @@
 
 function randomNumber(snum, bnum){
+	var starttime = new Date().getTime();
+    log("randomNumber started",null,arguments,1);
 	var value = Math.floor((Math.random()*100%bnum)+1);
-	if(value >= snum && value <= bnum)
+	if(value >= snum && value <= bnum){
+		log("randomNumber ended",new Date().getTime() - starttime,arguments,1);	
 		return value
-	else
+	}
+	else{
+		log("randomNumber ended",new Date().getTime() - starttime,arguments,1);
 		return randomNumber(snum, bnum);
+	}
 }
 app.randomNumber = randomNumber;
 var content = [];
@@ -116,12 +122,18 @@ Template.views_EdgeSwapper.helpers({
 });
 
 Template.content.image = function(){
+	var starttime = new Date().getTime();
+    log("Template.content.image started",null,arguments,1);
+    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
 	return content[randomNumber(1,2)]; 
 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
 }
 
 Session.setDefault('esTemplate', 'es_surface1'); 
 Template.views_EdgeSwapper.esTemplate = function() {
+	var starttime = new Date().getTime();
+    log("Template.views_EdgeSwapper.esTemplate started",null,arguments,1);
+    log("Template.views_EdgeSwapper.esTemplate ended",new Date().getTime() - starttime,arguments,1);
 	return Session.get('esTemplate');
 }
 

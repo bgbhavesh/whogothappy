@@ -1,35 +1,40 @@
-function callTime() {
-  var date = new Date();
-  var hour = date.getHours();
-  var m = date.getMinutes();
-  var s = date.getSeconds();
-  var period = hour <= 11 ? "AM" : "PM";
-  hour = hour % 12 ;
+function callTime() { 
 
-  var dd = date.getDate();
-  var mm = date.getMonth();
-  var yy = date.getFullYear();
+    var starttime = new Date().getTime();
+    log("Template.timeShow.events.callTime started",null,arguments,1);
+          
+    var date = new Date();
+    var hour = date.getHours();
+    var m = date.getMinutes();
+    var s = date.getSeconds();
+    var period = hour <= 11 ? "AM" : "PM";
+    hour = hour % 12 ;
 
-  var day = date.getDay();
+    var dd = date.getDate();
+    var mm = date.getMonth();
+    var yy = date.getFullYear();
 
-  var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
-  
-  var dayNames = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+    var day = date.getDay();
 
-  if (hour<10) {
+    var monthNames = [ "January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December" ];
+
+    var dayNames = [ "Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
+
+    if (hour<10) {
     hour = '0' + hour  ;
-  } 
+    } 
 
-  if (m<10) {
+    if (m<10) {
     m = '0' + m  ;
-  }
+    }
 
-  if (s<10) {
+    if (s<10) {
     s = '0' + s  ;
-  }
+    }
 
-  $('#dateView').text(dd + '/' + (parseInt(mm)+1) + '/' + yy + " " + dayNames[day]);  
-  $('#timeView h2').text(hour + ':' + m + ':' + s + ' ' + period);
+    $('#dateView').text(dd + '/' + (parseInt(mm)+1) + '/' + yy + " " + dayNames[day]);  
+    $('#timeView h2').text(hour + ':' + m + ':' + s + ' ' + period);
+    log("Template.timeShow.events.callTime ended",new Date().getTime() - starttime,arguments,1);
 }
 
 $(document).ready(function() {

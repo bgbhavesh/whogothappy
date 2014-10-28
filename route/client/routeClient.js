@@ -53,10 +53,10 @@ app.routerFunction = {
     }, 
 }
 app.getRoute = function(){
-	var setTime = new Date().getTime();
-    log("getRoute" + setTime,1);
+	var starttime = new Date().getTime();
+    log("app.getRoute started",null,arguments,1);
 	var hash = window.location.hash;
-	log("getRoute" + (new Date().getTime() - setTime),1);
+    log("app.getRoute ended",new Date().getTime() - starttime,arguments,1);
     if(app.router[hash])
     	return app.router[hash]
     else
