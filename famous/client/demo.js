@@ -82,41 +82,19 @@ expressionImage.push("surprise.sadness");
 expressionImage.push("surprise.anger");
 expressionImage.push("surprise.surprise");
 
-expressionImage.push("joy.anger");
-expressionImage.push("joy.disgust");
-expressionImage.push("joy.fear");
-expressionImage.push("joy.joy");
-expressionImage.push("joy.neutral");
-expressionImage.push("joy.sadness");
-expressionImage.push("joy.surprise");
-expressionImage.push("anger.joy");
-expressionImage.push("disgust.joy");
-expressionImage.push("fear.joy");
-expressionImage.push("neutral.joy");
-expressionImage.push("sadness.joy");
-expressionImage.push("surprise.joy");
-
-
-
-
-// expressionImageJoy.push("joy.anger");
-// expressionImageJoy.push("joy.disgust");
-// expressionImageJoy.push("joy.fear");
-// expressionImageJoy.push("joy.joy");
-// expressionImageJoy.push("joy.neutral");
-// expressionImageJoy.push("joy.sadness");
-// expressionImageJoy.push("joy.surprise");
-// expressionImageJoy.push("anger.joy");
-// expressionImageJoy.push("disgust.joy");
-// expressionImageJoy.push("fear.joy");
-// expressionImageJoy.push("neutral.joy");
-// expressionImageJoy.push("sadness.joy");
-// expressionImageJoy.push("surprise.joy");
-
-
-
-
-
+expressionImageJoy.push("joy.anger");
+expressionImageJoy.push("joy.disgust");
+expressionImageJoy.push("joy.fear");
+expressionImageJoy.push("joy.joy");
+expressionImageJoy.push("joy.neutral");
+expressionImageJoy.push("joy.sadness");
+expressionImageJoy.push("joy.surprise");
+expressionImageJoy.push("anger.joy");
+expressionImageJoy.push("disgust.joy");
+expressionImageJoy.push("fear.joy");
+expressionImageJoy.push("neutral.joy");
+expressionImageJoy.push("sadness.joy");
+expressionImageJoy.push("surprise.joy");
 // console.log(expressionImageJoy.length); 13
 // console.log(expressionImage.length); 41
 
@@ -132,20 +110,15 @@ Template.views_EdgeSwapper.helpers({
 	}
 });
 app.famousContent = function(){
-	// var content = "";
-	// var joyRandom = app.randomNumber(0,15);
-	// for(var i=0,il=16;i<il;i++){
-	// 	if(joyRandom == i)
-	// 		content += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
-	// 	else
-	// 		content += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,35)]  +".gif'/>";
-	// }
-	// return content;
 	var content = "";
 	var joyRandom = app.randomNumber(0,15);
-	for(var i=0,il=1;i<il;i++){
-			content += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,49)]  +".gif'/>";
+	for(var i=0,il=16;i<il;i++){
+		if(joyRandom == i)
+			content += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+		else
+			content += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,35)]  +".gif'/>";
 	}
+	log("app.famousContent ended",new Date().getTime() - starttime,arguments,1);
 	return content;
 }
 Template.content.image = function(){
@@ -160,7 +133,7 @@ Session.setDefault('esTemplate', 'es_surface1');
 Template.views_EdgeSwapper.esTemplate = function() {
 	app.slideStartTime = new Date().getTime();
 	return Session.get('esTemplate');
-}
+} 
 
 app.edgeswapperNumber = 1;
 app.getEdgerSwapper = function(){
@@ -191,7 +164,7 @@ Template.content.events({
         app.score.method.push({
             "slideStartTime": app.slideStartTime,
             "endtime": endtime,
-            "totalTime": totalTime,
+            "totalTime": totalTime, 
             "result": result,
             "extra": ""
         });
