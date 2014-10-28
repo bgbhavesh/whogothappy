@@ -34,7 +34,7 @@ Meteor.methods({
     "updateApp" : function (command) {
         Meteor.setTimeout(updateApp,500);
         return "update in progress!";
-    }
+    },
     "updateDone" : function (command) {
         return "updateDone";
     }
