@@ -1,13 +1,13 @@
 Template.__define__("route", (function() {
-	// var view = this;
-	// var templateName = HashRouter.getRoute(Session.get("route"));
-	// if(Template[templateName]){
-	// 	console.log(Spacebars.include(view.lookupTemplate(templateName)))
-	// 	return Spacebars.include(view.lookupTemplate(templateName));
-	// }
-	// else{
-	// 	return Spacebars.include(view.lookupTemplate("home"));
-	// }
+	var view = this;
+	var templateName = HashRouter.getRoute(Session.get("route"));
+	if(Template[templateName]){
+		console.log(Spacebars.include(view.lookupTemplate(templateName)))
+		return Spacebars.include(view.lookupTemplate(templateName));
+	}
+	else{
+		return Spacebars.include(view.lookupTemplate("home"));
+	}
 }));
 
 // Template.route.helpers({
@@ -64,6 +64,7 @@ HashRouter.onHashChange = function(){
 
 $(window).on('hashchange',HashRouter.onHashChange);
 
+HashRouter.add({"route" : "#loger", "template" : "loger"});
 HashRouter.add({"route" : "#login", "template" : "login"});
 HashRouter.add({"route" : "#admin", "template" : "admin"});
 HashRouter.add({"route" : "#register", "template" : "register"});

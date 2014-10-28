@@ -8,13 +8,13 @@ else{
 	app.debug = false;
 }
 log = function(message,endtime,args,level){
-	if(app.debug){
-		if(level && level < 1){
-			var logs = console.log.bind(console);
-			logs(message);
-		}
-		return;
-	}
+	// if(app.debug){ 
+	// 	if( (level && level < 1) || (level == 0) ){
+	// 		var logs = console.log.bind(console);
+	// 		logs(message);
+	// 	}
+	// 	return;
+	// }
 
 	// for(var i=0,il=arguments.length;i<il;i++){
 	// 	if(typeof arguments[i] == "object"){
@@ -39,6 +39,7 @@ log = function(message,endtime,args,level){
 	var insert = {"log":message,"date": new Date().getTime()};
 	insert.level = level||1;
 	insert.args = args;
+	insert.endtime = endtime;
 	if(Meteor.isClient)
 		insert.side = "client";
 	else if(Meteor.isCordova)
@@ -47,7 +48,7 @@ log = function(message,endtime,args,level){
 		insert.side = "server";
 	try{insert.userId = Meteor.userId();}catch(err){}
 		
-	
+	// console.log(insert)
 	collection.Log.insert(insert);
 }
 	// will think of this later
