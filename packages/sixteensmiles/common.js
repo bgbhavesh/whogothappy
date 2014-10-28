@@ -8,13 +8,10 @@ else{
 	app.debug = false;
 }
 log = function(message,endtime,args,level){
-	self = this;
-	self.debug = app.debug;
-	
-	if(self.debug){
+	if(app.debug){
 		if(level && level < 1){
-			self.logs = console.log.bind(console);
-			self.logs(message);
+			var logs = console.log.bind(console);
+			logs(message);
 		}
 		return;
 	}
