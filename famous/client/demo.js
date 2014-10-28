@@ -82,36 +82,36 @@ expressionImage.push("surprise.sadness");
 expressionImage.push("surprise.anger");
 expressionImage.push("surprise.surprise");
 
-expressionImage.push("joy.anger");
-expressionImage.push("joy.disgust");
-expressionImage.push("joy.fear");
-expressionImage.push("joy.joy");
-expressionImage.push("joy.neutral");
-expressionImage.push("joy.sadness");
-expressionImage.push("joy.surprise");
-expressionImage.push("anger.joy");
-expressionImage.push("disgust.joy");
-expressionImage.push("fear.joy");
-expressionImage.push("neutral.joy");
-expressionImage.push("sadness.joy");
-expressionImage.push("surprise.joy");
+// expressionImage.push("joy.anger");
+// expressionImage.push("joy.disgust");
+// expressionImage.push("joy.fear");
+// expressionImage.push("joy.joy");
+// expressionImage.push("joy.neutral");
+// expressionImage.push("joy.sadness");
+// expressionImage.push("joy.surprise");
+// expressionImage.push("anger.joy");
+// expressionImage.push("disgust.joy");
+// expressionImage.push("fear.joy");
+// expressionImage.push("neutral.joy");
+// expressionImage.push("sadness.joy");
+// expressionImage.push("surprise.joy");
 
 
 
 
-// expressionImageJoy.push("joy.anger");
-// expressionImageJoy.push("joy.disgust");
-// expressionImageJoy.push("joy.fear");
-// expressionImageJoy.push("joy.joy");
-// expressionImageJoy.push("joy.neutral");
-// expressionImageJoy.push("joy.sadness");
-// expressionImageJoy.push("joy.surprise");
-// expressionImageJoy.push("anger.joy");
-// expressionImageJoy.push("disgust.joy");
-// expressionImageJoy.push("fear.joy");
-// expressionImageJoy.push("neutral.joy");
-// expressionImageJoy.push("sadness.joy");
-// expressionImageJoy.push("surprise.joy");
+expressionImageJoy.push("joy.anger");
+expressionImageJoy.push("joy.disgust");
+expressionImageJoy.push("joy.fear");
+expressionImageJoy.push("joy.joy");
+expressionImageJoy.push("joy.neutral");
+expressionImageJoy.push("joy.sadness");
+expressionImageJoy.push("joy.surprise");
+expressionImageJoy.push("anger.joy");
+expressionImageJoy.push("disgust.joy");
+expressionImageJoy.push("fear.joy");
+expressionImageJoy.push("neutral.joy");
+expressionImageJoy.push("sadness.joy");
+expressionImageJoy.push("surprise.joy");
 
 
 
@@ -131,22 +131,21 @@ Template.views_EdgeSwapper.helpers({
 		return Template[this.name];
 	}
 });
+var count;
+var content = [];
 app.famousContent = function(){
-	// var content = "";
-	// var joyRandom = app.randomNumber(0,15);
-	// for(var i=0,il=16;i<il;i++){
-	// 	if(joyRandom == i)
-	// 		content += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
-	// 	else
-	// 		content += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,35)]  +".gif'/>";
-	// }
-	// return content;
-	var content = "";
 	var joyRandom = app.randomNumber(0,15);
-	for(var i=0,il=1;i<il;i++){
-			content += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,49)]  +".gif'/>";
+	if(!count || count == 0){
+		for(var i=0,il=16;i<il;i++){
+			if(joyRandom == i)
+				content[i] = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+			else
+				content[i] = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+		}
+		count = 15
 	}
-	return content;
+	console.log(count);
+	return content[count];
 }
 Template.content.image = function(){
 	var starttime = new Date().getTime();
@@ -176,6 +175,7 @@ Template.content.events({
 		var str = event.target.src; 
 		var res = str.match("joy");
 		var delay = 100;
+		count--;
 		if(res){
 			event.target.src = "/images/expression/smily.jpg"
 			result = 1;
