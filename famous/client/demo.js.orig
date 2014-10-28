@@ -82,6 +82,8 @@ expressionImage.push("surprise.sadness");
 expressionImage.push("surprise.anger");
 expressionImage.push("surprise.surprise");
 
+<<<<<<< HEAD
+=======
 // expressionImage.push("joy.anger");
 // expressionImage.push("joy.disgust");
 // expressionImage.push("joy.fear");
@@ -99,6 +101,7 @@ expressionImage.push("surprise.surprise");
 
 
 
+>>>>>>> origin/hasten
 expressionImageJoy.push("joy.anger");
 expressionImageJoy.push("joy.disgust");
 expressionImageJoy.push("joy.fear");
@@ -112,11 +115,14 @@ expressionImageJoy.push("fear.joy");
 expressionImageJoy.push("neutral.joy");
 expressionImageJoy.push("sadness.joy");
 expressionImageJoy.push("surprise.joy");
+<<<<<<< HEAD
+=======
 
 
 
 
 
+>>>>>>> origin/hasten
 // console.log(expressionImageJoy.length); 13
 // console.log(expressionImage.length); 41
 
@@ -134,6 +140,18 @@ Template.views_EdgeSwapper.helpers({
 var count;
 var content = [];
 app.famousContent = function(){
+<<<<<<< HEAD
+	var content = "";
+	var joyRandom = app.randomNumber(0,15);
+	for(var i=0,il=16;i<il;i++){
+		if(joyRandom == i)
+			content += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+		else
+			content += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,35)]  +".gif'/>";
+	}
+	log("app.famousContent ended",new Date().getTime() - starttime,arguments,1);
+	return content;
+=======
 	var joyRandom = app.randomNumber(0,15);
 	if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
@@ -146,6 +164,7 @@ app.famousContent = function(){
 	}
 	// console.log(count);
 	return content[count];
+>>>>>>> origin/hasten
 }
 Template.content.image = function(){
 	var starttime = new Date().getTime();
@@ -159,7 +178,7 @@ Session.setDefault('esTemplate', 'es_surface1');
 Template.views_EdgeSwapper.esTemplate = function() {
 	app.slideStartTime = new Date().getTime();
 	return Session.get('esTemplate');
-}
+} 
 
 app.edgeswapperNumber = 1;
 app.getEdgerSwapper = function(){
@@ -191,7 +210,7 @@ Template.content.events({
         app.score.method.push({
             "slideStartTime": app.slideStartTime,
             "endtime": endtime,
-            "totalTime": totalTime,
+            "totalTime": totalTime, 
             "result": result,
             "extra": ""
         });
