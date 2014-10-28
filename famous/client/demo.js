@@ -105,11 +105,16 @@ app.score = {};
 app.score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
-		console.log(arguments);
+		var starttime = new Date().getTime();
+    	log("Template.views_EdgeSwapper.events.showTemplate started",null,arguments,1);
+		// console.log(arguments);
+		log("Template.views_EdgeSwapper.events.showTemplate ended",new Date().getTime() - starttime,arguments,1);
 		return Template[this.name];
 	}
 });
 app.famousContent = function(){
+	var starttime = new Date().getTime();
+    log("app.famousContent started",null,arguments,1);
 	var content = "";
 	var joyRandom = app.randomNumber(0,15);
 	for(var i=0,il=16;i<il;i++){
@@ -118,6 +123,7 @@ app.famousContent = function(){
 		else
 			content += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,35)]  +".gif'/>";
 	}
+	log("app.famousContent ended",new Date().getTime() - starttime,arguments,1);
 	return content;
 }
 Template.content.image = function(){
@@ -132,7 +138,7 @@ Session.setDefault('esTemplate', 'es_surface1');
 Template.views_EdgeSwapper.esTemplate = function() {
 	app.slideStartTime = new Date().getTime();
 	return Session.get('esTemplate');
-}
+} 
 
 app.edgeswapperNumber = 1;
 app.getEdgerSwapper = function(){
@@ -163,7 +169,7 @@ Template.content.events({
         app.score.method.push({
             "slideStartTime": app.slideStartTime,
             "endtime": endtime,
-            "totalTime": totalTime,
+            "totalTime": totalTime, 
             "result": result,
             "extra": ""
         });
