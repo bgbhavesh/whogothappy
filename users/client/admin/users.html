@@ -1,32 +1,27 @@
+
 <template name="users"> 
-	<!-- {{#if isInRole 'admin'}} -->
 	<div class="main container page textCenter" route="#admin">
-
-	   <table>
-	   	<caption>Users</caption>
-		  <thead>
-		    <tr>
-		      <th width="100">Username</th>
-		      <th>Email</th>
-		      <th width="100">Role</th>
-		      <!-- <th width="150">Table Header</th> -->
-		    </tr>
-		  </thead>
-		  <tbody>
-		  	{{#each userlist}}
-		    <tr>
-		      <td>{{username}}</td>
-		      <td>{{emails.[0].address}}</td>
-		      {{#if roles}}
-		      	<td>{{roles.[0]}}</td>
-		      {{else}}
-		      	<td>Client</td>
-		      {{/if}}
-
-		    </tr>
-		    {{/each}}
-		  </tbody>
-		</table>
-	</div>
+		<center>
+	   		<h3>Users</h3>
+		</center>
+		<div class="row">
+		  <div class="small-4 large-4 columns">Username</div>
+		  <div class="small-6 large-4 columns">Email</div>
+		  <div class="small-2 large-4 columns">Role</div>
+		</div>
+	<!-- {{#if isInRole 'admin'}} -->
+		{{#each userlist}}
+		<div class="row">
+		  	<div class="small-4 large-4 columns">{{username}}</div>
+		  	<div class="small-6 large-4 columns">{{emails.[0].address}}</div>
+		  	{{#if roles}}
+				<div class="small-2 large-4 columns">{{emails.[0].address}}</div>
+	      	{{else}}
+		  		<div class="small-2 large-4 columns">Client</div>
+	      	{{/if}}	
+		</div>
+		{{/each}}
 		<!-- {{/if}} -->
+	</div>
+	
 </template>
