@@ -144,7 +144,7 @@ app.famousContent = function(){
 		}
 		count = 15
 	}
-	console.log(count);
+	// console.log(count);
 	return content[count];
 }
 Template.content.image = function(){
