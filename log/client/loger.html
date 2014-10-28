@@ -1,0 +1,13 @@
+<template name="loger">
+	<div id="loger" class="main container page" route="#loger">
+		{{#each logger}}
+            <div class="row">
+				<div class="small-3 columns">{{side}}</div>
+				<div class="small-3 columns">{{log}}</div>
+				<div class="small-3 columns">{{args}}</div>
+				<div class="small-2 columns">{{endtime}}</div>
+				<div class="small-1 columns">{{level}}</div>
+			</div>	
+	    {{/each}}
+	</div>
+</template>

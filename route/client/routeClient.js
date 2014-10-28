@@ -13,6 +13,12 @@
 // });
 
 
+
+
+
+
+
+HashRouter.add({"route" : "#loger", "template" : "loger"});
 HashRouter.add({"route" : "#login", "template" : "login"});
 HashRouter.add({"route" : "#admin", "template" : "admin"});
 HashRouter.add({"route" : "#register", "template" : "register"});
