@@ -9,10 +9,12 @@ else{
 }
 log = function(message,endtime,args,level){
 	self = this;
-	self.log = console.log.bind(console);
 	self.debug = app.debug;
-	if(self.debug && level < 1){
-		self.log(message);
+	if(self.debug){
+		if(level < 1 && level){
+			self.log = console.log.bind(console);
+			self.log(message);
+		}
 		return;
 	}
 
