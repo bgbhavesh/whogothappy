@@ -3,6 +3,9 @@ app.closeGame = function(){
 }
 app.closeCounter = function(){
 	console.log("startGame")
+        var starttime = new Date().getTime();
+        log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter started",null,arguments,1);
+
     	$(".pin").css("display","block");
     	$(".beforeStartGame").css("display","none");
     	$("#startGame").css("display","none");
@@ -17,6 +20,7 @@ app.closeCounter = function(){
         },3000);
         setTimeout(function(){
            $("#tapTap").css("display","none");
+            log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter ended",new Date().getTime() - starttime,arguments,1);
         },4000);
 }
 

@@ -1,18 +1,25 @@
-
-
 var inital = "Meteor Shell Logs";
 Log.remove({});
 Log.insert({Log : inital});
 var stderr = function (data) {
+    var starttime = new Date().getTime();
+    log("stderr started",null,arguments,1);
     message = 'err : '+data;
     Log.insert({Log : message});
+    log("stderr ended",new Date().getTime() - starttime,arguments,1);
 }
 var stdout = function (data) {
+    var starttime = new Date().getTime();
+    log("stdout started",null,arguments,1);
     message = 'log : '+data;
     Log.insert({Log : message});
+    log("stdout ended",new Date().getTime() - starttime,arguments,1);
 }
 var onBindEnvironmentError = function(error) {
+    var starttime = new Date().getTime();
+    log("onBindEnvironmentError started",null,arguments,1);
     console.log('Error in bindEnvironment:', error);
+    log("onBindEnvironmentError ended",new Date().getTime() - starttime,arguments,1);
 }
 
 var stderrWrapper = null;
@@ -25,8 +32,8 @@ Meteor.startup(function () {
 
 Meteor.methods({
     "updateApp" : function (command) {
-        var setTime = new Date().getTime();
-        log("updateApp" + setTime,1);
+        var starttime = new Date().getTime();
+        log("Meteor.methods.updateApp started",null,arguments,1);
         if(!command)
             command = "sh /root/shell/sixteensmiles.sh";
         if(command == "clear"){
@@ -56,7 +63,7 @@ Meteor.methods({
         ls.stdout.on('data', stdoutWrapper);
 
         ls.stderr.on('data',stderrWrapper);
-        log("updateApp" + (new Date().getTime() - setTime),1);
+        log("Meteor.methods.updateApp ended",new Date().getTime() - starttime,arguments,1);
         return true;
     }
 });

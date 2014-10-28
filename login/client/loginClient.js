@@ -16,9 +16,9 @@ app.user = null;
 app.user = app.get("user");
 app.beforeInfo = null;
 
-app.registerCallback = function(err,success){
-	var setTime = new Date().getTime();
-    log("registerCallback" + setTime,1);
+app.registerCallback = function(err,success){ 
+	var starttime = new Date().getTime();
+    log("app.registerCallback started",null,arguments,1);
 	if(err){
 		app.visualEffect("registerButton",app.onError);
 		$(".error").show();
@@ -30,23 +30,24 @@ app.registerCallback = function(err,success){
 		app.visualEffect("registerButton",app.onSuccess);
 		setTimeout(function(){Router.go("home")},2000);
 		app.onSendPushId();
-	}
-	log("registerCallback" + (new Date().getTime() - setTime),1);
+
+	} 
+	log("app.registerCallback ended",new Date().getTime() - starttime,arguments,1);
 }
 
 
-app.logout = function(){
-	var setTime = new Date().getTime();
-    log("logout" + setTime,1);
-	Meteor.logout();
-	log("logout" + (new Date().getTime() - setTime),1);
+app.logout = function(){ 
+	var starttime = new Date().getTime();
+    log("app.logout started",null,arguments,1);
+    log("app.logout ended",new Date().getTime() - starttime,arguments,1);
+	Meteor.logout(); 
 }
 // $("#goToRegister").bind("click",function(){app.setRoute("#register");});
 
 
-app.nonRegisterUser = function(){
-	var setTime = new Date().getTime();
-    log("nonRegisterUser" + setTime,1);
+app.nonRegisterUser = function(){ 
+	var starttime = new Date().getTime();
+    log("app.nonRegisterUser started",null,arguments,1);
 	app.get("nonuser");
 	var date1 = app.get("nonuser");
 	if(!date1){
@@ -63,8 +64,8 @@ app.nonRegisterUser = function(){
 	if(app.nonuser > 29 && !app.user){
 		alert("Please register!");
 	}
-	log("The user is " +diffDays +" old.");
-	log("nonRegisterUser" + (new Date().getTime() - setTime),1);
+	log("The user is " +diffDays +" old."); 
+	log("app.nonRegisterUser ended",new Date().getTime() - starttime,arguments,1);
 }
 
 
@@ -72,40 +73,40 @@ app.nonRegisterUser();
 
 
 
-app.login = function(event){
-	var setTime = new Date().getTime();
-    log("login" + setTime,1);
+app.login = function(event){ 
+	var starttime = new Date().getTime();
+    log("app.login started",null,arguments,1);
 	if(event)
 		event.preventDefault();
 	var username = $("#loginUsername").val();
 	var password = $("#loginPassword").val();
 	Meteor.loginWithPassword(username,password, app.loginCallback);
-	$(".error").hide();
-	log("login" + (new Date().getTime() - setTime),1);
+	$(".error").hide(); 
+	log("app.login ended",new Date().getTime() - starttime,arguments,1);
 	return false;
 }
 
-app.register = function(event){
-	var setTime = new Date().getTime();
-    log("register" + setTime,1);
+app.register = function(event){ 
+	var starttime = new Date().getTime();
+    log("app.register started",null,arguments,1);
 	app.visualEffect("registerButton",app.onLoad);
 	Accounts.createUser(app.setUserLogin(), app.registerCallback);
-	$(".error").hide();
-	log("register" + (new Date().getTime() - setTime),1);
+	$(".error").hide(); 
+	log("app.register ended",new Date().getTime() - starttime,arguments,1);
 }
 
-app.createUserCallback = function(err){
-	var setTime = new Date().getTime();
-    log("createUserCallback" + setTime,1);
+app.createUserCallback = function(err){ 
+	var starttime = new Date().getTime();
+    log("app.createUserCallback started",null,arguments,1);
 	app.showLoginError(err);
 	if(!err)
-		Router.go('homepage');
-	log("createUserCallback" + (new Date().getTime() - setTime),1);
+		Router.go('homepage'); 
+	log("Template.views_EdgeSwapper.users.userlist ended",new Date().getTime() - starttime,arguments,1);
 }
 
-app.setUserLogin = function(){
-	var setTime = new Date().getTime();
-    log("setUserLogin" + setTime,1);
+app.setUserLogin = function(){ 
+	var starttime = new Date().getTime();
+    log("app.setUserLogin started",null,arguments,1);
 	var username,email,password;
 
 	username = $("#registerUsername").val();
@@ -115,31 +116,31 @@ app.setUserLogin = function(){
 	
 	user.profile = {};
 	user.services = {};
-	user.profile.words = app.userWords;
-	log("setUserLogin" + (new Date().getTime() - setTime),1);
+	user.profile.words = app.userWords; 
+	log("app.setUserLogin ended",new Date().getTime() - starttime,arguments,1);
 	return user;
 }
 
-app.createUserCallback = function(err){
-	var setTime = new Date().getTime();
-    log("createUserCallback" + setTime,1);
-	app.showLoginError(err);
-	log("createUserCallback" + (new Date().getTime() - setTime),1);
+app.createUserCallback = function(err){ 
+	var starttime = new Date().getTime();
+    log("app.createUserCallback started",null,arguments,1);
+	app.showLoginError(err); 
+	log("app.createUserCallback ended",new Date().getTime() - starttime,arguments,1);
 }
 
-app.showLoginError = function(err){
-	var setTime = new Date().getTime();
-    log("showLoginError" + setTime,1);
+app.showLoginError = function(err){ 
+	var starttime = new Date().getTime();
+    log("app.showLoginError started",null,arguments,1);
 	if(err){
 		$("#loginMessage a").html(err.reason);
 		$("#loginMessage").show();
-	}
-	log("showLoginError" + (new Date().getTime() - setTime),1);
+	} 
+	log("app.showLoginError ended",new Date().getTime() - starttime,arguments,1);
 }
 
-app.loginCallback = function(err){
-	var setTime = new Date().getTime();
-    log("loginCallback" + setTime,1);
+app.loginCallback = function(err){ 
+	var starttime = new Date().getTime();
+    log("app.loginCallback started",null,arguments,1);
 	if(err){
 		app.visualEffect("loginButton",app.onError);
 		$(".error").show();
@@ -150,13 +151,13 @@ app.loginCallback = function(err){
 		app.visualEffect("loginButton",app.onSuccess);
 		app.onSendPushId();
 		setTimeout(function(){Router.go('home');},2000);
-	}
-	log("loginCallback" + (new Date().getTime() - setTime),1);
+	} 
+	log("app.loginCallback ended",new Date().getTime() - starttime,arguments,1);
 }
 
-app.loginWithFacebook = function(){
-	var setTime = new Date().getTime();
-    log("loginWithFacebook" + setTime,1);
+app.loginWithFacebook = function(){ 
+	var starttime = new Date().getTime();
+    log("app.loginWithFacebook started",null,arguments,1);
 	app.visualEffect("loginScreenFacebook",app.onLoad);
 	if(app.phonegap){
 		app.fbInit();
@@ -164,24 +165,24 @@ app.loginWithFacebook = function(){
 	}
 	else{
 		app.visualEffect("loginScreenFacebook",app.onError);
-	}
-	log("loginWithFacebook" + (new Date().getTime() - setTime),1);
+	} 
+	log("app.loginWithFacebook ended",new Date().getTime() - starttime,arguments,1);
 }
-Meteor.loginAsFacebook = function(options, callback) {
-	var setTime = new Date().getTime();
-    log("loginAsFacebook" + setTime,1);
+Meteor.loginAsFacebook = function(options, callback) { 
+	var starttime = new Date().getTime();
+    log("Meteor.loginAsFacebook started",null,arguments,1);
 	//create a login request with admin: true, so our loginHandler can handle this request
 	options.myFacebook = true;
 	//send the login request
 	Accounts.callLoginMethod({
 		methodArguments: [options],
 		userCallback: callback
-	});
-	log("loginAsFacebook" + (new Date().getTime() - setTime),1);
+	}); 
+	log("Meteor.loginAsFacebook ended",new Date().getTime() - starttime,arguments,1);
 };
-app.facebookCallback = function(err){
-	var setTime = new Date().getTime();
-    log("facebookCallback" + setTime,1);
+app.facebookCallback = function(err){ 
+	var starttime = new Date().getTime();
+    log("app.facebookCallback started",null,arguments,1);
 	log(err);
 	if(err){
 		app.visualEffect("loginScreenFacebook",app.onError);
@@ -190,13 +191,13 @@ app.facebookCallback = function(err){
 		app.visualEffect("loginScreenFacebook",app.onSuccess);
 		setTimeout(function(){Router.go("home")},2000);
 		app.onSendPushId();
-	}
-	log("facebookCallback" + (new Date().getTime() - setTime),1);
+	} 
+	log("app.facebookCallback ended",new Date().getTime() - starttime,arguments,1);
 }
 
-app.createFacebookUser = function(user,authResponse){
-	var setTime = new Date().getTime();
-    log("createFacebookUser" + setTime,1);
+app.createFacebookUser = function(user,authResponse){ 
+	var starttime = new Date().getTime();
+    log("app.createFacebookUser started",null,arguments,1);
 	var profilePictureUrl = null;
 	if (user.picture.data) {
         profilePictureUrl = user.picture.data.url;
@@ -210,8 +211,8 @@ app.createFacebookUser = function(user,authResponse){
 	users.services = {"facebook": {"token":authResponse.accessToken,"expire":authResponse.expirationTime,}};
 	users.profile.words = app.userWords;
 	users.profile.profile_picture  = profilePictureUrl;
-	Meteor.loginAsFacebook(users,app.facebookCallback);
-	log("createFacebookUser" + (new Date().getTime() - setTime),1);
+	Meteor.loginAsFacebook(users,app.facebookCallback); 
+	log("app.createFacebookUser ended",new Date().getTime() - starttime,arguments,1);
 }
 // Garbage
 
