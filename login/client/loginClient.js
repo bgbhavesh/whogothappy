@@ -10,8 +10,18 @@ Template.login.events({
     },
     "click #loginScreenFacebook" : function(){
 		app.loginWithFacebook();
+	},
+	"click #LogoutApp" : function(){
+		Meteor.logout();
 	}
 });
+
+
+
+
+
+
+
 app.user = null;
 app.user = app.get("user");
 app.beforeInfo = null;
