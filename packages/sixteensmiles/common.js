@@ -55,11 +55,11 @@ else{
 }
 	// will think of this later
 app.isJsonString = function (str) {
-	var setTime = new Date().getTime();
-    log("isJsonString " +setTime,1);
+	// var setTime = new Date().getTime();
+ //    log("isJsonString " +setTime,1);
     try {
         JSON.parse(str);
-        log("isJsonString " +(new Date().getTime() - setTime),1);
+        // log("isJsonString " +(new Date().getTime() - setTime),1);
     } catch (e) {
         return false;
     }
