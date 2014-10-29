@@ -113,10 +113,20 @@ expressionImageJoy.push("neutral.joy");
 expressionImageJoy.push("sadness.joy");
 expressionImageJoy.push("surprise.joy");
 
-
-
-
-
+var assetManager = new AssetManager();
+var downloadstarttime = new Date().getTime();
+log("Images all downloaded started",downloadstarttime,null,1);
+for(var i=0,il=expressionImage.length;i<il;i++){
+	var image = "/images/expression/" +expressionImage[i]  +".gif";
+	assetManager.add(Random.id(), image);
+}
+for(var i=0,il=expressionImageJoy.length;i<il;i++){
+	var image = "/images/expression/" +expressionImageJoy[i]  +".gif";
+	assetManager.add(Random.id(), image);
+}
+assetManager.downloadAll(function(){
+	log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
+});
 // console.log(expressionImageJoy.length); 13
 // console.log(expressionImage.length); 41
 
@@ -127,40 +137,76 @@ app.score = {};
 app.score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
-		console.log(arguments);
 		return Template[this.name];
 	}
 });
 var count;
-var content = [];
+// var content = [];
+var firstContent = [];
 app.famousContent = function(){
-	var joyRandom = app.randomNumber(0,15);
-	if(!count || count == 0){
+	var joyFirstRandom = app.randomNumber(0,15);
+	var joySecondRandom = app.randomNumber(0,15);
+	var content = [];
+	// if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
-			if(joyRandom == i)
-				content[i] = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
-			else
-				content[i] = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+			// if(!content[i])
+				content[i] = {};
+			// if(app.animateFamousFlag){
+				if(joyFirstRandom == i)
+				content[i].second = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+				else
+					content[i].second = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+			// }
+			// else{
+				if(joyFirstRandom == i)
+				content[i].first = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+				else
+					content[i].first = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+			// }
+			
 		}
-		count = 15
-	}
-	// console.log(count);
-	return content[count];
+		// count = 15
+	// }
+	return content;
 }
-Template.content.image = function(){
-	var starttime = new Date().getTime();
-    log("Template.content.image started",null,arguments,1);
-    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
+
+// Template.content.image = function(){
+// 	return app.famousContent(); 
+// 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
+// }
+Template.firstContent.content = function(){
 	return app.famousContent(); 
-	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
 }
+Template.secondContent.content = function(){
+	return app.famousContent(); 
+}
+// Template.content.contentBoth = function(){
+// 	return app.famousContent();
+// }
 
 Session.setDefault('esTemplate', 'es_surface1'); 
 Template.views_EdgeSwapper.esTemplate = function() {
 	app.slideStartTime = new Date().getTime();
 	return Session.get('esTemplate');
 }
-
+Session.setDefault('esTemplateMy', 'es_surface3');
+Template.firstContent.esTemplateMy = function(){
+	return Session.get('esTemplateMy');
+}
+Template.firstContent.helpers({
+	'showTemplate': function() {
+		console.log(this);
+		return Template[this.name];
+	}
+});
+Template.secondContent.esTemplateMy = function(){
+	return Session.get('esTemplateMy');
+}
+Template.secondContent.helpers({
+	'showTemplate': function() {
+		return Template[this.name];
+	}
+});
 app.edgeswapperNumber = 1;
 app.getEdgerSwapper = function(){
 	if(app.edgeswapperNumber == 1)
@@ -169,10 +215,9 @@ app.getEdgerSwapper = function(){
 		app.edgeswapperNumber = 1;
 	return app.edgeswapperNumber;
 }
-
-Template.content.events({
-	"click #clickEvent" : function(){
-		var str = event.target.src; 
+var contentEvent = {
+	"click #clickEvent img" : function(event){
+		var str = $(event.currentTarget).attr("src");
 		var res = str.match("joy");
 		var delay = 100;
 		count--;
@@ -196,7 +241,27 @@ Template.content.events({
             "extra": ""
         });
 		setTimeout(function(){
-			Session.set("esTemplate", "es_surface" +app.getEdgerSwapper());
+			app.animateFamousRandom();
+			Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
 	}
-});
+}
+Template.firstContent.events(contentEvent);
+Template.secondContent.events(contentEvent);
+// Template.content.events(contentEvent);
+
+app.animateFamousFlag = false; 
+app.animateFamousRandom = function(){
+	// if(app.animateFamousFlag)
+		app.animateFamouseFirst();
+	// else
+	// 	app.animateFamouseSecond();
+	app.animateFamousFlag != app.animateFamousFlag;
+}
+app.animateFamouseFirst = function(){
+
+}
+
+app.animateFamouseSecond = function(){
+
+}

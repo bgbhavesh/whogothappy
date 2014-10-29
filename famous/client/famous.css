@@ -16,8 +16,8 @@
 #clickEvent img{
     position: relative;
     float: left;
-    height: 100%;
-    width: 100%;
+    height: 25%;
+    width: 25%;
 }
 #clickEvent{
     position: relative;
@@ -33,3 +33,39 @@
 .blue-bg{
 	background-color: blue;
 }
+
+
+/* transition types*/
+.famousContainer{
+    height: 300px;
+    width: 300px;
+    position: relative;
+}
+
+
+.card {
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  transform-style: preserve-3d;
+  transition: transform 1s;
+}
+
+.card figure {
+  display: block;
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  backface-visibility: hidden;
+}
+.card .front {
+  background: red;
+}
+.card .back {
+  background: blue;
+  transform: rotateY( 180deg );
+}
+.card.flipped {
+  transform: rotateY( 180deg );
+}
+/* transition types*/

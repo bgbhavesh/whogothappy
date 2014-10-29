@@ -4,8 +4,15 @@
 	{{/EdgeSwapper}}
 </template>
 <template name="es_surface1">
+		{{> firstContent}}
+</template>
+<template name="es_surface2">
+		{{> secondContent}}
+</template>
+
+<template name="es_surface3">
 	{{#Surface size="[undefined,undefined]"}}
-		{{> content}}
+		
 	{{/Surface}}
 </template>
 <!-- <template name="es_surface2">
@@ -19,8 +26,41 @@
 	{{/Surface}}
 </template> -->
 
-<template name="content"> 
+<template name="firstContent"> 
 	<div id="clickEvent"> 
-		{{{image}}}
+		{{#each content}}
+			{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
+				{{>showTemplate name=esTemplateMy}}
+			{{/EdgeSwapper}}
+		{{/each}}
+	</div>
+</template>
+
+<template name="secondContent"> 
+	<div id="clickEvent"> 
+		{{#each content}}
+			
+		{{/each}}
+	</div>
+</template>
+<!-- 
+
+	{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
+				{{>showTemplate name=esTemplateMy}}
+			{{/EdgeSwapper}}
+{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
+				{{>showTemplate name=esTemplateMy}}
+			{{/EdgeSwapper}}
+ -->
+<template name="transition">
+	<div class="famousContainer">
+		<div class="card">
+		    <figure class="front main">
+		    	{{> content}}
+		    </figure>
+		    <figure class="back main">
+		    	{{> content}}
+		    </figure>
+  		</div>
 	</div>
 </template>
