@@ -137,7 +137,6 @@ app.score = {};
 app.score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
-
 		return Template[this.name];
 	}
 });
@@ -148,8 +147,13 @@ app.famousContent = function(){
 	var joyFirstRandom = app.randomNumber(0,15);
 	var joySecondRandom = app.randomNumber(0,15);
 	var content = [];
+	var oldContent = "";
 	// if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
+			if(joyFirstRandom == i)
+				oldContent += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+			else
+					oldContent += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
 			// if(!content[i])
 				content[i] = {};
 			// if(app.animateFamousFlag){
@@ -168,13 +172,13 @@ app.famousContent = function(){
 		}
 		// count = 15
 	// }
-	return content;
+	return oldContent;
 }
 
-// Template.content.image = function(){
-// 	return app.famousContent(); 
-// 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
-// }
+Template.content.image = function(){
+	return app.famousContent(); 
+	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
+}
 Template.firstContent.content = function(){
 	return app.famousContent(); 
 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
@@ -197,7 +201,6 @@ Template.firstContent.esTemplateMy = function(){
 }
 Template.firstContent.helpers({
 	'showTemplate': function() {
-		console.log(this);
 		return Template[this.name];
 	}
 });
@@ -250,7 +253,7 @@ var contentEvent = {
 }
 Template.firstContent.events(contentEvent);
 Template.secondContent.events(contentEvent);
-// Template.content.events(contentEvent);
+Template.content.events(contentEvent);
 
 app.animateFamousFlag = false; 
 app.animateFamousRandom = function(){

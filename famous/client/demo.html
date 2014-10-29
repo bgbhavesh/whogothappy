@@ -1,13 +1,17 @@
 <template name="views_EdgeSwapper">
 	{{#EdgeSwapper size="[300,300]" translate="[0,0,5]"}}
-		{{>showTemplate name=esTemplate}}
+		{{> showTemplate name=esTemplate}}
 	{{/EdgeSwapper}}
 </template>
 <template name="es_surface1">
-		{{> firstContent}}
+	{{#Surface size="[undefined,undefined]"}}
+		{{> content}}
+	{{/Surface}}
 </template>
 <template name="es_surface2">
-		{{> secondContent}}
+	{{#Surface size="[undefined,undefined]"}}
+		{{> content}}
+	{{/Surface}}
 </template>
 
 <template name="es_surface3">
@@ -30,7 +34,7 @@
 	<div id="clickEvent"> 
 		{{#each content}}
 			{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
-				{{>showTemplate name=esTemplateMy}}
+				{{> showTemplate name=esTemplateMy}}
 			{{/EdgeSwapper}}
 		{{/each}}
 	</div>
@@ -41,6 +45,11 @@
 		{{#each content}}
 			
 		{{/each}}
+	</div>
+</template>
+<template name="content"> 
+	<div id="clickEvent"> 
+		{{{image}}}
 	</div>
 </template>
 <!-- 
