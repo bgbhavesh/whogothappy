@@ -1,5 +1,10 @@
 // app.sendEmailToUser = function(){
-//     sendEmailGun("","bgbhavesh@gmail",Date())
+//     // sendEmailGun("","hastenf@gmail",Date())
+//     console.log("sendEmailToUser")
+// }
+// app.sendEmailToUser = function(){
+//     // console.log("skdnvkskdln")
+// 	console.log("sendEmailToUser")
 // }
 // function sendEmailGun(senderName,to,html){
 //     var data = {
