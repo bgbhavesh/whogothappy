@@ -18,10 +18,19 @@
     <aside class="left-off-canvas-menu">
       <ul class="off-canvas-list">
         <li><label>Menu</label></li>
-        <li><a href="#admin">Admin</a></li>
-         <li><a href="#users">Users</a></li>
-        <li><a href="#home">home</a></li>
-        <li><a href="#login">Logout</a></li>
+        {{#if user}}
+            <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#home">home</a></li>
+            <li><a href="#login" id="LogoutApp">Logout</a></li>
+        {{else}}
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#home">home</a></li>
+            <li><a href="#login">login</a></li>
+         {{/if}}
+       
       </ul>
     </aside>
 

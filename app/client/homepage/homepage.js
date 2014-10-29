@@ -16,6 +16,16 @@ Template.home.events({
     'click .right-off-canvas-toggle': function (e){
        $(".off-canvas-wrap").addClass('move-left')      
     },
+    "click #LogoutApp" : function(){
+        Meteor.logout();
+    },
+    "click #OpenProfile" : function(){
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe){
+            var uname = cursorMe.username;
+            window.open("www.facebook.com/"+uname, '_blank');
+        }
+    }
     
 });
 
@@ -24,3 +34,16 @@ Template.home.place = function(){
 	// return app.places;
 }
 
+Template.home.helpers({
+    user : function(){
+        return Meteor.userId();
+    },
+    myusername : function(){
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe){
+            var uname = cursorMe.username;
+            // console.log(uname)
+            return uname;
+        }
+    }
+})
