@@ -26,7 +26,7 @@ function startTimer(){
 		else {
 			$("#gametimeseconds").text(seconds);
       	}
-      	if(mins >= 10){
+      	if(seconds >= 10){
 				endGame();
 		}
 		else{
@@ -40,4 +40,5 @@ function endGame(){
 	var tempDate = new Date();
 	tempDate.setHours(tempDate.getHours()+12);
 	app.target_date = tempDate;
+	
 }    
