@@ -1,9 +1,35 @@
+<<<<<<< HEAD
 if(window.Pince){
 	Pince._browserOut = function(){};
 	Pince._browserErr = function(){};
 	Pince.out = function(){};
 	Pince.err = function(){};
 }
+=======
+app.famous = {}
+app.famous.carousel = {};
+app.famousCarousel = function(){
+	var starttime = new Date().getTime();
+    log("famousCarousel " +starttime,1);
+	var content = '';
+	var secondcontent = '';
+	// var content = '<ul class="small-block-grid-4 medium-block-grid-4 large-block-grid-4">';
+	// var secondcontent = '<ul class="small-block-grid-4 medium-block-grid-4 large-block-grid-4">';
+	for(var i=0,il=16;i<il;i++){
+		content += '<img class="th image" src="https://fbcdn-sphotos-d-a.akamaihd.net/hphotos-ak-xap1/t31.0-8/p180x540/10679607_10152700860443291_2608149880326614773_o.jpg">';
+		secondcontent += '<img class="th image" src="https://scontent-b.xx.fbcdn.net/hphotos-xfp1/t1.0-9/10590609_10152701576576554_111158067907161837_n.jpg">';
+// 		<ul class="small-block-grid-2 medium-block-grid-3 large-block-grid-4">
+//   <li><!-- Your content goes here --></li>
+//   <li><!-- Your content goes here --></li>
+//   <li><!-- Your content goes here --></li>
+//   <li><!-- Your content goes here --></li>
+//   <li><!-- Your content goes here --></li>
+//   <li><!-- Your content goes here --></li>
+// </ul>
+	}
+	// content += '</ul>';
+	// secondcontent += '</ul>';
+>>>>>>> origin/bhavesh
 
 // app.famous = {}
 // app.famous.carousel = {};
@@ -80,7 +106,37 @@ if(window.Pince){
 // 	    //     }
 // 	    // });
 
+<<<<<<< HEAD
 // 	    mainContext.add(edgeswapper); 
 
-// Template.famous.rendered = app.famousCarousel;
+// 	    edgeswapper.show(primary);
+
+// 	    var showing = true;
+// 	    Engine.on("click", function() {
+// 	        if (showing) {
+// 	            edgeswapper.show(secondary);
+// 	            showing = false;
+// 	        } else {
+// 	            edgeswapper.show(primary);
+// 	            showing = true;
+// 	        }
+// 	    });
+// 	log("famousCarousel" + (new Date().getTime() - setTime),1);
+// }
+=======
+	    var showing = true;
+	    Engine.on("click", function() {
+	        if (showing) {
+	            edgeswapper.show(secondary);
+	            showing = false;
+	        } else {
+	            edgeswapper.show(primary);
+	            showing = true;
+	        }
+	    });
+	    log("famousCarousel " + (new Date().getTime() - starttime),1);
+}
+>>>>>>> origin/bhavesh
+
+// // Template.famous.rendered = app.famousCarousel;
 
