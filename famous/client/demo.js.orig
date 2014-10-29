@@ -147,8 +147,13 @@ app.famousContent = function(){
 	var joyFirstRandom = app.randomNumber(0,15);
 	var joySecondRandom = app.randomNumber(0,15);
 	var content = [];
+	var oldContent = "";
 	// if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
+			if(joyFirstRandom == i)
+				oldContent += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+			else
+					oldContent += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
 			// if(!content[i])
 				content[i] = {};
 			// if(app.animateFamousFlag){
@@ -167,24 +172,18 @@ app.famousContent = function(){
 		}
 		// count = 15
 	// }
-	return content;
+	return oldContent;
 }
-<<<<<<< HEAD
 
-// Template.content.image = function(){
-// 	return app.famousContent(); 
-// 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
-// }
+Template.content.image = function(){
+	return app.famousContent(); 
+	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
+}
 Template.firstContent.content = function(){
 	return app.famousContent(); 
+	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
 }
 Template.secondContent.content = function(){
-=======
-Template.content.image = function(){
-	// var starttime = new Date().getTime();
- //    log("Template.content.image started",null,arguments,1);
- //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
->>>>>>> origin/bgbhavesh
 	return app.famousContent(); 
 }
 // Template.content.contentBoth = function(){
@@ -202,7 +201,6 @@ Template.firstContent.esTemplateMy = function(){
 }
 Template.firstContent.helpers({
 	'showTemplate': function() {
-		console.log(this);
 		return Template[this.name];
 	}
 });
@@ -252,10 +250,11 @@ var contentEvent = {
 			Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
 	}
+<<<<<<< HEAD
 }
 Template.firstContent.events(contentEvent);
 Template.secondContent.events(contentEvent);
-// Template.content.events(contentEvent);
+Template.content.events(contentEvent);
 
 app.animateFamousFlag = false; 
 app.animateFamousRandom = function(){
@@ -272,3 +271,6 @@ app.animateFamouseFirst = function(){
 app.animateFamouseSecond = function(){
 
 }
+=======
+});
+>>>>>>> origin/hasten

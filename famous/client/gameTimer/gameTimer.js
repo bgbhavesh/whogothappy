@@ -40,5 +40,14 @@ function endGame(){
 	var tempDate = new Date();
 	tempDate.setHours(tempDate.getHours()+12);
 	app.target_date = tempDate;
-	
+	var cursorMe = Meteor.user();
+	var data = {};
+	if(cursorMe){
+		data._id = cursorMe._id;
+		data.username = data.username;
+		data.emailid = data.emails[0].address;
+		data.score = 10;
+		if(data.emailid)
+			Meteor.call("genMail",data.emailid,data);
+	}
 }    
