@@ -148,9 +148,9 @@ app.famousContent = function(){
 	return content[count];
 }
 Template.content.image = function(){
-	var starttime = new Date().getTime();
-    log("Template.content.image started",null,arguments,1);
-    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
+	// var starttime = new Date().getTime();
+ //    log("Template.content.image started",null,arguments,1);
+ //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
 	return app.famousContent(); 
 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
 }

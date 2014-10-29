@@ -4,18 +4,19 @@ Template.home.events({
 	// 	Session.set("placeId",this.place_id);
 	// 	Session.set("placeName",this.name);
 	// }
-    'click .move-left': function (e){
-        $(".move-left").removeClass('move-left')                    
-    },
-    'click .move-right': function (e){
-        $(".move-right").removeClass('move-right')                    
-    },
-    'click .left-off-canvas-toggle': function (e){
-        $(".off-canvas-wrap").addClass('move-right')                    
-    },
-    'click .right-off-canvas-toggle': function (e){
-       $(".off-canvas-wrap").addClass('move-left')      
-    },
+    
+    // 'click .move-left': function (e){
+    //     $(".move-left").removeClass('move-left')                    
+    // },
+    // 'click .move-right': function (e){
+    //     $(".move-right").removeClass('move-right')                    
+    // },
+    // 'click .left-off-canvas-toggle': function (e){
+    //     $(".off-canvas-wrap").addClass('move-right')                    
+    // },
+    // 'click .right-off-canvas-toggle': function (e){
+    //    $(".off-canvas-wrap").addClass('move-left')      
+    // },
     "click #LogoutApp" : function(){
         Meteor.logout();
     },
