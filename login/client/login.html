@@ -34,7 +34,12 @@
             </div>
         </a>  
         <div id="loginScreenFacebook" class="large-6 columns ">
-            <a class="button expand">Login with Facebook</a>
+             {{#if user}}
+                <a class="button expand">hi {{myusername}}</a>
+            {{else}}
+                <a class="button expand">Login with Facebook</a>
+             {{/if}}
+            
         </div>
     </div>
 </template>

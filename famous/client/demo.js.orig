@@ -137,7 +137,6 @@ app.score = {};
 app.score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
-
 		return Template[this.name];
 	}
 });
@@ -170,6 +169,7 @@ app.famousContent = function(){
 	// }
 	return content;
 }
+<<<<<<< HEAD
 
 // Template.content.image = function(){
 // 	return app.famousContent(); 
@@ -177,9 +177,14 @@ app.famousContent = function(){
 // }
 Template.firstContent.content = function(){
 	return app.famousContent(); 
-	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
 }
 Template.secondContent.content = function(){
+=======
+Template.content.image = function(){
+	// var starttime = new Date().getTime();
+ //    log("Template.content.image started",null,arguments,1);
+ //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
+>>>>>>> origin/bgbhavesh
 	return app.famousContent(); 
 }
 // Template.content.contentBoth = function(){

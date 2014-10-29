@@ -1,7 +1,7 @@
 function callTime() { 
 
-    var starttime = new Date().getTime();
-    log("Template.timeShow.events.callTime started",null,arguments,1);
+    // var starttime = new Date().getTime();
+    // log("Template.timeShow.events.callTime started",null,arguments,1);
           
     var date = new Date();
     var hour = date.getHours();
@@ -34,7 +34,7 @@ function callTime() {
 
     $('#dateView').text(dd + '/' + (parseInt(mm)+1) + '/' + yy + " " + dayNames[day]);  
     $('#timeView h2').text(hour + ':' + m + ':' + s + ' ' + period);
-    log("Template.timeShow.events.callTime ended",new Date().getTime() - starttime,arguments,1);
+    // log("Template.timeShow.events.callTime ended",new Date().getTime() - starttime,arguments,1);
 }
 
 $(document).ready(function() {
@@ -44,26 +44,34 @@ $(document).ready(function() {
 setInterval(callTime, 1000);
 
 
-var target_date = new Date("dec 22,2014").getTime();
+app.target_date = new Date().getTime("");
 var days, hours, minutes, seconds;
-// var countdown = document.getElementById("countdown");
 setInterval(function () {
  
     var current_date = new Date().getTime();
-    var seconds_left = (target_date - current_date) / 1000;
- 
- 
+    var seconds_left = (app.target_date - current_date) / 1000;
+
     days = parseInt(seconds_left / 86400);
     seconds_left = seconds_left % 86400;
-     
+
     hours = parseInt(seconds_left / 3600);
     seconds_left = seconds_left % 3600;
-     
+
     minutes = parseInt(seconds_left / 60);
     seconds = parseInt(seconds_left % 60);
-     
-    $('#countDown h2').text(hours + ':' + minutes + ':' + seconds  );  
-   
+
+    if(app.target_date - current_date <0){
+        $('#countDown h2').text("00" + ':' + "00" + ':' + "00"  );  
+        $('#countDownText').text("You can start the Game"  );  
+    }
+    else
+    {
+        $('#countDown h2').text(hours + ':' + minutes + ':' + seconds  );  
+        $('#countDownText').text("Game will be start soon"  ); 
+    }    
+
+    
+
  
 }, 1000);
 Template.timeShow.events({

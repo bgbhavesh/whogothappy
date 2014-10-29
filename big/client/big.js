@@ -21,6 +21,7 @@ app.closeCounter = function(){
         setTimeout(function(){
            $("#tapTap").css("display","none");
             log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter ended",new Date().getTime() - starttime,arguments,1);
+            app.startGame();
         },4000);
 }
 
