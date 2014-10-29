@@ -23,7 +23,7 @@ Template.home.events({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var uname = cursorMe.username;
-            window.open("www.facebook.com/"+uname, '_blank');
+            window.open("http://www.facebook.com/"+uname);
         }
     }
     
