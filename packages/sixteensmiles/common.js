@@ -13,8 +13,8 @@ else{
 				var logs = console.log.bind(console);
 				logs(message);
 			}
-		return;
-	}
+			return;
+		}
 
 	// for(var i=0,il=arguments.length;i<il;i++){
 	// 	if(typeof arguments[i] == "object"){

@@ -26,7 +26,7 @@ function startTimer(){
 		else {
 			$("#gametimeseconds").text(seconds);
       	}
-      	if(seconds >= 10){
+      	if(mins >= 10){
 				endGame();
 		}
 		else{

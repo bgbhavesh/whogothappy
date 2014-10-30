@@ -1,14 +1,10 @@
 
 function randomNumber(snum, bnum){
-	var starttime = new Date().getTime();
-    log("randomNumber started",null,arguments,1);
-	var value = Math.floor((Math.random()*100%bnum)+1);
+	var value = Math.floor((Math.random()*bnum)+1);
 	if(value >= snum && value <= bnum){
-		log("randomNumber ended",new Date().getTime() - starttime,arguments,1);	
 		return value
 	}
 	else{
-		log("randomNumber ended",new Date().getTime() - starttime,arguments,1);
 		return randomNumber(snum, bnum);
 	}
 }
@@ -124,6 +120,7 @@ for(var i=0,il=expressionImageJoy.length;i<il;i++){
 	var image = "/images/expression/" +expressionImageJoy[i]  +".gif";
 	assetManager.add(Random.id(), image);
 }
+	assetManager.add(Random.id(),"/images/expression/smily.jpg")
 assetManager.downloadAll(function(){
 	log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
 });
@@ -137,17 +134,16 @@ app.score = {};
 app.score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
-
 		return Template[this.name];
 	}
 });
 var count;
-// var content = [];
+var content = [];
 var firstContent = [];
-app.famousContent = function(){
+app.famousContent = function(flip){
 	var joyFirstRandom = app.randomNumber(0,15);
 	var joySecondRandom = app.randomNumber(0,15);
-	var content = [];
+	// var content = [];
 	var oldContent = "";
 	// if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
@@ -155,33 +151,38 @@ app.famousContent = function(){
 				oldContent += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
 			else
 					oldContent += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
-			// if(!content[i])
+			if(!content[i])
 				content[i] = {};
-			// if(app.animateFamousFlag){
-				if(joyFirstRandom == i)
+			if(flip){
+				if(joySecondRandom == i)
 				content[i].second = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
 				else
 					content[i].second = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
-			// }
-			// else{
+			}
+			else{
 				if(joyFirstRandom == i)
 				content[i].first = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
 				else
 					content[i].first = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
-			// }
+			}
 			
 		}
 		// count = 15
 	// }
-	return oldContent;
+	return content;
 }
-
+app.famousContent(true);
+app.famousContent(false);
 Template.content.image = function(){
 	// var starttime = new Date().getTime();
  //    log("Template.content.image started",null,arguments,1);
  //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
-	return app.famousContent(); 
+	return app.famousContent(Session.get("flip"));
 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
+}
+Session.setDefault('flip', ''); 
+Template.content.flip = function(){
+	return Session.get("flip");
 }
 Template.firstContent.content = function(){
 	return app.famousContent(); 
@@ -249,9 +250,15 @@ var contentEvent = {
             "result": result,
             "extra": ""
         });
+        app.animateFamousRandom();
+        
 		setTimeout(function(){
-			app.animateFamousRandom();
-			Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
+			
+			if(Session.get("flip"))
+				Session.set("flip","");
+			else
+				Session.set("flip","flipped");
+			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
 	}
 }
@@ -261,16 +268,73 @@ Template.content.events(contentEvent);
 
 app.animateFamousFlag = false; 
 app.animateFamousRandom = function(){
-	// if(app.animateFamousFlag)
-		app.animateFamouseFirst();
-	// else
-	// 	app.animateFamouseSecond();
-	app.animateFamousFlag != app.animateFamousFlag;
+	switch(app.randomNumber(1,4)){
+		case 1 : 
+			app.animateFamouseFirst();
+		break;
+		case 2 : 
+			app.animateFamouseSecond();
+		break;
+		case 3 : 
+			app.animateFamouseThird();
+		break;
+		case 4 : 
+			app.animateFamouseFourth();
+		break;
+	}
 }
 app.animateFamouseFirst = function(){
-
+	var flipCount = 0;
+    if(Session.get("flip")){
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount++);
+    	});
+    }
+    else{
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).addClass("flipped");},100*flipCount++);
+    	});
+    }
 }
 
 app.animateFamouseSecond = function(){
+	var flipCount = 0;
+    if(Session.get("flip")){
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).removeClass("flipped");},app.randomNumber(100,1600));
+    	});
+    }
+    else{
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).addClass("flipped");},app.randomNumber(100,1600));
+    	});
+    }
+}
 
+app.animateFamouseThird = function(){
+	var flipCount = 0;
+    if(Session.get("flip")){
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).removeClass("flipped");},100);
+    	});
+    }
+    else{
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).addClass("flipped");},100);
+    	});
+    }
+}
+
+app.animateFamouseFourth = function(){
+	var flipCount = 16;
+    if(Session.get("flip")){
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount--);
+    	});
+    }
+    else{
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).addClass("flipped");},100*flipCount--);
+    	});
+    }
 }

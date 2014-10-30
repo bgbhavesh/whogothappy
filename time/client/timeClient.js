@@ -69,10 +69,6 @@ setInterval(function () {
         $('#countDown h2').text(hours + ':' + minutes + ':' + seconds  );  
         $('#countDownText').text("Game will be start soon"  ); 
     }    
-
-    
-
- 
 }, 1000);
 Template.timeShow.events({
 'click .daTe': function (e) {
