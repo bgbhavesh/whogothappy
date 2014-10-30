@@ -20,6 +20,9 @@ Template.home.events({
     "click #LogoutApp" : function(){
         Meteor.logout();
     },
+     "click #loginScreenFacebook" : function(){
+        app.loginWithFacebook();
+    },
     "click #OpenProfile" : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
