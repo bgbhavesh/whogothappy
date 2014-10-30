@@ -33,7 +33,7 @@
 <template name="firstContent"> 
 	<div id="clickEvent"> 
 		{{#each content}}
-			{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
+			{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]" position="relative"}}
 				{{> showTemplate name=esTemplateMy}}
 			{{/EdgeSwapper}}
 		{{/each}}
@@ -50,7 +50,7 @@
 <template name="content"> 
 	<div id="clickEvent"> 
 		{{#each image}}
-			<div class="card {{flip}}">
+			<div class="card">
 		    <figure class="front main">
 		    	{{{first}}}
 		    </figure>

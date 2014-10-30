@@ -176,7 +176,8 @@ app.famousContent = function(flip){
 	// }
 	return content;
 }
-
+app.famousContent(true);
+app.famousContent(false);
 Template.content.image = function(){
 	// var starttime = new Date().getTime();
  //    log("Template.content.image started",null,arguments,1);
@@ -254,11 +255,16 @@ var contentEvent = {
             "result": result,
             "extra": ""
         });
+        var flipCount = 0;
         if(Session.get("flip")){
-
+        	$(".card").each(function(index,element){
+        		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount++);
+        	});
         }
         else{
-        	
+        	$(".card").each(function(index,element){
+        		setTimeout(function(){$(element).addClass("flipped");},100*flipCount++);
+        	});
         }
 		setTimeout(function(){
 			app.animateFamousRandom();
