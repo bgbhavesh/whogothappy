@@ -49,11 +49,24 @@
 </template>
 <template name="content"> 
 	<div id="clickEvent"> 
-		{{{image}}}
+		{{#each image}}
+			<div class="card {{flip}}">
+		    <figure class="front main">
+		    	{{{first}}}
+		    </figure>
+		    <figure class="back main">
+		    	{{{second}}}
+		    </figure>
+  		</div>
+		{{/each}}
 	</div>
 </template>
 <!-- 
-
+	<template name="content"> 
+	<div id="clickEvent"> 
+		{{{image}}}
+	</div>
+</template>
 	{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
 				{{>showTemplate name=esTemplateMy}}
 			{{/EdgeSwapper}}
