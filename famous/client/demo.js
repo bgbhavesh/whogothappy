@@ -1,6 +1,6 @@
 
 function randomNumber(snum, bnum){
-	var value = Math.floor((Math.random()*100%bnum)+1);
+	var value = Math.floor((Math.random()*bnum)+1);
 	if(value >= snum && value <= bnum){
 		return value
 	}
@@ -251,19 +251,10 @@ var contentEvent = {
             "result": result,
             "extra": ""
         });
-        var flipCount = 0;
-        if(Session.get("flip")){
-        	$(".card").each(function(index,element){
-        		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount++);
-        	});
-        }
-        else{
-        	$(".card").each(function(index,element){
-        		setTimeout(function(){$(element).addClass("flipped");},100*flipCount++);
-        	});
-        }
+        app.animateFamousRandom();
+        
 		setTimeout(function(){
-			app.animateFamousRandom();
+			
 			if(Session.get("flip"))
 				Session.set("flip","");
 			else
@@ -278,16 +269,73 @@ Template.content.events(contentEvent);
 
 app.animateFamousFlag = false; 
 app.animateFamousRandom = function(){
-	// if(app.animateFamousFlag)
-		app.animateFamouseFirst();
-	// else
-	// 	app.animateFamouseSecond();
-	app.animateFamousFlag != app.animateFamousFlag;
+	switch(app.randomNumber(1,4)){
+		case 1 : 
+			app.animateFamouseFirst();
+		break;
+		case 2 : 
+			app.animateFamouseSecond();
+		break;
+		case 3 : 
+			app.animateFamouseThird();
+		break;
+		case 4 : 
+			app.animateFamouseFourth();
+		break;
+	}
 }
 app.animateFamouseFirst = function(){
-
+	var flipCount = 0;
+    if(Session.get("flip")){
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount++);
+    	});
+    }
+    else{
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).addClass("flipped");},100*flipCount++);
+    	});
+    }
 }
 
 app.animateFamouseSecond = function(){
+	var flipCount = 0;
+    if(Session.get("flip")){
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).removeClass("flipped");},app.randomNumber(100,1600));
+    	});
+    }
+    else{
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).addClass("flipped");},app.randomNumber(100,1600));
+    	});
+    }
+}
 
+app.animateFamouseThird = function(){
+	var flipCount = 0;
+    if(Session.get("flip")){
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).removeClass("flipped");},100);
+    	});
+    }
+    else{
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).addClass("flipped");},100);
+    	});
+    }
+}
+
+app.animateFamouseFourth = function(){
+	var flipCount = 16;
+    if(Session.get("flip")){
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount--);
+    	});
+    }
+    else{
+    	$(".card").each(function(index,element){
+    		setTimeout(function(){$(element).addClass("flipped");},100*flipCount--);
+    	});
+    }
 }
