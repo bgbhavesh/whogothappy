@@ -20,6 +20,6 @@ app.updateApp = function(){
 					console.log(data);	
 				}
 			});
-		},5000);
+		},15000);
 	});
 }
