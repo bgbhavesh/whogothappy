@@ -8,13 +8,13 @@ else{
 	app.debug = false;
 }
 	log = function(message,endtime,args,level){
-		if(app.debug){ 
-			if( (level && level < 1) || (level == 0) ){
+		// if(app.debug){ 
+		// 	if( (level && level < 2) || (level == 0) ){
 				var logs = console.log.bind(console);
 				logs(message);
-			}
+			// }
 		return;
-	}
+		// }
 
 	// for(var i=0,il=arguments.length;i<il;i++){
 	// 	if(typeof arguments[i] == "object"){

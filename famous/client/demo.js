@@ -1,14 +1,10 @@
 
 function randomNumber(snum, bnum){
-	var starttime = new Date().getTime();
-    log("randomNumber started",null,arguments,1);
 	var value = Math.floor((Math.random()*100%bnum)+1);
 	if(value >= snum && value <= bnum){
-		log("randomNumber ended",new Date().getTime() - starttime,arguments,1);	
 		return value
 	}
 	else{
-		log("randomNumber ended",new Date().getTime() - starttime,arguments,1);
 		return randomNumber(snum, bnum);
 	}
 }
