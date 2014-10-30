@@ -21,7 +21,7 @@ Package.onUse(function(api) {
   // api.add_files('lib/jquery.bxslider.min.js', 'client');
   if(api.export){
 		api.export(["app","collection","log"],['client',"server"]);
-    api.export("GoogleSpreadsheet","server");
+    api.export(["GoogleSpreadsheet","path","Future"],"server");
 	}
 });
 
