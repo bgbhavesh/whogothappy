@@ -31,7 +31,7 @@ Meteor.methods({
 						app.language.en[key[0]] = {};
 					app.language.en[key[0]][key[1]] = row_data[i].value;
 				}
-		    	console.log(app.language.en)
+		    	// console.log(app.language.en)
 				 fut.return(app.language.en)
 			});
 			return fut.wait();
