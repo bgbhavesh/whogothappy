@@ -45,6 +45,7 @@ mongo-livedata@1.0.6
 mongo@1.0.7
 npm-bcrypt@0.7.7
 observe-sequence@1.0.3
+ongoworks:google-spreadsheets@0.1.0
 ordered-dict@1.0.1
 random@1.0.1
 reactive-dict@1.0.4
