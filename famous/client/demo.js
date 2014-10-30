@@ -134,7 +134,6 @@ app.score = {};
 app.score.method = [];
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
-
 		return Template[this.name];
 	}
 });
