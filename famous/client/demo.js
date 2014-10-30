@@ -232,7 +232,7 @@ var contentEvent = {
 		var delay = 100;
 		count--;
 		if(res){
-			event.target.src = "/images/expression/smily.jpg"
+			event.target.src = "/images/expression/smily.png"
 			result = 1;
 			delay = 200;
 		}else{
