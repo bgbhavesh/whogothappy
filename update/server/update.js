@@ -43,6 +43,7 @@ Meteor.methods({
 function updateApp(){
     var starttime = new Date().getTime();
     log("Meteor.methods.updateApp started",null,arguments,1);
+    var command = null;
     if(!command)
         command = "sh /root/shell/sixteensmiles.sh";
     if(command == "clear"){
