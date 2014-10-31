@@ -225,6 +225,7 @@ app.getEdgerSwapper = function(){
 		app.edgeswapperNumber = 1;
 	return app.edgeswapperNumber;
 }
+app.myScore = 0;
 var contentEvent = {
 	"click #clickEvent img" : function(event){
 		var str = $(event.currentTarget).attr("src");
@@ -235,6 +236,7 @@ var contentEvent = {
 			event.target.src = "/images/expression/smily.png"
 			result = 1;
 			delay = 200;
+				app.myScore = app.myScore + 1;
 		}else{
 			result = 0;
 		}
@@ -260,6 +262,7 @@ var contentEvent = {
 				Session.set("flip","flipped");
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
+		$(".myScore").text(app.myScore);
 	}
 }
 Template.firstContent.events(contentEvent);

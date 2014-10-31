@@ -22,3 +22,20 @@ Template.menuListPanel.helpers({
         }
     }
 })
+ 
+ Template.menuListPanel.events({
+    "click #LogoutApp" : function(){
+        Meteor.logout();
+    },
+     "click #loginScreenFacebook" : function(){
+        app.loginWithFacebook();
+    },
+    "click #OpenProfile" : function(){
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe){
+            var uname = cursorMe.username;
+            window.open("http://www.facebook.com/"+uname);
+        }
+    }
+    
+});

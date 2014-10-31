@@ -8,7 +8,7 @@ Template.home.events({
     // 'click .move-left': function (e){
     //     $(".move-left").removeClass('move-left')                    
     // },
-    // 'click .move-right': function (e){
+    // 'click .move-right': function (e){ 
     //     $(".move-right").removeClass('move-right')                    
     // },
     // 'click .left-off-canvas-toggle': function (e){
@@ -17,19 +17,19 @@ Template.home.events({
     // 'click .right-off-canvas-toggle': function (e){
     //    $(".off-canvas-wrap").addClass('move-left')      
     // },
-    "click #LogoutApp" : function(){
-        Meteor.logout();
-    },
-     "click #loginScreenFacebook" : function(){
-        app.loginWithFacebook();
-    },
-    "click #OpenProfile" : function(){
-        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        if(cursorMe){
-            var uname = cursorMe.username;
-            window.open("http://www.facebook.com/"+uname);
-        }
-    }
+    // "click #LogoutApp" : function(){
+    //     Meteor.logout();
+    // },
+    //  "click #loginScreenFacebook" : function(){
+    //     app.loginWithFacebook();
+    // },
+    // "click #OpenProfile" : function(){
+    //     var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+    //     if(cursorMe){
+    //         var uname = cursorMe.username;
+    //         window.open("http://www.facebook.com/"+uname);
+    //     }
+    // }
     
 });
 
