@@ -17,16 +17,16 @@ function startTimer(){
 			mins++;
                        
 		    if(mins<10){                     
-		      	$("#gametimemins").text('0'+mins+':');}       
+		      	$(".gametimemins").text('0'+mins+':');}       
 			else 
-				$("#gametimemins").text(mins+':');
+				$(".gametimemins").text(mins+':');
        	}    
     	if(seconds <10) {
-			$("#gametimeseconds").text('0'+seconds);} 
+			$(".gametimeseconds").text('0'+seconds);} 
 		else {
-			$("#gametimeseconds").text(seconds);
+			$(".gametimeseconds").text(seconds);
       	}
-      	if(mins >= 10){
+      	if(seconds >= 20){
 				endGame();
 		}
 		else{
@@ -40,6 +40,8 @@ function endGame(){
 	var tempDate = new Date();
 	tempDate.setHours(tempDate.getHours()+12);
 	app.target_date = tempDate;
+	app.openOverlay();
+	app.getTextAreaEmails();
 	var cursorMe = Meteor.user();
 	var data = {};
 	if(cursorMe){
@@ -51,3 +53,4 @@ function endGame(){
 			Meteor.call("genMail",data.emailid,data);
 	}
 }    
+/// the value of the class myScore is to be changed
