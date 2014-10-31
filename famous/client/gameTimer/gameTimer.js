@@ -61,22 +61,23 @@ app.modifyLastDate = function(){
 	var currentDate = new Date().getDate()
 	console.log(cursorMe)
 	if(cursorMe){
-		console.log("1")
+		// console.log("1")
 		if(cursorMe.profile){
-			console.log("2")
+			// console.log("2")
 			// if(cursorMe.profile.currentDate){
-				console.log("3")
+				// console.log("3")
 				if(cursorMe.profile.currentDate != currentDate){
-					console.log("4")
+					// console.log("4")
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
 				}
 				if((cursorMe.profile.currentDate + 1)==currentDate){
-					console.log("5");
-					if(cursorMe.profile.continuePlay){
-						console.log("5");
-						var tDays = cursorMe.profile.continuePlay + 1;
+					// console.log("5");
+					if(cursorMe.profile.playContinuty){
+						// console.log("6");
+						var tDays = cursorMe.profile.playContinuty + 1;
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
 					}else{
+						// console.log("7");
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
 					}
 				}else{
