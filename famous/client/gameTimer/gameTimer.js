@@ -26,7 +26,7 @@ function startTimer(){
 		else {
 			$("#gametimeseconds").text(seconds);
       	}
-      	if(mins >= 10){
+      	if(seconds >= 10){
 				endGame();
 		}
 		else{
@@ -37,6 +37,8 @@ function startTimer(){
 }
 function endGame(){
 	console.log("game Ended");
+	// console.log(app.totalscore);
+	// console.log(app.score);
 	var tempDate = new Date();
 	tempDate.setHours(tempDate.getHours()+12);
 	app.target_date = tempDate;
@@ -46,8 +48,11 @@ function endGame(){
 		data._id = cursorMe._id;
 		data.username = data.username;
 		data.emailid = data.emails[0].address;
-		data.score = 10;
+		data.score = app.totalscore;
+		data.allScore = app.score
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);
 	}
+	app.totalscore = 0;
+	app.score = {};
 }    
