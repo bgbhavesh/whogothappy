@@ -17,16 +17,16 @@ function startTimer(){
 			mins++;
                        
 		    if(mins<10){                     
-		      	$("#gametimemins").text('0'+mins+':');}       
+		      	$(".gametimemins").text('0'+mins+':');}       
 			else 
-				$("#gametimemins").text(mins+':');
+				$(".gametimemins").text(mins+':');
        	}    
     	if(seconds <10) {
-			$("#gametimeseconds").text('0'+seconds);} 
+			$(".gametimeseconds").text('0'+seconds);} 
 		else {
-			$("#gametimeseconds").text(seconds);
+			$(".gametimeseconds").text(seconds);
       	}
-      	if(mins >= 10){
+      	if(seconds >= 20){
 				endGame();
 		}
 		else{
@@ -40,14 +40,49 @@ function endGame(){
 	var tempDate = new Date();
 	tempDate.setHours(tempDate.getHours()+12);
 	app.target_date = tempDate;
+	app.openOverlay();
+	app.getTextAreaEmails();
 	var cursorMe = Meteor.user();
 	var data = {};
 	if(cursorMe){
 		data._id = cursorMe._id;
-		data.username = data.username;
-		data.emailid = data.emails[0].address;
-		data.score = 10;
+		data.username = cursorMe.username;
+		data.emailid = cursorMe.emails[0].address;
+		data.score = app.totalscore;
+		data.allScore = app.score
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);
 	}
+	modifyLastDate();
 }    
+/// the value of the class myScore is to be changed  
+app.modifyLastDate = function(){
+	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
+	var currentDate = new Date().getDate()
+	console.log(cursorMe)
+	if(cursorMe){
+		console.log("1")
+		if(cursorMe.profile){
+			console.log("2")
+			// if(cursorMe.profile.currentDate){
+				console.log("3")
+				if(cursorMe.profile.currentDate != currentDate){
+					console.log("4")
+					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
+				}
+				if((cursorMe.profile.currentDate + 1)==currentDate){
+					console.log("5");
+					if(cursorMe.profile.continuePlay){
+						console.log("5");
+						var tDays = cursorMe.profile.continuePlay + 1;
+						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
+					}else{
+						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
+					}
+				}else{
+					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
+				}
+			// }
+		}
+	}
+}
