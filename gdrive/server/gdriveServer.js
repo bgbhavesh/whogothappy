@@ -19,6 +19,7 @@ app.language.en ={};
 // 	});
 // })
 
+
 Meteor.methods({
 	"sendLang" : function(lan){
 			var fut = new Future(); 
