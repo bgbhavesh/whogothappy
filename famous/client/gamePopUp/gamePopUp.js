@@ -31,6 +31,7 @@ app.closeCounter = function(){
 Template.gamePopUp.events({
     'click #tapTap .remove': function () {
     	app.closeGame();
+        app.openOverlay();
     },
     'click #startGame': function () {
     	app.closeCounter();

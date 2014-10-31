@@ -8,3 +8,17 @@ app.getTextAreaEmails = function(){
 	// console.log(emailIdsemails);
 	return(res);
 }
+
+Template.menuListPanel.helpers({
+    user : function(){
+        return Meteor.userId();
+    },
+    myusername : function(){
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe){
+            var uname = cursorMe.username;
+            // console.log(uname)
+            return uname;
+        }
+    }
+})
