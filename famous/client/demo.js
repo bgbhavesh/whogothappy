@@ -200,7 +200,6 @@ Template.secondContent.content = function(){
 
 Session.setDefault('esTemplate', 'es_surface1'); 
 Template.views_EdgeSwapper.esTemplate = function() {
-	app.slideStartTime = new Date().getTime();
 	return Session.get('esTemplate');
 }
 Session.setDefault('esTemplateMy', 'es_surface3');
