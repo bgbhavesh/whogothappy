@@ -5,6 +5,17 @@
         <li class=""><label>{{lang.menu.menu}}</label></li>
         {{#if user}}
             <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
+<<<<<<< HEAD
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#home">{{language.menu.home}}</a></li>
+            <li><a href="#login" id="LogoutApp">Logout</a></li>
+        {{else}}
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#home">{{language.menu.home}}</a></li>
+            <li><a href="#login">login</a></li>
+=======
             <li><a href="#admin">{{lang.menu.admin}}</a></li>
             <li><a href="#users">{{lang.menu.users}}</a></li>
             <li><a href="#home">{{lang.menu.home}}</a></li>
@@ -14,6 +25,7 @@
             <li><a href="#users">{{lang.menu.users}}</a></li>
             <li><a href="#home">{{lang.menu.home}}</a></li>
             <li><a id="loginScreenFacebook">{{lang.menu.fbLogin}}</a></li>
+>>>>>>> origin/master
          {{/if}}       
       </ul>  
     </div>

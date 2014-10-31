@@ -16,6 +16,7 @@ Package.onUse(function(api) {
   api.add_files('server.js', 'server');
   api.add_files('lib/util.js', 'client');
   api.add_files('morpher.js', 'client');
+  api.add_files('server.js', 'server');
   // api.add_files('lib/jquery.bxslider.js', 'client');
   // api.add_files('lib/jquery.bxslider.js', 'client');
   // api.add_files('lib/jquery.bxslider.min.js', 'client');
