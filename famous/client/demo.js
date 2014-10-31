@@ -130,8 +130,10 @@ assetManager.downloadAll(function(){
 var endtime;
 var totalTime;
 var result;
+// var slideStartTime;
 app.score = {};
 app.score.method = [];
+app.totalscore = 0;
 Template.views_EdgeSwapper.helpers({
 	'showTemplate': function() {
 		return Template[this.name];
@@ -174,6 +176,7 @@ app.famousContent = function(flip){
 app.famousContent(true);
 app.famousContent(false);
 Template.content.image = function(){
+	app.slideStartTime = new Date().getTime();
 	// var starttime = new Date().getTime();
  //    log("Template.content.image started",null,arguments,1);
  //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
@@ -197,7 +200,6 @@ Template.secondContent.content = function(){
 
 Session.setDefault('esTemplate', 'es_surface1'); 
 Template.views_EdgeSwapper.esTemplate = function() {
-	app.slideStartTime = new Date().getTime();
 	return Session.get('esTemplate');
 }
 Session.setDefault('esTemplateMy', 'es_surface3');
@@ -235,12 +237,13 @@ var contentEvent = {
 			event.target.src = "/images/expression/smily.png"
 			result = 1;
 			delay = 200;
+			app.totalscore++;
 		}else{
 			result = 0;
 		}
 		endtime = new Date().getTime()
 		totalTime = endtime - app.slideStartTime;
-		// console.log(slideStartTime);
+		// console.log(app.slideStartTime);
 		// console.log(endtime);
 		// console.log(totalTime);
         app.score.method.push({
@@ -250,6 +253,7 @@ var contentEvent = {
             "result": result,
             "extra": ""
         });
+		$(".myScore").text(app.totalscore);
         app.animateFamousRandom();
         
 		setTimeout(function(){

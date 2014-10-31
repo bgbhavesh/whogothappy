@@ -1,21 +1,5 @@
 <template name="home"> 
-         {{> timeCount}} 
-    <div class="large-4 small-12 medium-6 columns panel">
-      <ul id="MenuRole" class="off-canvas-list">
-        <li class=""><label>{{lang.menu.menu}}</label></li>
-        {{#if user}}
-            <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
-            <li><a href="#admin">{{lang.menu.admin}}</a></li>
-            <li><a href="#users">{{lang.menu.users}}</a></li>
-            <li><a href="#home">{{lang.menu.home}}</a></li>
-            <li><a href="#home" id="LogoutApp">{{lang.menu.logout}}</a></li>
-        {{else}}
-            <li><a href="#admin">{{lang.menu.admin}}</a></li>
-            <li><a href="#users">{{lang.menu.users}}</a></li>
-            <li><a href="#home">{{lang.menu.home}}</a></li>
-            <li><a id="loginScreenFacebook">{{lang.menu.fbLogin}}</a></li>
-         {{/if}}       
-      </ul>  
-    </div>
-      {{> famous}}
+    {{> timeCount}} 
+    {{> menuListPanel}}
+    {{> famous}}
 </template>
