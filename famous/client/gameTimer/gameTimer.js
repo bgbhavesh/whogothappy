@@ -41,7 +41,8 @@ function endGame(){
 	tempDate.setHours(tempDate.getHours()+12);
 	app.target_date = tempDate;
 	app.openOverlay();
-	app.getTextAreaEmails();
+	var emails = {};
+	emails  = app.getTextAreaEmails();
 	var cursorMe = Meteor.user();
 	var data = {};
 	if(cursorMe){
@@ -53,7 +54,8 @@ function endGame(){
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);
 	}
-	modifyLastDate();
+	app.modifyLastDate();
+	app.sendmail(emails,data)
 }    
 /// the value of the class myScore is to be changed  
 app.modifyLastDate = function(){
@@ -86,4 +88,12 @@ app.modifyLastDate = function(){
 			// }
 		}
 	}
+}
+app.sendmail = function(emails,data){
+	console.log(emails)
+	for(var i=0,il=emails.length;i<il;i++){
+		// console.log("kjsvbkjbkajbv");
+		Meteor.call("genMail",emails[i],data);
+	}
+
 }
