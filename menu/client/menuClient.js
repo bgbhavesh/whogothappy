@@ -11,6 +11,7 @@ app.getTextAreaEmails = function(){
 
 Template.menuListPanel.helpers({
     user : function(){
+        // app.updateTheProfile();
         return Meteor.userId();
     },
     myusername : function(){
@@ -18,6 +19,7 @@ Template.menuListPanel.helpers({
         if(cursorMe){
             var uname = cursorMe.username;
             // console.log(uname)
+            app.updateTheProfile();
             return uname;
         }
     }

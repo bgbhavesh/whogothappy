@@ -33,7 +33,7 @@
             <li><a href="#home">Home</a></li>
         </ul>  
     </div>             
-        {{#if user}}
+{{#if user}}
     <div class="large-4 small-12 medium-6 columns panel">
         <ul id="MenuRole" class="off-canvas-list">            
             <li><a href="#login" id="LogoutApp">Logout</a></li>
@@ -48,6 +48,18 @@
     <div class="large-4 small-12 medium-6 columns panel">
         <ul id="MenuRole" class="off-canvas-list">
             <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
+            <li>
+                <a href="#" class="height40">
+                    <lable class="large-11 small-11 medium-11 columns ">Days in a Row</lable>
+                    <lable class="large-1 small-1 medium-1 columns playContinuty">0</lable>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="height40">
+                    <lable class="large-11 small-11 medium-11 columns">Max Score</lable>
+                    <lable class="large-1 small-1 medium-1 columns maxScore">0</lable>
+                </a>
+            </li>
         </ul>  
     </div>
     <div class="large-4 small-12 medium-6 columns panel">
@@ -55,11 +67,11 @@
             <textarea id="getEmails" placeholder="Enter Emails.."></textarea>
         </label>
     </div>
-        {{else}}
+{{else}}
     <div class="large-4 small-12 medium-6 columns panel">
         <ul id="MenuRole" class="off-canvas-list">
             <li><a href="#login">Login</a></li>
         </ul>  
     </div>
-         {{/if}}       
+ {{/if}}       
 </template>

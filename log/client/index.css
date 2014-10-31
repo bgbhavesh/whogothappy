@@ -28,7 +28,6 @@
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-
 }
 .overlay div{
         position: relative;
@@ -41,4 +40,7 @@
         top: 0;
         left: 0;
         background-color: rgba(0,0,0,0.5);
+}
+.height40{
+    height: 40px;
 }

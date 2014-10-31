@@ -254,6 +254,7 @@ var contentEvent = {
             "result": result,
             "extra": ""
         });
+		$(".myScore").text(app.totalscore);
         app.animateFamousRandom();
         
 		setTimeout(function(){
@@ -264,7 +265,6 @@ var contentEvent = {
 				Session.set("flip","flipped");
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
-		$(".myScore").text(app.totalscore);
 	}
 }
 Template.firstContent.events(contentEvent);

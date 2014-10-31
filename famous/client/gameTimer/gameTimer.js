@@ -55,12 +55,13 @@ function endGame(){
 			Meteor.call("genMail",data.emailid,data);
 	}
 	app.modifyLastDate();
-	app.sendmail(emails,data)
+	app.sendmail(emails,data);
+	app.updateTheMaxScoreProfile();
 }    
 /// the value of the class myScore is to be changed  
 app.modifyLastDate = function(){
-	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	var currentDate = new Date().getDate()
+	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	console.log(cursorMe)
 	if(cursorMe){
 		// console.log("1")
@@ -96,4 +97,37 @@ app.sendmail = function(emails,data){
 		Meteor.call("genMail",emails[i],data);
 	}
 
+}
+// app.updateTheProfile = function(){
+//     var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
+//     if(cursorMe){
+//     	if(cursorMe.profile.maxScore || cursorMe.profile.maxScore == 0){
+    		
+//     	}
+//     	else{
+//     		Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.maxScore":0}});
+//     	}
+//     }
+// }
+app.updateTheMaxScoreProfile = function(){
+	console.log("updateTheProfile")
+    var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
+    if(cursorMe){
+		console.log("updateTheProfile.cursorMe")
+    	if(cursorMe.profile.maxScore || cursorMe.profile.maxScore == 0){
+			console.log("updateTheProfile.cursorMe.maxScore")
+    		if(app.totalscore > cursorMe.profile.maxScore){
+    			console.log("updateTheProfile.cursorMe.maxScore.high")    		
+    			Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.maxScore":app.totalscore}});
+    		}
+    	}
+    	else{
+    		Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.maxScore":0}});
+    	}
+    }
+}
+app.updateTheProfile = function(){
+    var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
+    $(".playContinuty").text(cursorMe.profile.playContinuty);
+    $(".maxScore").text(cursorMe.profile.maxScore);
 }
