@@ -200,7 +200,6 @@ Template.secondContent.content = function(){
 
 Session.setDefault('esTemplate', 'es_surface1'); 
 Template.views_EdgeSwapper.esTemplate = function() {
-	app.slideStartTime = new Date().getTime();
 	return Session.get('esTemplate');
 }
 Session.setDefault('esTemplateMy', 'es_surface3');
@@ -228,6 +227,7 @@ app.getEdgerSwapper = function(){
 		app.edgeswapperNumber = 1;
 	return app.edgeswapperNumber;
 }
+app.myScore = 0;
 var contentEvent = {
 	"click #clickEvent img" : function(event){
 		var str = $(event.currentTarget).attr("src");
@@ -238,7 +238,11 @@ var contentEvent = {
 			event.target.src = "/images/expression/smily.png"
 			result = 1;
 			delay = 200;
+<<<<<<< HEAD
+				app.myScore = app.myScore + 1;
+=======
 			app.totalscore++;
+>>>>>>> origin/hasten
 		}else{
 			result = 0;
 		}
@@ -264,7 +268,7 @@ var contentEvent = {
 				Session.set("flip","flipped");
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
-		$(".myScore").text(app.totalscore);
+		$(".myScore").text(app.myScore);
 	}
 }
 Template.firstContent.events(contentEvent);
