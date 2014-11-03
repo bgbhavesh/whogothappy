@@ -53,6 +53,7 @@ function endGame(){
 		data.allScore = app.score
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);
+			Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
 	}
 	app.modifyLastDate();
 	app.sendmail(emails,data)
@@ -60,7 +61,7 @@ function endGame(){
 /// the value of the class myScore is to be changed  
 app.modifyLastDate = function(){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
-	var currentDate = new Date().getDate()
+	var currentDate = new Date().getDate();
 	console.log(cursorMe)
 	if(cursorMe){
 		// console.log("1")
