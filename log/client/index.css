@@ -10,8 +10,8 @@
 	position: relative !important;
 }
 .famous-root {
-	overflow-x: hidden !important;
-	overflow-y: scroll !important; 
+	overflow-x: hidden !important;/*
+	overflow-y: scroll !important; */
 }
 .testRight{
 	text-align: right;
@@ -43,4 +43,9 @@
 }
 .height40{
     height: 40px;
+}
+.scrolly{
+    height: 100% !important;
+    -webkit-overflow-scrolling: touch !important;
+    overflow-y: scroll!important;
 }
