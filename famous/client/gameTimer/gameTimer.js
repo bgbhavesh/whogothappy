@@ -36,6 +36,8 @@ function startTimer(){
   },1000);
 }
 function endGame(){
+	$(".gametimemins").text('10');
+	$(".gametimeseconds").text(':00'); 
 	console.log("game Ended");
 	// console.log(app.totalscore);
 	// console.log(app.score);
