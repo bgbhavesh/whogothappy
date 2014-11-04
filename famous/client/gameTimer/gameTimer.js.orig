@@ -26,9 +26,13 @@ function startTimer(){
 		else {
 			$(".gametimeseconds").text(seconds);
       	}
-      	if(mins >= 10){
+<<<<<<< HEAD
+      	if(seconds >= 20){
+=======
+      	if(mins >= 1){
       		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
+>>>>>>> origin/bgbhavesh
 				endGame();
 		}
 		else{
