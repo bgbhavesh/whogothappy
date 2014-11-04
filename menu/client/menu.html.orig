@@ -50,14 +50,24 @@
             <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
             <li>
                 <a href="#" class="height40">
+<<<<<<< HEAD
+                    <lable class="large-11 small-11 medium-11 columns ">Days in a Row</lable>
+                    <lable class="large-1 small-1 medium-1 columns playContinuty">{{profile.playContinuty}}</lable>
+=======
                     <lable class="large-10 small-10 medium-10 columns ">Days in a Row</lable>
-                    <lable class="large-2 small-2 medium-2 columns playContinuty textCenter">{{profile.playContinuty}}</lable>
+                    <lable class="large-2 small-2 medium-2 columns playContinuty textCenter">0</lable>
+>>>>>>> origin/bgbhavesh
                 </a>
             </li>
             <li>
                 <a href="#" class="height40">
+<<<<<<< HEAD
+                    <lable class="large-11 small-11 medium-11 columns">Max Score</lable>
+                    <lable class="large-1 small-1 medium-1 columns maxScore">{{profile.maxScore}}</lable>
+=======
                     <lable class="large-10 small-10 medium-10 columns">Max Score</lable>
-                    <lable class="large-2 small-2 medium-2 columns maxScore textCenter">{{profile.maxScore}}</lable>
+                    <lable class="large-2 small-2 medium-2 columns maxScore textCenter">0</lable>
+>>>>>>> origin/bgbhavesh
                 </a>
             </li>
         </ul>  

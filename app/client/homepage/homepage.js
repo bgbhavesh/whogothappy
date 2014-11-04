@@ -1,3 +1,6 @@
+var curYPos = 0,
+    curXPos = 0,
+    curDown = false;
 Template.home.events({
 	// 'click .clickEvent': function () {
 	// 	Session.set("placeId",null);
@@ -5,6 +8,21 @@ Template.home.events({
 	// 	Session.set("placeName",this.name);
 	// }
     
+    // 'mousedown .scrolly': function (e){
+    //     curDown = true; 
+    //     curYPos = e.clientY; 
+    //     curXPos = e.clientX;
+    //     console.log(e.clientX);
+    // }
+    // 'mousemove .scrolly': function (e){
+    //     if(curDown === true){
+    //         console.log(e.clientX);
+    //     }
+    // }
+    // 'mouseup .scrolly': function (e){
+    //     console.log(e.clientX);
+    // }
+
     // 'click .move-left': function (e){
     //     $(".move-left").removeClass('move-left')                    
     // },
