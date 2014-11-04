@@ -26,7 +26,7 @@ function startTimer(){
 		else {
 			$(".gametimeseconds").text(seconds);
       	}
-      	if(mins >= 10){
+      	if(seconds >= 20){
 				endGame();
 		}
 		else{
@@ -52,9 +52,12 @@ function endGame(){
 		data.username = cursorMe.username;
 		data.emailid = cursorMe.emails[0].address;
 		data.score = app.totalscore;
+		data.clicked = app.score.method.length;
+		data.wrong = app.score.method.length - app.totalscore;
 		data.allScore = app.score
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);
+			Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
 	}
 	app.modifyLastDate();
 	app.sendmail(emails,data);
@@ -62,8 +65,8 @@ function endGame(){
 }    
 /// the value of the class myScore is to be changed  
 app.modifyLastDate = function(){
-	var currentDate = new Date().getDate()
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
+	var currentDate = new Date().getDate();
 	console.log(cursorMe)
 	if(cursorMe){
 		// console.log("1")

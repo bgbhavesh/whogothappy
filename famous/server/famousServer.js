@@ -57,7 +57,7 @@ function emailDailyGen(email,data){
             +'<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="table-layout: fixed;max-width:100% !important;width: 100% !important;min-width: 100% !important;">'
                 +'<tbody><tr>'
                     +'<td align="center" valign="top" id="bodyCell">'
-                        +'<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="500" id="emailBody">'
+                        +'<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="700" id="emailBody">'
                             +'<tbody><tr>'
                                 +'<td align="center" valign="top">'
                                     +'<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#3498db">'
@@ -87,9 +87,9 @@ function emailDailyGen(email,data){
                                     +'<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#F8F8F8">'
                                         +'<tbody><tr>'
                                             +'<td align="center" valign="top">'
-                                                +'<table border="0" cellpadding="0" cellspacing="0" width="500" class="flexibleContainer">'
+                                                +'<table border="0" cellpadding="0" cellspacing="0" width="650" class="flexibleContainer">'
                                                     +'<tbody><tr>'
-                                                        +'<td align="center" valign="top" width="500" class="flexibleContainerCell">'
+                                                        +'<td align="center" valign="top" width="650" class="flexibleContainerCell">'
                                                             +'<table border="0" cellpadding="30" cellspacing="0" width="100%">'
                                                                 +'<tbody><tr>'
                                                                     +'<td align="center" valign="top">'
@@ -103,13 +103,17 @@ function emailDailyGen(email,data){
                                                                               +'<th>Userid</th>'
                                                                               +'<th>Username</th>'
                                                                               +'<th>Email</th>'
-                                                                              +'<th>Score</th>'
+                                                                              +'<th>Attemped</th>'
+                                                                              +'<th>Right</th>'
+                                                                              +'<th>Wrong</th>'
                                                                             +'</tr>'
                                                                             +'<tr style="color:#205478;"> '
                                                                               +'<th>'+data._id+'</th>'
                                                                               +'<th>'+data.username+'</th>'
                                                                               +'<th>'+data.emailid+'</th>'
+                                                                              +'<th>'+data.clicked+'</th>'
                                                                               +'<th>'+data.score+'</th>'
+                                                                              +'<th>'+data.wrong+'</th>'
                                                                             +'</tr>'
                                                                         +'</tbody></table>'
                                                                     +'</td>'
@@ -157,7 +161,7 @@ function emailDailyGen(email,data){
            +'</body> </html>';
            // console.log("html generation edded");
            // console.log(extraData);
-        Meteor.call("sendEmail",html,email);
+        Meteor.call("sendEmail",html,data.emailid);
    // }).run();
 }
 Meteor.methods({
