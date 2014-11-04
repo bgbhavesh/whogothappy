@@ -26,7 +26,9 @@ function startTimer(){
 		else {
 			$(".gametimeseconds").text(seconds);
       	}
-      	if(mins >= 10){
+      	if(mins >= 1){
+      		$(".gametimemins").text('10');
+			$(".gametimeseconds").text(':00');
 				endGame();
 		}
 		else{
@@ -36,8 +38,7 @@ function startTimer(){
   },1000);
 }
 function endGame(){
-	$(".gametimemins").text('10');
-	$(".gametimeseconds").text(':00'); 
+	 
 	console.log("game Ended");
 	// console.log(app.totalscore);
 	// console.log(app.score);
