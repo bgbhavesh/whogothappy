@@ -9,10 +9,21 @@
 .famous-container{
 	position: relative !important;
 }
+ body {
+        /*height: auto !important;
+     position: relative !important;*/
+     overflow-y: scroll !important;
+     /*-webkit-transform: translateZ(0);*/
+}
 .famous-root {
 	overflow-x: hidden !important;/*
 	overflow-y: scroll !important; */
-    -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;
+    -webkit-user-select: none; 
+    -webkit-overflow-scrolling: touch;
+    -webkit-user-drag: none; 
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0); 
+    touch-action: none;
+
 }
 .testRight{
 	text-align: right;
@@ -44,18 +55,4 @@
 }
 .height40{
     height: 40px;
-}
-.scrolly{
-    height: 100% !important;
-    -webkit-height: 100% !important;
-    -webkit-overflow-scrolling: touch !important;
-    -webkit-overflow-y: scroll!important;
-    overflow-y: scroll!important;
-    background-attachment: scroll;
-    -webkit-user-select: none;
-     -webkit-user-drag: none;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    touch-action: none;
-    user-drag: none;
-    user-select: none;
 }
