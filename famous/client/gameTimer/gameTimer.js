@@ -15,7 +15,6 @@ function startTimer(){
     if(seconds >59){
 			seconds=0;
 			mins++;
-                       
 		    if(mins<10){                     
 		      	$(".gametimemins").text('0'+mins+':');}       
 			else 
@@ -26,7 +25,7 @@ function startTimer(){
 		else {
 			$(".gametimeseconds").text(seconds);
       	}
-      	if(mins >= 1){
+      	if(mins >= 10){
       		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -34,11 +33,12 @@ function startTimer(){
 		else{
 			startTimer();
 		}
-        
   },1000);
 }
-function endGame(){
-	 
+app.endBeforeTime = function(){
+
+}
+function endGame(){	 
 	console.log("game Ended");
 	// console.log(app.totalscore);
 	// console.log(app.score);
@@ -63,6 +63,7 @@ function endGame(){
 	app.sendmail(emails,data);
 	app.updateTheMaxScoreProfile();
 }    
+app.endGame = endGame;
 /// the value of the class myScore is to be changed  
 app.modifyLastDate = function(){
 	var currentDate = new Date().getDate()

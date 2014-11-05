@@ -8,20 +8,22 @@ Template.home.events({
 	// 	Session.set("placeName",this.name);
 	// }
     
-    // 'mousedown .scrolly': function (e){
-    //     curDown = true; 
-    //     curYPos = e.clientY; 
-    //     curXPos = e.clientX;
-    //     console.log(e.clientX);
-    // }
-    // 'mousemove .scrolly': function (e){
-    //     if(curDown === true){
-    //         console.log(e.clientX);
-    //     }
-    // }
-    // 'mouseup .scrolly': function (e){
-    //     console.log(e.clientX);
-    // }
+    'mousedown': function (e){
+        curDown = true; 
+        curYPos = e.clientY; 
+        curXPos = e.clientX;
+        console.log(e);
+    },
+    'mousemove': function (e){
+        if(curDown === true){
+            var p = $(".scrolly")
+            $( ".scrolly" ).scrollTop = (curYPos + e.clientY);
+            // console.log(e.currentTarget);
+        }
+    },
+    'mouseup': function (e){
+        curDown = false;
+    }
 
     // 'click .move-left': function (e){
     //     $(".move-left").removeClass('move-left')                    
