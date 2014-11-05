@@ -12,7 +12,7 @@ Template.home.events({
         curDown = true; 
         curYPos = e.clientY; 
         curXPos = e.clientX;
-        console.log(e);
+        // console.log(e);
     },
     'mousemove': function (e){
         if(curDown === true){

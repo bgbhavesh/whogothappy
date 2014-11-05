@@ -72,9 +72,6 @@ app.modifyLastDate = function(){
 	if(cursorMe){
 		// console.log("1")
 		if(cursorMe.profile){
-			// console.log("2")
-			// if(cursorMe.profile.currentDate){
-				// console.log("3")
 				if(cursorMe.profile.currentDate != currentDate){
 					// console.log("4")
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
@@ -82,7 +79,6 @@ app.modifyLastDate = function(){
 				if((cursorMe.profile.currentDate + 1)==currentDate){
 					// console.log("5");
 					if(cursorMe.profile.playContinuty){
-						// console.log("6");
 						var tDays = cursorMe.profile.playContinuty + 1;
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
 					}else{
@@ -92,7 +88,6 @@ app.modifyLastDate = function(){
 				}else{
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
 				}
-			// }
 		}
 	}
 }

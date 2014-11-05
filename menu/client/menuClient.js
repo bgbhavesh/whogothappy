@@ -42,9 +42,19 @@ Template.menuListPanel.helpers({
     
 });
 Template.menuListPanel.events({
-    'keyup #getEmails': function () {
-        var val = $(this).val();
-        console.log(event.keyCode+val)
+    'blur #getEmails': function (e) {
+        var val = e.currentTarget.value 
+        console.log(val);
+        if(val)
+        {
+            var res = val.split(",");
+            console.log(res)
+            Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.emailsToSend":res}});
+            // var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+            // if(cursorMe){
+            //     console.log(cursorMe.profile.emailsToSend)  
+            // }
+        }
     }
 });
 // $("#getEmails").keyup(function(event) {
