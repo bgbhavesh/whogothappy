@@ -1,50 +1,53 @@
 app.startGame = function(){
 	startTimer();
 	console.log("game Started");
+	gamestart = true;
 }
-
+var gamestart;
 var hours =0;
 var mins =0;
 var seconds =0;
-
+var timex;
 Template.GamerTimerimer.events({
     'click #endGame': function () {
     	// console.log(mins +":"+seconds)
-    	var time = mins +":"+seconds
-    	endGame(time);
+    	if(gamestart){
+	    	var time = mins +":"+seconds
+	    	endGame(time);
+	    	clearTimeout(timex);
+	    }
     }
 });
 
 function startTimer(){
-  	var timex = setTimeout(function(){
+  	timex = setTimeout(function(){
       seconds++;
     if(seconds >59){
-			seconds=0;
-			mins++;
-                       
-		    if(mins<10){                     
-		      	$(".gametimemins").text('0'+mins+':');}       
-			else 
-				$(".gametimemins").text(mins+':');
-       	}    
-    	if(seconds <10) {
-			$(".gametimeseconds").text('0'+seconds);} 
-		else {
-			$(".gametimeseconds").text(seconds);
-      	}
-      	if(mins >= 10){
-      		$(".gametimemins").text('10');
-			$(".gametimeseconds").text(':00');
-				endGame();
-		}
-		else{
-			startTimer();
-		}
+		seconds=0;
+		mins++;
+	    if(mins<10){                     
+	      	$(".gametimemins").text('0'+mins+':');}       
+		else 
+			$(".gametimemins").text(mins+':');
+   	}    
+	if(seconds <10) {
+		$(".gametimeseconds").text('0'+seconds);} 
+	else {
+		$(".gametimeseconds").text(seconds);
+  	}
+  	if(seconds >= 10){
+  		$(".gametimemins").text('10');
+		$(".gametimeseconds").text(':00');
+			endGame();
+	}
+	else{
+		startTimer();
+	}
         
   },1000);
 }
 function endGame(EndedTime){
-	 
+	gamestart = false;
 	console.log("game Ended");
 	// console.log(app.totalscore);
 	// console.log(app.score);
@@ -74,7 +77,8 @@ function endGame(EndedTime){
 			Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
 	}
 	app.modifyLastDate();
-	app.sendmail(emails,data);
+	if(emails)
+		app.sendmail(emails,data);
 	app.updateTheMaxScoreProfile();
 }    
 /// the value of the class myScore is to be changed  
