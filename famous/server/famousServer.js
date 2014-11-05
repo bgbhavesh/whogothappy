@@ -96,21 +96,21 @@ function emailDailyGen(email,data){
                                                                         +'<table border="0" cellpadding="0" cellspacing="0" width="100%">'
                                                                             +'<tbody><tr>'
                                                                                 +'<td valign="top" class="textContent">'
-                                                                                    +'<h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Hi, '+data.username+'</h3>'
+                                                                                    +'<h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Hi, '+email+'</h3>'
                                                                                 +'</td>'
                                                                             +'</tr>'
                                                                             +'<tr style="color:#205478;"> '
-                                                                              +'<th>Userid</th>'
-                                                                              +'<th>Username</th>'
-                                                                              +'<th>Email</th>'
+                                                                              // +'<th>Userid</th>'
+                                                                              // +'<th>Username</th>'
+                                                                              // +'<th>Email</th>'
                                                                               +'<th>Attemped</th>'
                                                                               +'<th>Right</th>'
                                                                               +'<th>Wrong</th>'
                                                                             +'</tr>'
                                                                             +'<tr style="color:#205478;"> '
-                                                                              +'<th>'+data._id+'</th>'
-                                                                              +'<th>'+data.username+'</th>'
-                                                                              +'<th>'+data.emailid+'</th>'
+                                                                              // +'<th>'+data._id+'</th>'
+                                                                              // +'<th>'+data.username+'</th>'
+                                                                              // +'<th>'+data.emailid+'</th>'
                                                                               +'<th>'+data.clicked+'</th>'
                                                                               +'<th>'+data.score+'</th>'
                                                                               +'<th>'+data.wrong+'</th>'
@@ -161,7 +161,7 @@ function emailDailyGen(email,data){
            +'</body> </html>';
            // console.log("html generation edded");
            // console.log(extraData);
-        Meteor.call("sendEmail",html,data.emailid);
+        Meteor.call("sendEmail",html,email);
    // }).run();
 }
 Meteor.methods({
