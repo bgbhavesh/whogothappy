@@ -41,3 +41,19 @@ Template.menuListPanel.helpers({
     }
     
 });
+Template.menuListPanel.events({
+    'keyup #getEmails': function () {
+        var val = $(this).val();
+        console.log(event.keyCode+val)
+    }
+});
+// $("#getEmails").keyup(function(event) {
+//     //     var val = $(this).val();
+//     //     if (val != convertEmail(val))
+//     //         $(this).val(val);
+//     //     if (event.keyCode == 13) {
+//     //         $("#sePassLogin").focus()
+//     //     }
+//     // });
+    
+// });

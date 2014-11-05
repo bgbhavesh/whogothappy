@@ -36,7 +36,7 @@ function startTimer(){
   },1000);
 }
 app.endBeforeTime = function(){
-
+	
 }
 function endGame(){	 
 	console.log("game Ended");
