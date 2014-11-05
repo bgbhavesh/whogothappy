@@ -37,3 +37,8 @@ Template.gamePopUp.events({
     	app.closeCounter();
     },
 });
+Template.content.events({
+    'click #endGame .button': function () {
+        app.endBeforeTime();
+    }
+});

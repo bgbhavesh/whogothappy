@@ -11,13 +11,20 @@ var timex;
 Template.GamerTimerimer.events({
     'click #endGame': function () {
     	// console.log(mins +":"+seconds)
-    	if(gamestart){
-	    	var time = mins +":"+seconds
-	    	endGame(time);
-	    	clearTimeout(timex);
-	    }
+    	// if(gamestart){
+	    // 	var time = mins +":"+seconds
+	    // 	endGame(time);
+	    // 	clearTimeout(timex);
+	    // }
     }
 });
+app.endBeforeTime = function(){
+	if(gamestart){
+    	var time = mins +":"+seconds
+    	endGame(time);
+    	clearTimeout(timex);
+    }
+}
 
 function startTimer(){
   	timex = setTimeout(function(){
@@ -81,6 +88,7 @@ function endGame(EndedTime){
 		app.sendmail(emails,data);
 	app.updateTheMaxScoreProfile();
 }    
+app.endGame = endGame;
 /// the value of the class myScore is to be changed  
 app.modifyLastDate = function(){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
