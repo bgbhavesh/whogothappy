@@ -16,24 +16,24 @@
          {{/if}}       
         </ul>  
     </div> -->
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#admin">Admin</a>
     </div>
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#users">Users</a>
     </div>
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#home">Home</a>
     </div>             
 {{#if user}}
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#login" id="LogoutApp">Logout</a>
     </div>
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#login" id="LogoutApp">Not you?</a>
     </div>
          
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <ul id="MenuRole" class="off-canvas-list">
             <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
             <li>
@@ -50,13 +50,13 @@
             </li>
         </ul>  
     </div>
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <label>Email my wife
             <textarea id="getEmails" placeholder="Enter Emails..">{{profile.emailsToSend}}</textarea>
         </label>
     </div>
 {{else}}
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#login">Login</a>
     </div>
  {{/if}}       

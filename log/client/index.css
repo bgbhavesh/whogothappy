@@ -1,18 +1,19 @@
 /* CSS declarations go here */
  a:link, a:visited, a:hover, a:active {
    text-decoration: none !important;
+    color: black !important;
 }
 .textCenter{
 	text-align: center;
 }
 
 .famous-container{
-	position: relative !important;
+	/*position: relative !important;*/
 }
 .famous-root {
-	overflow-x: hidden !important;/*
-	overflow-y: scroll !important; */
-    -webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;
+	/*overflow-x: hidden !important;*/
+	/*overflow-y: scroll !important; */
+    /*-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;*/
 }
 .testRight{
 	text-align: right;
@@ -56,6 +57,9 @@
      -webkit-user-drag: none;
       -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
     touch-action: none;
+}
+.blackText{
+    color: black !important;
 }
 .panel{
     /*float: none !important;*/
