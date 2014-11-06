@@ -72,22 +72,22 @@ app.modifyLastDate = function(){
 	if(cursorMe){
 		// console.log("1")
 		if(cursorMe.profile){
-				if(cursorMe.profile.currentDate != currentDate){
-					// console.log("4")
-					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
-				}
-				if((cursorMe.profile.currentDate + 1)==currentDate){
-					// console.log("5");
-					if(cursorMe.profile.playContinuty){
-						var tDays = cursorMe.profile.playContinuty + 1;
-						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
-					}else{
-						// console.log("7");
-						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
-					}
+			if(cursorMe.profile.currentDate != currentDate){
+				// console.log("4")
+				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
+			}
+			if((cursorMe.profile.currentDate + 1)==currentDate){
+				// console.log("5");
+				if(cursorMe.profile.playContinuty){
+					var tDays = cursorMe.profile.playContinuty + 1;
+					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
 				}else{
+					// console.log("7");
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
 				}
+			}else{
+				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
+			}
 		}
 	}
 }

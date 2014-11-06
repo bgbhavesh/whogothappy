@@ -17,32 +17,20 @@
         </ul>  
     </div> -->
     <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="#admin">Admin</a></li>
-            
-        </ul>  
-    </div>
-
-    <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="#users">Users</a></li>
-        </ul>  
+        <a href="#admin">Admin</a>
     </div>
     <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="#home">Home</a></li>
-        </ul>  
+        <a href="#users">Users</a>
+    </div>
+    <div class="large-4 small-12 medium-6 columns panel">
+        <a href="#home">Home</a>
     </div>             
 {{#if user}}
     <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">            
-            <li><a href="#login" id="LogoutApp">Logout</a></li>
-        </ul>  
+        <a href="#login" id="LogoutApp">Logout</a>
     </div>
     <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">            
-            <li><a href="#login" id="LogoutApp">Not you?</a></li>
-        </ul>  
+        <a href="#login" id="LogoutApp">Not you?</a>
     </div>
          
     <div class="large-4 small-12 medium-6 columns panel">
@@ -69,9 +57,7 @@
     </div>
 {{else}}
     <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="#login">Login</a></li>
-        </ul>  
+        <a href="#login">Login</a>
     </div>
  {{/if}}       
 </template>
