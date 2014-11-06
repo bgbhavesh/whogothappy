@@ -57,7 +57,7 @@ function emailDailyGen(email,data){
             +'<table border="0" cellpadding="0" cellspacing="0" height="100%" width="100%" id="bodyTable" style="table-layout: fixed;max-width:100% !important;width: 100% !important;min-width: 100% !important;">'
                 +'<tbody><tr>'
                     +'<td align="center" valign="top" id="bodyCell">'
-                        +'<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="500" id="emailBody">'
+                        +'<table bgcolor="#FFFFFF" border="0" cellpadding="0" cellspacing="0" width="700" id="emailBody">'
                             +'<tbody><tr>'
                                 +'<td align="center" valign="top">'
                                     +'<table border="0" cellpadding="0" cellspacing="0" width="100%" style="color:#FFFFFF;" bgcolor="#3498db">'
@@ -87,29 +87,35 @@ function emailDailyGen(email,data){
                                     +'<table border="0" cellpadding="0" cellspacing="0" width="100%" bgcolor="#F8F8F8">'
                                         +'<tbody><tr>'
                                             +'<td align="center" valign="top">'
-                                                +'<table border="0" cellpadding="0" cellspacing="0" width="500" class="flexibleContainer">'
+                                                +'<table border="0" cellpadding="0" cellspacing="0" width="650" class="flexibleContainer">'
                                                     +'<tbody><tr>'
-                                                        +'<td align="center" valign="top" width="500" class="flexibleContainerCell">'
+                                                        +'<td align="center" valign="top" width="650" class="flexibleContainerCell">'
                                                             +'<table border="0" cellpadding="30" cellspacing="0" width="100%">'
                                                                 +'<tbody><tr>'
                                                                     +'<td align="center" valign="top">'
                                                                         +'<table border="0" cellpadding="0" cellspacing="0" width="100%">'
                                                                             +'<tbody><tr>'
                                                                                 +'<td valign="top" class="textContent">'
-                                                                                    +'<h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Hi, '+data.username+'</h3>'
+                                                                                    +'<h3 style="color:#5F5F5F;line-height:125%;font-family:Helvetica,Arial,sans-serif;font-size:20px;font-weight:normal;margin-top:0;margin-bottom:3px;text-align:left;">Hi, '+email+'</h3>'
                                                                                 +'</td>'
                                                                             +'</tr>'
                                                                             +'<tr style="color:#205478;"> '
-                                                                              +'<th>Userid</th>'
+                                                                              // +'<th>Userid</th>'
                                                                               +'<th>Username</th>'
-                                                                              +'<th>Email</th>'
-                                                                              +'<th>Score</th>'
+                                                                              // +'<th>Email</th>'
+                                                                              +'<th>Time</th>'
+                                                                              +'<th>Attemped</th>'
+                                                                              +'<th>Right</th>'
+                                                                              +'<th>Wrong</th>'
                                                                             +'</tr>'
                                                                             +'<tr style="color:#205478;"> '
-                                                                              +'<th>'+data._id+'</th>'
+                                                                              // +'<th>'+data._id+'</th>'
                                                                               +'<th>'+data.username+'</th>'
-                                                                              +'<th>'+data.emailid+'</th>'
+                                                                              // +'<th>'+data.emailid+'</th>'
+                                                                              +'<th>'+data.gameEnd+'</th>'
+                                                                              +'<th>'+data.clicked+'</th>'
                                                                               +'<th>'+data.score+'</th>'
+                                                                              +'<th>'+data.wrong+'</th>'
                                                                             +'</tr>'
                                                                         +'</tbody></table>'
                                                                     +'</td>'
@@ -161,38 +167,60 @@ function emailDailyGen(email,data){
    // }).run();
 }
 Meteor.methods({
-"sendEmail" : function(html,email){
+    "sendEmail" : function(html,email){
 
-    try{
-        console.log("sendEmail from methods");
-        this.unblock();
-        Email.send({
-            from: 'Sixteensmiles <tapmate@youiest.com>',
-            to:   email,            
-            subject : "subjectEmail",
-            html : html
-        });
+        try{
+            console.log("sendEmail from methods");
+            this.unblock();
+            Email.send({
+                from: 'Sixteensmiles <tapmate@youiest.com>',
+                to:   email,            
+                subject : "subjectEmail",
+                html : html
+            });
 
-        // Duplicate copy sent
-        Email.send({
-            from: 'Sixteensmiles <tapmate@youiest.com>',
-            to:   "decivote@gmail.com",            
-            subject : "Duplicate copy of " +email,
-            html : html
-        });
-        
-    }
-    catch(error){
-        console.log(error);
-    }
-},
-"genMail" : function(email,data){
+            // Duplicate copy sent
+            Email.send({
+                from: 'Sixteensmiles <tapmate@youiest.com>',
+                to:   "decivote@gmail.com",            
+                subject : "Duplicate copy of " +email,
+                html : html
+            });
+            
+        }
+        catch(error){
+            console.log(error);
+        }
+    },
+    "genMail" : function(email,data){
         try{
             emailDailyGen(email,data);            
         }
         catch(error){
             console.log(error);
         }
+    },
+    "saveScore" : function(userId,totalscore,score,tempDate){
+            // Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
+            // console.log("error");
+            // try{
+                Score.insert({"clientId":userId,"score":totalscore,"totalScore":score,"date" :tempDate});
+                return true;     
+            // }
+            // catch(error){
+            //     console.log(error);
+            // }
+    },
+    "sendcacheData" : function(data){
+            data.forEach(function() {
+                console.log(data);
+                Score.insert({"clientId":data.clientId,"score":data.score,"totalScore":data.totalScore,"date" :data.date});
+            }); 
+            return true;     
+            // }
+            // catch(error){
+            //     console.log(error);
+            // }
     },
 
 });

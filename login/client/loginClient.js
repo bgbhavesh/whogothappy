@@ -97,6 +97,7 @@ app.login = function(event){
 }
 
 app.register = function(event){ 
+	console.log("register")
 	var starttime = new Date().getTime();
     log("app.register started",null,arguments,1);
 	app.visualEffect("registerButton",app.onLoad);

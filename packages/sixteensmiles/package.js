@@ -12,6 +12,7 @@ Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.3.1');
   //api.addFiles('sixteensmiles.js');
   api.add_files('common.js', ['client',"server"]);
+  api.add_files('util.js', 'client');
   api.add_files('client.js', 'client');
   api.add_files('server.js', 'server');
   api.add_files('lib/util.js', 'client');
