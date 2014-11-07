@@ -16,7 +16,17 @@
 </head>
 
 <body >
+<<<<<<< HEAD
+   
+  {{> route}}
+</body>
+
+<template name="famousInit">
+    
+</template>
+=======
 	 {{> route}}
 </body>
 
 
+>>>>>>> origin/hasten

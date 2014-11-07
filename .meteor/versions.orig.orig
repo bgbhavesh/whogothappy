@@ -19,10 +19,15 @@ email@1.0.4
 fastclick@1.0.1
 follower-livedata@1.0.2
 <<<<<<< HEAD
+<<<<<<< HEAD
 gadicohen:famous-views@0.1.21
+=======
+>>>>>>> bgbhavesh
+=======
 =======
 gadicohen:famous-views@0.1.21
 >>>>>>> origin/bgbhavesh
+>>>>>>> origin/hasten
 geojson-utils@1.0.1
 hashrouter@1.0.0
 html-tools@1.0.2

@@ -7,7 +7,6 @@
 .whiteText{
     color: white !important;
 }
-
 .famous-container{
 	/*position: relative !important;*/
 }
@@ -47,14 +46,27 @@
 .height40{
     height: 40px;
 }
+<<<<<<< HEAD
 .scrolly .panel{
     float: none;
 }
 .scrolly{
     height: 195px !important;
+=======
+/*.scrolly{
+    height: 100% !important;
+>>>>>>> origin/hasten
     -webkit-height: 100% !important;
     -webkit-overflow-scrolling: touch !important;
     -webkit-overflow-y: scroll!important;
     overflow-y: scroll!important;
     background-attachment: scroll;
+<<<<<<< HEAD
 }
+=======
+    -webkit-user-select: none;
+     -webkit-user-drag: none;
+      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    touch-action: none;
+}*/
+>>>>>>> origin/hasten
