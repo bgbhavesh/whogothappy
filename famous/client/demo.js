@@ -232,11 +232,37 @@ app.getEdgerSwapper = function(){
 var contentEvent = {
 	"click #clickEvent img" : function(event){
 		var str = $(event.currentTarget).attr("src");
+		var mainDiv = $("#clickEvent");
+		// console.log(mainDiv)
+		var imgs = mainDiv.children();
+		var imgState = mainDiv.children()[0].className.toString()//
+		// console.log(imgState)
+		var flag  = imgState.match("flipped");
+		if(Session.get("flip")){
+			var imgsUrl = $("#clickEvent div figure.back img");
+			for(var i=0,il=imgsUrl.length;i<il;i++){
+				var imgSrc = imgsUrl[i].getAttribute("src")
+				if(imgSrc.match("joy")){
+					imgsUrl[i].src = "/images/expression/smily.png";
+				}
+			}
+		}else{
+			var imgsUrl = $("#clickEvent div figure.front img");
+			for(var i=0,il=imgsUrl.length;i<il;i++){
+				var imgSrc = imgsUrl[i].getAttribute("src")
+				if(imgSrc.match("joy")){
+					console.log($("#clickEvent div figure.front img"+[i]))
+					imgsUrl[i].src = "/images/expression/smily.png";
+				}
+			}
+
+		}
+
 		var res = str.match("joy");
 		var delay = 100;
 		count--;
 		if(res){
-			event.target.src = "/images/expression/smily.png"
+			// event.target.src = "/images/expression/smily.png"
 			result = 1;
 			delay = 200;
 			app.totalscore++;
