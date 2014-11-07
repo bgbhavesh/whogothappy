@@ -251,7 +251,6 @@ var contentEvent = {
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
-					console.log($("#clickEvent div figure.front img"+[i]))
 					imgsUrl[i].src = "/images/expression/smily.png";
 				}
 			}
