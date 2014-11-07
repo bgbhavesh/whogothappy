@@ -22,7 +22,11 @@ Template.menuListPanel.helpers({
         // app.updateTheProfile();
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
-            var list = cursorMe.emails[0].address;
+            var list = null;
+            if(cursorMe.emails)
+                list = cursorMe.emails[0].address;
+            else
+                list = cursorMe.email;
         }
         return list;
     },
