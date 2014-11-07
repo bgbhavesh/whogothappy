@@ -1,7 +1,9 @@
 <template name="home"> 
-	<div class="column large-12 small-12 medium-12 scrolly">
+	<div class="column large-12 small-12 medium-12">
     {{> timeCount}} 
-    {{> menuListPanel}}
+    <div class="column large-12 small-12 medium-12 scrolly">
+    	{{> menuListPanel}}
+	</div>
     {{> famous}}
     </div>
 </template>
