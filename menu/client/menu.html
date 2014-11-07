@@ -26,16 +26,17 @@
         <a href="#home">Home</a>
     </div>  -->            
 {{#if user}}
-    <div class="large-4 small-12 medium-6 columns panel textCenter">
+    <!-- <div class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#login" id="LogoutApp">Logout</a>
-    </div>
-    <div class="large-4 small-12 medium-6 columns panel textCenter">
+    </div> -->
+    <!-- <div class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#login" id="LogoutApp">Not you?</a>
-    </div>
+    </div> -->
          
-    <div class="large-4 small-12 medium-6 columns panel textCenter">
+    <div class="large-4 small-12 medium-6 columns panel">
         <ul id="" class="off-canvas-list">
-            <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
+            <li><a href="" id="OpenProfile">Hi, {{myusername}}</a></li>
+            <li><a href="#login" id="LogoutApp">Not you?</a></li>
             <li>
                 <a href="#" class="height40">
                     <lable class="large-10 small-10 medium-10 columns ">Days in a Row</lable>
@@ -58,6 +59,11 @@
 {{else}}
     <div id="loginScreenFacebook" class="large-4 small-12 medium-6 columns panel textCenter">
         <a href="#">Login</a>
+    </div>
+     <div class="large-4 small-12 medium-6 columns panel textCenter" >
+        <a>
+            <i class="fa fa-facebook"></i> Sign in with Facebook
+          </a>
     </div>
  {{/if}}   
  <div class="large-4 small-12 medium-6 columns panel">

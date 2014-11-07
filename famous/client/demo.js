@@ -177,6 +177,8 @@ app.famousContent(true);
 app.famousContent(false);
 Template.content.image = function(){
 	app.slideStartTime = new Date().getTime();
+
+	
 	// var starttime = new Date().getTime();
  //    log("Template.content.image started",null,arguments,1);
  //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
@@ -341,4 +343,12 @@ app.animateFamouseFourth = function(){
     		setTimeout(function(){$(element).addClass("flipped");},100*flipCount--);
     	});
     }
+}
+app.addFixedSizeImg = function(){
+	var widthWidow = $(window).width();
+	widthWidow = widthWidow - 110;
+	var eachImg = widthWidow/4;
+	console.log(eachImg)
+	// $(".card").css("width",eachImg);
+	$(".card").css("height",eachImg);
 }

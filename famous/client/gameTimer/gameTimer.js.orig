@@ -42,6 +42,31 @@ function startTimer(){
 	else {
 		$(".gametimeseconds").text(seconds);
   	}
+<<<<<<< HEAD
+  	if(app.debug)
+  	{
+  		if(seconds >= 10){
+  	  		$(".gametimemins").text('10');
+  			$(".gametimeseconds").text(':00');
+  				endGame();
+  		}
+  		else{
+  			startTimer();
+  		}
+  	}
+  	else
+  	{
+  		if(mins >= 10){
+  	  		$(".gametimemins").text('10');
+  			$(".gametimeseconds").text(':00');
+  				endGame();
+  		}
+  		else{
+  			startTimer();
+  		}
+  	}
+        
+=======
 	if(mins >= 10){
   		$(".gametimemins").text('10');
 		$(".gametimeseconds").text(':00');
@@ -50,6 +75,7 @@ function startTimer(){
 	else{
 		startTimer();
 	}  
+>>>>>>> bbdf52e30ae00e9ffa32077afd0b32261236c29d
   },1000);
 }
 var database;
