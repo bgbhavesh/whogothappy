@@ -8,14 +8,14 @@ var hours =0;
 var mins =0;
 var seconds =0;
 var timex;
+Template.content.events({
+    'click #endGame': function () {
+        app.endBeforeTime();
+    }
+});
 Template.GamerTimerimer.events({
     'click #endGame': function () {
-    	// console.log(mins +":"+seconds)
-    	// if(gamestart){
-	    // 	var time = mins +":"+seconds
-	    // 	endGame(time);
-	    // 	clearTimeout(timex);
-	    // }
+    	app.endBeforeTime();
     }
 });
 app.endBeforeTime = function(){

@@ -67,7 +67,7 @@ Template.menuListPanel.events({
                 console.log(res1)
                 for(var i = 0, il=res1.length;i<il;i++){
                     ids.push({
-                        "ids": res1[i],
+                        "ids": res1[i].replace(",",""),
                     });
                 }
                 Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.emailsToSend":ids}});

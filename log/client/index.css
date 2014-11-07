@@ -1,12 +1,9 @@
 /* CSS declarations go here */
- a:link, a:visited, a:hover, a:active {
+ a:link, a:visited, a:hover, a:active, a:focus {
    text-decoration: none !important;
     color: black !important;
+    background-color: none;
 }
-.textCenter{
-	text-align: center;
-}
-
 .famous-container{
 	/*position: relative !important;*/
 }
@@ -15,13 +12,13 @@
 	/*overflow-y: scroll !important; */
     /*-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;*/
 }
-.testRight{
+.textRight{
 	text-align: right;
 }
-.testCenter{
+.textCenter{
 	text-align: center;
 }
-.testLeft{
+.textLeft{
 	text-align: left;
 }
 .overlay .popups{
@@ -47,14 +44,10 @@
     height: 40px;
 }
 .scrolly{
-    height: 100% !important;
+    height: 70px !important;
     -webkit-height: 100% !important;
     -webkit-overflow-scrolling: touch !important;
     -webkit-overflow-y: scroll!important;
     overflow-y: scroll!important;
     background-attachment: scroll;
-    -webkit-user-select: none;
-     -webkit-user-drag: none;
-      -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
-    touch-action: none;
 }
