@@ -167,38 +167,60 @@ function emailDailyGen(email,data){
    // }).run();
 }
 Meteor.methods({
-"sendEmail" : function(html,email){
+    "sendEmail" : function(html,email){
 
-    try{
-        console.log("sendEmail from methods");
-        this.unblock();
-        Email.send({
-            from: 'Sixteensmiles <tapmate@youiest.com>',
-            to:   email,            
-            subject : "subjectEmail",
-            html : html
-        });
+        try{
+            console.log("sendEmail from methods");
+            this.unblock();
+            Email.send({
+                from: 'Sixteensmiles <tapmate@youiest.com>',
+                to:   email,            
+                subject : "subjectEmail",
+                html : html
+            });
 
-        // Duplicate copy sent
-        Email.send({
-            from: 'Sixteensmiles <tapmate@youiest.com>',
-            to:   "decivote@gmail.com",            
-            subject : "Duplicate copy of " +email,
-            html : html
-        });
-        
-    }
-    catch(error){
-        console.log(error);
-    }
-},
-"genMail" : function(email,data){
+            // Duplicate copy sent
+            Email.send({
+                from: 'Sixteensmiles <tapmate@youiest.com>',
+                to:   "decivote@gmail.com",            
+                subject : "Duplicate copy of " +email,
+                html : html
+            });
+            
+        }
+        catch(error){
+            console.log(error);
+        }
+    },
+    "genMail" : function(email,data){
         try{
             emailDailyGen(email,data);            
         }
         catch(error){
             console.log(error);
         }
+    },
+    "saveScore" : function(userId,totalscore,score,tempDate){
+            // Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
+            // console.log("error");
+            // try{
+                Score.insert({"clientId":userId,"score":totalscore,"totalScore":score,"date" :tempDate});
+                return true;     
+            // }
+            // catch(error){
+            //     console.log(error);
+            // }
+    },
+    "sendcacheData" : function(data){
+            data.forEach(function() {
+                console.log(data);
+                Score.insert({"clientId":data.clientId,"score":data.score,"totalScore":data.totalScore,"date" :data.date});
+            }); 
+            return true;     
+            // }
+            // catch(error){
+            //     console.log(error);
+            // }
     },
 
 });

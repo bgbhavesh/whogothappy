@@ -8,14 +8,14 @@ var hours =0;
 var mins =0;
 var seconds =0;
 var timex;
+Template.content.events({
+    'click #endGame': function () {
+        app.endBeforeTime();
+    }
+});
 Template.GamerTimerimer.events({
     'click #endGame': function () {
-    	// console.log(mins +":"+seconds)
-    	// if(gamestart){
-	    // 	var time = mins +":"+seconds
-	    // 	endGame(time);
-	    // 	clearTimeout(timex);
-	    // }
+    	app.endBeforeTime();
     }
 });
 app.endBeforeTime = function(){
@@ -42,17 +42,18 @@ function startTimer(){
 	else {
 		$(".gametimeseconds").text(seconds);
   	}
-  	if(seconds >= 10){
+	if(mins >= 10){
   		$(".gametimemins").text('10');
 		$(".gametimeseconds").text(':00');
 			endGame();
 	}
 	else{
 		startTimer();
-	}
-        
+	}  
   },1000);
 }
+var database;
+var Score = new Array();
 function endGame(EndedTime){
 	gamestart = false;
 	console.log("game Ended");
@@ -81,7 +82,23 @@ function endGame(EndedTime){
 		}
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);
-			Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
+		Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
+			console.log("err");
+			console.log(err);
+			console.log("data");
+			console.log(data);
+			if(!data){
+				Score.push({
+                    "clientId": Meteor.userId(),
+                    "score": app.totalscore,
+                    "totalScore": app.score,
+                    "date": tempDate
+                });
+                
+                if(Score)
+                	app.saveScoreLocal(Score);
+            }
+		});
 	}
 	app.modifyLastDate();
 	if(emails)
@@ -89,6 +106,21 @@ function endGame(EndedTime){
 	app.updateTheMaxScoreProfile();
 }    
 app.endGame = endGame;
+app.saveScoreLocal = function(Score){
+	var cursor = app.get("Score")
+	cursor.push(Score)
+	app.set("Score",Score);
+}
+sendcacheData = setTimeout(function(){
+	var cursor = app.get("Score");
+	if(cursor){
+		Meteor.call("sendcacheData",cursor, function(err, data) {
+			if(data){
+				app.set("Score","")
+			}
+		});
+	}
+},30000);
 /// the value of the class myScore is to be changed  
 app.modifyLastDate = function(){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})

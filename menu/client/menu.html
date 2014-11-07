@@ -16,62 +16,57 @@
          {{/if}}       
         </ul>  
     </div> -->
-    <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="#admin">Admin</a></li>
-            
-        </ul>  
+  <!--   <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#admin">Admin</a>
     </div>
-
-    <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="#users">Users</a></li>
-        </ul>  
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#users">Users</a>
     </div>
-    <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="#home">Home</a></li>
-        </ul>  
-    </div>             
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#home">Home</a>
+    </div>  -->            
 {{#if user}}
-    <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">            
-            <li><a href="#login" id="LogoutApp">Logout</a></li>
-        </ul>  
-    </div>
-    <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">            
-            <li><a href="#login" id="LogoutApp">Not you?</a></li>
-        </ul>  
-    </div>
+    <!-- <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#login" id="LogoutApp">Logout</a>
+    </div> -->
+    <!-- <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#login" id="LogoutApp">Not you?</a>
+    </div> -->
          
     <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
+        <ul id="" class="off-canvas-list">
+            <li><a href="" id="OpenProfile">Hi, {{myusername}}</a></li>
+            <li><a href="#login" id="LogoutApp">Not you?</a></li>
             <li>
                 <a href="#" class="height40">
                     <lable class="large-10 small-10 medium-10 columns ">Days in a Row</lable>
-                    <lable class="large-2 small-2 medium-2 columns playContinuty textCenter">{{profile.playContinuty}}</lable>
+                    <lable class="large-2 small-2 medium-2 columns playContinuty ">{{profile.playContinuty}}</lable>
                 </a>
             </li>
             <li>
                 <a href="#" class="height40">
                     <lable class="large-10 small-10 medium-10 columns">Max Score</lable>
-                    <lable class="large-2 small-2 medium-2 columns maxScore textCenter">{{profile.maxScore}}</lable>
+                    <lable class="large-2 small-2 medium-2 columns maxScore ">{{profile.maxScore}}</lable>
                 </a>
             </li>
         </ul>  
     </div>
-    <div class="large-4 small-12 medium-6 columns panel">
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
         <label>Email my wife
                  <textarea id="getEmails" placeholder="" value="">{{#each list}}{{ids}},{{/each}}</textarea>
         </label>
     </div>
 {{else}}
-    <div class="large-4 small-12 medium-6 columns panel">
-        <ul id="MenuRole" class="off-canvas-list">
-            <li><a href="#login">Login</a></li>
-        </ul>  
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#login">Login</a>
     </div>
- {{/if}}       
+     <div class="large-4 small-12 medium-6 columns panel textCenter" >
+        <a>
+            <i class="fa fa-facebook"></i> Sign in with Facebook
+          </a>
+    </div>
+ {{/if}}   
+ <div class="large-4 small-12 medium-6 columns panel">
+        {{> GamerTimerimer}}
+    </div>    
 </template>
