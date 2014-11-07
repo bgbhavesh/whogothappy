@@ -17,6 +17,7 @@
 
 
 
+HashRouter.add({"route" : "#profile", "template" : "profile"});
 HashRouter.add({"route" : "#score", "template" : "score"});
 HashRouter.add({"route" : "#loger", "template" : "loger"});
 HashRouter.add({"route" : "#login", "template" : "login"});
