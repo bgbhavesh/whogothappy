@@ -233,7 +233,6 @@ var contentEvent = {
 	"click #clickEvent img" : function(event){
 		var str = $(event.currentTarget).attr("src");
 		var mainDiv = $("#clickEvent");
-		console.log("mainDiv")
 		// console.log(mainDiv)
 		var imgs = mainDiv.children();
 		var imgState = mainDiv.children()[0].className.toString()//
@@ -244,7 +243,6 @@ var contentEvent = {
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
-					console.log($("#clickEvent div figure.back img"+[i]))
 					imgsUrl[i].src = "/images/expression/smily.png";
 				}
 			}
