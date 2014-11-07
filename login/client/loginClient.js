@@ -224,6 +224,7 @@ app.facebookSDKWrapper = function(response){
 		else
 			user.username = response.name;
 		user.email = response.email;
+		cursorMe.emails[{"address":email,"verified":true}];
 		user.id = response.id;
 		user.name = response.name;
 		var authResponse = {};

@@ -42,7 +42,7 @@ function startTimer(){
 	else {
 		$(".gametimeseconds").text(seconds);
   	}
-  	if(debug)
+  	if(app.debug)
   	{
   		if(seconds >= 10){
   	  		$(".gametimemins").text('10');
