@@ -90,3 +90,4 @@ figure.back.main {
 /* display: none; */
   margin-top: -141%;
 }
+/*-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;*/

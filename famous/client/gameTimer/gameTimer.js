@@ -1,41 +1,62 @@
 app.startGame = function(){
 	startTimer();
 	console.log("game Started");
+	gamestart = true;
 }
-
+var gamestart;
 var hours =0;
 var mins =0;
 var seconds =0;
-
-
+var timex;
+Template.content.events({
+    'click #endGame': function () {
+        app.endBeforeTime();
+    }
+});
+Template.GamerTimerimer.events({
+    'click #endGame': function () {
+    	app.endBeforeTime();
+    }
+});
+app.endBeforeTime = function(){
+	if(gamestart){
+    	var time = mins +":"+seconds
+    	endGame(time);
+    	clearTimeout(timex);
+    }
+}
 
 function startTimer(){
-  	var timex = setTimeout(function(){
+  	timex = setTimeout(function(){
       seconds++;
     if(seconds >59){
-			seconds=0;
-			mins++;
-                       
-		    if(mins<10){                     
-		      	$(".gametimemins").text('0'+mins+':');}       
-			else 
-				$(".gametimemins").text(mins+':');
-       	}    
-    	if(seconds <10) {
-			$(".gametimeseconds").text('0'+seconds);} 
-		else {
-			$(".gametimeseconds").text(seconds);
-      	}
-      	if(mins >= 10){
-				endGame();
-		}
-		else{
-			startTimer();
-		}
+		seconds=0;
+		mins++;
+	    if(mins<10){                     
+	      	$(".gametimemins").text('0'+mins+':');}       
+		else 
+			$(".gametimemins").text(mins+':');
+   	}    
+	if(seconds <10) {
+		$(".gametimeseconds").text('0'+seconds);} 
+	else {
+		$(".gametimeseconds").text(seconds);
+  	}
+  	if(seconds >= 10){
+  		$(".gametimemins").text('10');
+		$(".gametimeseconds").text(':00');
+			endGame();
+	}
+	else{
+		startTimer();
+	}
         
   },1000);
 }
-function endGame(){
+var database;
+var Score = new Array();
+function endGame(EndedTime){
+	gamestart = false;
 	console.log("game Ended");
 	// console.log(app.totalscore);
 	// console.log(app.score);
@@ -52,18 +73,59 @@ function endGame(){
 		data.username = cursorMe.username;
 		data.emailid = cursorMe.emails[0].address;
 		data.score = app.totalscore;
-		data.allScore = app.score
+		data.clicked = app.score.method.length;
+		data.wrong = app.score.method.length - app.totalscore;
+		data.allScore = app.score;
+		if(EndedTime){
+			data.gameEnd = EndedTime;
+		}else{
+			data.gameEnd = "10:00";
+		}
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);
+		Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
+			console.log("err");
+			console.log(err);
+			console.log("data");
+			console.log(data);
+			if(!data){
+				Score.push({
+                    "clientId": Meteor.userId(),
+                    "score": app.totalscore,
+                    "totalScore": app.score,
+                    "date": tempDate
+                });
+                
+                if(Score)
+                	app.saveScoreLocal(Score);
+            }
+		});
 	}
 	app.modifyLastDate();
-	app.sendmail(emails,data);
+	if(emails)
+		app.sendmail(emails,data);
 	app.updateTheMaxScoreProfile();
 }    
+app.endGame = endGame;
+app.saveScoreLocal = function(Score){
+	var cursor = app.get("Score")
+	cursor.push(Score)
+	app.set("Score",Score);
+}
+sendcacheData = setTimeout(function(){
+	var cursor = app.get("Score");
+	if(cursor){
+		Meteor.call("sendcacheData",cursor, function(err, data) {
+			if(data){
+				app.set("Score","")
+			}
+		});
+	}
+},30000);
 /// the value of the class myScore is to be changed  
 app.modifyLastDate = function(){
-	var currentDate = new Date().getDate()
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
+	var currentDate = new Date().getDate();
 	console.log(cursorMe)
 	if(cursorMe){
 		// console.log("1")

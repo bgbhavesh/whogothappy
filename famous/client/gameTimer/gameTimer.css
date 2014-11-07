@@ -1,3 +1,6 @@
 #gametime div{
 	float: left;
 }
+#endGame a span{
+	transform: rotateZ(180deg);
+}
