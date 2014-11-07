@@ -70,7 +70,10 @@ function endGame(EndedTime){
 	if(cursorMe){
 		data._id = cursorMe._id;
 		data.username = cursorMe.username;
-		data.emailid = cursorMe.emails[0].address;
+		if(cursorMe.emails)
+			data.emailid = cursorMe.emails[0].address;
+		else
+			data.emailid = cursorMe.email;
 		data.score = app.totalscore;
 		data.clicked = app.score.method.length;
 		data.wrong = app.score.method.length - app.totalscore;
