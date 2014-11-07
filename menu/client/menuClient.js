@@ -69,13 +69,19 @@ Template.menuListPanel.events({
         // console.log(val);
         if(val)
         {
+            val = val.replace(/\s/g, "");
             res1 = val.split(",");
             if(res1){
-                // console.log(res1)
+                console.log(res1)
                 for(var i = 0, il=res1.length;i<il;i++){
-                    ids.push({
-                        "ids": res1[i]
-                    });
+                    // console.log(res1[i])
+                    if(res1[i] == "" || res1[i] == " ")
+                    {}
+                    else{ 
+                        ids.push({
+                            "ids": res1[i]
+                        });
+                    }
                 }
                 Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.emailsToSend":ids}});
                 // var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
