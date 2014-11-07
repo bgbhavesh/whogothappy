@@ -175,6 +175,14 @@ app.loginWithFacebook = function(){
 		app.fbNativeLogin();
 	}
 	else{
+		FB.getLoginStatus(function(response) {
+			if (response.status === 'connected') {
+				app.facebookSDKWrapper(response);
+			}
+			else {
+				FB.login(app.facebookSDKWrapper,{scope: 'email,user_likes'});
+			}
+		});
 		app.visualEffect("loginScreenFacebook",app.onError);
 	} 
 	log("app.loginWithFacebook ended",new Date().getTime() - starttime,arguments,1);
@@ -204,6 +212,10 @@ app.facebookCallback = function(err){
 		app.onSendPushId();
 	} 
 	log("app.facebookCallback ended",new Date().getTime() - starttime,arguments,1);
+}
+
+app.facebookSDKWrapper = function(response){
+	console.log(response);
 }
 
 app.createFacebookUser = function(user,authResponse){ 
