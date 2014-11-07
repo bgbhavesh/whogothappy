@@ -39,7 +39,7 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = cursorMe.profile.emailsToSend;
-            console.log(list)
+            // console.log(list)
             return list;
         }
     }
@@ -72,10 +72,10 @@ Template.menuListPanel.events({
         {
             res1 = val.split(",");
             if(res1){
-                console.log(res1)
+                // console.log(res1)
                 for(var i = 0, il=res1.length;i<il;i++){
                     ids.push({
-                        "ids": res1[i].replace(" ","").replace(" ","").replace(" ","").replace(" ","").replace(" ","")
+                        "ids": res1[i]
                     });
                 }
                 Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.emailsToSend":ids}});
