@@ -49,9 +49,13 @@
                     <lable class="large-2 small-2 medium-2 columns maxScore ">{{profile.maxScore}}</lable>
                 </a>
             </li>
+            <li class="textRight">
+                <lable class="large-2 small-2 medium-2 columns">Email</lable>
+                <lable class="large-10 small-10 medium-10 columns">{{myEmail}}</lable>
+            </li>
         </ul>  
     </div>
-    <div class="large-4 small-12 medium-6 columns panel textCenter">
+    <div class="large-4 small-12 medium-6 columns panel">
         <label>Email my wife
                  <textarea id="getEmails" placeholder="" value="">{{#each list}}{{ids}},{{/each}}</textarea>
         </label>

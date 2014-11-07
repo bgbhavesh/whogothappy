@@ -18,6 +18,14 @@ Template.menuListPanel.helpers({
         // app.updateTheProfile();
         return Meteor.userId();
     },
+    myEmail : function(){
+        // app.updateTheProfile();
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe){
+            var list = cursorMe.emails[0].address;
+        }
+        return list;
+    },
     myusername : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
