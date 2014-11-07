@@ -43,8 +43,11 @@
 .height40{
     height: 40px;
 }
+.scrolly .panel{
+    float: none;
+}
 .scrolly{
-    height: 70px !important;
+    height: 195px !important;
     -webkit-height: 100% !important;
     -webkit-overflow-scrolling: touch !important;
     -webkit-overflow-y: scroll!important;
