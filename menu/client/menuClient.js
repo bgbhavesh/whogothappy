@@ -31,7 +31,6 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = cursorMe.profile.emailsToSend;
-            console.log(list)
             return list;
         }
     }

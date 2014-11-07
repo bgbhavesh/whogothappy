@@ -76,10 +76,10 @@ figure{
   /*width: 100%;*/
 }
 .card .front {
-  background: red;
+
 }
 .card .back {
-  background: blue;
+  
   transform: rotateY( 180deg );
 }
 .card.flipped {
