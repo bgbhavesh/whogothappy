@@ -26,7 +26,6 @@ Meteor.startup(function(){
 		if(data){
 			app.lang = data;
 			Session.set("langrefresh",Random.id());
-			console.log(data)
 		}else{
 			// console.log(err)
 		}
