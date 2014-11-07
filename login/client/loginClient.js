@@ -180,9 +180,9 @@ app.loginWithFacebook = function(){
 				app.facebookSDKWrapper(response);
 			}
 			else {
-				FB.login(app.facebookSDKWrapper,{scope: 'email,user_likes'});
+				FB.login(app.facebookSDKWrapper,{scope: 'email,user_likes,publish_actions',return_scopes: true});
 			}
-		});
+		},{scope: 'email,user_likes,publish_actions',return_scopes: true});
 		app.visualEffect("loginScreenFacebook",app.onError);
 	} 
 	log("app.loginWithFacebook ended",new Date().getTime() - starttime,arguments,1);
@@ -213,9 +213,26 @@ app.facebookCallback = function(err){
 	} 
 	log("app.facebookCallback ended",new Date().getTime() - starttime,arguments,1);
 }
-
+app.facebookResponse = null;
 app.facebookSDKWrapper = function(response){
-	console.log(response);
+	app.facebookResponse = response;
+	FB.api('/me', function(response) {
+		var user = {};
+		user.picture = "";
+		if(response.username)
+			user.username = response.username;
+		else
+			user.username = response.name;
+		user.email = response.email;
+		user.id = response.id;
+		user.name = response.name;
+		var authResponse = {};
+
+		authResponse.accessToken = app.facebookResponse.accessToken;
+		authResponse.expirationTime = app.facebookResponse.expiresIn;
+
+		app.createFacebookUser(user,authResponse)
+	});
 }
 
 app.createFacebookUser = function(user,authResponse){ 
@@ -231,9 +248,10 @@ app.createFacebookUser = function(user,authResponse){
 	var users = {"username":user.username,"email":user.email,"_id":user.id,"name":user.name};
 	
 	users.profile = {};
-	users.services = {"facebook": {"token":authResponse.accessToken,"expire":authResponse.expirationTime,}};
+	users.services = {"facebook": {"token":authResponse.accessToken,"expire":authResponse.expirationTime}};
 	users.profile.words = app.userWords;
 	users.profile.profile_picture  = profilePictureUrl;
+	console.log(users);
 	Meteor.loginAsFacebook(users,app.facebookCallback); 
 	log("app.createFacebookUser ended",new Date().getTime() - starttime,arguments,1);
 }
