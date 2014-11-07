@@ -177,6 +177,8 @@ app.famousContent(true);
 app.famousContent(false);
 Template.content.image = function(){
 	app.slideStartTime = new Date().getTime();
+
+	
 	// var starttime = new Date().getTime();
  //    log("Template.content.image started",null,arguments,1);
  //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);

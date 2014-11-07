@@ -42,29 +42,14 @@ function startTimer(){
 	else {
 		$(".gametimeseconds").text(seconds);
   	}
-  	if(debug)
-  	{
-  		if(seconds >= 10){
-  	  		$(".gametimemins").text('10');
-  			$(".gametimeseconds").text(':00');
-  				endGame();
-  		}
-  		else{
-  			startTimer();
-  		}
-  	}
-  	else
-  	{
-  		if(mins >= 10){
-  	  		$(".gametimemins").text('10');
-  			$(".gametimeseconds").text(':00');
-  				endGame();
-  		}
-  		else{
-  			startTimer();
-  		}
-  	}
-        
+	if(mins >= 10){
+  		$(".gametimemins").text('10');
+		$(".gametimeseconds").text(':00');
+			endGame();
+	}
+	else{
+		startTimer();
+	}  
   },1000);
 }
 var database;
