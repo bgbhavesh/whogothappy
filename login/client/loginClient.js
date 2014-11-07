@@ -252,7 +252,6 @@ app.createFacebookUser = function(user,authResponse){
 	users.services = {"facebook": {"token":authResponse.accessToken,"expire":authResponse.expirationTime}};
 	users.profile.words = app.userWords;
 	users.profile.profile_picture  = profilePictureUrl;
-	console.log(users);
 	Meteor.loginAsFacebook(users,app.facebookCallback); 
 	log("app.createFacebookUser ended",new Date().getTime() - starttime,arguments,1);
 }
