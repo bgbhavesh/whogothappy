@@ -39,6 +39,10 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = cursorMe.profile.emailsToSend;
+<<<<<<< HEAD
+            // console.log(list)
+=======
+>>>>>>> f66cacd67405a59b27048ced21b1adde71f47af9
             return list;
         }
     }
