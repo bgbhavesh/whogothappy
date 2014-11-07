@@ -344,3 +344,11 @@ app.animateFamouseFourth = function(){
     	});
     }
 }
+app.addFixedSizeImg = function(){
+	var widthWidow = $(window).width();
+	widthWidow = widthWidow - 110;
+	var eachImg = widthWidow/4;
+	console.log(eachImg)
+	// $(".card").css("width",eachImg);
+	$(".card").css("height",eachImg);
+}

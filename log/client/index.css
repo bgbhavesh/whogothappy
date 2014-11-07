@@ -4,6 +4,9 @@
     color: black !important;
     background-color: none;
 }
+.whiteText{
+    color: white !important;
+}
 .famous-container{
 	/*position: relative !important;*/
 }
