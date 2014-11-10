@@ -1,0 +1,100 @@
+# we're in the http context here
+map $http_upgrade $connection_upgrade {
+    default upgrade;
+    ''      close;
+}
+
+
+# the Meteor / Node.js app server
+server {
+    listen 80;
+    server_name whogothappy.com;
+
+    location / {
+        proxy_pass http://localhost:8000;
+        proxy_set_header X-Real-IP $remote_addr;  # http://wiki.nginx.org/HttpProxyModule
+        proxy_set_header Host $host;  # pass the host header - http://wiki.nginx.org/HttpProxyModule#proxy_pass
+        proxy_http_version 1.1;  # recommended with keepalive connections - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version
+        # WebSocket proxying - from http://nginx.org/en/docs/http/websocket.html
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+    }
+
+}
+
+# the Meteor / Node.js app server
+server {
+    listen 80;
+    server_name hashrepublic.com;
+
+    location / {
+        proxy_pass http://localhost:4000;
+        proxy_set_header X-Real-IP $remote_addr;  # http://wiki.nginx.org/HttpProxyModule
+        proxy_set_header Host $host;  # pass the host header - http://wiki.nginx.org/HttpProxyModule#proxy_pass
+        proxy_http_version 1.1;  # recommended with keepalive connections - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version
+        # WebSocket proxying - from http://nginx.org/en/docs/http/websocket.html
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+    }
+
+}
+
+# the Meteor / Node.js app server
+server {
+    listen 80;
+    server_name 128.199.196.222;
+
+    location / {
+        proxy_pass http://localhost:3000;
+        proxy_set_header X-Real-IP $remote_addr;  # http://wiki.nginx.org/HttpProxyModule
+        proxy_set_header Host $host;  # pass the host header - http://wiki.nginx.org/HttpProxyModule#proxy_pass
+        proxy_http_version 1.1;  # recommended with keepalive connections - http://nginx.org/en/docs/http/ngx_http_proxy_module.html#proxy_http_version
+        # WebSocket proxying - from http://nginx.org/en/docs/http/websocket.html
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection $connection_upgrade;
+    }
+
+}
+
+//old
+
+server {
+    listen   80;
+    server_name tapmate.youiest.com;
+
+    access_log  off;
+
+    location / {
+        proxy_pass http://127.0.0.1:3000;
+        proxy_set_header Host $http_host;
+    }
+}
+
+server {
+    listen   80;
+    server_name hashrepublic.com;
+
+    access_log  off;
+
+    location / {
+        proxy_pass http://127.0.0.1:4000;
+        proxy_set_header Host $http_host;
+    }
+}
+
+server {
+    listen   80;
+    server_name sixteensmiles.com;
+
+    access_log  off;
+
+    location / {
+        proxy_pass http://127.0.0.1:5000;
+        proxy_set_header Host $http_host;
+    }
+}
+
+
+
+//whogothappy.com
+//http://hashrepublic.com/
