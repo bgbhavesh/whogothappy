@@ -17,11 +17,6 @@ Template.login.events({
 });
 
 
-
-
-
-
-
 app.user = null;
 app.user = app.get("user");
 app.beforeInfo = null;
@@ -55,31 +50,7 @@ app.logout = function(){
 // $("#goToRegister").bind("click",function(){app.setRoute("#register");});
 
 
-app.nonRegisterUser = function(){ 
-	var starttime = new Date().getTime();
-    log("app.nonRegisterUser started",null,arguments,1);
-	app.get("nonuser");
-	var date1 = app.get("nonuser");
-	if(!date1){
-		date1 = new Date();
-		app.set("nonuser",date1.toString());
-	}
-	else{
-		date1 = new Date(date1.toString());
-	}
-	var date2 = new Date();
-	var timeDiff = Math.abs(date2.getTime() - date1.getTime());
-	var diffDays = Math.ceil(timeDiff / (1000 * 3600 * 24));
-	app.nonuser = diffDays;
-	if(app.nonuser > 29 && !app.user){
-		alert("Please register!");
-	}
-	log("The user is " +diffDays +" old."); 
-	log("app.nonRegisterUser ended",new Date().getTime() - starttime,arguments,1);
-}
 
-
-app.nonRegisterUser();
 
 
 

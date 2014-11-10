@@ -19,7 +19,6 @@ email@1.0.4
 fastclick@1.0.1
 follower-livedata@1.0.2
 geojson-utils@1.0.1
-hashrouter@1.0.0
 html-tools@1.0.2
 htmljs@1.0.2
 http@1.0.7
@@ -39,6 +38,7 @@ minimongo@1.0.4
 mobile-status-bar@1.0.1
 mongo-livedata@1.0.6
 mongo@1.0.7
+nicolsondsouza:hashrouter@1.0.0
 npm-bcrypt@0.7.7
 observe-sequence@1.0.3
 ordered-dict@1.0.1
