@@ -89,3 +89,11 @@ figure{
 /* transition types*/
 
 /*-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;*/
+#famousSquare{
+  padding-left: 0!important;
+  padding-right: 0 !important;
+}
+#clickEvent{
+  padding-left: 0!important;
+  padding-right: 0 !important;
+}
