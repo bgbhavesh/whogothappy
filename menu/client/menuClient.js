@@ -45,6 +45,14 @@ Template.menuListPanel.helpers({
             var list = cursorMe.profile.emailsToSend;
             return list;
         }
+    },
+    "welcome" : function(){
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe){
+            return "Welcome back";
+        }
+        else
+        return "Hi, " 
     }
 })
  
