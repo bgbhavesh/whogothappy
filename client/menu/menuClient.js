@@ -61,6 +61,9 @@ Template.menuListPanel.helpers({
             var uname = cursorMe.username;
             window.open("http://www.facebook.com/"+uname);
         }
+    },
+    "click #inviteFriends" : function(){
+        return app.inviteFriends();
     }
     
 });
@@ -106,3 +109,12 @@ Template.menuListPanel.events({
 //     // });
     
 // });
+
+app.inviteFriends = function(){
+    return FB.ui({method: 'apprequests',
+      message: Meteor.user().username +' chanllenges you on sixteensmiles',
+      // to : ["532514594","1797896033","100000488108267","100000440278021"] //still the browser opens in a popup.
+    }, function(response){
+        console.log(response);
+    });
+}
