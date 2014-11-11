@@ -2,12 +2,14 @@ app.startGame = function(){
 	startTimer();
 	console.log("game Started");
 	gamestart = true;
+	app.getGameTimer()
 }
 var gamestart;
 var hours =0;
 var mins =0;
 var seconds =0;
 var timex;
+app.extraPoints  = 0;
 Template.content.events({
     'click #endGame': function () {
         app.endBeforeTime();
@@ -25,7 +27,43 @@ app.endBeforeTime = function(){
     	clearTimeout(timex);
     }
 }
-
+app.getGameTimer = function(){
+	app.totalscore = 0;
+	var cursorMe = Meteor.user()
+	if(cursorMe)
+	{
+		if(cursorMe.profile){
+			if(cursorMe.profile.currentDate){
+				var currentDate = new Date().getDate()
+				if(cursorMe.profile.currentDate != currentDate){
+					var currentHour = new Date().getHours();
+					if(currentHour < 6){
+						// app.extraPoints += 4
+						app.totalscore += 5;
+					}
+				}else{
+					var currentHour = new Date().getHours();
+					if(currentHour < 9){
+						var alarmflag = app.get("alarmflag");
+						if(alarmflag){
+							if(alarmflag != currentDate){
+								console.log("getGameTimer if")
+								// app.extraPoints += 4
+								app.totalscore += 5;
+								app.set("alarmflag",currentDate);
+							}
+						}else{
+							console.log("getGameTimer else ")
+							// app.extraPoints += 4
+							app.totalscore += 5;
+							app.set("alarmflag",currentDate);
+						}
+					}
+				}
+			}
+		}
+	}
+}
 function startTimer(){
   	timex = setTimeout(function(){
       seconds++;

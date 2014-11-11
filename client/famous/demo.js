@@ -275,7 +275,7 @@ var contentEvent = {
 			// event.target.src = "/images/expression/smily.png"
 			if(app.score.method){
 				if(app.score.method.length!=0){
-					if(totalTime<2501){
+					if(totalTime<3501){
 						result = 1;
 					}else{
 						result = 0.5;
