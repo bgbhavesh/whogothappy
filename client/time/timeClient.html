@@ -1,0 +1,20 @@
+<template name="timeCount">
+		{{> timeShow}}
+        {{> countDownShow}}
+</template>
+<template name="timeShow">
+	<div class="large-12 small-12 medium-12 columns daTe panel">
+            <div class=" textCenter">
+                <div id="timeView"><h2></h2></div>
+                <div id="dateView"></div>                
+            </div>
+        </div>
+</template>
+<template name="countDownShow">
+	<div class="large-12 small-12 medium-12  columns countDown panel">
+            <div class=" textCenter">
+                <div id="countDownText"> Game will be started in</div>
+                <div id="countDown"><h2></h2></div>
+            </div>
+        </div>
+</template>

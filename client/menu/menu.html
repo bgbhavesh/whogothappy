@@ -1,0 +1,85 @@
+<template name="menuListPanel">
+	<!-- <div class="large-4 small-12 medium-6 columns panel">
+        <ul id="MenuRole" class="off-canvas-list">
+            <li class=""><label>Menu</label></li>
+        {{#if user}}
+            <li><a href="" id="OpenProfile">hi {{myusername}}</a></li>
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#home">home</a></li>
+            <li><a href="#login" id="LogoutApp">Logout</a></li>
+        {{else}}
+            <li><a href="#admin">Admin</a></li>
+            <li><a href="#users">Users</a></li>
+            <li><a href="#home">home</a></li>
+            <li><a href="#login">login</a></li>
+         {{/if}}       
+        </ul>  
+    </div> -->
+  <!--   <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#admin">Admin</a>
+    </div>
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#users">Users</a>
+    </div>
+    <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#home">Home</a>
+    </div>  -->            
+{{#if user}}
+    <!-- <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#login" id="LogoutApp">Logout</a>
+    </div> -->
+    <!-- <div class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#login" id="LogoutApp">Not you?</a>
+    </div> -->
+         
+    <div class="large-12 small-12 medium-12 columns panel">
+        <ul id="" class="off-canvas-list">
+                <li><a href="" id="OpenProfile">{{welcome}} {{myusername}}</a></li>
+            <li><a href="#" id="LogoutApp">Not you?</a></li>
+            <li>
+                <a href="#" class="height40">
+                    <lable class="large-10 small-10 medium-10 columns ">Days in a Row</lable>
+                    <lable class="large-2 small-2 medium-2 columns playContinuty ">{{profile.playContinuty}}</lable>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="height40">
+                    <lable class="large-10 small-10 medium-10 columns">Last seen</lable>
+                    <lable class="large-2 small-2 medium-2 columns ">{{profile.lastPlayed}}</lable>
+                </a>
+            </li>
+            <li>
+                <a href="#" class="height40">
+                    <lable class="large-10 small-10 medium-10 columns">Max Score</lable>
+                    <lable class="large-2 small-2 medium-2 columns maxScore ">{{profile.maxScore}}</lable>
+                </a>
+            </li>
+            <li class="textRight">
+                <a href="#" class="height40">
+                    <lable class="large-2 small-2 medium-2 columns">Email:</lable>
+                    <lable class="large-10 small-10 medium-10 columns">{{myEmail}}</lable>
+                </a>                
+            </li>
+        </ul>  
+    </div>
+    <div class="large-12 small-12 medium-12 columns panel">
+        <label><h5>Challange Someone!</h5>To invite and share.
+            <textarea id="getEmails" placeholder="Enter emails..." value="">{{#each list}}{{ids}},{{/each}}</textarea>
+        </label>
+            Facebook invite.
+    </div>
+{{else}}
+    <!-- <div id="loginScreenFacebook" class="large-4 small-12 medium-6 columns panel textCenter">
+        <a href="#">Login</a>
+    </div> -->
+     <div id="loginScreenFacebook" class="large-12 small-12 medium-12 columns panel textCenter" >
+        <a>
+            <i class="fa fa-facebook"></i> Sign in with Facebook
+        </a>
+    </div>
+ {{/if}}   
+ <div class="large-12 small-12 medium-12 columns panel">
+        {{> GamerTimerimer}}
+    </div>    
+</template>
