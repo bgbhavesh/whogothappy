@@ -5,12 +5,6 @@ app.getTextAreaEmails = function(){
         var res = emails.split(",");
         return(res);
     }
-	// var emailIdsemails;
-	// for (i=0;li=res.length,i<li;i++){
-	// 	emailIdsemails = res[0].split(" ");
-	// }
-	// console.log(emailIdsemails);
-	
 }
 
 Template.menuListPanel.helpers({
@@ -34,7 +28,6 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var uname = cursorMe.username;
-            // console.log(uname)
             app.updateTheProfile();
             return uname;
         }
@@ -48,7 +41,8 @@ Template.menuListPanel.helpers({
     },
     "welcome" : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        if(cursorMe){
+        var preDate = cursorMe.profile.currentDate; 
+        if(preDate == new Date().getDate()){
             return "Welcome back";
         }
         else
