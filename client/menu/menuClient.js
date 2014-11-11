@@ -41,8 +41,8 @@ Template.menuListPanel.helpers({
     },
     "welcome" : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        var preDate = cursorMe.profile.currentDate; 
-        if(preDate == new Date().getDate()){
+        var preDate = cursorMe.profile.maxScore;  
+        if(cursorMe.profile.maxScore > 0){
             return "Welcome back";
         }
         else
@@ -66,6 +66,17 @@ Template.menuListPanel.helpers({
     },
     "click #inviteFriends" : function(){
         return app.inviteFriends();
+    },
+    "click .Challange h5" : function(){
+        var disp = $("#inviteFriends").css("display");
+        if(disp == "none"){
+            $(".Challange label").css("display","block");
+            $("#inviteFriends").css("display","block");            
+        }
+        else{
+            $(".Challange label").css("display","none");
+            $("#inviteFriends").css("display","none");               
+        }
     }
     
 });
