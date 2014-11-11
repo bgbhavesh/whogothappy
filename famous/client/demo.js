@@ -233,6 +233,7 @@ var contentEvent = {
 	"click #clickEvent img" : function(event){
 		var str = $(event.currentTarget).attr("src");
 		var mainDiv = $("#clickEvent");
+		var joySrc = "";
 		// console.log(mainDiv)
 		var imgs = mainDiv.children();
 		var imgState = mainDiv.children()[0].className.toString()//
@@ -243,7 +244,11 @@ var contentEvent = {
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
+					joySrc = imgsUrl[i].src;
 					imgsUrl[i].src = "/images/expression/smily.png";
+					setTimeout(function(){
+						app.changeFace(joySrc);
+					},500);
 				}
 			}
 		}else{
@@ -251,28 +256,39 @@ var contentEvent = {
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
+					joySrc = imgsUrl[i].src;
 					imgsUrl[i].src = "/images/expression/smily.png";
+					setTimeout(function(){
+						app.changeFace(joySrc);
+					},500);
 				}
 			}
 
 		}
-
+		endtime = new Date().getTime()
+		totalTime = endtime - app.slideStartTime;
 		var res = str.match("joy");
-		var delay = 100;
+		var delay = 2000;
 		count--;
+
 		if(res){
 			// event.target.src = "/images/expression/smily.png"
-			result = 1;
-			delay = 200;
-			app.totalscore++;
+			if(app.score.method){
+				if(app.score.method.length!=0){
+					if(totalTime<2501){
+						result = 1;
+					}else{
+						result = 0.5;
+					}
+				}else{
+						result = 1;
+				}
+			}
+			// delay = 2000;
+			app.totalscore = app.totalscore + result;
 		}else{
 			result = 0;
 		}
-		endtime = new Date().getTime()
-		totalTime = endtime - app.slideStartTime;
-		// console.log(app.slideStartTime);
-		// console.log(endtime);
-		// console.log(totalTime);
         app.score.method.push({
             "slideStartTime": app.slideStartTime,
             "endtime": endtime,
@@ -281,16 +297,38 @@ var contentEvent = {
             "extra": ""
         });
 		$(".myScore").text(app.totalscore);
-        app.animateFamousRandom();
+       
         
 		setTimeout(function(){
-			
+			app.animateFamousRandom();
 			if(Session.get("flip"))
 				Session.set("flip","");
 			else
 				Session.set("flip","flipped");
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
+	}
+}
+
+app.changeFace = function(faceSrc){
+	if(Session.get("flip")){
+		var imgsUrl = $("#clickEvent div figure.back img");
+		for(var i=0,il=imgsUrl.length;i<il;i++){
+			var imgSrc = imgsUrl[i].getAttribute("src")
+			if(imgSrc.match("smily")){
+				joySrc = imgsUrl[i].src;
+				imgsUrl[i].src = faceSrc;
+			}
+		}
+	}else{
+		var imgsUrl = $("#clickEvent div figure.front img");
+		for(var i=0,il=imgsUrl.length;i<il;i++){
+			var imgSrc = imgsUrl[i].getAttribute("src")
+			if(imgSrc.match("smily")){
+				imgsUrl[i].src = faceSrc;
+			}
+		}
+
 	}
 }
 Template.firstContent.events(contentEvent);
