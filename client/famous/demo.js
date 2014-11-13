@@ -35,6 +35,9 @@ var images = [
 var expressionImage = [];
 var expressionImageJoy = [];
 
+
+//////////////////////////////////////////closed/////////////////////////////////////
+/*
 expressionImage.push("anger.anger");
 expressionImage.push("anger.disgust");
 expressionImage.push("anger.fear");
@@ -107,26 +110,6 @@ expressionImageJoy.push("neutral.joy");
 expressionImageJoy.push("sadness.joy");
 expressionImageJoy.push("surprise.joy");
 
-// for(var i=0,il=50;i<il;i++){
-// 	var j = app.randomNumber(0,1000);
-// 	expressionImage.push("a"+j);
-// }
-
-
-
-// for(var i=0,il=20;i<il;i++){
-// 	var j = app.randomNumber(0,1000);
-// 	expressionImageJoy.push("joy"+j);
-// }
-
-
-
-
-
-
-
-
-
 var assetManager = new AssetManager();
 var downloadstarttime = new Date().getTime();
 log("Images all downloaded started",downloadstarttime,null,1);
@@ -144,6 +127,40 @@ assetManager.downloadAll(function(){
 });
 // console.log(expressionImageJoy.length); 13
 // console.log(expressionImage.length); 41
+*/
+//////////////////////////////////////////closed/////////////////////////////////////
+
+
+for(var i=0,il=40;i<il;i++){
+	var j = app.randomNumber(1,1000);
+	expressionImage.push("a"+j);
+}
+
+
+
+for(var i=0,il=20;i<il;i++){
+	var j = app.randomNumber(1,110);
+	expressionImageJoy.push("joy"+j);
+}
+
+var assetManager = new AssetManager();
+var downloadstarttime = new Date().getTime();
+log("Images all downloaded started",downloadstarttime,null,1);
+
+
+for(var i=0,il=expressionImage.length;i<il;i++){
+	var image = "/images/pic/" +expressionImage[i]  +".jpg";
+	assetManager.add(Random.id(), image);
+}
+for(var i=0,il=expressionImageJoy.length;i<il;i++){
+	var image = "/images/joy/" +expressionImageJoy[i]  +".jpg";
+	assetManager.add(Random.id(), image);
+}
+assetManager.add(Random.id(),"/images/expression/smily.png")
+assetManager.downloadAll(function(){
+	log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
+});
+
 
 
 
@@ -175,22 +192,22 @@ app.famousContent = function(flip){
 	// if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
 			if(joyFirstRandom == i)
-				oldContent += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif' draggable='false'/>";
+				oldContent += "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 			else
-					oldContent += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif' draggable='false'/>";
+					oldContent += "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			if(!content[i])
 				content[i] = {};
 			if(flip){
 				if(joySecondRandom == i)
-				content[i].second = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif' draggable='false'/>";
+				content[i].second = "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 				else
-					content[i].second = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif' draggable='false'/>";
+					content[i].second = "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			}
 			else{
 				if(joyFirstRandom == i)
-				content[i].first = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif' draggable='false'/>";
+				content[i].first = "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 				else
-					content[i].first = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif' draggable='false'/>";
+					content[i].first = "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			}
 			
 		}
@@ -347,6 +364,8 @@ app.changeFace = function(faceSrc,res){
 				joySrc = imgsUrl[i].src;
 				imgsUrl[i].src = faceSrc;
 				if(!res){
+					imgsUrl[i].style.height = "98%";
+					imgsUrl[i].style.width = "98%";
 					imgsUrl[i].style.border= "solid";
 					imgsUrl[i].style.borderColor = "rgb(158, 158, 26)";
 				}
@@ -359,6 +378,8 @@ app.changeFace = function(faceSrc,res){
 			if(imgSrc.match("smily")){
 				imgsUrl[i].src = faceSrc;
 				if(!res){
+					imgsUrl[i].style.height = "98%";
+					imgsUrl[i].style.width = "98%";
 					imgsUrl[i].style.border= "solid";
 					imgsUrl[i].style.borderColor = "rgb(158, 158, 26)";
 				}
