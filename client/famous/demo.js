@@ -109,6 +109,26 @@ expressionImageJoy.push("neutral.joy");
 expressionImageJoy.push("sadness.joy");
 expressionImageJoy.push("surprise.joy");
 
+// for(var i=0,il=50;i<il;i++){
+// 	var j = app.randomNumber(0,1000);
+// 	expressionImage.push("a"+j);
+// }
+
+
+
+// for(var i=0,il=20;i<il;i++){
+// 	var j = app.randomNumber(0,1000);
+// 	expressionImageJoy.push("joy"+j);
+// }
+
+
+
+
+
+
+
+
+
 var assetManager = new AssetManager();
 var downloadstarttime = new Date().getTime();
 log("Images all downloaded started",downloadstarttime,null,1);
@@ -120,12 +140,19 @@ for(var i=0,il=expressionImageJoy.length;i<il;i++){
 	var image = "/images/expression/" +expressionImageJoy[i]  +".gif";
 	assetManager.add(Random.id(), image);
 }
-	assetManager.add(Random.id(),"/images/expression/smily.jpg")
+assetManager.add(Random.id(),"/images/expression/smily.jpg")
 assetManager.downloadAll(function(){
 	log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
 });
 // console.log(expressionImageJoy.length); 13
 // console.log(expressionImage.length); 41
+
+
+
+
+
+
+
 
 var endtime;
 var totalTime;
@@ -232,6 +259,7 @@ app.getEdgerSwapper = function(){
 var contentEvent = {
 	"click #clickEvent img" : function(event){
 		var str = $(event.currentTarget).attr("src");
+		var res = str.match("joy");
 		var mainDiv = $("#clickEvent");
 		var joySrc = "";
 		// console.log(mainDiv)
@@ -247,7 +275,7 @@ var contentEvent = {
 					joySrc = imgsUrl[i].src;
 					imgsUrl[i].src = "/images/expression/smily.png";
 					setTimeout(function(){
-						app.changeFace(joySrc);
+						app.changeFace(joySrc,res);
 					},500);
 				}
 			}
@@ -259,7 +287,7 @@ var contentEvent = {
 					joySrc = imgsUrl[i].src;
 					imgsUrl[i].src = "/images/expression/smily.png";
 					setTimeout(function(){
-						app.changeFace(joySrc);
+						app.changeFace(joySrc,res);
 					},500);
 				}
 			}
@@ -267,7 +295,6 @@ var contentEvent = {
 		}
 		endtime = new Date().getTime()
 		totalTime = endtime - app.slideStartTime;
-		var res = str.match("joy");
 		var delay = 2000;
 		count--;
 
@@ -310,7 +337,7 @@ var contentEvent = {
 	}
 }
 
-app.changeFace = function(faceSrc){
+app.changeFace = function(faceSrc,res){
 	if(Session.get("flip")){
 		var imgsUrl = $("#clickEvent div figure.back img");
 		for(var i=0,il=imgsUrl.length;i<il;i++){
@@ -318,7 +345,10 @@ app.changeFace = function(faceSrc){
 			if(imgSrc.match("smily")){
 				joySrc = imgsUrl[i].src;
 				imgsUrl[i].src = faceSrc;
-				imgsUrl[i].style.border= "solid";
+				if(!res){
+					imgsUrl[i].style.border= "solid";
+					imgsUrl[i].style.borderColor = "rgb(158, 158, 26)";
+				}
 			}
 		}
 	}else{
@@ -327,7 +357,10 @@ app.changeFace = function(faceSrc){
 			var imgSrc = imgsUrl[i].getAttribute("src")
 			if(imgSrc.match("smily")){
 				imgsUrl[i].src = faceSrc;
-				imgsUrl[i].style.border= "solid";
+				if(!res){
+					imgsUrl[i].style.border= "solid";
+					imgsUrl[i].style.borderColor = "rgb(158, 158, 26)";
+				}
 				// imgsUrl[i].addClass("selectedFace");
 			}
 		}
