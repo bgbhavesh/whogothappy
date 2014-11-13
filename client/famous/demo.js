@@ -150,22 +150,22 @@ app.famousContent = function(flip){
 	// if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
 			if(joyFirstRandom == i)
-				oldContent += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+				oldContent += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif' draggable='false'/>";
 			else
-					oldContent += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+					oldContent += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif' draggable='false'/>";
 			if(!content[i])
 				content[i] = {};
 			if(flip){
 				if(joySecondRandom == i)
-				content[i].second = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+				content[i].second = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif' draggable='false'/>";
 				else
-					content[i].second = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+					content[i].second = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif' draggable='false'/>";
 			}
 			else{
 				if(joyFirstRandom == i)
-				content[i].first = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+				content[i].first = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif' draggable='false'/>";
 				else
-					content[i].first = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+					content[i].first = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif' draggable='false'/>";
 			}
 			
 		}
@@ -230,6 +230,9 @@ app.getEdgerSwapper = function(){
 	return app.edgeswapperNumber;
 }
 var contentEvent = {
+	"slideLeft #clickEvent":function(){
+		console.log("123123132")
+	},
 	"click #clickEvent img" : function(event){
 		var str = $(event.currentTarget).attr("src");
 		var mainDiv = $("#clickEvent");

@@ -43,8 +43,26 @@ $(document).ready(function() {
 
 setInterval(callTime, 1000);
 
+/*  to set the countdown to 9 and 11 am */
+function setTimeForGame(){
+    app.target_date = new Date();
+    if(app.target_date.getHours() > 9 && app.target_date.getHours() < 12)
+    {
+        app.target_date.setHours(11);
+    }
+    else{
+        app.target_date.setHours(9);    
+    }
 
-app.target_date = new Date().getTime("");
+    app.target_date.setMinutes(0);
+    app.target_date.setSeconds(0);
+    // console.log(app.target_date.getHours())
+    app.target_date = app.target_date.getTime("");    
+}
+
+setTimeForGame();
+/*  to set the countdown to 9 and 11 am */
+
 var days, hours, minutes, seconds;
 setInterval(function () {
  
