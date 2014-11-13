@@ -22,7 +22,10 @@ UI.registerHelper("lang", function () {
 
 Meteor.startup(function(){
 	console.log("start lang call")
-	Meteor.call("sendLang",function(err,data){
+	var mylan = navigator.language
+	// console.log(mylan)
+	// var mylan = "fr";
+	Meteor.call("sendLang",mylan,function(err,data){
 		if(data){
 			app.lang = data;
 			Session.set("langrefresh",Random.id());
