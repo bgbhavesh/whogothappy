@@ -93,8 +93,6 @@ expressionImage.push("surprise.surprise");
 // expressionImage.push("surprise.joy");
 
 
-
-
 expressionImageJoy.push("joy.anger");
 expressionImageJoy.push("joy.disgust");
 expressionImageJoy.push("joy.fear");
