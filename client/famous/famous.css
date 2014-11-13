@@ -98,3 +98,7 @@ figure{
   padding-right: 0 !important;
   -webkit-filter: blur(4px);
 }
+.selectedFace{
+    border-style: solid;
+    border-width: 5px;
+}

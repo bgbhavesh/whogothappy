@@ -41,12 +41,15 @@ Template.menuListPanel.helpers({
     },
     "welcome" : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        var preDate = cursorMe.profile.maxScore;  
-        if(cursorMe.profile.maxScore > 0){
-            return "Welcome back";
+        if(cursorMe)
+        if(cursorMe.profile){
+            if(cursorMe.profile.maxScore > 0){
+                var preDate = cursorMe.profile.maxScore;  
+                return "Welcome back";
+            }
+            else
+            return "Hi, " 
         }
-        else
-        return "Hi, " 
     }
 })
  

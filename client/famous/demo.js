@@ -321,6 +321,7 @@ app.changeFace = function(faceSrc){
 			if(imgSrc.match("smily")){
 				joySrc = imgsUrl[i].src;
 				imgsUrl[i].src = faceSrc;
+				imgsUrl[i].style.border= "solid";
 			}
 		}
 	}else{
@@ -329,6 +330,8 @@ app.changeFace = function(faceSrc){
 			var imgSrc = imgsUrl[i].getAttribute("src")
 			if(imgSrc.match("smily")){
 				imgsUrl[i].src = faceSrc;
+				imgsUrl[i].style.border= "solid";
+				// imgsUrl[i].addClass("selectedFace");
 			}
 		}
 
