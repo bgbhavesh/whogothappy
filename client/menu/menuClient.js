@@ -1,20 +1,21 @@
 app.getTextAreaEmails = function(){
 	var emails = $("#getEmails").val();
 	
-    if(res){
+    if(emails){
         var res = emails.split(",");
-        console.log(res)
+        // console.log(res)
         return(res);
     }
 }
 
 Template.menuListPanel.helpers({
     user : function(){
-        // app.updateTheProfile();
         return Meteor.userId();
     },
+    profile : function(){
+        return Meteor.users.findOne({"_id":Meteor.userId()}).profile;;
+    },
     myEmail : function(){
-        // app.updateTheProfile();
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = null;

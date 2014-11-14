@@ -122,8 +122,9 @@ function endGame(EndedTime){
 		}else{
 			data.gameEnd = "10:00";
 		}
+		console.log(data.emailid)
 		if(data.emailid)
-			Meteor.call("genMail",data.emailid,data);
+			Meteor.call("genMail",data.emailid,data);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
 			console.log("err");
 			console.log(err);
