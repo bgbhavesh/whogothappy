@@ -1,12 +1,3 @@
-app.getTextAreaEmails = function(){
-	var emails = $("#getEmails").val();
-	
-    if(res){
-        var res = emails.split(",");
-        return(res);
-    }
-}
-
 Template.menuListPanel.helpers({
     user : function(){
         // app.updateTheProfile();
