@@ -1,25 +1,21 @@
 app.getTextAreaEmails = function(){
 	var emails = $("#getEmails").val();
 	
-    if(res){
+    if(emails){
         var res = emails.split(",");
+        // console.log(res)
         return(res);
     }
-	// var emailIdsemails;
-	// for (i=0;li=res.length,i<li;i++){
-	// 	emailIdsemails = res[0].split(" ");
-	// }
-	// console.log(emailIdsemails);
-	
 }
 
 Template.menuListPanel.helpers({
     user : function(){
-        // app.updateTheProfile();
         return Meteor.userId();
     },
+    profile : function(){
+        return Meteor.users.findOne({"_id":Meteor.userId()}).profile;
+    },
     myEmail : function(){
-        // app.updateTheProfile();
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = null;
@@ -34,7 +30,6 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var uname = cursorMe.username;
-            // console.log(uname)
             app.updateTheProfile();
             return uname;
         }
@@ -48,11 +43,15 @@ Template.menuListPanel.helpers({
     },
     "welcome" : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        if(cursorMe){
-            return "Welcome back";
+        if(cursorMe)
+        if(cursorMe.profile){
+            if(cursorMe.profile.maxScore > 0){
+                var preDate = cursorMe.profile.maxScore;  
+                return "Welcome back";
+            }
+            else
+            return "Hi, " 
         }
-        else
-        return "Hi, " 
     }
 })
  
@@ -76,6 +75,17 @@ Template.menuListPanel.helpers({
     },
     "click #inviteFriends" : function(){
         return app.inviteFriends();
+    },
+    "click .Challange h5" : function(){
+        var disp = $("#inviteFriends").css("display");
+        if(disp == "none"){
+            $(".Challange label").css("display","block");
+            $("#inviteFriends").css("display","block");            
+        }
+        else{
+            $(".Challange label").css("display","none");
+            $("#inviteFriends").css("display","none");               
+        }
     }
     
 });
@@ -93,7 +103,7 @@ Template.menuListPanel.events({
             if(res1){
                 console.log(res1)
                 for(var i = 0, il=res1.length;i<il;i++){
-                    // console.log(res1[i])
+                    console.log(res1[i])
                     if(res1[i] == "" || res1[i] == " ")
                     {}
                     else{ 

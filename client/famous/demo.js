@@ -35,6 +35,9 @@ var images = [
 var expressionImage = [];
 var expressionImageJoy = [];
 
+
+//////////////////////////////////////////closed/////////////////////////////////////
+/*
 expressionImage.push("anger.anger");
 expressionImage.push("anger.disgust");
 expressionImage.push("anger.fear");
@@ -93,8 +96,6 @@ expressionImage.push("surprise.surprise");
 // expressionImage.push("surprise.joy");
 
 
-
-
 expressionImageJoy.push("joy.anger");
 expressionImageJoy.push("joy.disgust");
 expressionImageJoy.push("joy.fear");
@@ -120,12 +121,53 @@ for(var i=0,il=expressionImageJoy.length;i<il;i++){
 	var image = "/images/expression/" +expressionImageJoy[i]  +".gif";
 	assetManager.add(Random.id(), image);
 }
-	assetManager.add(Random.id(),"/images/expression/smily.jpg")
+assetManager.add(Random.id(),"/images/expression/smily.jpg")
 assetManager.downloadAll(function(){
 	log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
 });
 // console.log(expressionImageJoy.length); 13
 // console.log(expressionImage.length); 41
+*/
+//////////////////////////////////////////closed/////////////////////////////////////
+
+
+for(var i=0,il=40;i<il;i++){
+	var j = app.randomNumber(1,1000);
+	expressionImage.push("a"+j);
+}
+
+
+
+for(var i=0,il=20;i<il;i++){
+	var j = app.randomNumber(1,110);
+	expressionImageJoy.push("joy"+j);
+}
+
+var assetManager = new AssetManager();
+var downloadstarttime = new Date().getTime();
+log("Images all downloaded started",downloadstarttime,null,1);
+
+
+for(var i=0,il=expressionImage.length;i<il;i++){
+	var image = "/images/pic/" +expressionImage[i]  +".jpg";
+	assetManager.add(Random.id(), image);
+}
+for(var i=0,il=expressionImageJoy.length;i<il;i++){
+	var image = "/images/joy/" +expressionImageJoy[i]  +".jpg";
+	assetManager.add(Random.id(), image);
+}
+assetManager.add(Random.id(),"/images/expression/smily.png")
+assetManager.downloadAll(function(){
+	log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
+});
+
+
+
+
+
+
+
+
 
 var endtime;
 var totalTime;
@@ -150,22 +192,22 @@ app.famousContent = function(flip){
 	// if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
 			if(joyFirstRandom == i)
-				oldContent += "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+				oldContent += "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 			else
-					oldContent += "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+					oldContent += "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			if(!content[i])
 				content[i] = {};
 			if(flip){
 				if(joySecondRandom == i)
-				content[i].second = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+				content[i].second = "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 				else
-					content[i].second = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+					content[i].second = "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			}
 			else{
 				if(joyFirstRandom == i)
-				content[i].first = "<img src='/images/expression/" +expressionImageJoy[app.randomNumber(0,12)]  +".gif'/>";
+				content[i].first = "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 				else
-					content[i].first = "<img src='/images/expression/" +expressionImage[app.randomNumber(0,36)]  +".gif'/>";
+					content[i].first = "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			}
 			
 		}
@@ -230,9 +272,14 @@ app.getEdgerSwapper = function(){
 	return app.edgeswapperNumber;
 }
 var contentEvent = {
+	"slideLeft #clickEvent":function(){
+		console.log("123123132")
+	},
 	"click #clickEvent img" : function(event){
 		var str = $(event.currentTarget).attr("src");
+		var res = str.match("joy");
 		var mainDiv = $("#clickEvent");
+		var joySrc = "";
 		// console.log(mainDiv)
 		var imgs = mainDiv.children();
 		var imgState = mainDiv.children()[0].className.toString()//
@@ -243,7 +290,11 @@ var contentEvent = {
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
+					joySrc = imgsUrl[i].src;
 					imgsUrl[i].src = "/images/expression/smily.png";
+					setTimeout(function(){
+						app.changeFace(joySrc,res);
+					},500);
 				}
 			}
 		}else{
@@ -251,28 +302,38 @@ var contentEvent = {
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
+					joySrc = imgsUrl[i].src;
 					imgsUrl[i].src = "/images/expression/smily.png";
+					setTimeout(function(){
+						app.changeFace(joySrc,res);
+					},500);
 				}
 			}
 
 		}
-
-		var res = str.match("joy");
-		var delay = 100;
+		endtime = new Date().getTime()
+		totalTime = endtime - app.slideStartTime;
+		var delay = 2000;
 		count--;
+
 		if(res){
 			// event.target.src = "/images/expression/smily.png"
-			result = 1;
-			delay = 200;
-			app.totalscore++;
+			if(app.score.method){
+				if(app.score.method.length!=0){
+					if(totalTime<3501){
+						result = 1;
+					}else{
+						result = 0.5;
+					}
+				}else{
+						result = 1;
+				}
+			}
+			// delay = 2000;
+			app.totalscore = app.totalscore + result;
 		}else{
 			result = 0;
 		}
-		endtime = new Date().getTime()
-		totalTime = endtime - app.slideStartTime;
-		// console.log(app.slideStartTime);
-		// console.log(endtime);
-		// console.log(totalTime);
         app.score.method.push({
             "slideStartTime": app.slideStartTime,
             "endtime": endtime,
@@ -281,16 +342,51 @@ var contentEvent = {
             "extra": ""
         });
 		$(".myScore").text(app.totalscore);
-        app.animateFamousRandom();
+       
         
 		setTimeout(function(){
-			
+			app.animateFamousRandom();
 			if(Session.get("flip"))
 				Session.set("flip","");
 			else
 				Session.set("flip","flipped");
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
+	}
+}
+
+app.changeFace = function(faceSrc,res){
+	if(Session.get("flip")){
+		var imgsUrl = $("#clickEvent div figure.back img");
+		for(var i=0,il=imgsUrl.length;i<il;i++){
+			var imgSrc = imgsUrl[i].getAttribute("src")
+			if(imgSrc.match("smily")){
+				joySrc = imgsUrl[i].src;
+				imgsUrl[i].src = faceSrc;
+				if(!res){
+					imgsUrl[i].style.height = "98%";
+					imgsUrl[i].style.width = "98%";
+					imgsUrl[i].style.border= "solid";
+					imgsUrl[i].style.borderColor = "rgb(158, 158, 26)";
+				}
+			}
+		}
+	}else{
+		var imgsUrl = $("#clickEvent div figure.front img");
+		for(var i=0,il=imgsUrl.length;i<il;i++){
+			var imgSrc = imgsUrl[i].getAttribute("src")
+			if(imgSrc.match("smily")){
+				imgsUrl[i].src = faceSrc;
+				if(!res){
+					imgsUrl[i].style.height = "98%";
+					imgsUrl[i].style.width = "98%";
+					imgsUrl[i].style.border= "solid";
+					imgsUrl[i].style.borderColor = "rgb(158, 158, 26)";
+				}
+				// imgsUrl[i].addClass("selectedFace");
+			}
+		}
+
 	}
 }
 Template.firstContent.events(contentEvent);
