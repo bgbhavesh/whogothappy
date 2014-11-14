@@ -97,6 +97,7 @@ figure{
   padding-left: 0!important;
   padding-right: 0 !important;
   -webkit-filter: blur(4px);
+  background-color: white;
 }
 .selectedFace{
     border-style: solid;
