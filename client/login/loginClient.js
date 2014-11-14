@@ -141,21 +141,23 @@ app.loginWithFacebook = function(){
 	var starttime = new Date().getTime();
     log("app.loginWithFacebook started",null,arguments,1);
 	app.visualEffect("loginScreenFacebook",app.onLoad);
-	if(app.phonegap){
-		app.fbInit();
-		app.fbNativeLogin();
-	}
-	else{
-		FB.getLoginStatus(function(response) {
-			if (response.status === 'connected') {
-				app.facebookSDKWrapper(response);
-			}
-			else {
-				FB.login(app.facebookSDKWrapper,{scope: 'email,user_likes,publish_actions',return_scopes: true});
-			}
-		},{scope: 'email,user_likes,publish_actions',return_scopes: true});
-		app.visualEffect("loginScreenFacebook",app.onError);
-	} 
+	app.fbInit();
+	app.fbNativeLogin();
+	// if(!app.phonegap){
+	// 	app.fbInit();
+	// 	app.fbNativeLogin();
+	// }
+	// else{
+	// 	FB.getLoginStatus(function(response) {
+	// 		if (response.status === 'connected') {
+	// 			app.facebookSDKWrapper(response);
+	// 		}
+	// 		else {
+	// 			FB.login(app.facebookSDKWrapper,{scope: 'email,user_likes,publish_actions',return_scopes: true});
+	// 		}
+	// 	},{scope: 'email,user_likes,publish_actions',return_scopes: true});
+	// 	app.visualEffect("loginScreenFacebook",app.onError);
+	// } 
 	log("app.loginWithFacebook ended",new Date().getTime() - starttime,arguments,1);
 }
 Meteor.loginAsFacebook = function(options, callback) { 
@@ -186,6 +188,7 @@ app.facebookCallback = function(err){
 }
 app.facebookResponse = null;
 app.facebookSDKWrapper = function(response){
+	console.log(response)
 	app.facebookResponse = response;
 	FB.api('/me', function(response) {
 		var user = {};
@@ -208,6 +211,8 @@ app.facebookSDKWrapper = function(response){
 }
 
 app.createFacebookUser = function(user,authResponse){ 
+	console.log(user);
+	console.log(authResponse);
 	var starttime = new Date().getTime();
     log("app.createFacebookUser started",null,arguments,1);
 	var profilePictureUrl = null;

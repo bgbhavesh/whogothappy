@@ -7,8 +7,8 @@ Accounts.registerLoginHandler("myFacebook",function(options) {
     if(!user) {
         options.userId = userId = Meteor.users.insert(options);
     } else {
-        delete options._id;
-        Meteor.users.update({"_id": user._id},{$set : options});
+        // delete options._id;
+        // Meteor.users.update({"_id": user._id},{$set : options});
         options.userId = userId = user._id;
     }
 

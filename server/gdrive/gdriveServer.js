@@ -22,7 +22,7 @@ app.language.en ={};
 
 Meteor.methods({
 	"sendLang" : function(lan){
-			console.log("fr")
+			// console.log("fr")
 			var fut = new Future(); 
 	       	var my_sheet = new GoogleSpreadsheet('1Sn3TQLUaILVjp5KMy1cvDsfaH3ISUtkHAUg7VmMsAj8');
 			my_sheet.getRows( 1, function(err, row_data){
@@ -46,7 +46,7 @@ Meteor.methods({
 					}
 					
 				}
-				console.log(app.language.en)
+				// console.log(app.language.en)
 				fut.return(app.language.en)
 			});
 			return fut.wait();

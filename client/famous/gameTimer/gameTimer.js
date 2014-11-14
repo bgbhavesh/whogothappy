@@ -80,7 +80,7 @@ function startTimer(){
 	else {
 		$(".gametimeseconds").text(seconds);
   	}
-  	if(mins >= 10){
+  	if(seconds >= 10){
   		$(".gametimemins").text('10');
 		$(".gametimeseconds").text(':00');
 			endGame();

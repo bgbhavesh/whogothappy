@@ -149,14 +149,14 @@ log("Images all downloaded started",downloadstarttime,null,1);
 
 
 for(var i=0,il=expressionImage.length;i<il;i++){
-	var image = "/images/pic/" +expressionImage[i]  +".jpg";
+	var image = "./images/pic/" +expressionImage[i]  +".jpg";
 	assetManager.add(Random.id(), image);
 }
 for(var i=0,il=expressionImageJoy.length;i<il;i++){
-	var image = "/images/joy/" +expressionImageJoy[i]  +".jpg";
+	var image = "./images/joy/" +expressionImageJoy[i]  +".jpg";
 	assetManager.add(Random.id(), image);
 }
-assetManager.add(Random.id(),"/images/expression/smily.png")
+assetManager.add(Random.id(),"./images/expression/smily.png")
 assetManager.downloadAll(function(){
 	log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
 });
@@ -192,22 +192,22 @@ app.famousContent = function(flip){
 	// if(!count || count == 0){
 		for(var i=0,il=16;i<il;i++){
 			if(joyFirstRandom == i)
-				oldContent += "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+				oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 			else
-					oldContent += "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
+					oldContent += "<img src='./images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			if(!content[i])
 				content[i] = {};
 			if(flip){
 				if(joySecondRandom == i)
-				content[i].second = "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+				content[i].second = "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 				else
-					content[i].second = "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
+					content[i].second = "<img src='./images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			}
 			else{
 				if(joyFirstRandom == i)
-				content[i].first = "<img src='/images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+				content[i].first = "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 				else
-					content[i].first = "<img src='/images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
+					content[i].first = "<img src='./images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			}
 			
 		}
@@ -291,7 +291,7 @@ var contentEvent = {
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
-					imgsUrl[i].src = "/images/expression/smily.png";
+					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
 					},500);
@@ -303,7 +303,7 @@ var contentEvent = {
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
-					imgsUrl[i].src = "/images/expression/smily.png";
+					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
 					},500);
