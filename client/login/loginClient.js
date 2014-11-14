@@ -138,6 +138,7 @@ app.loginCallback = function(err){
 }
 
 app.loginWithFacebook = function(){ 
+	try{
 	var starttime = new Date().getTime();
     log("app.loginWithFacebook started",null,arguments,1);
 	app.visualEffect("loginScreenFacebook",app.onLoad);
@@ -157,6 +158,10 @@ app.loginWithFacebook = function(){
 		app.visualEffect("loginScreenFacebook",app.onError);
 	} 
 	log("app.loginWithFacebook ended",new Date().getTime() - starttime,arguments,1);
+	}
+	catch(err){
+		alert(err);
+	}
 }
 Meteor.loginAsFacebook = function(options, callback) { 
 	var starttime = new Date().getTime();
@@ -187,7 +192,8 @@ app.facebookCallback = function(err){
 app.facebookResponse = null;
 app.facebookSDKWrapper = function(response){
 	app.facebookResponse = response;
-	FB.api('/me', function(response) {
+	FB.api('/me?fields=picture,name,email', function(response) {
+		
 		var user = {};
 		user.picture = "";
 		if(response.username)
@@ -202,7 +208,7 @@ app.facebookSDKWrapper = function(response){
 
 		authResponse.accessToken = app.facebookResponse.accessToken;
 		authResponse.expirationTime = app.facebookResponse.expiresIn;
-
+		alert(JSON.stringify(response));
 		app.createFacebookUser(user,authResponse)
 	});
 }
@@ -211,12 +217,16 @@ app.createFacebookUser = function(user,authResponse){
 	var starttime = new Date().getTime();
     log("app.createFacebookUser started",null,arguments,1);
 	var profilePictureUrl = null;
+	if(user.picture)
 	if (user.picture.data) {
         profilePictureUrl = user.picture.data.url;
     } else {
         profilePictureUrl = user.picture;
     }
-
+    if(user.username)
+			user.username = user.username;
+		else
+			user.username = user.name;
 	var users = {"username":user.username,"email":user.email,"_id":user.id,"name":user.name};
 	
 	users.profile = {};
