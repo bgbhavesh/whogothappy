@@ -80,26 +80,31 @@ figure{
 
 }
 .card .back {
-  
-  transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
 }
 .card.flipped {
-  transform: rotateY( 180deg );
+    transform: rotateY( 180deg );
 }
 /* transition types*/
 
 /*-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;*/
 #famousSquare{
-  padding-left: 0!important;
-  padding-right: 0 !important;
+    padding-left: 0!important;
+    padding-right: 0 !important;
 }
 #clickEvent{
-  padding-left: 0!important;
-  padding-right: 0 !important;
-  -webkit-filter: blur(4px);
-  background-color: white;
+    padding-left: 0!important;
+    padding-right: 0 !important;
+    -webkit-filter: blur(4px);
+    background-color: white;
+    width: 105%;
+    left: -2.5%;
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
 }
 .selectedFace{
     border-style: solid;
     border-width: 5px;
+    
 }

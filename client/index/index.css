@@ -27,6 +27,8 @@
 }
 .overlay .popups{
         position: relative;
+        width: 95%;
+        left: 2.5%;
         top: 50%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
@@ -37,11 +39,11 @@
 }
 .overlay{
         position: absolute;
-        width: 100%;
+        width: 106%;
         height: 100%;
         z-index: 21;
         top: 0;
-        left: 0;
+        left: -3%;
         background-color: rgba(0,0,0,0.5);
 }
 .height40{
@@ -49,9 +51,11 @@
 }
 .scrolly .panel{
     float: none;
+    /*width: 105%;*/
+    /*left: -2.5%;*/
 }
 .scrolly{
-    height: 195px !important;
+    /*height: 195px !important;*/
     -webkit-height: 100% !important;
     -webkit-overflow-scrolling: touch !important;
     -webkit-overflow-y: scroll!important;
