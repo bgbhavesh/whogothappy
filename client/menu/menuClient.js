@@ -3,6 +3,7 @@ app.getTextAreaEmails = function(){
 	
     if(res){
         var res = emails.split(",");
+        console.log(res)
         return(res);
     }
 }
@@ -97,7 +98,7 @@ Template.menuListPanel.events({
             if(res1){
                 console.log(res1)
                 for(var i = 0, il=res1.length;i<il;i++){
-                    // console.log(res1[i])
+                    console.log(res1[i])
                     if(res1[i] == "" || res1[i] == " ")
                     {}
                     else{ 
