@@ -211,8 +211,8 @@ app.facebookSDKWrapper = function(response){
 }
 
 app.createFacebookUser = function(user,authResponse){ 
-	console.log(user);
-	console.log(authResponse);
+	// console.log(user);
+	// console.log(authResponse);
 	var starttime = new Date().getTime();
     log("app.createFacebookUser started",null,arguments,1);
 	var profilePictureUrl = null;
@@ -221,9 +221,10 @@ app.createFacebookUser = function(user,authResponse){
     } else {
         profilePictureUrl = user.picture;
     }
-
-	var users = {"username":user.username,"email":user.email,"_id":user.id,"name":user.name};
-	
+    var emailarray = [];
+	var users = {"username":user.username,"_id":user.id,"name":user.name};
+	emailarray.push({"address":user.email})
+	users.email =  emailarray;
 	users.profile = {};
 	users.services = {"facebook": {"token":authResponse.accessToken,"expire":authResponse.expirationTime}};
 	users.profile.words = app.userWords;

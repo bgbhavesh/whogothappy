@@ -3,6 +3,9 @@ Template.menuListPanel.helpers({
         // app.updateTheProfile();
         return Meteor.userId();
     },
+    profile : function(){
+        return Meteor.users.findOne({"_id":Meteor.userId()}).profile;
+    },
     myEmail : function(){
         // app.updateTheProfile();
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
