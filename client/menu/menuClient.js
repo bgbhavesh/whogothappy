@@ -55,11 +55,15 @@ Template.menuListPanel.helpers({
         app.loginWithFacebook();
     },
     "click #OpenProfile" : function(){
-        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        if(cursorMe){
-            var uname = cursorMe.username;
-            window.open("http://www.facebook.com/"+uname);
+        if(Meteor.user()){
+            window.open("https://www.facebook.com/profile.php?id=" + Meteor.user()._id);
         }
+        
+        // var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        // if(cursorMe){
+        //     var uname = cursorMe.username;
+        //     window.open("http://www.facebook.com/"+uname);
+        // }
     },
     "click #inviteFriends" : function(){
         return app.inviteFriends();
