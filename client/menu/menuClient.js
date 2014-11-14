@@ -13,7 +13,7 @@ Template.menuListPanel.helpers({
         return Meteor.userId();
     },
     profile : function(){
-        return Meteor.users.findOne({"_id":Meteor.userId()}).profile;;
+        return Meteor.users.findOne({"_id":Meteor.userId()}).profile;
     },
     myEmail : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
