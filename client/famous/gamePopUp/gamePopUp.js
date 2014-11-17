@@ -31,10 +31,17 @@ app.closeCounter = function(){
 
 Template.gamePopUp.events({
     'click #tapTap .remove': function () {
-    	app.closeGame();
+        app.closeGame();
         app.openOverlay();
     },
     'click #startGame': function () {
-    	app.closeCounter();
+        app.closeCounter();
     },
+});
+
+Template.gameEndPopUp.events({
+    'click #endGame': function () {
+        app.reStartGame();
+    }
+    
 });

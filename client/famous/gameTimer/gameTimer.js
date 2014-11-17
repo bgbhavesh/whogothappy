@@ -259,11 +259,12 @@ app.toggleEndRefesh = function(){
 	console.log(app.EndRefesh+"app.EndRefesh")
 }
 app.reStartGame = function(){	
+	// app.score ={};
 	$("#tapTap").css("display","block");
 	$("#tapTapEnded").css("display","none");
 	$(".gametimemins").text("");
 	$(".gametimeseconds").text("");	
-	$(".myScore").text("");
+	$(".myScore").text("0");
 	app.closeCounter();
 	// app.startGame();
 	gamestart = false;
