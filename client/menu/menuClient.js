@@ -1,21 +1,13 @@
-app.getTextAreaEmails = function(){
-	var emails = $("#getEmails").val();
-	
-    if(emails){
-        var res = emails.split(",");
-        // console.log(res)
-        return(res);
-    }
-}
-
 Template.menuListPanel.helpers({
     user : function(){
+        // app.updateTheProfile();
         return Meteor.userId();
     },
     profile : function(){
         return Meteor.users.findOne({"_id":Meteor.userId()}).profile;
     },
     myEmail : function(){
+        // app.updateTheProfile();
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = null;
@@ -63,11 +55,15 @@ Template.menuListPanel.helpers({
         app.loginWithFacebook();
     },
     "click #OpenProfile" : function(){
-        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        if(cursorMe){
-            var uname = cursorMe.username;
-            window.open("http://www.facebook.com/"+uname);
+        if(Meteor.user()){
+            window.open("https://www.facebook.com/profile.php?id=" + Meteor.user()._id);
         }
+        
+        // var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        // if(cursorMe){
+        //     var uname = cursorMe.username;
+        //     window.open("http://www.facebook.com/"+uname);
+        // }
     },
     "click #inviteFriends" : function(){
         return app.inviteFriends();
@@ -99,7 +95,7 @@ Template.menuListPanel.events({
             if(res1){
                 console.log(res1)
                 for(var i = 0, il=res1.length;i<il;i++){
-                    console.log(res1[i])
+                    // console.log(res1[i])
                     if(res1[i] == "" || res1[i] == " ")
                     {}
                     else{ 

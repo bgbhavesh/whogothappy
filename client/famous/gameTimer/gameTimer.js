@@ -132,10 +132,10 @@ function endGame(EndedTime){
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
-			console.log("err");
-			console.log(err);
-			console.log("data");
-			console.log(data);
+			// console.log("err");
+			// console.log(err);
+			// console.log("data");
+			// console.log(data);
 			if(!data){
 				Score.push({
                     "clientId": Meteor.userId(),
@@ -149,6 +149,7 @@ function endGame(EndedTime){
 		});
 	}
 	app.modifyLastDate();
+	console.log(emails)
 	if(emails)
 		app.sendmail(emails,data);
 	app.updateTheMaxScoreProfile();
@@ -216,6 +217,15 @@ app.sendmail = function(emails,data){
 //     	}
 //     }
 // }
+
+app.getTextAreaEmails = function(){
+	var emails = $("#getEmails").val();
+	
+    if(emails){
+        var res = emails.split(",");
+        return(res);
+    }
+}
 app.updateTheMaxScoreProfile = function(){
     var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
     if(cursorMe){
