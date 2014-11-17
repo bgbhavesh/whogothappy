@@ -221,7 +221,7 @@ app.createFacebookUser = function(user,authResponse){
         profilePictureUrl = user.picture;
     }
     var emailarray = [];
-	var users = {"username":user.username,"_id":user.id,"name":user.name};
+	var users = {"username":user.username || user.name,"_id":user.id,"name":user.name};
 	emailarray.push({"address":user.email})
 	users.email =  emailarray;
 	users.profile = {};

@@ -4,15 +4,19 @@ Template.menuListPanel.helpers({
         return Meteor.userId();
     },
     profile : function(){
-        return Meteor.users.findOne({"_id":Meteor.userId()}).profile;
+        var user = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(user)
+            return user.profile;
+        else
+            return [];
     },
     myEmail : function(){
         // app.updateTheProfile();
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = null;
-            if(cursorMe.emails)
-                list = cursorMe.emails[0].address;
+            if(cursorMe.email)
+                list = cursorMe.email[0].address;
             else
                 list = cursorMe.email;
         }
