@@ -29,10 +29,11 @@
         position: relative;
         width: 95%;
         left: 2.5%;
-        top: 50%;
+        top: 40%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
+        -o-transform: translateY(-50%);
 }
 .overlay div{
         position: relative;
@@ -55,7 +56,7 @@
     /*left: -2.5%;*/
 }
 .scrolly{
-    /*height: 195px !important;*/
+    height: 100% !important;
     -webkit-height: 100% !important;
     -webkit-overflow-scrolling: touch !important;
     -webkit-overflow-y: scroll!important;
