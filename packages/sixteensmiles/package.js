@@ -32,10 +32,13 @@ Package.onUse(function(api) {
   api.add_files('server.js', 'server');
   api.add_files('lib/util.js', 'client');
   api.add_files('morpher.js', 'client');
+  
+  // api.add_files('lib/jquery.transition.js', 'client');
   api.add_files('server.js', 'server');
   // api.add_files('lib/jquery.bxslider.js', 'client');
   // api.add_files('lib/jquery.bxslider.js', 'client');
-  // api.add_files('lib/jquery.bxslider.min.js', 'client');
+  api.add_files('lib/jquery_1.5.2.min.js', 'client');
+  // api.add_files('lib/timeago.js', 'client');
   if(api.export){
 		api.export(["app","collection","log"],['client',"server"]);
     api.export(["GoogleSpreadsheet","path","Future"],"server");

@@ -1,3 +1,8 @@
+UI.registerHelper("timeago", function () {
+    if(this.date)
+        return $.timeago(this.date);
+});
+
 Template.menuListPanel.helpers({
     user : function(){
         // app.updateTheProfile();
@@ -15,8 +20,8 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = null;
-            if(cursorMe.email)
-                list = cursorMe.email[0].address;
+            if(cursorMe.emails)
+                list = cursorMe.emails[0].address;
             else
                 list = cursorMe.email;
         }
@@ -48,6 +53,13 @@ Template.menuListPanel.helpers({
             else
             return "Hi, " 
         }
+    },
+    "lastseen" : function(){
+        var user = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(user)
+            if(user.profile)
+                if(user.profile.lastPlayed)
+                    return $.timeago(user.profile.lastPlayed);
     }
 })
  

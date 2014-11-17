@@ -9,7 +9,7 @@ var hours =0;
 var mins =0;
 var seconds =0;
 var timex;
-app.extraPoints  = 0;
+// app.extraPoints  = 0;
 Template.content.events({
     'click #endGame': function () {
         app.endBeforeTime();
@@ -137,8 +137,8 @@ function endGame(EndedTime){
                     "totalScore": app.score,
                     "date": tempDate
                 });                
-                if(Score)
-                	app.saveScoreLocal(Score);
+            if(Score)
+                app.saveScoreLocal(Score);
             }
 		});
 	}
@@ -175,7 +175,7 @@ app.modifyLastDate = function(){
 			// console.log("2")
 			// if(cursorMe.profile.currentDate){
 				// console.log("3")
-				var currenttime = new Date().getHours() +":"+new Date().getMinutes()
+				var currenttime = new Date();//.getHours() +":"+new Date().getMinutes()
 				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime}});
 
 				
