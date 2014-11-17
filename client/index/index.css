@@ -39,11 +39,11 @@
 }
 .overlay{
         position: absolute;
-        width: 106%;
-        height: 100%;
+        width: 105%;
+        height: 94%;
         z-index: 21;
-        top: 0;
-        left: -3%;
+        top:3%;
+        left: -2.5%;
         background-color: rgba(0,0,0,0.5);
 }
 .height40{

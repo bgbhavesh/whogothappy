@@ -2,7 +2,6 @@ UI.registerHelper("timeago", function () {
     if(this.date)
         return $.timeago(this.date);
 });
-
 Template.menuListPanel.helpers({
     user : function(){
         // app.updateTheProfile();
@@ -46,12 +45,11 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe)
         if(cursorMe.profile){
-            if(cursorMe.profile.maxScore > 0){
-                var preDate = cursorMe.profile.maxScore;  
-                return "Welcome back";
+            if(cursorMe.profile.maxScore){
+                return "Welcome back ";
             }
             else
-            return "Hi, " 
+                return "Hi, " 
         }
     },
     "lastseen" : function(){
@@ -94,6 +92,12 @@ Template.menuListPanel.helpers({
             $(".Challange label").css("display","none");
             $("#inviteFriends").css("display","none");               
         }
+    },
+    "change #dp3 input" : function(event){
+        // var element = event.currentTarget;
+        // var alarmTime = element.value
+        app.set("firstAlarm",$("#firstAlarm").val());
+        app.set("secondAlarm",$("#secondAlarm").val());
     }
     
 });

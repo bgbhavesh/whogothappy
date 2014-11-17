@@ -18,6 +18,10 @@ Template.content.events({
 Template.GamerTimerimer.events({
     'click #endGame': function () {
     	app.endBeforeTime();
+    },
+    'click #reStart': function () {
+		console.log("game reStart");
+    	app.reStartGame();
     }
 });
 app.endBeforeTime = function(){
@@ -37,13 +41,19 @@ app.getGameTimer = function(){
 				var currentDate = new Date().getDate()
 				if(cursorMe.profile.currentDate != currentDate){
 					var currentHour = new Date().getHours();
-					if(currentHour < 6){
+					var firstAlarm = app.get("firstAlarm");
+					if(!firstAlarm)
+						firstAlarm = 6;
+					if(currentHour < firstAlarm){
 						// app.extraPoints += 4
 						app.totalscore += 5;
 					}
 				}else{
 					var currentHour = new Date().getHours();
-					if(currentHour < 9){
+					var secondAlarm = app.get("secondAlarm");
+					if(!secondAlarm)
+						secondAlarm = 9;
+					if(currentHour < secondAlarm){
 						var alarmflag = app.get("alarmflag");
 						if(alarmflag){
 							if(alarmflag != currentDate){
@@ -94,8 +104,10 @@ function startTimer(){
 var database;
 var Score = new Array();
 function endGame(EndedTime){
+	$("#clickEvent").css("-webkit-filter","blur(4px)");
 	gamestart = false;
 	console.log("game Ended");
+	app.toggleEndRefesh();
 	// console.log(app.totalscore);
 	// console.log(app.score);
 	var tempDate = new Date();
@@ -122,7 +134,7 @@ function endGame(EndedTime){
 		}else{
 			data.gameEnd = "10:00";
 		}
-		console.log(data.emailid)
+		// console.log(data.emailid)
 		if(data.emailid)
 			Meteor.call("genMail",data.emailid,data);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
@@ -147,7 +159,9 @@ function endGame(EndedTime){
 	if(emails)
 		app.sendmail(emails,data);
 	app.updateTheMaxScoreProfile();
-}    
+	clearTimeout(timex);
+	$("#pin").text("3");
+}   
 app.endGame = endGame;
 app.saveScoreLocal = function(Score){
 	var cursor = app.get("Score")
@@ -170,40 +184,30 @@ app.modifyLastDate = function(){
 	var currentDate = new Date().getDate();
 	console.log(cursorMe)
 	if(cursorMe){
-		// console.log("1")
 		if(cursorMe.profile){
-			// console.log("2")
-			// if(cursorMe.profile.currentDate){
-				// console.log("3")
-				var currenttime = new Date();//.getHours() +":"+new Date().getMinutes()
+				var currenttime = new Date()//.getHours() +":"+new Date().getMinutes()
 				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime}});
 
 				
 				if(cursorMe.profile.currentDate != currentDate){
-					// console.log("4")
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
 				}
 				if((cursorMe.profile.currentDate + 1)==currentDate){
-					// console.log("5");
 					if(cursorMe.profile.playContinuty){
-						// console.log("6");
 						var tDays = cursorMe.profile.playContinuty + 1;
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
 					}else{
-						// console.log("7");
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
 					}
 				}else{
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
 				}
-			// }
 		}
 	}
 }
 app.sendmail = function(emails,data){
 	console.log(emails)
 	for(var i=0,il=emails.length;i<il;i++){
-		// console.log("kjsvbkjbkajbv");
 		Meteor.call("genMail",emails[i],data);
 	}
 
@@ -245,4 +249,34 @@ app.updateTheProfile = function(){
     var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
     $(".playContinuty").text(cursorMe.profile.playContinuty);
     $(".maxScore").text(cursorMe.profile.maxScore);
+}
+app.EndRefesh = true; 
+app.toggleEndRefesh = function(){
+	app.EndRefesh = !app.EndRefesh;
+	if(app.EndRefesh)
+	{
+		$(".endGame").css("display","block");
+		$(".restart").css("display","none");
+	}
+	else{
+		$(".restart").css("display","block");
+		$(".endGame").css("display","none");
+	}
+	console.log(app.EndRefesh+"app.EndRefesh")
+}
+app.reStartGame = function(){	
+	// app.score ={};
+	$("#tapTap").css("display","block");
+	$("#tapTapEnded").css("display","none");
+	$(".gametimemins").text("00");
+	$(".gametimeseconds").text(":00");	
+	$(".myScore").text("0");
+	app.closeCounter();
+	// app.startGame();
+	gamestart = false;
+	app.totalscore = 0;
+	seconds=0;
+	mins=0;
+	hours=0;
+	// app.toggleEndRefesh();
 }
