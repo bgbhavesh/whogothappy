@@ -1,21 +1,21 @@
-app.getTextAreaEmails = function(){
-	var emails = $("#getEmails").val();
-	
-    if(emails){
-        var res = emails.split(",");
-        // console.log(res)
-        return(res);
-    }
-}
-
+UI.registerHelper("timeago", function () {
+    if(this.date)
+        return $.timeago(this.date);
+});
 Template.menuListPanel.helpers({
     user : function(){
+        // app.updateTheProfile();
         return Meteor.userId();
     },
     profile : function(){
-        return Meteor.users.findOne({"_id":Meteor.userId()}).profile;
+        var user = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(user)
+            return user.profile;
+        else
+            return [];
     },
     myEmail : function(){
+        // app.updateTheProfile();
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
             var list = null;
@@ -45,13 +45,19 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe)
         if(cursorMe.profile){
-            if(cursorMe.profile.maxScore > 0){
-                var preDate = cursorMe.profile.maxScore;  
-                return "Welcome back";
+            if(cursorMe.profile.maxScore){
+                return "Welcome back ";
             }
             else
-            return "Hi, " 
+                return "Hi, " 
         }
+    },
+    "lastseen" : function(){
+        var user = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(user)
+            if(user.profile)
+                if(user.profile.lastPlayed)
+                    return $.timeago(user.profile.lastPlayed);
     }
 })
  
@@ -63,11 +69,15 @@ Template.menuListPanel.helpers({
         app.loginWithFacebook();
     },
     "click #OpenProfile" : function(){
-        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        if(cursorMe){
-            var uname = cursorMe.username;
-            window.open("http://www.facebook.com/"+uname);
+        if(Meteor.user()){
+            window.open("https://www.facebook.com/profile.php?id=" + Meteor.user()._id);
         }
+        
+        // var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        // if(cursorMe){
+        //     var uname = cursorMe.username;
+        //     window.open("http://www.facebook.com/"+uname);
+        // }
     },
     "click #inviteFriends" : function(){
         return app.inviteFriends();
@@ -82,6 +92,12 @@ Template.menuListPanel.helpers({
             $(".Challange label").css("display","none");
             $("#inviteFriends").css("display","none");               
         }
+    },
+    "change #dp3 input" : function(event){
+        // var element = event.currentTarget;
+        // var alarmTime = element.value
+        app.set("firstAlarm",$("#firstAlarm").val());
+        app.set("secondAlarm",$("#secondAlarm").val());
     }
     
 });
@@ -99,7 +115,7 @@ Template.menuListPanel.events({
             if(res1){
                 console.log(res1)
                 for(var i = 0, il=res1.length;i<il;i++){
-                    console.log(res1[i])
+                    // console.log(res1[i])
                     if(res1[i] == "" || res1[i] == " ")
                     {}
                     else{ 

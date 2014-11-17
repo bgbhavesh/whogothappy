@@ -202,7 +202,11 @@ Meteor.methods({
     },
     "saveScore" : function(userId,totalscore,score,tempDate){
             // Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
-            // console.log("error");
+            console.log(userId);
+            console.log(totalscore);
+            console.log(score);
+            console.log(tempDate);
+            
             // try{
                 Score.insert({"clientId":userId,"score":totalscore,"totalScore":score,"date" :tempDate});
                 return true;     
