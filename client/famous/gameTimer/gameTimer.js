@@ -272,5 +272,5 @@ app.reStartGame = function(){
 	seconds=0;
 	mins=0;
 	hours=0;
-	app.toggleEndRefesh();
+	// app.toggleEndRefesh();
 }
