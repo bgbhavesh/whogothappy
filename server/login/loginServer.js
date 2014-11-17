@@ -19,3 +19,4 @@ Accounts.registerLoginHandler("myFacebook",function(options) {
     // console.log(options)
     return options;
 });
+// Meteor.users.remove({})

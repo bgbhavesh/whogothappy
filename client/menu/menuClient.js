@@ -1,10 +1,18 @@
+UI.registerHelper("timeago", function () {
+    if(this.date)
+        return $.timeago(this.date);
+});
 Template.menuListPanel.helpers({
     user : function(){
         // app.updateTheProfile();
         return Meteor.userId();
     },
     profile : function(){
-        return Meteor.users.findOne({"_id":Meteor.userId()}).profile;
+        var user = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(user)
+            return user.profile;
+        else
+            return [];
     },
     myEmail : function(){
         // app.updateTheProfile();
@@ -37,13 +45,19 @@ Template.menuListPanel.helpers({
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe)
         if(cursorMe.profile){
-            if(cursorMe.profile.maxScore > 0){
-                var preDate = cursorMe.profile.maxScore;  
-                return "Welcome back";
+            if(cursorMe.profile.maxScore){
+                return "Welcome back ";
             }
             else
-            return "Hi, " 
+                return "Hi, " 
         }
+    },
+    "lastseen" : function(){
+        var user = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(user)
+            if(user.profile)
+                if(user.profile.lastPlayed)
+                    return $.timeago(user.profile.lastPlayed);
     }
 })
  
@@ -78,6 +92,12 @@ Template.menuListPanel.helpers({
             $(".Challange label").css("display","none");
             $("#inviteFriends").css("display","none");               
         }
+    },
+    "change #dp3 input" : function(event){
+        // var element = event.currentTarget;
+        // var alarmTime = element.value
+        app.set("firstAlarm",$("#firstAlarm").val());
+        app.set("secondAlarm",$("#secondAlarm").val());
     }
     
 });

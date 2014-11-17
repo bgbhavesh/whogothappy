@@ -9,7 +9,7 @@ var hours =0;
 var mins =0;
 var seconds =0;
 var timex;
-app.extraPoints  = 0;
+// app.extraPoints  = 0;
 Template.content.events({
     'click #endGame': function () {
         app.endBeforeTime();
@@ -41,13 +41,19 @@ app.getGameTimer = function(){
 				var currentDate = new Date().getDate()
 				if(cursorMe.profile.currentDate != currentDate){
 					var currentHour = new Date().getHours();
-					if(currentHour < 6){
+					var firstAlarm = app.get("firstAlarm");
+					if(!firstAlarm)
+						firstAlarm = 6;
+					if(currentHour < firstAlarm){
 						// app.extraPoints += 4
 						app.totalscore += 5;
 					}
 				}else{
 					var currentHour = new Date().getHours();
-					if(currentHour < 9){
+					var secondAlarm = app.get("secondAlarm");
+					if(!secondAlarm)
+						secondAlarm = 9;
+					if(currentHour < secondAlarm){
 						var alarmflag = app.get("alarmflag");
 						if(alarmflag){
 							if(alarmflag != currentDate){
@@ -143,8 +149,8 @@ function endGame(EndedTime){
                     "totalScore": app.score,
                     "date": tempDate
                 });                
-                if(Score)
-                	app.saveScoreLocal(Score);
+            if(Score)
+                app.saveScoreLocal(Score);
             }
 		});
 	}
@@ -179,7 +185,7 @@ app.modifyLastDate = function(){
 	console.log(cursorMe)
 	if(cursorMe){
 		if(cursorMe.profile){
-				var currenttime = new Date().getHours() +":"+new Date().getMinutes()
+				var currenttime = new Date()//.getHours() +":"+new Date().getMinutes()
 				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime}});
 
 				

@@ -1,20 +1,34 @@
-app.fbInit = function(){
-    window.fbAsyncInit = function() {
-            FB.init({
-              appId      : app.getFacebookAppId(),
-              xfbml      : true,
-              version    : 'v2.1'
-            });
-          };
+if(Meteor.isClient){
+  app.fbInit = function(){}
+  // app.fbInit = function(){
+  //     window.fbAsyncInit = function() {
+  //             FB.init({
+  //               appId      : app.getFacebookAppId(),
+  //               xfbml      : true,
+  //               version    : 'v1.0'
+  //             });
+  //           };
 
-    (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "//connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
+  //     (function(d, s, id){
+  //      var js, fjs = d.getElementsByTagName(s)[0];
+  //      if (d.getElementById(id)) {return;}
+  //      js = d.createElement(s); js.id = id;
+  //      js.src = "http://connect.facebook.net/en_US/sdk.js";
+  //      fjs.parentNode.insertBefore(js, fjs);
+  //     }(document, 'script', 'facebook-jssdk'));
+  // }
 }
+else{
+  app.fbInit = function(){
+      FB.init({ 
+          appId: "906351116043661", 
+          nativeInterface: CDV.FB, 
+          useCachedDialogs: false 
+      });
+  }
+}
+
+
 app.fbNativeLogin = function() {
     try{
 
@@ -46,13 +60,7 @@ app.getFacebookAppId = function(){
     else
         return "906351116043661";
 }
-app.fbInit = function(){
-    FB.init({ 
-        appId: "906351116043661", 
-        nativeInterface: CDV.FB, 
-        useCachedDialogs: false 
-    });
-}
+
 
 
 function me(response) {
@@ -60,7 +68,7 @@ function me(response) {
     log("me started",null,arguments,1);
     FB.api('/me?fields=picture,name,email', function(user) {
         var authResponse = response.authResponse;
-        alert(JSON.stringify(user));
+        //alert(JSON.stringify(user));
         app.createFacebookUser(user,authResponse);
     }); 
     log("me ended",new Date().getTime() - starttime,arguments,1);

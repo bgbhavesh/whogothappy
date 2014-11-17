@@ -5,12 +5,12 @@
     </div>
     <div class="row">
         <div class="input-append date large-6 small-6 medium-6 columns" id="dp3"  >
-            <input size="16" type="time" value="09:00">
+            <input id="firstAlarm" size="16" type="time" value="09:00">
             <span class="add-on"><i class="icon-th"></i></span>
         </div>
     
         <div class="input-append date large-6 small-6 medium-6 columns" id="dp3"  >
-            <input size="16" type="time" value="11:00">
+            <input id="secondAlarm" size="16" type="time" value="11:00">
             <span class="add-on"><i class="icon-th"></i></span>
         </div>
     </div>
@@ -25,31 +25,26 @@
             <a href="" id="OpenProfile">{{welcome}}</a>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-8 small-8 medium-8 columns" id="OpenProfile">{{myusername}}</lable>
-                    <lable class="large-4 small-4 medium-4 columns" id="LogoutApp" >Not you?</lable>
-                </a>
-                <!-- <a href="" id="OpenProfile">{{welcome}} {{myusername}}</a></li>
-            <li><a href="#" id="LogoutApp"  class="height40">
-                    <lable class="large-9 small-9 medium-9 columns ">Not you?</lable>
-                    <lable class="large-3 small-3 medium-3 columns  ">Logout</lable>
-                </a>--> 
-            </li> 
-            <li>
-                <a href="#" class="height40">
-                    <lable class="large-9 small-9 medium-9 columns ">Days in a Row</lable>
-                    <lable class="large-3 small-3 medium-3 columns  ">{{profile.playContinuty}}</lable>
+                    <lable class="large-8 small-7 medium-8 columns" id="OpenProfile">{{myusername}}</lable>
+                    <lable class="large-4 small-5 medium-4 columns" id="LogoutApp" >Not you?</lable>
                 </a>
             </li>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-9 small-9 medium-9 columns">Last seen</lable>
-                    <lable class="large-3 small-3 medium-3 columns ">{{profile.lastPlayed}}</lable>
+                    <lable class="large-9 small-7 medium-9 columns ">Days in a Row</lable>
+                    <lable class="large-3 small-5 medium-3 columns  ">{{profile.playContinuty}}</lable>
                 </a>
             </li>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-9 small-9 medium-9 columns">Max Score</lable>
-                    <lable class="large-3 small-3 medium-3 columns ">{{profile.maxScore}}</lable>
+                    <lable class="large-9 small-4 medium-9 columns">Last seen</lable>
+                    <lable class="large-3 small-5 medium-3 columns " style="font: -webkit-small-control;">{{lastseen}}</lable><!-- {{profile.lastPlayed}} -->
+                </a>
+            </li>
+            <li>
+                <a href="#" class="height40">
+                    <lable class="large-9 small-7 medium-9 columns">Max Score</lable>
+                    <lable class="large-3 small-5 medium-3 columns ">{{profile.maxScore}}</lable>
                 </a>
             </li>
             <li class="textRight">
