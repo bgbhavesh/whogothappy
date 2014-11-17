@@ -262,8 +262,8 @@ app.reStartGame = function(){
 	// app.score ={};
 	$("#tapTap").css("display","block");
 	$("#tapTapEnded").css("display","none");
-	$(".gametimemins").text("");
-	$(".gametimeseconds").text("");	
+	$(".gametimemins").text("00");
+	$(".gametimeseconds").text(":00");	
 	$(".myScore").text("0");
 	app.closeCounter();
 	// app.startGame();
