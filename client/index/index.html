@@ -12,7 +12,12 @@
     <script src="/lib/foundation/js/foundation.min.js"></script>-->
 
     <style type="text/css" id="dynamicCss"></style>
-    
+    <script type="text/javascript">
+        if(Meteor.isCordova){
+            $("head").append('<script type="text/javascript" src="/phonegap/facebook-js-sdk.js"/>');
+            $("head").append('<script type="text/javascript" src="/phonegap/cdv-plugin-fb-connect.js"/>');
+        }
+    </script>
 </head>
 
 <body >

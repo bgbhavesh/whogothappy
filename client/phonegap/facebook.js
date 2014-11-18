@@ -19,13 +19,13 @@ if(Meteor.isClient){
   // }
 }
 else{
-  app.fbInit = function(){
-      FB.init({ 
-          appId: "906351116043661", 
-          nativeInterface: CDV.FB, 
-          useCachedDialogs: false 
-      });
-  }
+    app.fbInit = function(){
+        FB.init({ 
+            appId: "906351116043661", 
+            nativeInterface: CDV.FB, 
+            useCachedDialogs: false 
+        });
+    }
 }
 
 
@@ -46,7 +46,7 @@ app.fbNativeLogin = function() {
         }
         },
         { 
-            scope: "email,publish_actions,read_stream" }
+            scope: "email" } //,publish_actions,read_stream //new bug for ios
         );
         log("app.fbNativeLogin ended",new Date().getTime() - starttime,arguments,1);
     }
@@ -86,9 +86,11 @@ function facebookWallPost(word) {
     };
     FB.ui(params, function(obj) { alert(obj);});
     log("facebookWallPost ended",new Date().getTime() - starttime,arguments,1);
-    alert("complete");
+    // alert("complete");
 }
 app.facebookWallPost = facebookWallPost;
+
+
 if(!Meteor.isCordova){
     window.fbAsyncInit = function() {
             FB.init({
@@ -105,9 +107,16 @@ if(!Meteor.isCordova){
      js.src = "http://connect.facebook.net/en_US/sdk.js";
      fjs.parentNode.insertBefore(js, fjs);
     }(document, 'script', 'facebook-jssdk'));
+    app.fbInit = function(){}
 }
 else{
-    
+   app.fbInit = function(){
+        FB.init({ 
+            appId: "906351116043661", 
+            nativeInterface: CDV.FB, 
+            useCachedDialogs: false 
+        });
+    } 
 }
 
 Meteor.startup(function(){
