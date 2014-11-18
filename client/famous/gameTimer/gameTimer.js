@@ -154,7 +154,7 @@ function endGame(EndedTime){
             }
 		});
 	}
-	app.modifyLastDate();
+	app.modifyLastDate(data);
 	console.log(emails)
 	if(emails)
 		app.sendmail(emails,data);
@@ -179,14 +179,14 @@ sendcacheData = setTimeout(function(){
 	}
 },30000);
 /// the value of the class myScore is to be changed  
-app.modifyLastDate = function(){
+app.modifyLastDate = function(data){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	var currentDate = new Date().getDate();
 	console.log(cursorMe)
 	if(cursorMe){
 		if(cursorMe.profile){
 				var currenttime = new Date()//.getHours() +":"+new Date().getMinutes()
-				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime}});
+				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime,"profile.lastScore":data.score,"profile.lastTried":data.clicked,"profile.lastWrong":data.wrong,}});
 
 				
 				if(cursorMe.profile.currentDate != currentDate){
