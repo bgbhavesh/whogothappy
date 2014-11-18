@@ -21,8 +21,8 @@
 {{#if user}}
          
     <div class="large-12 small-12 medium-12 columns panel">
+        <a href="#" id="welcome">{{welcome}}</a>
         <ul id="" class="off-canvas-list">
-            <a href="" id="OpenProfile">{{welcome}}</a>
             <li>
                 <a href="#" class="height40">
                     <lable class="large-8 small-7 medium-8 columns" id="OpenProfile">{{myusername}}</lable>
@@ -61,6 +61,16 @@
             <textarea id="getEmails" placeholder="Enter emails..." value="">{{#each list}}{{ids}},{{/each}}</textarea>
         </label>
             <a id="inviteFriends">Invite Friends</a>
+    </div>
+    <div class="large-12 small-12 medium-12 columns panel lastScore">
+        <h5>Last score</h5>
+        <label>
+            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
+            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
+            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
+            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
+        </label>
+            <a id=""></a>
     </div>
 {{else}}
     <!-- <div id="loginScreenFacebook" class="large-4 small-12 medium-6 columns panel textCenter">

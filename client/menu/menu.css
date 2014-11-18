@@ -4,3 +4,6 @@
 #inviteFriends{
 	display: none;
 }
+.lastScore label{
+	display: none;
+}
