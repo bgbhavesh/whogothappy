@@ -64,3 +64,6 @@
     background-attachment: scroll;
     margin-bottom: 1.25rem;
 }
+.noPadding{
+    padding: 0px;
+}

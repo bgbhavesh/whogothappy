@@ -104,6 +104,17 @@ Template.menuListPanel.helpers({
             // $("#inviteFriends").css("display","none");               
         }
     },
+    "click #welcome" : function(){
+        var disp = $(".welcome").css("display");
+        if(disp == "none"){
+            $(".welcome").css("display","block");
+            // $("#inviteFriends").css("display","block");            
+        }
+        else{
+            $(".welcome").css("display","none");
+            // $("#inviteFriends").css("display","none");               
+        }
+    },
     "change #dp3 input" : function(event){
         // var element = event.currentTarget;
         // var alarmTime = element.value
