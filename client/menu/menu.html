@@ -64,13 +64,16 @@
     </div>
     <div class="large-12 small-12 medium-12 columns panel lastScore">
         <h5>Last score</h5>
-        <label>
-            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
-            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
-            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
-            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
+        <label class="large-12 small-12 medium-12 columns">
+            <lable class="large-4 small-4 medium-4 columns">Attempted</lable>
+            <lable class="large-4 small-4 medium-4 columns">Score</lable>
+            <lable class="large-4 small-4 medium-4 columns">Missed</lable>
         </label>
-            <a id=""></a>
+        <label class="large-12 small-12 medium-12 columns">
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastTried}}</lable>
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastScore}}</lable>
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastWrong}}</lable>
+        </label>
     </div>
 {{else}}
     <!-- <div id="loginScreenFacebook" class="large-4 small-12 medium-6 columns panel textCenter">

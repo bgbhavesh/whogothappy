@@ -186,7 +186,7 @@ app.modifyLastDate = function(data){
 	if(cursorMe){
 		if(cursorMe.profile){
 				var currenttime = new Date()//.getHours() +":"+new Date().getMinutes()
-				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime,"profile.lastScore":data.score,"profile.lastTried":data.clicked,"profile.lastWrong":data.wrong,}});
+				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime,"profile.lastScore":data.score,"profile.lastTried":data.clicked,"profile.lastWrong":data.wrong}});
 
 				
 				if(cursorMe.profile.currentDate != currentDate){
