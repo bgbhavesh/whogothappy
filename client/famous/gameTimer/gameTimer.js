@@ -107,7 +107,7 @@ function endGame(EndedTime){
 	$("#clickEvent").css("-webkit-filter","blur(4px)");
 	gamestart = false;
 	console.log("game Ended");
-	app.toggleEndRefesh();
+	// app.toggleEndRefesh();
 	// console.log(app.totalscore);
 	// console.log(app.score);
 	var tempDate = new Date();
