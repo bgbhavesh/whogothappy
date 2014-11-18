@@ -149,11 +149,11 @@ log("Images all downloaded started",downloadstarttime,null,1);
 
 
 for(var i=0,il=expressionImage.length;i<il;i++){
-	var image = "./images/pic/" +expressionImage[i]  +".jpg";
+	var image = "https://s3-us-west-2.amazonaws.com/youiest/non/" +expressionImage[i]  +".jpg";
 	assetManager.add(Random.id(), image);
 }
 for(var i=0,il=expressionImageJoy.length;i<il;i++){
-	var image = "./images/joy/" +expressionImageJoy[i]  +".jpg";
+	var image = "https://s3-us-west-2.amazonaws.com/youiest/joy/" +expressionImageJoy[i]  +".jpg";
 	assetManager.add(Random.id(), image);
 }
 assetManager.add(Random.id(),"./images/expression/smily.png")
@@ -190,24 +190,24 @@ app.famousContent = function(flip){
 	// var content = [];
 	var oldContent = "";
 	// if(!count || count == 0){
-		for(var i=0,il=16;i<il;i++){
+		for(var i=0,il=16;i<il;i++){ 
 			if(joyFirstRandom == i)
-				oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+				oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 			else
-					oldContent += "<img src='./images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
+					oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/non/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			if(!content[i])
 				content[i] = {};
 			if(flip){
 				if(joySecondRandom == i)
-				content[i].second = "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+				content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 				else
-					content[i].second = "<img src='./images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
+					content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/non/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			}
 			else{
 				if(joyFirstRandom == i)
-				content[i].first = "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+				content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 				else
-					content[i].first = "<img src='./images/pic/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
+					content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/non/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
 			}
 			
 		}
