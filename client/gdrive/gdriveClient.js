@@ -25,7 +25,6 @@ app.lang.email.head = "Challenge Someone!";
 app.lang.email.msg1 = "To invite and share.";
 app.lang.email.msg2 = "Invite Friends";
 
-
 app.lang.timer.game = "This Game";
 app.lang.timer.score = "Score";
 app.lang.timer.time = "Time";
