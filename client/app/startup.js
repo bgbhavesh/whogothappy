@@ -3,7 +3,7 @@ app.startup = function(){
 }
 Meteor.startup(app.startup);
 
-app.deviceReady = function(){app.phonegap=true;setTimeout(app.facebookWallPost,1000);}
+app.deviceReady = function(){app.phonegap=true;}
 document.addEventListener("deviceready", app.deviceReady, false);
 
 app.onPause = function(){}

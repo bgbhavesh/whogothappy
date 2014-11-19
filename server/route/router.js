@@ -1,4 +1,5 @@
 WebApp.connectHandlers.use("/", function(req, res, next) {
-	req.setHeader("Access-Control-Allow-Origin", "*");
+	console.log(req.url)
+	res.setHeader("Access-Control-Allow-Origin", "*");
 	next();
 });
