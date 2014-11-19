@@ -29,11 +29,11 @@
         position: relative;
         width: 95%;
         left: 2.5%;
-        top: 40%;
-        -webkit-transform: translateY(-50%);
+        top: 10%;
+/*        -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
-        -o-transform: translateY(-50%);
+        -o-transform: translateY(-50%);*/
 }
 .overlay div{
         position: relative;
@@ -63,4 +63,7 @@
     overflow-y: scroll!important;
     background-attachment: scroll;
     margin-bottom: 1.25rem;
+}
+.noPadding{
+    padding: 0px;
 }
