@@ -11,7 +11,7 @@ app.lang.menu.menu = "Menu";
 app.lang.menu.home = "Home";
 app.lang.menu.users = "Users";
 app.lang.menu.admin = "Admin";
-app.lang.menu.fbLogin = "Sign with Facebook";
+app.lang.menu.fbLogin = "Sign in with Facebook";
 app.lang.menu.logout = "Logout";
 
 app.lang.gamePopUp.restart = "Restart";
