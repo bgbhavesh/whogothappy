@@ -271,11 +271,16 @@ app.getEdgerSwapper = function(){
 		app.edgeswapperNumber = 1;
 	return app.edgeswapperNumber;
 }
+app.clickStart = true;
 var contentEvent = {
 	"slideLeft #clickEvent":function(){
 		console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
+		console.log(app.clickStart)
+		if(app.clickStart == false)
+			return;
+		app.clickStart = false;
 		var str = $(event.currentTarget).attr("src");
 		var res = str.match("joy");
 		var mainDiv = $("#clickEvent");
@@ -345,6 +350,7 @@ var contentEvent = {
        
         
 		setTimeout(function(){
+			app.clickStart = true;
 			app.animateFamousRandom();
 			if(Session.get("flip"))
 				Session.set("flip","");
