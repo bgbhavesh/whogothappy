@@ -4,3 +4,9 @@
 #inviteFriends{
 	display: none;
 }
+.lastScore label{
+	display: none;
+}
+.lastResult{
+	padding-left: 10% !important;
+}

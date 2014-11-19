@@ -93,6 +93,17 @@ Template.menuListPanel.helpers({
             $("#inviteFriends").css("display","none");               
         }
     },
+    "click .lastScore h5" : function(){
+        var disp = $(".lastScore label").css("display");
+        if(disp == "none"){
+            $(".lastScore label").css("display","block");
+            // $("#inviteFriends").css("display","block");            
+        }
+        else{
+            $(".lastScore label").css("display","none");
+            // $("#inviteFriends").css("display","none");               
+        }
+    },
     "change #dp3 input" : function(event){
         // var element = event.currentTarget;
         // var alarmTime = element.value

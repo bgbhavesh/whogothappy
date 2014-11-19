@@ -21,8 +21,8 @@
 {{#if user}}
          
     <div class="large-12 small-12 medium-12 columns panel">
+        <a href="#" id="welcome">{{welcome}}</a>
         <ul id="" class="off-canvas-list">
-            <a href="" id="OpenProfile">{{welcome}}</a>
             <li>
                 <a href="#" class="height40">
                     <lable class="large-8 small-7 medium-8 columns" id="OpenProfile">{{myusername}}</lable>
@@ -37,7 +37,7 @@
             </li>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-9 small-4 medium-9 columns">Last seen</lable>
+                    <lable class="large-9 small-5 medium-9 columns">Last seen</lable>
                     <lable class="large-3 small-5 medium-3 columns " style="font: -webkit-small-control;">{{lastseen}}</lable><!-- {{profile.lastPlayed}} -->
                 </a>
             </li>
@@ -61,6 +61,19 @@
             <textarea id="getEmails" placeholder="Enter emails..." value="">{{#each list}}{{ids}},{{/each}}</textarea>
         </label>
             <a id="inviteFriends">Invite Friends</a>
+    </div>
+    <div class="large-12 small-12 medium-12 columns panel lastScore">
+        <h5>Last score</h5>
+        <label class="large-12 small-12 medium-12 columns">
+            <lable class="large-4 small-4 medium-4 columns">Attempted</lable>
+            <lable class="large-4 small-4 medium-4 columns">Score</lable>
+            <lable class="large-4 small-4 medium-4 columns">Missed</lable>
+        </label>
+        <label class="large-12 small-12 medium-12 columns">
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastTried}}</lable>
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastScore}}</lable>
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastWrong}}</lable>
+        </label>
     </div>
 {{else}}
     <!-- <div id="loginScreenFacebook" class="large-4 small-12 medium-6 columns panel textCenter">
