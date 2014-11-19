@@ -1,9 +1,7 @@
 <template name="menuListPanel">
 <div class="large-12 small-12 medium-12 columns panel">
     <div class="row">
-        <!-- <label>            -->
-            Two Alarms
-        <!-- </label> -->
+        {{lang.alarm.head}}
     </div>
     <div class="row">
         <div class="input-append date large-6 small-6 medium-6 columns" id="dp3"  >
@@ -22,24 +20,24 @@
 </div> 
 {{#if user}}
          
-    <div class="large-12 small-12 medium-12 columns panel ">
+    <div class="large-12 small-12 medium-12 columns panel">
         <a href="#" id="welcome">{{welcome}}</a>
         <ul id="" class="off-canvas-list welcome">
             <li>
                 <a href="#" class="height40">
                     <lable class="large-8 small-7 medium-8 columns" id="OpenProfile">{{myusername}}</lable>
-                    <lable class="large-4 small-5 medium-4 columns" id="LogoutApp" >Not you?</lable>
+                    <lable class="large-4 small-5 medium-4 columns" id="LogoutApp" >{{lang.scorebord.notyou}}</lable>
                 </a>
             </li>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-9 small-7 medium-9 columns ">Days in a Row</lable>
+                    <lable class="large-9 small-7 medium-9 columns ">{{lang.scorebord.days}}</lable>
                     <lable class="large-3 small-5 medium-3 columns  ">{{profile.playContinuty}}</lable>
                 </a>
             </li>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-9 small-4 medium-9 columns">Last seen</lable>
+                    <lable class="large-9 small-4 medium-9 columns">{{lang.scorebord.seen}}</lable>
                     <lable class="large-3 small-5 medium-3 columns noPadding " style="font: -webkit-small-control;">{{lastseen}}</lable><!-- {{profile.lastPlayed}} -->
                 </a>
             </li>
@@ -63,16 +61,19 @@
             <textarea id="getEmails" placeholder="Enter emails..." value="">{{#each list}}{{ids}},{{/each}}</textarea>
         </label>
             <a id="inviteFriends">{{lang.email.msg2}}</a>
-    </div>
+    </div>  
     <div class="large-12 small-12 medium-12 columns panel lastScore">
-        <h5>Last score</h5>
-        <label>
-            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
-            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
-            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
-            <lable class="large-3 small-3 medium-3 columns">Email:</lable>
+        <h5>{{lang.scoretitle.lastscore}}</h5>
+        <label class="large-12 small-12 medium-12 columns">
+            <lable class="large-4 small-4 medium-4 columns">{{lang.scoretitle.attemted}}</lable>
+            <lable class="large-4 small-4 medium-4 columns">{{lang.scoretitle.lastscore}}</lable>
+            <lable class="large-4 small-4 medium-4 columns">{{lang.scoretitle.missed}}</lable>
         </label>
-            <a id=""></a>
+        <label class="large-12 small-12 medium-12 columns">
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastTried}}</lable>
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastScore}}</lable>
+            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastWrong}}</lable>
+        </label>
     </div>
 {{else}}
     <!-- <div id="loginScreenFacebook" class="large-4 small-12 medium-6 columns panel textCenter">
@@ -80,7 +81,7 @@
     </div> -->
      <div id="loginScreenFacebook" class="large-12 small-12 medium-12 columns panel textCenter" >
         <a>
-            <i class="fa fa-facebook"></i> Sign in with Facebook
+            <i class="fa fa-facebook"></i> {{lang.menu.fbLogin}}
         </a>
     </div>
  {{/if}}   

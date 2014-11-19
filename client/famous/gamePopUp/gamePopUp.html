@@ -4,10 +4,10 @@
         <div data-alert="" class="popups panel large-12 medium-12 columns textCenter">
             <form onsubmit="">
                 <div class="beforeStartGame message row">
-                    <div class="remove textRight">close</div>
+                    <div class="remove textRight">{{app.lang.gamePopUp.close}}</div>
                     <div class=" large-12 columns">
                         <div class="  panel " style="">
-                            <p>Tap the happiest, most pleasant, most joyful face in the bunch! →</p>
+                            <p>{{lang.gamePopUp.mgs1}}</p>
                         </div>
                     </div>
                     
@@ -15,7 +15,7 @@
                   
                 <div class=" textCenter large-12 medium-12 columns" style="">    
                     <div id="startGame" class="button ui " style="background:cyan;">            
-                        Start
+                        {{lang.gamePopUp.Start}}
                     </div>
                 </div>
             </form >
@@ -32,7 +32,7 @@
             <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
                 <!-- {{> GamerTimerimer}} -->
                 <div id="endGame" class="button ui " style="background:cyan;">            
-                    Restart
+                    {{lang.gamePopUp.restart}}
                 </div>
             </div>   
     </div>

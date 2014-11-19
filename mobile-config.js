@@ -1,8 +1,8 @@
 App.info({
-  id: 'com.youiest.sixteensmiles',
-  name: 'SixteenSmiles',
-  description: 'Get the happy face',
-  author: 'Trinisoft Technologies',
+  id: 'com.youiest.whogothappy',
+  name: 'Who Got Happy',
+  description: 'Get the right happy face!',
+  author: 'Youiest LLC',
   email: 'elias@youiest.com',
   website: 'http://192.168.1.101:3000'
 });

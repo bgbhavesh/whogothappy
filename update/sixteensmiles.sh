@@ -24,8 +24,12 @@ git reset --hard origin/master
 
 cd $meteorhome
 
-mkdir -p $appname
-meteor build $home$appname/bundle
+#rm -rf $home$appname
+mkdir -p $home$appname
+
+meteor remove-platform android
+meteor remove-platform ios
+meteor build $home$appname/bundle #--server http://128.199.196.222:8000
 cd $home$appname/bundle
 tar -xvf $bundlename
 cd bundle/programs/server
