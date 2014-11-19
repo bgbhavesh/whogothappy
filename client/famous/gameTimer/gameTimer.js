@@ -9,6 +9,10 @@ var hours =0;
 var mins =0;
 var seconds =0;
 var timex;
+if(Meteor.absoluteUrl.defaultOptions.rootUrl.match("localhost:3000"))
+    DebugFace = true;
+else
+    DebugFace = false;
 // app.extraPoints  = 0;
 Template.content.events({
     'click #endGame': function () {
@@ -90,15 +94,25 @@ function startTimer(){
 	else {
 		$(".gametimeseconds").text(seconds);
   	}
-  	if(seconds >= 10){
-  		$(".gametimemins").text('10');
-		$(".gametimeseconds").text(':00');
-			endGame();
-	}
-	else{
-		startTimer();
-	}
-        
+  	if(DebugFace){
+	  	if(seconds >= 10){
+	  		$(".gametimemins").text('10');
+			$(".gametimeseconds").text(':00');
+				endGame();
+		}
+		else{
+			startTimer();
+		}	        
+  	}else{
+  		if(mins >= 10){
+	  		$(".gametimemins").text('10');
+			$(".gametimeseconds").text(':00');
+				endGame();
+		}
+		else{
+			startTimer();
+		}	
+  	}
   },1000);
 }
 var database;
