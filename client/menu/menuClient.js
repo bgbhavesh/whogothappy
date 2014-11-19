@@ -133,6 +133,11 @@ Template.menuListPanel.events({
         }
     }
 });
+
+app.setAlarm = function(){
+    // 86400000
+}
+
 // $("#getEmails").keyup(function(event) {
 //     //     var val = $(this).val();
 //     //     if (val != convertEmail(val))

@@ -5,10 +5,10 @@ Template.login.events({
     'click #goToRegister': function () {
       	app.setRoute("#register");
     },
-    'click #loginButton': function () {
+	'click #loginButton': function () {
       	app.login();
     },
-    "click #loginScreenFacebook" : function(){
+	"click #loginScreenFacebook" : function(){
 		app.loginWithFacebook();
 	},
 	"click #LogoutApp" : function(){
