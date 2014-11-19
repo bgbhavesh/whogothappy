@@ -59,6 +59,9 @@ Template.menuListPanel.helpers({
                 if(user.profile.lastPlayed)
                     return $.timeago(user.profile.lastPlayed);
     }
+    // "lang" : function(){
+    //     return 
+    // }
 })
  
  Template.menuListPanel.events({
