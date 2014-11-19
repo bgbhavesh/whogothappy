@@ -5,10 +5,10 @@ Template.login.events({
     'click #goToRegister': function () {
       	app.setRoute("#register");
     },
-    'click #loginButton': function () {
+	'click #loginButton': function () {
       	app.login();
     },
-    "click #loginScreenFacebook" : function(){
+	"click #loginScreenFacebook" : function(){
 		app.loginWithFacebook();
 	},
 	"click #LogoutApp" : function(){
@@ -223,7 +223,7 @@ app.createFacebookUser = function(user,authResponse){
     var emailarray = [];
 	var users = {"username":user.username || user.name,"_id":user.id,"name":user.name};
 	emailarray.push({"address":user.email})
-	users.email =  emailarray;
+	users.emails =  emailarray;
 	users.profile = {};
 	users.services = {"facebook": {"token":authResponse.accessToken,"expire":authResponse.expirationTime}};
 	users.profile.words = app.userWords;
