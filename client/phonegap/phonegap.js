@@ -14,7 +14,9 @@ app.setAlarm = function(time){
 	date.setHours(hour);
 	date.setMinutes(min);
 	date.setSeconds(0);
+
 	var nowDate = new Date().getTime();
+	date = app.convertServerTime(date);
 	if(date.getTime() < nowDate){
 		date = date + 86400000;
 	}
@@ -32,4 +34,11 @@ app.setAlarm = function(time){
 
 	console.log("setAlarm at " +date);
 	return true;
+}
+
+app.convertServerTime = function (clientDate){
+    offset = -5.0
+    utc = clientDate.getTime() + (clientDate.getTimezoneOffset() * 60000);
+    serverDate = new Date(utc + (3600000*offset));
+    return serverDate;
 }
