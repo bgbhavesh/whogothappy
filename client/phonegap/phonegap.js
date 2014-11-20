@@ -16,18 +16,19 @@ app.setAlarm = function(time){
 	date.setSeconds(0);
 
 	var nowDate = new Date().getTime();
-	date = app.convertServerTime(date);
 	if(date.getTime() < nowDate){
 		date = date + 86400000;
 	}
 	if(app.alarm)
 		app.alarm.setAlarm(date,function(){});
 
+
+	date = app.convertServerTime(date);
 	// var user = Meteor.users.findOne({"_id":Meteor.userId()});
 	// if(app.pushId){
 		var options = {};
-		options.hour = Number(hour);
-		options.min = Number(min);
+		options.hour = Number(date.getHours());
+		options.min = Number(date.getMinutes());
 		options.pushId = app.pushId;
 		Meteor.call("setAlarm",options,function(){});
 	// }
@@ -37,6 +38,7 @@ app.setAlarm = function(time){
 }
 
 app.convertServerTime = function (clientDate){
+    //EST
     offset = -5.0
     utc = clientDate.getTime() + (clientDate.getTimezoneOffset() * 60000);
     serverDate = new Date(utc + (3600000*offset));
