@@ -1,4 +1,5 @@
 PushAlarm = function(options){
+	console.log(options);
 	var self = this;
 	self.hour = options.hour;
 	self.min = options.min;
@@ -12,7 +13,7 @@ PushAlarm = function(options){
 		console.log("onPushDay " +self.pushId);
 		if(self.pushId)
 			app.sendpushtouser(self.pushId);
-		//console.log(self);
+		console.log(self);
 	}
 	self.job = schedule.scheduleJob(self.rule, self.onPushDay);
 
