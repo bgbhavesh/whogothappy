@@ -12,7 +12,7 @@ Accounts.registerLoginHandler("myFacebook",function(options) {
     } else {
         // console.log(options)
         // delete options._id;
-        Meteor.users.update({"_id": user._id},{$set : {"emails":options.email}});
+        Meteor.users.update({"_id": user._id},{$set : {"emails":options.emails}});
         // Meteor.users.remove();
         options.userId = userId = user._id;
     }
