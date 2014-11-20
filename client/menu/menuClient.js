@@ -125,10 +125,19 @@ Template.menuListPanel.helpers({
         app.set("secondAlarm",$("#secondAlarm").val());
     },
     "click #setAlarm" : function(){
-        var firstAlarm = $("#firstAlarm").val();
-        var secondAlarm = $("#secondAlarm").val();
-        app.setAlarm(firstAlarm);
-        app.setAlarm(secondAlarm);
+        // var firstAlarm = $("#firstAlarm").val();
+        // var secondAlarm = $("#secondAlarm").val();
+        // app.setAlarm(firstAlarm);
+        // app.setAlarm(secondAlarm);
+        var user = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(user)
+        {
+            var options = {};
+            options.date = firstAlarm;
+            options.callback = "app.sendpushtouser";
+            options.data =" user.pishid";
+            Meteor.call("setAlarm",options);
+        }
     }
 });
 

@@ -7,5 +7,11 @@ Meteor.methods({
 	},
 	"sendPush" : function(pushId){
 			app.pushServer.sendAndroid("Its Tme to play Game.", [pushId], "whogothappy", "whogothappy", 1);
-	}
+	},
+	"setAlarm" : function(option){
+		Job.addJob(option);
+	},
 });
+app.sendpushtouser = function (pushId){
+   app.pushServer.sendAndroid("Its Tme to play Game.", [pushId], "whogothappy", "whogothappy", 1);
+}
