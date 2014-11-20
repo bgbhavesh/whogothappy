@@ -3,6 +3,7 @@ document.addEventListener('deviceready', function(){
 	// var date = new Date().getTime() * 5000;
 	// app.alarm.setAlarm(date,function(){});
 	// function(error,success){alert("error " +error);alert("success " +success);}
+	app.onRegisterPushNotification();
 }, false);
 
 app.setAlarm = function(time){
