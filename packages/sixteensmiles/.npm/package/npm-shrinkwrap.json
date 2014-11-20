@@ -107,6 +107,9 @@
           "version": "0.2.8"
         }
       }
+    },
+    "node-schedule": {
+      "version": "0.1.13"
     }
   }
 }

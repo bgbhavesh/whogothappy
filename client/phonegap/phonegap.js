@@ -6,17 +6,30 @@ document.addEventListener('deviceready', function(){
 }, false);
 
 app.setAlarm = function(time){
+	var tempTime = time;
 	time = time.split(":");
 	var hour = time[0];
 	var min = time[1];
 	var date = new Date();
 	date.setHours(hour);
 	date.setMinutes(min);
+	date.setSeconds(0);
 	var nowDate = new Date().getTime();
 	if(date.getTime() < nowDate){
 		date = date + 86400000;
 	}
 	if(app.alarm)
 		app.alarm.setAlarm(date,function(){});
-	console.log("setAlarm at " +time);
+
+	// var user = Meteor.users.findOne({"_id":Meteor.userId()});
+	// if(app.pushId){
+		var options = {};
+		options.hour = Number(hour);
+		options.min = Number(min);
+		options.pushId = app.pushId;
+		Meteor.call("setAlarm",options,function(){});
+	// }
+
+	console.log("setAlarm at " +date);
+	return true;
 }
