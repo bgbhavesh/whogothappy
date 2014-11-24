@@ -118,7 +118,8 @@ function startTimer(){
 var database;
 var Score = new Array();
 function endGame(EndedTime){
-	$("#clickEvent").css("-webkit-filter","blur(4px)");
+	$("#clickEvent").css("filter","blur(5px)");
+	$("#clickEvent").css("-webkit-filter","blur(5px)");
 	gamestart = false;
 	console.log("game Ended");
 	// app.toggleEndRefesh();

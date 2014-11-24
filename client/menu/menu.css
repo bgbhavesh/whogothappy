@@ -10,3 +10,11 @@
 .lastResult{
 	padding-left: 10% !important;
 }
+.gray{
+	background-color: gray;
+	color: white;
+}
+.black{
+	background-color: black;
+	color: white;
+}
