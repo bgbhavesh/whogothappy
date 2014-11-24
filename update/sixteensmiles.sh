@@ -6,7 +6,7 @@ bundlename="sixteensmiles.tar.gz"
 hostmeteor="sixteensmiles.meteor.com"
 ####################
 
-ROOT_URL='http://128.199.196.222:8000'
+ROOT_URL='http://whogothappy.com'
 MONGO_URL='mongodb://localhost:27017/sixteensmiles'
 
 MONGO_OPLOG_URL='mongodb://bookmark:123456@paulo.mongohq.com:10017/local?authSource=WORDdance'
@@ -27,9 +27,9 @@ cd $meteorhome
 #rm -rf $home$appname
 mkdir -p $home$appname
 
-meteor remove-platform android
-meteor remove-platform ios
-meteor build $home$appname/bundle #--server http://128.199.196.222:8000
+#meteor remove-platform android
+#meteor remove-platform ios
+meteor build $home$appname/bundle --server $ROOT_URL
 cd $home$appname/bundle
 tar -xvf $bundlename
 cd bundle/programs/server
@@ -53,7 +53,7 @@ export PORT=$PORT
 export METEOR_ENV="production"
 
 mv ./main.js ./$appname.js
-
+pm2 flush $appname
 pm2 start $appname.js
 
 cd $meteorhome

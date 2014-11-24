@@ -27,7 +27,8 @@ app.onPushId = function(pushId){
     var starttime = new Date().getTime();
     log("app.onPushId started",null,arguments,1);
     if(pushId == "OK" || pushId == "ok")
-        return
+        return;
+    console.log(app.pushId);
     app.pushId = pushId;
     app.onSendPushId(); 
     log("app.onPushId ended",new Date().getTime() - starttime,arguments,1);

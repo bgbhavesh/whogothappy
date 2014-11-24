@@ -125,19 +125,11 @@ Template.menuListPanel.helpers({
         app.set("secondAlarm",$("#secondAlarm").val());
     },
     "click #setAlarm" : function(){
-        // var firstAlarm = $("#firstAlarm").val();
-        // var secondAlarm = $("#secondAlarm").val();
-        // app.setAlarm(firstAlarm);
-        // app.setAlarm(secondAlarm);
-        var user = Meteor.users.findOne({"_id":Meteor.userId()});
-        if(user)
-        {
-            var options = {};
-            options.date = firstAlarm;
-            options.callback = "app.sendpushtouser";
-            options.data =" user.pishid";
-            Meteor.call("setAlarm",options);
-        }
+        var firstAlarm = $("#firstAlarm").val();
+        var secondAlarm = $("#secondAlarm").val();
+        app.setAlarm(firstAlarm);
+        app.setAlarm(secondAlarm);
+        
     }
 });
 
@@ -155,13 +147,19 @@ Template.menuListPanel.events({
                 console.log(res1)
                 for(var i = 0, il=res1.length;i<il;i++){
                     // console.log(res1[i])
-                    if(res1[i] == "" || res1[i] == " ")
-                    {}
-                    else{ 
+                
+                    var atpos = res1[i].indexOf("@");
+                    var dotpos = res1[i].lastIndexOf(".");
+                    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=res1[i].length) {
+                        // alert("Not a valid e-mail address");
+                        // return false;
+                    }
+                    else{
                         ids.push({
                             "ids": res1[i]
-                        });
+                        });                                
                     }
+                   
                 }
                 Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.emailsToSend":ids}});
                 // var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
