@@ -1,8 +1,11 @@
 /* CSS declarations go here */
- a:link, a:visited, a:hover, a:active, a:focus {
+ a:link, a:visited, a:hover, a:active, a:focus ,ul.off-canvas-list li a{
    text-decoration: none !important;
     color: black !important;
-    background-color: none;
+    background-color: none !important;
+}
+ul.off-canvas-list li a:hover{
+    color: white !important;
 }
 .whiteText{
     color: white !important;
@@ -49,6 +52,18 @@
 }
 .height40{
     height: 40px;
+}
+.height150{
+    /*padding: 0px;*/
+}
+.height150{
+    height: 140px;
+}
+table{
+    margin: 0px;
+    margin-bottom:0px !important;
+    background: none !important;
+    border: 0px !important;
 }
 .scrolly .panel{
     float: none;
