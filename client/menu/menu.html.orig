@@ -55,24 +55,45 @@
         <tbody>
                     
                     <tr>
-                        <th >One</th>
-                        <td class="{{#if d0.endgame1}} black {{else}} grey {{/if}}">{{#if d0.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d1.endgame1}} black {{else}} grey {{/if}}">{{#if d1.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d2.endgame1}} black {{else}} grey {{/if}}">{{#if d2.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d3.endgame1}} black {{else}} grey {{/if}}">{{#if d3.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d4.endgame1}} black {{else}} grey {{/if}}">{{#if d4.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d5.endgame1}} black {{else}} grey {{/if}}">{{#if d5.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d6.endgame1}} black {{else}} grey {{/if}}">{{#if d6.first}} x {{else}} o {{/if}}</td>
+<<<<<<< HEAD
+                        <th>One</th>
+                        <td class="{{#if d0.endgame}} .black {{else}} .grey {{/if}}">{{#if d0.first}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d1.endgame}} .black {{else}} .grey {{/if}}">{{#if d1.first}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d2.endgame}} .black {{else}} .grey {{/if}}">{{#if d2.first}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d3.endgame}} .black {{else}} .grey {{/if}}">{{#if d3.first}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d4.endgame}} .black {{else}} .grey {{/if}}">{{#if d4.first}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d5.endgame}} .black {{else}} .grey {{/if}}">{{#if d5.first}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d6.endgame}} .black {{else}} .grey {{/if}}">{{#if d6.first}} x {{else}} o {{/if}}</td>
                     </tr>
                     <tr>
                         <th>two</th>
-                        <td class="{{#if d0.endgame2}} black {{else}} grey {{/if}}">{{#if d0.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d1.endgame2}} black {{else}} grey {{/if}}">{{#if d1.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d2.endgame2}} black {{else}} grey {{/if}}">{{#if d2.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d3.endgame2}} black {{else}} grey {{/if}}">{{#if d3.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d4.endgame2}} black {{else}} grey {{/if}}">{{#if d4.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d5.endgame2}} black {{else}} grey {{/if}}">{{#if d5.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d6.endgame2}} black {{else}} grey {{/if}}">{{#if d6.second}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d0.endgame}} .black {{else}} .grey {{/if}}">{{#if d0.second}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d1.endgame}} .black {{else}} .grey {{/if}}">{{#if d1.second}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d2.endgame}} .black {{else}} .grey {{/if}}">{{#if d2.second}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d3.endgame}} .black {{else}} .grey {{/if}}">{{#if d3.second}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d4.endgame}} .black {{else}} .grey {{/if}}">{{#if d4.second}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d5.endgame}} .black {{else}} .grey {{/if}}">{{#if d5.second}} x {{else}} o {{/if}}</td>
+                        <td class="{{#if d6.endgame}} .black {{else}} .grey {{/if}}">{{#if d6.second}} x {{else}} o {{/if}}</td>
+=======
+                        <th>Started</th>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                    </tr>
+                    <tr>
+                        <th>Finish</th>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+                        <td>x</td>
+>>>>>>> origin/bgbhavesh
                     </tr>
         </tbody>
       </table>
