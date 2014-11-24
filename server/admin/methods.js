@@ -11,6 +11,24 @@ Meteor.methods({
 	"setAlarm" : function(option){
 		Job.addJob(option);
 	},
+	"setStreak" : function(option){
+		var id;
+		if(Meteor.userId()){
+			var cursor = Streak.findOne({"_id":Meteor.userId()});
+			if(!cursor){
+				if(option.first)
+					id = Streak.insert({"_id":Meteor.userId(),"day": option.day,"first":true});
+				else if(option.second)
+					id = Streak.insert({"_id":Meteor.userId(),"day": option.day,"second":true});
+			}else{
+				if(option.first)
+					id = Streak.update({"_id":Meteor.userId(),"day": 2},{$set:{"first":false}});
+				else if(option.second)
+					id = Streak.update({"_id":Meteor.userId(),"day": 2},{$set:{"second":false}});
+			}
+		}
+		return id;
+	},
 });
 app.sendpushtouser = function (pushId){
    app.pushServer.sendAndroid("Its Tme to play Game.", [pushId], "whogothappy", "whogothappy", 1);
