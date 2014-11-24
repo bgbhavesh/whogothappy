@@ -79,6 +79,7 @@ app.getGameTimer = function(){
 	}
 }
 function startTimer(){
+	app.updateStreak();
   	timex = setTimeout(function(){
       seconds++;
     if(seconds >59){
@@ -169,7 +170,7 @@ function endGame(EndedTime){
 		});
 	}
 	app.modifyLastDate(data);
-	app.updateStreak();
+	app.updateStreak("true");
 	console.log(emails)
 	if(emails)
 		app.sendmail(emails,data);
@@ -194,19 +195,51 @@ sendcacheData = setTimeout(function(){
 	}
 },30000);
 /// the value of the class myScore is to be changed  
-app.updateStreak = function(){
+app.updateStreak = function(endgame){
+	var currentWeek = app.getWeek();
+	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
+	if(cursorMe){
+		if(cursorMe.profile){
+			if(cursorMe.profile.lastWeek){
+				if(cursorMe.profile.lastWeek == currentWeek){
+					Meteor.call("resetStreak",option,function(err,data){
+						// console.log(err);
+						// console.log(data);
+					});
+				}
+			}
+		}
+	}
 	var option = {};
 	option.day = new Date().getDay();
+
 	var hour = new Date().getHours()
 	if(hour < 9)
 		option.first = true;
 	else
 		option.second = true;
-	
+
+
+	if(endgame)
+		option.endgame = true;
+	else
+		option.endgame = false;
+
 	Meteor.call("setStreak",option,function(err,data){
-		console.log(err);
-		console.log(data);
+		// console.log(err);
+		// console.log(data);
 	});
+}
+app.getWeek = function(){
+	Date.prototype.getWeek = function() {
+	    var dt = new Date(this.getFullYear(),0,1);
+	    return Math.ceil((((this - dt) / 86400000) + dt.getDay()-1)/7);
+	};
+	var year = new Date().getFullYear();
+	var month = new Date().getMonth() + 1;
+	var day = new Date().getDate()
+	var myDate = new Date(year, month,day);
+	return myDate.getWeek()
 }
 app.modifyLastDate = function(data){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
@@ -215,7 +248,8 @@ app.modifyLastDate = function(data){
 	if(cursorMe){
 		if(cursorMe.profile){
 				var currenttime = new Date()//.getHours() +":"+new Date().getMinutes()
-				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime,"profile.lastScore":data.score,"profile.lastTried":data.clicked,"profile.lastWrong":data.wrong}});
+				var currentWeek = app.getWeek();
+				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime,"profile.lastScore":data.score,"profile.lastTried":data.clicked,"profile.lastWrong":data.wrong,"profile.lastWeek":currentWeek}});
 
 				
 				if(cursorMe.profile.currentDate != currentDate){

@@ -16,22 +16,29 @@ Meteor.methods({
 	"setStreak" : function(option){
 		var id;
 		if(Meteor.userId()){
-			var cursor = Streak.findOne({"_id":Meteor.userId(),"day": option.day});
+			var cursor = Streak.findOne({"user":Meteor.userId(),"day": option.day});
 			if(!cursor){
 				if(option.first)
-					id = Streak.insert({"_id":Meteor.userId(),"day": option.day,"first":true});
+					id = Streak.insert({"user":Meteor.userId(),"day": option.day,"first":true,"endgame":option.endgame});
 				else if(option.second)
-					id = Streak.insert({"_id":Meteor.userId(),"day": option.day,"second":true});
+					id = Streak.insert({"user":Meteor.userId(),"day": option.day,"second":true,"endgame":option.endgame});
 			}else{
-				if(option.first)
-					id = Streak.update({"_id":Meteor.userId(),"day": 2},{$set:{"first":true}});
+				if(option.first){
+					console.log(option)
+					id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame":option.endgame}});
+				}
 				else if(option.second)
-					id = Streak.update({"_id":Meteor.userId(),"day": 2},{$set:{"second":true}});
+					id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"second":true,"endgame":option.endgame}});
 			}
 		}
 		return id;
 	},
+	"resetStreak" : function(options){
+		Streak.remove({});
+		return true;
+	},
 });
+
 app.sendpushtouser = function (pushId){
    app.pushServer.sendAndroid("Its Tme to play Game.", [pushId], "whogothappy", "whogothappy", 1);
 }
