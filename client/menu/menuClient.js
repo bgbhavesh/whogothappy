@@ -123,8 +123,14 @@ Template.menuListPanel.helpers({
         // var alarmTime = element.value
         app.set("firstAlarm",$("#firstAlarm").val());
         app.set("secondAlarm",$("#secondAlarm").val());
+    },
+    "click #setAlarm" : function(){
+        var firstAlarm = $("#firstAlarm").val();
+        var secondAlarm = $("#secondAlarm").val();
+        app.setAlarm(firstAlarm);
+        app.setAlarm(secondAlarm);
+        
     }
-    
 });
 
 Template.menuListPanel.events({
@@ -165,9 +171,7 @@ Template.menuListPanel.events({
     }
 });
 
-app.setAlarm = function(){
-    // 86400000
-}
+
 
 // $("#getEmails").keyup(function(event) {
 //     //     var val = $(this).val();

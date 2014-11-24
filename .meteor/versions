@@ -46,6 +46,7 @@ nicolsondsouza:hashrouter@1.0.0
 npm-bcrypt@0.7.7
 observe-sequence@1.0.3
 ordered-dict@1.0.1
+phonegap-push@0.0.0
 random@1.0.1
 reactive-dict@1.0.4
 reactive-var@1.0.3

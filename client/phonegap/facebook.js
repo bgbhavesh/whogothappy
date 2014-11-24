@@ -1,32 +1,32 @@
-if(Meteor.isClient){
-  app.fbInit = function(){}
-  // app.fbInit = function(){
-  //     window.fbAsyncInit = function() {
-  //             FB.init({
-  //               appId      : app.getFacebookAppId(),
-  //               xfbml      : true,
-  //               version    : 'v1.0'
-  //             });
-  //           };
+// if(Meteor.isClient){
+//   app.fbInit = function(){}
+//   // app.fbInit = function(){
+//   //     window.fbAsyncInit = function() {
+//   //             FB.init({
+//   //               appId      : app.getFacebookAppId(),
+//   //               xfbml      : true,
+//   //               version    : 'v1.0'
+//   //             });
+//   //           };
 
-  //     (function(d, s, id){
-  //      var js, fjs = d.getElementsByTagName(s)[0];
-  //      if (d.getElementById(id)) {return;}
-  //      js = d.createElement(s); js.id = id;
-  //      js.src = "http://connect.facebook.net/en_US/sdk.js";
-  //      fjs.parentNode.insertBefore(js, fjs);
-  //     }(document, 'script', 'facebook-jssdk'));
-  // }
-}
-else{
-    app.fbInit = function(){
-        FB.init({ 
-            appId: "906351116043661", 
-            nativeInterface: CDV.FB, 
-            useCachedDialogs: false 
-        });
-    }
-}
+//   //     (function(d, s, id){
+//   //      var js, fjs = d.getElementsByTagName(s)[0];
+//   //      if (d.getElementById(id)) {return;}
+//   //      js = d.createElement(s); js.id = id;
+//   //      js.src = "http://connect.facebook.net/en_US/sdk.js";
+//   //      fjs.parentNode.insertBefore(js, fjs);
+//   //     }(document, 'script', 'facebook-jssdk'));
+//   // }
+// }
+// else{
+//     app.fbInit = function(){
+//         FB.init({ 
+//             appId: "906351116043661", 
+//             nativeInterface: CDV.FB, 
+//             useCachedDialogs: false 
+//         });
+//     }
+// }
 
 
 app.fbNativeLogin = function() {
@@ -91,6 +91,9 @@ function facebookWallPost(word) {
 app.facebookWallPost = facebookWallPost;
 
 
+
+
+Meteor.startup(function(){
 if(!Meteor.isCordova){
     window.fbAsyncInit = function() {
             FB.init({
@@ -117,8 +120,5 @@ else{
             useCachedDialogs: false 
         });
     } 
-}
-
-Meteor.startup(function(){
-    
+}    
 })

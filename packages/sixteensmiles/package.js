@@ -5,7 +5,8 @@ Package.describe({
 });
 
 Npm.depends({
-    "google-spreadsheet" : "0.2.8"
+    "google-spreadsheet" : "0.2.8",
+    "node-schedule" : "0.1.13",
 });
 
 Cordova.depends({
@@ -42,7 +43,7 @@ Package.onUse(function(api) {
   // api.add_files('lib/timeago.js', 'client');
   if(api.export){
 		api.export(["app","collection","log"],['client',"server"]);
-    api.export(["GoogleSpreadsheet","path","Future"],"server");
+    api.export(["GoogleSpreadsheet","path","Future","schedule"],"server");
 	}
 });
 
