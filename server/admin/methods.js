@@ -14,7 +14,7 @@ Meteor.methods({
 	"setStreak" : function(option){
 		var id;
 		if(Meteor.userId()){
-			var cursor = Streak.findOne({"_id":Meteor.userId()});
+			var cursor = Streak.findOne({"_id":Meteor.userId(),"day": option.day});
 			if(!cursor){
 				if(option.first)
 					id = Streak.insert({"_id":Meteor.userId(),"day": option.day,"first":true});
@@ -22,9 +22,9 @@ Meteor.methods({
 					id = Streak.insert({"_id":Meteor.userId(),"day": option.day,"second":true});
 			}else{
 				if(option.first)
-					id = Streak.update({"_id":Meteor.userId(),"day": 2},{$set:{"first":false}});
+					id = Streak.update({"_id":Meteor.userId(),"day": 2},{$set:{"first":true}});
 				else if(option.second)
-					id = Streak.update({"_id":Meteor.userId(),"day": 2},{$set:{"second":false}});
+					id = Streak.update({"_id":Meteor.userId(),"day": 2},{$set:{"second":true}});
 			}
 		}
 		return id;

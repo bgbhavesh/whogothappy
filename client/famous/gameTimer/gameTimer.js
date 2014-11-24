@@ -169,6 +169,7 @@ function endGame(EndedTime){
 		});
 	}
 	app.modifyLastDate(data);
+	app.updateStreak();
 	console.log(emails)
 	if(emails)
 		app.sendmail(emails,data);
@@ -193,6 +194,20 @@ sendcacheData = setTimeout(function(){
 	}
 },30000);
 /// the value of the class myScore is to be changed  
+app.updateStreak = function(){
+	var option = {};
+	option.day = new Date().getDay();
+	var hour = new Date().getHours()
+	if(hour < 9)
+		option.first = true;
+	else
+		option.second = true;
+	
+	Meteor.call("setStreak",option,function(err,data){
+		console.log(err);
+		console.log(data);
+	});
+}
 app.modifyLastDate = function(data){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	var currentDate = new Date().getDate();
