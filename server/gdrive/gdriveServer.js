@@ -24,6 +24,8 @@ Meteor.methods({
 	"sendLang" : function(lan){
 			// console.log("fr")
 			var fut = new Future(); 
+			// this looks like it's called when meteor.startup, not every hour
+			// this doesn't work... drive isn't updating app
 	       	var my_sheet = new GoogleSpreadsheet('1Sn3TQLUaILVjp5KMy1cvDsfaH3ISUtkHAUg7VmMsAj8');
 			my_sheet.getRows( 1, function(err, row_data){
 				if(row_data){
