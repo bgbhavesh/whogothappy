@@ -50,6 +50,13 @@ Meteor.methods({
 					
 				}
 				// console.log(app.language.en)
+				// 1 should get all columns from sheet
+				// 2 if enMan manually entered english exists, use it
+				// 3 if not sue machine translation column 
+				// 4 enter each language into db objects
+				// 5 depending on apps language, insert from db into html
+				// all text in app needs to be variables ..
+				// 6 publish this method as a package under youiest llc  acct
 				fut.return(app.language.en)
 				}
 			});
