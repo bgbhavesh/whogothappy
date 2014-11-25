@@ -52,6 +52,7 @@ Meteor.startup(function(){
 	// var mylan = "fr";
 	Meteor.call("sendLang",mylan,function(err,data){
 		if(data){
+			// why is this not in the database?
 			app.lang = data;
 			Session.set("langrefresh",Random.id());
 		}else{
