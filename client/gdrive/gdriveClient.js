@@ -1,5 +1,6 @@
 app.lang = {};
 
+app.lang.table = {};
 app.lang.menu = {};
 app.lang.gamePopUp = {};
 app.lang.alarm = {};
@@ -21,6 +22,7 @@ app.lang.gamePopUp.mgs1 = "Tap the happiest, most pleasant, most joyful face in 
 
 app.lang.alarm.head = "Two Alarms";
 app.lang.alarm.foot = "Thinks of two times ...";
+app.lang.alarm.set = "Set";
 
 app.lang.email.head = "Challenge Someone!";
 app.lang.email.msg1 = "To invite and share.";
@@ -29,6 +31,9 @@ app.lang.email.msg2 = "Invite Friends";
 app.lang.timer.game = "This Game";
 app.lang.timer.score = "Score";
 app.lang.timer.time = "Time";
+app.lang.timer.tf = "True or False";
+app.lang.timer.tt = "Time Taken";
+app.lang.timer.user = "Users";
 
 app.lang.scorebord.notyou = "Not you?";
 app.lang.scorebord.days = "Days in a Row";
@@ -39,6 +44,8 @@ app.lang.scorebord.email = "Email";
 app.lang.scoretitle.attemted = "Attempted";
 app.lang.scoretitle.lastscore = "Last score";
 app.lang.scoretitle.missed = "Missed";
+
+app.lang.table.week = "Weeks";
 
 UI.registerHelper("lang", function () {
 	Session.get("langrefresh");
