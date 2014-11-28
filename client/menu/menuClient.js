@@ -71,6 +71,9 @@ Template.menuListPanel.helpers({
      "click #loginScreenFacebook" : function(){
         app.loginWithFacebook();
     },
+     "click #inviteEmail" : function(){
+        app.clickOnInvMail();
+    },
     "click #OpenProfile" : function(){
         if(Meteor.user()){
             window.open("https://www.facebook.com/profile.php?id=" + Meteor.user()._id);
@@ -172,7 +175,11 @@ Template.menuListPanel.events({
 });
 
 
-
+app.clickOnInvMail = function() {
+    var mailBody = 'You all are challenged to beat my score \n Click here to install the application "who got happy" !';
+    var emailurl = 'mailto:tapmate@tapmate.mailgun.org?subject=You have been invited to join whogothappy&body=' + encodeURIComponent(mailBody);
+    window.open(emailurl, '_system');
+}
 // $("#getEmails").keyup(function(event) {
 //     //     var val = $(this).val();
 //     //     if (val != convertEmail(val))

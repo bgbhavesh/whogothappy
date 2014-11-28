@@ -9,10 +9,7 @@ var hours =0;
 var mins =0;
 var seconds =0;
 var timex;
-if(Meteor.absoluteUrl.defaultOptions.rootUrl.match("localhost:3000"))
-    DebugFace = true;
-else
-    DebugFace = false;
+
 // app.extraPoints  = 0;
 Template.content.events({
     'click #endGame': function () {
@@ -31,6 +28,7 @@ Template.GamerTimerimer.events({
 app.endBeforeTime = function(){
 	if(gamestart){
     	var time = mins +":"+seconds
+    	// console.log(time)
     	endGame(time);
     	clearTimeout(timex);
     }
@@ -94,7 +92,7 @@ function startTimer(){
 	else {
 		$(".gametimeseconds").text(seconds);
   	}
-  	if(DebugFace){
+  	if(app.debug){
 	  	if(seconds >= 10){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
@@ -147,6 +145,7 @@ function endGame(EndedTime){
 		if(EndedTime){
 			data.gameEnd = EndedTime;
 		}else{
+			// if(!app.debug)
 			data.gameEnd = "10:00";
 		}
 		// console.log(data.emailid)

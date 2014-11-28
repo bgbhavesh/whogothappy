@@ -136,9 +136,12 @@
         <h5>{{lang.email.head}}</h5>
         <label>{{lang.email.msg1}}
             <textarea id="getEmails" placeholder="Enter emails..." value="">{{#each list}}{{ids}},{{/each}}</textarea>
+            <a  class="large-5 small-5 medium-5 columns">{{lang.email.msg2}} </a>
+            <a id="inviteFriends" class="large-4 small-4 medium-4 columns" href=""><i class="fa fa-facebook-square"></i> </a>
+            <a id="inviteEmail" class="large-3 small-3 medium-3 columns" href=""><i class="fa fa-envelope"></i></a>
         </label>
-            <a id="inviteFriends">{{lang.email.msg2}}</a>
     </div>  
+    <!-- #inviteFriends -->
     <div class="large-12 small-12 medium-12 columns panel lastScore">
         <h5>{{lang.scoretitle.lastscore}}</h5>
         <label class="large-12 small-12 medium-12 columns">
