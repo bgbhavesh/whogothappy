@@ -26,7 +26,8 @@ Meteor.methods({
 			var fut = new Future(); 
 	       	var my_sheet = new GoogleSpreadsheet('1Sn3TQLUaILVjp5KMy1cvDsfaH3ISUtkHAUg7VmMsAj8');
 			my_sheet.getRows( 1, function(err, row_data){
-				for(var i=0,il=row_data.length;i<il;i++){
+				if(row_data){
+					for(var i=0,il=row_data.length;i<il;i++){
 					var key = row_data[i].key;
 					key = key.split(".");
 					if(lan){
@@ -48,6 +49,7 @@ Meteor.methods({
 				}
 				// console.log(app.language.en)
 				fut.return(app.language.en)
+				}
 			});
 			return fut.wait();
 	}

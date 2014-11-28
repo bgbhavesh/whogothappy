@@ -13,7 +13,32 @@ Meteor.methods({
 		options.userId = Meteor.userId();
 		return app.setAlarm(options);
 	},
+	"setStreak" : function(option){
+		var id;
+		if(Meteor.userId()){
+			var cursor = Streak.findOne({"user":Meteor.userId(),"day": option.day});
+			if(!cursor){
+				if(option.first)
+					id = Streak.insert({"user":Meteor.userId(),"day": option.day,"first":true,"endgame1":option.endgame});
+				else if(option.second)
+					id = Streak.insert({"user":Meteor.userId(),"day": option.day,"second":true,"endgame2":option.endgame});
+			}else{
+				if(option.first){
+					console.log(option)
+					id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame1":option.endgame}});
+				}
+				else if(option.second)
+					id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"second":true,"endgame2":option.endgame}});
+			}
+		}
+		return id;
+	},
+	"resetStreak" : function(options){
+		Streak.remove({});
+		return true;
+	},
 });
+
 app.sendpushtouser = function (pushId){
    app.pushServer.sendAndroid("Its Tme to play Game.", [pushId], "whogothappy", "whogothappy", 1);
 }
