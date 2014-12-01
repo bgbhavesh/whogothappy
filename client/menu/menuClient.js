@@ -143,18 +143,20 @@ Template.menuListPanel.helpers({
         }
     },
     "change #dp3 input" : function(event){
-        // var element = event.currentTarget;
-        // var alarmTime = element.value
-        app.set("firstAlarm",$("#firstAlarm").val());
-        app.set("secondAlarm",$("#secondAlarm").val());
-    },
-    "click #setAlarm" : function(){
         var firstAlarm = $("#firstAlarm").val();
-        var secondAlarm = $("#secondAlarm").val();
-        app.setAlarm(firstAlarm);
-        app.setAlarm(secondAlarm);
-        
+        var secondAlarm = $("#secondAlarm").val();        
+        app.set("firstAlarm",firstAlarm);
+        app.set("secondAlarm",secondAlarm);
+        app.setAlarm(firstAlarm,"first");
+        app.setAlarm(secondAlarm,"second");
     }
+    // ,
+    // "click #setAlarm" : function(){
+    //     // var firstAlarm = $("#firstAlarm").val();
+    //     // var secondAlarm = $("#secondAlarm").val();
+        
+        
+    // }
 });
 
 Template.menuListPanel.events({
@@ -181,7 +183,7 @@ Template.menuListPanel.events({
                     else{
                         ids.push({
                             "ids": res1[i]
-                        });                                
+                        });
                     }
                    
                 }
