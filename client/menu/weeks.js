@@ -47,13 +47,13 @@ app.arrangeDays = function(){
 	for (var i = n+1; i <= 6; i++) {
 		var c, v;
 		c = "grey";
-		v = '<i class="fa fa-square-o"></i>';
+		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
 			if(Streak.findOne({"day": i}).endgame1){
 				c = "black";
 			}
 			if(Streak.findOne({"day": i}).first){
-				v = '<i class="fa fa-check-square-o"></i>';
+				v = '<i class="fa fa-smile-o"></i>';
 			}
 		}
 		$("#weeks tbody .endgame1").append('<td class="'+c+'">'+v+'</td>');	
@@ -61,13 +61,13 @@ app.arrangeDays = function(){
 	for (var i = 0; i < n+1; i++) {
 		var c, v;
 		c = "grey";
-		v = '<i class="fa fa-square-o"></i>';
+		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
 			if(Streak.findOne({"day": i}).endgame1){
 				c = "black";
 			}
 			if(Streak.findOne({"day": i}).first){
-				v = '<i class="fa fa-check-square-o"></i>';
+				v = '<i class="fa fa-smile-o"></i>';
 			}
 		}
 		$("#weeks tbody .endgame1").append('<td class="'+c+'">'+v+'</td>');	
@@ -79,13 +79,13 @@ app.arrangeDays = function(){
 	for (var i = n+1; i <= 6; i++) {
 		var c, v;
 		c = "grey";
-		v = '<i class="fa fa-square-o"></i>';
+		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
 			if(Streak.findOne({"day": i}).endgame2){
 				c = "black";
 			}
 			if(Streak.findOne({"day": i}).second){
-				v = '<i class="fa fa-check-square-o"></i>';
+				v = '<i class="fa fa-smile-o"></i>';
 			}
 		}
 		$("#weeks tbody .endgame2").append('<td class="'+c+'">'+v+'</td>');	
@@ -93,13 +93,13 @@ app.arrangeDays = function(){
 	for (var i = 0; i < n+1; i++) {
 		var c, v;
 		c = "grey";
-		v = '<i class="fa fa-square-o"></i>';
+		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
 			if(Streak.findOne({"day": i}).endgame2){
 				c = "black";
 			}
 			if(Streak.findOne({"day": i}).second){
-				v = '<i class="fa fa-check-square-o"></i>';
+				v = '<i class="fa fa-smile-o"></i>';
 			}
 		}
 		$("#weeks tbody .endgame2").append('<td class="'+c+'">'+v+'</td>');	
