@@ -104,4 +104,6 @@ app.arrangeDays = function(){
 		}
 		$("#weeks tbody .endgame2").append('<td class="'+c+'">'+v+'</td>');	
 	};
-} 
+}
+
+Template.weeks.rendered = app.arrangeDays; 
