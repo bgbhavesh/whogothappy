@@ -48,7 +48,7 @@ app.lang.scoretitle.attemted = "Attempted";
 app.lang.scoretitle.lastscore = "Last score";
 app.lang.scoretitle.missed = "Missed";
 
-app.lang.table.week = "Weeks";
+app.lang.table.week = "Last";
 app.lang.table.col1 = "AM";
 app.lang.table.col2 = "PM";
 app.lang.table.d0 = "Sunday";
