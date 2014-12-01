@@ -54,7 +54,9 @@ app.restoreAlarm = function(){
 	Meteor.users.find({}).forEach(function(user){
 		try{
 			if(user.profile && user.profile.alarm){
+				if(user.profile.alarm.first)
 				app.setAlarm(user.profile.alarm.first);
+				if(user.profile.alarm.second)
 				app.setAlarm(user.profile.alarm.second);
 			}
 		}
@@ -76,7 +78,9 @@ Meteor.methods({
 		
 		var user = Meteor.user();
 		if(user.profile && user.profile.alarm){
+			if(user.profile.alarm.first)
 			app.cancelAlarm(user.profile.alarm.first._id);
+			if(user.profile.alarm.second)
 			app.cancelAlarm(user.profile.alarm.second._id);
 		}
 		app.setAlarm(options);
