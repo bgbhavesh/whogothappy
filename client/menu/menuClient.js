@@ -79,6 +79,12 @@ Template.menuListPanel.helpers({
     },
     d6 : function(){
         return Streak.findOne({"day": 6});
+    },
+    "alarm" : function(){
+        if(Meteor.user() && Meteor.user().profile.alarm)
+            return Meteor.user().profile.alarm;
+        else
+            return {"first":{"localtime":"09:00"},"second":{"localtime":"11:00"}}
     }
     // "lang" : function(){
     //     return 
@@ -142,12 +148,14 @@ Template.menuListPanel.helpers({
             // $("#inviteFriends").css("display","none");               
         }
     },
-    "change #dp3 input" : function(event){
-        var firstAlarm = $("#firstAlarm").val();
-        var secondAlarm = $("#secondAlarm").val();        
+    "change #firstAlarm" : function(event){
+        var firstAlarm = $("#firstAlarm").val();      
         app.set("firstAlarm",firstAlarm);
-        app.set("secondAlarm",secondAlarm);
         app.setAlarm(firstAlarm,"first");
+    },
+    "change #secondAlarm" : function(event){
+        var secondAlarm = $("#secondAlarm").val();        
+        app.set("secondAlarm",secondAlarm);
         app.setAlarm(secondAlarm,"second");
     }
     // ,
