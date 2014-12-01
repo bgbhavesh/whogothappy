@@ -24,11 +24,11 @@ Meteor.methods({
 					id = Streak.insert({"user":Meteor.userId(),"day": option.day,"second":true,"endgame2":option.endgame});
 			}else{
 				if(option.first){
-					console.log(option)
 					id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame1":option.endgame}});
 				}
-				else if(option.second)
+				else if(option.second){
 					id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"second":true,"endgame2":option.endgame}});
+				}
 			}
 		}
 		return id;

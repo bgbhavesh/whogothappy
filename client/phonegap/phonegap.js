@@ -20,8 +20,8 @@ app.setAlarm = function(time){
 	if(date.getTime() < nowDate){
 		date = date + 86400000;
 	}
-	if(app.alarm)
-		app.alarm.setAlarm(date,function(){});
+	// if(app.alarm)
+	// 	app.alarm.setAlarm(date,function(){});
 
 
 	date = app.convertServerTime(date);

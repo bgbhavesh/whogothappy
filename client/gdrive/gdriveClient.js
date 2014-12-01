@@ -1,4 +1,5 @@
 app.lang = {};
+app.setting = {};
 
 app.lang.menu = {};
 app.lang.gamePopUp = {};
@@ -7,6 +8,8 @@ app.lang.email = {};
 app.lang.scorebord = {};
 app.lang.timer = {};
 app.lang.scoretitle = {};
+app.lang.settings = {};
+app.lang.settings.time = {};
 app.lang.menu.menu = "Menu";
 app.lang.menu.home = "Home";
 app.lang.menu.users = "Users";
@@ -40,10 +43,21 @@ app.lang.scoretitle.attemted = "Attempted";
 app.lang.scoretitle.lastscore = "Last score";
 app.lang.scoretitle.missed = "Missed";
 
+app.lang.settings.tranisionWait = 50;
+app.lang.settings.animationtype = 5;
+app.lang.settings.sixteenHeightPercentage = 40;
+app.lang.settings.sixteenScorePerHit = 
+app.lang.settings.sixteenTimeMultiplier = 50;
+app.lang.settings.time.showSmiley = 25;
+app.lang.settings.time.holdAfterSmileyShowFaceAgain = 111;
+// app.setting.gamestart = 50;
+
+
 UI.registerHelper("lang", function () {
 	Session.get("langrefresh");
 	return app.lang;
 });
+
 
 Meteor.startup(function(){
 	console.log("start lang call")
@@ -58,4 +72,12 @@ Meteor.startup(function(){
 			// console.log(err)
 		}
 	});
+	// Meteor.call("sendSetting",mylan,function(err,data){
+	// 	if(data){
+	// 		app.setting = data;
+	// 	}
+	// });
+	// Meteor.call("updateScore",app.setting,function(err,data){
+	// 	console.log(data)
+	// });
 });

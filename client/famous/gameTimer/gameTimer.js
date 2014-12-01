@@ -151,24 +151,29 @@ function endGame(EndedTime){
 			data.gameEnd = "10:00";
 		}
 		// console.log(data.emailid)
-		if(data.emailid)
-			Meteor.call("genMail",data.emailid,data);//* *//
-			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
-			// console.log("err");
-			// console.log(err);
-			// console.log("data");
-			// console.log(data);
-			if(!data){
-				Score.push({
-                    "clientId": Meteor.userId(),
-                    "score": app.totalscore,
-                    "totalScore": app.score,
-                    "date": tempDate
-                });                
-            if(Score)
-                app.saveScoreLocal(Score);
-            }
-		});
+		if(data.emailid){
+				Meteor.call("genMail",data.emailid,data);//* *//
+				Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
+					// console.log("err");
+					// console.log(err);
+					// console.log("data");
+					// console.log(data);
+					if(!data){
+						Score.push({
+		                    "clientId": Meteor.userId(),
+		                    "score": app.totalscore,
+		                    "totalScore": app.score,
+		                    "date": tempDate
+		                });                
+		            if(Score)
+		                app.saveScoreLocal(Score);
+		            }
+				});
+				Meteor.call("updateScore",Meteor.userId(), app.totalscore, tempDate,function(err,data){
+					console.log(data)
+				});
+
+		}
 	}
 	app.modifyLastDate(data);
 	app.updateStreak("true");
