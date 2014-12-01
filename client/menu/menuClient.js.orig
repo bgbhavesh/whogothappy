@@ -59,6 +59,36 @@ Template.menuListPanel.helpers({
                 if(user.profile.lastPlayed)
                     return $.timeago(user.profile.lastPlayed);
     },
+<<<<<<< HEAD
+=======
+    d0 : function(){
+        return Streak.findOne({"day": 0});
+    },
+    d1 : function(){
+        return Streak.findOne({"day": 1});
+    },
+    d2 : function(){
+        return Streak.findOne({"day": 2});
+    },
+    d3 : function(){
+        return Streak.findOne({"day": 3});
+    },
+    d4 : function(){
+        return Streak.findOne({"day": 4});
+    },
+    d5 : function(){
+        return Streak.findOne({"day": 5});
+    },
+    d6 : function(){
+        return Streak.findOne({"day": 6});
+    },
+    "alarm" : function(){
+        if(Meteor.user() && Meteor.user().profile.alarm)
+            return Meteor.user().profile.alarm;
+        else
+            return {"first":{"localtime":"09:00"},"second":{"localtime":"11:00"}}
+    }
+>>>>>>> origin/master
     // "lang" : function(){
     //     return 
     // }

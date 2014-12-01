@@ -43,12 +43,15 @@ app.cancelAlarm = function(alarmId){
 		return false;
 }
 app.restoreAlarm = function(){
-	// Meteor.users().find({}).forEach(function(user){
-	// 	try{
-	// 		// user.profile.alarm.first	
-	// 	}
-	// 	catch(err){}
-	// });
+	Meteor.users.find({}).forEach(function(user){
+		try{
+			if(user.profile && user.profile.alarm){
+				app.setAlarm(user.profile.alarm.first);
+				app.setAlarm(user.profile.alarm.second);
+			}
+		}
+		catch(err){}
+	});
 }
 
 Meteor.startup(function(){
@@ -59,10 +62,22 @@ Meteor.methods({
 	"setAlarm" : function(options){
 		options._id = Random.id();
 		try{
-		options.userId = Meteor.userId();
+			options.userId = Meteor.userId();
 		}catch(err){}
+		
+		var user = Meteor.user();
+		if(user.profile && user.profile.alarm){
+			app.cancelAlarm(user.profile.alarm.first._id);
+			app.cancelAlarm(user.profile.alarm.second._id);
+		}
 		app.setAlarm(options);
-		Meteor.update({"_id":Meteor.userId()},{$set : {}});
+		var update = {};
+		update["profile.alarm."+options.type] = options;
+		Meteor.users.update({"_id":Meteor.userId()},{$set : update});
+		// console.log(update);
 		return true;
+	},
+	"cancelAlarm" : function(alarmId){
+		return app.cancelAlarm(alarmId);
 	}
 });

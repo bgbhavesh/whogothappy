@@ -5,19 +5,19 @@
     </div>
     <div class="row">
         <div class="input-append date large-6 small-6 medium-6 columns" id="dp3"  >
-            <input id="firstAlarm" size="16" type="time" value="09:00">
+            <input id="firstAlarm" size="16" type="time" value="{{alarm.first.localtime}}">
             <span class="add-on"><i class="icon-th"></i></span>
         </div>
     
         <div class="input-append date large-6 small-6 medium-6 columns" id="dp3"  >
-            <input id="secondAlarm" size="16" type="time" value="11:00">
+            <input id="secondAlarm" size="16" type="time" value="{{alarm.second.localtime}}">
             <span class="add-on"><i class="icon-th"></i></span>
         </div>
     </div>
     <label class="large-6 small-6 medium-6 columns">
         {{lang.alarm.foot}}
     </label>   
-    <div id="setAlarm" class="button ui large-6 small-6 medium-6 columns" style="background:cyan;">{{lang.alarm.set}}</div>
+    <!-- <div id="setAlarm" class="button ui large-6 small-6 medium-6 columns" style="background:cyan;">{{lang.alarm.set}}</div> -->
 </div> 
 {{#if user}}
          

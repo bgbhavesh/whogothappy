@@ -30,12 +30,13 @@ app.setAlarm = function(time,type){
 		var options = {};
 		options.hour = Number(date.getHours());
 		options.min = Number(date.getMinutes());
+		options.localtime = tempTime;
 		options.pushId = app.pushId;
 		options.type = type;
 		Meteor.call("setAlarm",options,function(){});
 	// }
 
-	// console.log("setAlarm at " +date);
+	console.log("setAlarm at " +date);
 	return true;
 }
 
