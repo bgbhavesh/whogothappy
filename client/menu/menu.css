@@ -26,3 +26,16 @@ td{
 	border: 0;
 	text-align: center !important;
 }
+.welcome label{
+	padding: 0px !important;
+}
+ul.off-canvas-list li label{
+	background: transparent !important;
+	color: black !important;
+	border: 0px !important;
+}
+ul.off-canvas-list li :hover{
+	background: transparent !important;
+	/*color: white !important;*/
+	/*border: 0px !important;*/
+}

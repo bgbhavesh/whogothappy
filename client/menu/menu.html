@@ -26,108 +26,72 @@
         <ul id="" class="off-canvas-list welcome">
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-8 small-7 medium-8 columns" id="OpenProfile">{{myusername}}</lable>
-                    <lable class="large-4 small-5 medium-4 columns" id="LogoutApp" >{{lang.scorebord.notyou}}</lable>
+                    <label class="large-8 small-7 medium-8 columns" id="OpenProfile">{{myusername}}</label>
+                    <label class="large-4 small-5 medium-4 columns" id="LogoutApp" >{{lang.scorebord.notyou}}</label>
                 </a>
             </li>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-9 small-7 medium-9 columns ">{{lang.scorebord.days}}</lable>
-                    <lable class="large-3 small-5 medium-3 columns  ">{{profile.playContinuty}}</lable>
+                    <label class="large-9 small-7 medium-9 columns ">{{lang.scorebord.days}}</label>
+                    <label class="large-3 small-5 medium-3 columns  ">{{profile.playContinuty}}</label>
                 </a>
             </li>
             <li>
                 <a href="#" class="">
                   <div class="table-responsive">          
-      <table class="table">
-        <thead>
-          <tr>
-                        <th>{{lang.table.week}}</th>
-                        <th>S</th>
-                        <th>M</th>
-                        <th>T</th>
-                        <th>W</th>
-                        <th>T</th>
-                        <th>F</th>
-                        <th>S</th>
-                    </tr>
-        </thead>
-        <tbody>
-                    
-                    <tr>
-                        <th >One</th>
-                        <td class="{{#if d0.endgame1}} black {{else}} grey {{/if}}">{{#if d0.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d1.endgame1}} black {{else}} grey {{/if}}">{{#if d1.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d2.endgame1}} black {{else}} grey {{/if}}">{{#if d2.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d3.endgame1}} black {{else}} grey {{/if}}">{{#if d3.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d4.endgame1}} black {{else}} grey {{/if}}">{{#if d4.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d5.endgame1}} black {{else}} grey {{/if}}">{{#if d5.first}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d6.endgame1}} black {{else}} grey {{/if}}">{{#if d6.first}} x {{else}} o {{/if}}</td>
-                    </tr>
-                    <tr>
-                        <th>two</th>
-                        <td class="{{#if d0.endgame2}} black {{else}} grey {{/if}}">{{#if d0.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d1.endgame2}} black {{else}} grey {{/if}}">{{#if d1.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d2.endgame2}} black {{else}} grey {{/if}}">{{#if d2.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d3.endgame2}} black {{else}} grey {{/if}}">{{#if d3.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d4.endgame2}} black {{else}} grey {{/if}}">{{#if d4.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d5.endgame2}} black {{else}} grey {{/if}}">{{#if d5.second}} x {{else}} o {{/if}}</td>
-                        <td class="{{#if d6.endgame2}} black {{else}} grey {{/if}}">{{#if d6.second}} x {{else}} o {{/if}}</td>
-                    </tr>
-        </tbody>
-      </table>
+      {{> weeks}}
       </div>
                 <!-- 
                     <B>
-                    <lable class="large-3 small-3 medium-3 columns ">Week</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">S</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">M</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">T</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">W</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">T</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">F</lable>
-                    <lable class="large-1 small-1 medium-1 columns end">S</lable>
+                    <label class="large-3 small-3 medium-3 columns ">Week</label>
+                    <label class="large-1 small-1 medium-1 columns ">S</label>
+                    <label class="large-1 small-1 medium-1 columns ">M</label>
+                    <label class="large-1 small-1 medium-1 columns ">T</label>
+                    <label class="large-1 small-1 medium-1 columns ">W</label>
+                    <label class="large-1 small-1 medium-1 columns ">T</label>
+                    <label class="large-1 small-1 medium-1 columns ">F</label>
+                    <label class="large-1 small-1 medium-1 columns end">S</label>
                     </B>
                     <B>
-                    <lable class="large-3 small-3 medium-3 columns ">one</lable>
+                    <label class="large-3 small-3 medium-3 columns ">one</label>
                     </B>
-                    <lable class="large-1 small-1 medium-1 columns ">x</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">o</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">x</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">o</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">o</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">x</lable>
-                    <lable class="large-1 small-1 medium-1 columns end">x</lable>
+                    <label class="large-1 small-1 medium-1 columns ">x</label>
+                    <label class="large-1 small-1 medium-1 columns ">o</label>
+                    <label class="large-1 small-1 medium-1 columns ">x</label>
+                    <label class="large-1 small-1 medium-1 columns ">o</label>
+                    <label class="large-1 small-1 medium-1 columns ">o</label>
+                    <label class="large-1 small-1 medium-1 columns ">x</label>
+                    <label class="large-1 small-1 medium-1 columns end">x</label>
                 
                     <B>
-                    <lable class="large-3 small-3 medium-3 columns ">two</lable>
+                    <label class="large-3 small-3 medium-3 columns ">two</label>
                     </B>
-                    <lable class="large-1 small-1 medium-1 columns ">o</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">x</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">x</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">o</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">x</lable>
-                    <lable class="large-1 small-1 medium-1 columns ">o</lable>
-                    <lable class="large-1 small-1 medium-1 columns end ">x</lable>
+                    <label class="large-1 small-1 medium-1 columns ">o</label>
+                    <label class="large-1 small-1 medium-1 columns ">x</label>
+                    <label class="large-1 small-1 medium-1 columns ">x</label>
+                    <label class="large-1 small-1 medium-1 columns ">o</label>
+                    <label class="large-1 small-1 medium-1 columns ">x</label>
+                    <label class="large-1 small-1 medium-1 columns ">o</label>
+                    <label class="large-1 small-1 medium-1 columns end ">x</label>
                  -->
                  </a>
             </li>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-9 small-4 medium-9 columns">{{lang.scorebord.seen}}</lable>
-                    <lable class="large-3 small-5 medium-3 columns noPadding " style="font: -webkit-small-control;">{{lastseen}}</lable><!-- {{profile.lastPlayed}} -->
+                    <label class="large-9 small-4 medium-9 columns">{{lang.scorebord.seen}}</label>
+                    <label class="large-3 small-5 medium-3 columns noPadding " style="font: -webkit-small-control;">{{lastseen}}</label><!-- {{profile.lastPlayed}} -->
                 </a>
             </li>
             <li>
                 <a href="#" class="height40">
-                    <lable class="large-9 small-7 medium-9 columns">{{lang.scorebord.mxscore}}</lable>
-                    <lable class="large-3 small-5 medium-3 columns ">{{profile.maxScore}}</lable>
+                    <label class="large-9 small-7 medium-9 columns">{{lang.scorebord.mxscore}}</label>
+                    <label class="large-3 small-5 medium-3 columns ">{{profile.maxScore}}</label>
                 </a>
             </li>
             <li class="textRight">
                 <a href="#" class="height40">
-                    <lable class="large-3 small-3 medium-3 columns">{{lang.scorebord.email}}:</lable>
-                    <lable class="large-9 small-9 medium-9 columns">{{myEmail}}</lable>
+                    <label class="large-3 small-3 medium-3 columns textLeft">{{lang.scorebord.email}}:</label>
+                    <label class="large-9 small-9 medium-9 columns textRight">{{myEmail}}</label>
                 </a>                
             </li>
         </ul>  
@@ -145,14 +109,14 @@
     <div class="large-12 small-12 medium-12 columns panel lastScore">
         <h5>{{lang.scoretitle.lastscore}}</h5>
         <label class="large-12 small-12 medium-12 columns">
-            <lable class="large-4 small-4 medium-4 columns">{{lang.scoretitle.attemted}}</lable>
-            <lable class="large-4 small-4 medium-4 columns">{{lang.scoretitle.lastscore}}</lable>
-            <lable class="large-4 small-4 medium-4 columns">{{lang.scoretitle.missed}}</lable>
+            <label class="large-4 small-4 medium-4 columns">{{lang.scoretitle.attemted}}</label>
+            <label class="large-4 small-4 medium-4 columns">{{lang.scoretitle.lastscore}}</label>
+            <label class="large-4 small-4 medium-4 columns">{{lang.scoretitle.missed}}</label>
         </label>
         <label class="large-12 small-12 medium-12 columns">
-            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastTried}}</lable>
-            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastScore}}</lable>
-            <lable class="large-4 small-4 medium-4 columns lastResult">{{profile.lastWrong}}</lable>
+            <label class="large-4 small-4 medium-4 columns lastResult">{{profile.lastTried}}</label>
+            <label class="large-4 small-4 medium-4 columns lastResult">{{profile.lastScore}}</label>
+            <label class="large-4 small-4 medium-4 columns lastResult">{{profile.lastWrong}}</label>
         </label>
     </div>
 {{else}}
