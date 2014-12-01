@@ -22,8 +22,8 @@ app.language.en ={};
 
 Meteor.methods({
 	"sendLang" : function(lan){
-			if(app.debug)
-				return false;
+			// if(app.debug)
+			// 	return false;
 			var fut = new Future(); 
 			// this looks like it's called when meteor.startup, not every hour
 			// this doesn't work... drive isn't updating app
