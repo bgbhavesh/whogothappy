@@ -12,4 +12,5 @@ Meteor.startup(function(){
 	// 	}
 	// 	console.log("ended");
 	// });
+	// console.log(Meteor.users.findOne({}));
 });

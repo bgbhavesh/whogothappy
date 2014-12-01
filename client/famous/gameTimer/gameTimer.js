@@ -172,7 +172,7 @@ function endGame(EndedTime){
 	}
 	app.modifyLastDate(data);
 	app.updateStreak("true");
-	console.log(emails)
+	// console.log(emails)
 	if(emails)
 		app.sendmail(emails,data);
 	app.updateTheMaxScoreProfile();
