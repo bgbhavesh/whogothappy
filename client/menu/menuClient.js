@@ -80,12 +80,19 @@ Template.menuListPanel.helpers({
     d6 : function(){
         return Streak.findOne({"day": 6});
     },
-    "alarm" : function(){
-        if(Meteor.user() && Meteor.user().profile.alarm)
-            return Meteor.user().profile.alarm;
+    "first" : function(){
+        if(Meteor.user() && Meteor.user().profile.alarm && Meteor.user().profile.alarm.first)
+            return Meteor.user().profile.alarm.first;
         else
-            return {"first":{"localtime":"09:00"},"second":{"localtime":"11:00"}}
+            return {"localtime":"09:00"};
+    },
+    "second" : function(){
+        if(Meteor.user() && Meteor.user().profile.alarm && Meteor.user().profile.alarm.second)
+            return Meteor.user().profile.alarm.second;
+        else
+            return {"localtime":"11:00"};
     }
+
     // "lang" : function(){
     //     return 
     // }
