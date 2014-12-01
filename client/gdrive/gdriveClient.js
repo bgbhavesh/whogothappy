@@ -46,6 +46,16 @@ app.lang.scoretitle.lastscore = "Last score";
 app.lang.scoretitle.missed = "Missed";
 
 app.lang.table.week = "Weeks";
+app.lang.table.col1 = "AM";
+app.lang.table.col2 = "PM";
+app.lang.table.d0 = "Sunday";
+app.lang.table.d1 = "Monday";
+app.lang.table.d2 = "Tuesday";
+app.lang.table.d3 = "Wednesday";
+app.lang.table.d4 = "Thursday";
+app.lang.table.d5 = "Friday";
+app.lang.table.d6 = "Saturday";
+
 
 UI.registerHelper("lang", function () {
 	Session.get("langrefresh");
