@@ -51,6 +51,7 @@ app.lang.scoretitle.missed = "Missed";
 app.lang.table.week = "Last";
 app.lang.table.col1 = "AM";
 app.lang.table.col2 = "PM";
+<<<<<<< HEAD
 app.lang.table.d0 = "S";
 app.lang.table.d1 = "M";
 app.lang.table.d2 = "T";
@@ -58,7 +59,14 @@ app.lang.table.d3 = "W";
 app.lang.table.d4 = "T";
 app.lang.table.d5 = "F";
 app.lang.table.d6 = "S";
-
+=======
+app.lang.table.d0 = "Sunday";
+app.lang.table.d1 = "Monday";
+app.lang.table.d2 = "Tuesday";
+app.lang.table.d3 = "Wednesday";
+app.lang.table.d4 = "Thursday";
+app.lang.table.d5 = "Friday";
+app.lang.table.d6 = "Saturday";
 app.lang.settings.tranisionWait = 50;
 app.lang.settings.animationtype = 5;
 app.lang.settings.sixteenHeightPercentage = 40;
@@ -67,6 +75,7 @@ app.lang.settings.sixteenTimeMultiplier = 50;
 app.lang.settings.time.showSmiley = 25;
 app.lang.settings.time.holdAfterSmileyShowFaceAgain = 111;
 // app.setting.gamestart = 50;
+>>>>>>> origin/master
 
 
 UI.registerHelper("lang", function () {

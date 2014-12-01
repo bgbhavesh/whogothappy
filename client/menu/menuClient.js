@@ -59,6 +59,19 @@ Template.menuListPanel.helpers({
                 if(user.profile.lastPlayed)
                     return $.timeago(user.profile.lastPlayed);
     },
+    "first" : function(){
+        if(Meteor.user() && Meteor.user().profile.alarm && Meteor.user().profile.alarm.first)
+            return Meteor.user().profile.alarm.first;
+        else
+            return {"localtime":"09:00"};
+    },
+    "second" : function(){
+        if(Meteor.user() && Meteor.user().profile.alarm && Meteor.user().profile.alarm.second)
+            return Meteor.user().profile.alarm.second;
+        else
+            return {"localtime":"11:00"};
+    }
+
     // "lang" : function(){
     //     return 
     // }

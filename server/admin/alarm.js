@@ -15,7 +15,7 @@ PushAlarm = function(options){
 		console.log("onPushDay " +self.pushId);
 		if(self.pushId)
 			app.sendpushtouser(self.pushId);
-		console.log(self);
+		// console.log(self);
 	}
 	
 	self.job = schedule.scheduleJob(self.rule, self.onPushDay);
@@ -23,8 +23,16 @@ PushAlarm = function(options){
 }
 
 PushAlarm.prototype.cancel = function() {
-	self.job.cancel();
-	delete self;
+	try{
+		if(typeof self != undefined){
+			self.job.cancel();
+			delete self;
+			return true;
+		}	
+	}
+	catch(err){
+		return false;
+	}
 };
 
 app.AlarmArray = {};
@@ -60,6 +68,7 @@ Meteor.startup(function(){
 
 Meteor.methods({
 	"setAlarm" : function(options){
+		// console.log("setAlarm started");
 		options._id = Random.id();
 		try{
 			options.userId = Meteor.userId();
@@ -75,6 +84,7 @@ Meteor.methods({
 		update["profile.alarm."+options.type] = options;
 		Meteor.users.update({"_id":Meteor.userId()},{$set : update});
 		// console.log(update);
+		// console.log("setAlarm ended");
 		return true;
 	},
 	"cancelAlarm" : function(alarmId){
