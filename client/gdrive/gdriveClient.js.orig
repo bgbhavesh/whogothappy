@@ -48,6 +48,16 @@ app.lang.scoretitle.attemted = "Attempted";
 app.lang.scoretitle.lastscore = "Last score";
 app.lang.scoretitle.missed = "Missed";
 
+<<<<<<< HEAD
+app.lang.settings.tranisionWait = 50;
+app.lang.settings.animationtype = 5;
+app.lang.settings.sixteenHeightPercentage = 40;
+app.lang.settings.sixteenScorePerHit = 
+app.lang.settings.sixteenTimeMultiplier = 50;
+app.lang.settings.time.showSmiley = 25;
+app.lang.settings.time.holdAfterSmileyShowFaceAgain = 111;
+// app.setting.gamestart = 50;
+=======
 app.lang.table.week = "Weeks";
 app.lang.table.col1 = "AM";
 app.lang.table.col2 = "PM";
@@ -58,20 +68,14 @@ app.lang.table.d3 = "Wednesday";
 app.lang.table.d4 = "Thursday";
 app.lang.table.d5 = "Friday";
 app.lang.table.d6 = "Saturday";
-app.lang.settings.tranisionWait = 50;
-app.lang.settings.animationtype = 5;
-app.lang.settings.sixteenHeightPercentage = 40;
-app.lang.settings.sixteenScorePerHit = 
-app.lang.settings.sixteenTimeMultiplier = 50;
-app.lang.settings.time.showSmiley = 25;
-app.lang.settings.time.holdAfterSmileyShowFaceAgain = 111;
-// app.setting.gamestart = 50;
+>>>>>>> d33ad8a3a3b44d9b99d319ca874a57718784d713
 
 
 UI.registerHelper("lang", function () {
 	Session.get("langrefresh");
 	return app.lang;
 });
+
 
 Meteor.startup(function(){
 	console.log("start lang call")

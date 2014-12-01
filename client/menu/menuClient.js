@@ -79,7 +79,20 @@ Template.menuListPanel.helpers({
     },
     d6 : function(){
         return Streak.findOne({"day": 6});
+    },
+    "first" : function(){
+        if(Meteor.user() && Meteor.user().profile.alarm && Meteor.user().profile.alarm.first)
+            return Meteor.user().profile.alarm.first;
+        else
+            return {"localtime":"09:00"};
+    },
+    "second" : function(){
+        if(Meteor.user() && Meteor.user().profile.alarm && Meteor.user().profile.alarm.second)
+            return Meteor.user().profile.alarm.second;
+        else
+            return {"localtime":"11:00"};
     }
+
     // "lang" : function(){
     //     return 
     // }
@@ -91,6 +104,9 @@ Template.menuListPanel.helpers({
     },
      "click #loginScreenFacebook" : function(){
         app.loginWithFacebook();
+    },
+     "click #inviteEmail" : function(){
+        app.clickOnInvMail();
     },
     "click #OpenProfile" : function(){
         if(Meteor.user()){
@@ -139,19 +155,23 @@ Template.menuListPanel.helpers({
             // $("#inviteFriends").css("display","none");               
         }
     },
-    "change #dp3 input" : function(event){
-        // var element = event.currentTarget;
-        // var alarmTime = element.value
-        app.set("firstAlarm",$("#firstAlarm").val());
-        app.set("secondAlarm",$("#secondAlarm").val());
+    "change #firstAlarm" : function(event){
+        var firstAlarm = $("#firstAlarm").val();      
+        app.set("firstAlarm",firstAlarm);
+        app.setAlarm(firstAlarm,"first");
     },
-    "click #setAlarm" : function(){
-        var firstAlarm = $("#firstAlarm").val();
-        var secondAlarm = $("#secondAlarm").val();
-        app.setAlarm(firstAlarm);
-        app.setAlarm(secondAlarm);
-        
+    "change #secondAlarm" : function(event){
+        var secondAlarm = $("#secondAlarm").val();        
+        app.set("secondAlarm",secondAlarm);
+        app.setAlarm(secondAlarm,"second");
     }
+    // ,
+    // "click #setAlarm" : function(){
+    //     // var firstAlarm = $("#firstAlarm").val();
+    //     // var secondAlarm = $("#secondAlarm").val();
+        
+        
+    // }
 });
 
 Template.menuListPanel.events({
@@ -178,7 +198,7 @@ Template.menuListPanel.events({
                     else{
                         ids.push({
                             "ids": res1[i]
-                        });                                
+                        });
                     }
                    
                 }
@@ -193,7 +213,11 @@ Template.menuListPanel.events({
 });
 
 
-
+app.clickOnInvMail = function() {
+    var mailBody = 'You all are challenged to beat my score \n Click here to install the application "who got happy" !';
+    var emailurl = 'mailto:tapmate@tapmate.mailgun.org?subject=You have been invited to join whogothappy&body=' + encodeURIComponent(mailBody);
+    window.open(emailurl, '_system');
+}
 // $("#getEmails").keyup(function(event) {
 //     //     var val = $(this).val();
 //     //     if (val != convertEmail(val))

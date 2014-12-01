@@ -23,8 +23,11 @@ app.setting = {}
 
 Meteor.methods({
 	"sendLang" : function(lan){
-			// console.log("fr")
+			if(app.debug)
+				return false;
 			var fut = new Future(); 
+			// this looks like it's called when meteor.startup, not every hour
+			// this doesn't work... drive isn't updating app
 	       	var my_sheet = new GoogleSpreadsheet('1Sn3TQLUaILVjp5KMy1cvDsfaH3ISUtkHAUg7VmMsAj8');
 			my_sheet.getRows( 1, function(err, row_data){
 				if(row_data){
@@ -53,6 +56,13 @@ Meteor.methods({
 					
 				}
 				// console.log(app.language.en)
+				// 1 should get all columns from sheet
+				// 2 if enMan manually entered english exists, use it
+				// 3 if not sue machine translation column 
+				// 4 enter each language into db objects
+				// 5 depending on apps language, insert from db into html
+				// all text in app needs to be variables ..
+				// 6 publish this method as a package under youiest llc  acct
 				fut.return(app.language.en)
 				}
 			});

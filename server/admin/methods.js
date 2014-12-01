@@ -8,11 +8,6 @@ Meteor.methods({
 	"sendPush" : function(pushId){
 			app.pushServer.sendAndroid("Its Tme to play Game.", [pushId], "whogothappy", "whogothappy", 1);
 	},
-	"setAlarm" : function(options){
-		console.log("setAlarm");
-		options.userId = Meteor.userId();
-		return app.setAlarm(options);
-	},
 	"setStreak" : function(option){
 		var id;
 		if(Meteor.userId()){

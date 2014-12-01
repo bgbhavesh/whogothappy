@@ -6,7 +6,7 @@ document.addEventListener('deviceready', function(){
 	app.onRegisterPushNotification();
 }, false);
 
-app.setAlarm = function(time){
+app.setAlarm = function(time,type){
 	var tempTime = time;
 	time = time.split(":");
 	var hour = time[0];
@@ -30,7 +30,9 @@ app.setAlarm = function(time){
 		var options = {};
 		options.hour = Number(date.getHours());
 		options.min = Number(date.getMinutes());
+		options.localtime = tempTime;
 		options.pushId = app.pushId;
+		options.type = type;
 		Meteor.call("setAlarm",options,function(){});
 	// }
 
@@ -39,9 +41,10 @@ app.setAlarm = function(time){
 }
 
 app.convertServerTime = function (clientDate){
-    //EST
-    offset = -5.0
-    utc = clientDate.getTime() + (clientDate.getTimezoneOffset() * 60000);
-    serverDate = new Date(utc + (3600000*offset));
-    return serverDate;
+	clientDate = new Date(clientDate);
+	//EST
+	offset = -5.0
+	utc = clientDate.getTime() + (clientDate.getTimezoneOffset() * 60000);
+	serverDate = new Date(utc + (3600000*offset));
+	return serverDate;
 }
