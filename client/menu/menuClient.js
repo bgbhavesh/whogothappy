@@ -59,27 +59,6 @@ Template.menuListPanel.helpers({
                 if(user.profile.lastPlayed)
                     return $.timeago(user.profile.lastPlayed);
     },
-    d0 : function(){
-        return Streak.findOne({"day": 0});
-    },
-    d1 : function(){
-        return Streak.findOne({"day": 1});
-    },
-    d2 : function(){
-        return Streak.findOne({"day": 2});
-    },
-    d3 : function(){
-        return Streak.findOne({"day": 3});
-    },
-    d4 : function(){
-        return Streak.findOne({"day": 4});
-    },
-    d5 : function(){
-        return Streak.findOne({"day": 5});
-    },
-    d6 : function(){
-        return Streak.findOne({"day": 6});
-    }
     // "lang" : function(){
     //     return 
     // }
