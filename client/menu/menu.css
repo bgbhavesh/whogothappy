@@ -11,12 +11,12 @@
 	padding-left: 10% !important;
 }
 .grey{
-	background-color: gray;
+	background-color: grey;
 	color: white;
 }
 .black{
 	background-color: cyan;
-	color: white;
+	color: grey;
 }
 tr{
 	background: white;
