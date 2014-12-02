@@ -89,22 +89,37 @@ Meteor.methods({
 		var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
 
 
+
+
+		// my_sheet.getInfo( function(err, ss_info){
+		// 	if (err) console.log( err );
+		// 	console.log(ss_info);
+		// 	console.log( ss_info.title + ' is loaded' );
+		// 	// you can use the worksheet objects to add or read rows
+		// 	ss_info.worksheets[0].getRows( function(err, rows){
+		// 		console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
+		// 	});
+			
+		// });
+
+
+
 		//////////////display result/////////////////
 		my_sheet.getInfo( function(err, ss_info){
 			if (err) console.log( err );
 
-			console.log( ss_info.title + ' is loaded' );
+			// console.log( ss_info.title + ' is loaded' );
 
 			// you can use the worksheet objects to add or read rows
 			ss_info.worksheets[0].getRows( function(err, rows){
-				console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
+				// console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
 			});
 		});
 
 
 		/////add row
 		my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
-			console.log("add row");
+			// console.log("add row");
 			// console.log(score);
 			if (err) 
 				console.log(err);

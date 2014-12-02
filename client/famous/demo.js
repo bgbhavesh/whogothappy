@@ -129,43 +129,75 @@ assetManager.downloadAll(function(){
 // console.log(expressionImage.length); 41
 */
 //////////////////////////////////////////closed/////////////////////////////////////
-var faceid = app.randomNumber(1,2);
+// var faceid = app.randomNumber(1,2);
 
 // var faceid = 1;
 
 
 
-if(faceid == 1){
-	app.foldername = "asian";
-	setImages(16,1240,"ja","jna","asian");//joyno = 16, sadnumber = 1240, joyname=ja, sadname=jna,folderName=asian;
-}else if(faceid == 2){
-	app.foldername = "black";
-	setImages(16,920,"jb","jnb","black");//joyno = 16, sadnumber = 1240, joyname=ja, sadname=jna,folderName=asian;
-}
+// if(faceid == 1){
+// 	app.foldername = "asian";
+// 	setImages(16,1240,"ja","jna","asian");//joyno = 16, sadnumber = 1240, joyname=ja, sadname=jna,folderName=asian;
+// }else if(faceid == 2){
+// 	app.foldername = "black";
+// 	setImages(16,920,"jb","jnb","black");//joyno = 16, sadnumber = 1240, joyname=ja, sadname=jna,folderName=asian;
+// }
+setImages();
 
-function setImages(joyno,sadnumber,joyname,sadname,folderName){
-	for(var i=0,il=50;i<il;i++){
-		var j = app.randomNumber(1,sadnumber);
-		expressionImage.push(sadname+j);
+function setImages(){
+	for(var img=1,imgcount=20;img<=imgcount;img++){
+		expressionImage.push("jn"+img);
 	}
-	for(var i=0,il=13;i<il;i++){
-		var j = app.randomNumber(1,joyno);
-		expressionImageJoy.push(joyname+j);
-	}
+	expressionImageJoy.push("j1");
+
+
+	
+	var folderName;
 	var assetManager = new AssetManager();
 	var downloadstarttime = new Date().getTime();
 	log("Images all downloaded started",downloadstarttime,null,1);
+	for(var grp=0,group=1;grp<=group;grp++){
+		if(grp==0)
+			folderName = "asian";
+		else
+			folderName = "black";
 
+		for(var g=0,gen=1;g<gen;g++){
+			if(g==0){
+				for(var p=1,pcount=4;p<pcount;p++){
+					for(var i=0,il=expressionImage.length;i<il;i++){
+						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/male/p"+p+"/non/" +expressionImage[i]  +".jpg";
+						assetManager.add(Random.id(), image);
+					}
+					for(var i=0,il=expressionImageJoy.length;i<il;i++){
+						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/male/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
+						assetManager.add(Random.id(), image);
+					}
+				}
+			}else if(g==1){
+				for(var p=1,pcount=4;p<pcount;p++){
+					for(var i=0,il=expressionImage.length;i<il;i++){
+						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/female/p"+p+"/non/" +expressionImage[i]  +".jpg";
+						assetManager.add(Random.id(), image);
+					}
+					for(var i=0,il=expressionImageJoy.length;i<il;i++){
+						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/female/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
+						assetManager.add(Random.id(), image);
+					}
+				}
+			}
+		}
+	}
 
-	for(var i=0,il=expressionImage.length;i<il;i++){
-	var image = "https://s3-us-west-2.amazonaws.com/youiest/"+folderName+"/non/" +expressionImage[i]  +".jpg";
-	assetManager.add(Random.id(), image);
-	}
-	for(var i=0,il=expressionImageJoy.length;i<il;i++){
-		// console.log(expressionImageJoy[i])
-		var image = "https://s3-us-west-2.amazonaws.com/youiest/"+folderName+"/joy/" +expressionImageJoy[i]  +".jpg";
-		assetManager.add(Random.id(), image);
-	}
+	// for(var i=0,il=expressionImage.length;i<il;i++){
+	// var image = "https://s3-us-west-2.amazonaws.com/youiest/"+folderName+"/non/" +expressionImage[i]  +".jpg";
+	// assetManager.add(Random.id(), image);
+	// }
+	// for(var i=0,il=expressionImageJoy.length;i<il;i++){
+	// 	// console.log(expressionImageJoy[i])
+	// 	var image = "https://s3-us-west-2.amazonaws.com/youiest/"+folderName+"/joy/" +expressionImageJoy[i]  +".jpg";
+	// 	assetManager.add(Random.id(), image);
+	// }
 	assetManager.add(Random.id(),"./images/expression/smily.png")
 	assetManager.downloadAll(function(){
 		log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
@@ -192,32 +224,42 @@ var firstContent = [];
 app.famousContent = function(flip){
 	var joyFirstRandom = app.randomNumber(0,15);
 	var joySecondRandom = app.randomNumber(0,15);
-	// var content = [];
 	var oldContent = "";
-	// if(!count || count == 0){
-		for(var i=0,il=16;i<il;i++){ 
-			if(joyFirstRandom == i)
-				oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/"+app.foldername+"/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+	var gender = app.randomNumber(1,2);
+	if(gender == 1)
+		gender = "male";
+	else
+		gender = "female";
+	var person = app.randomNumber(1,4);
+	var folderName = app.randomNumber(1,2);
+	if(folderName == 1)
+		folderName = "asian";
+	else
+		folderName = "black";
+	//https://s3-us-west-2.amazonaws.com/youiest/faces/black/male/p3/non/jn11.jpg
+
+	for(var i=0,il=16;i<il;i++){ 
+		if(joyFirstRandom == i)
+			oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+		else
+				oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+		if(!content[i])
+			content[i] = {};
+		if(flip){
+			if(joySecondRandom == i)
+			content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
 			else
-					oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/"+app.foldername+"/non/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
-			if(!content[i])
-				content[i] = {};
-			if(flip){
-				if(joySecondRandom == i)
-				content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/"+app.foldername+"/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
-				else
-					content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/"+app.foldername+"/non/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
-			}
-			else{
-				if(joyFirstRandom == i)
-				content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/"+app.foldername+"/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
-				else
-					content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/"+app.foldername+"/non/" +expressionImage[app.randomNumber(0,36)]  +".jpg' draggable='false'/>";
-			}
-			
+				content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		}
-		// count = 15
-	// }
+		else{
+			if(joyFirstRandom == i)
+			content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			else
+				content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+		}
+		
+	}
+	// console.log(content)
 	return content;
 }
 app.famousContent(true);
