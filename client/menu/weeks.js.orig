@@ -104,6 +104,12 @@ app.arrangeDays = function(){
 		}
 		$("#weeks tbody .endgame2").append('<td class="'+c+'">'+v+'</td>');	
 	};
+<<<<<<< HEAD
 } 
 
 Template.weeks.rendered = app.arrangeDays; 
+=======
+}
+
+Template.weeks.rendered = app.arrangeDays; 
+>>>>>>> origin/bgbhavesh
