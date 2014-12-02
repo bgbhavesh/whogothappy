@@ -201,14 +201,14 @@ sendcacheData = setTimeout(function(){
 	}
 },30000);
 /// the value of the class myScore is to be changed  
-app.updateStreak = function(endgame){
-	var currentWeek = app.getWeek();
+app.resetStreak = function(){
+	var currentDate = new Date().getDate();
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	if(cursorMe){
 		if(cursorMe.profile){
-			if(cursorMe.profile.lastWeek){
-				if(cursorMe.profile.lastWeek == currentWeek){
-					Meteor.call("resetStreak",option,function(err,data){
+			if(cursorMe.profile.currentDate){
+				if(cursorMe.profile.currentDate != currentDate){
+					Meteor.call("resetStreak",currentDate,function(err,data){
 						// console.log(err);
 						// console.log(data);
 					});
@@ -216,6 +216,8 @@ app.updateStreak = function(endgame){
 			}
 		}
 	}
+}
+app.updateStreak = function(endgame){
 	var option = {};
 	option.day = new Date().getDay();
 

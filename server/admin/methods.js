@@ -28,9 +28,15 @@ Meteor.methods({
 		}
 		return id;
 	},
-	"resetStreak" : function(options){
-		Streak.remove({});
-		return true;
+	"resetStreak" : function(day){
+		var id;
+		if(Meteor.userId()){
+			var cursor = Streak.findOne({"user":Meteor.userId(),"day": day});
+			if(cursor){
+				id = Streak.update({"user":Meteor.userId(),"day": day},{$set:{"first":false,"endgame1":false,"second":true,"endgame2":false}});
+			}
+		}
+		return id;
 	},
 });
 
