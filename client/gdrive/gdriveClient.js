@@ -1,5 +1,5 @@
 app.lang = {};
-app.setting = {};
+// app.setting = {};
 
 app.lang.table = {};
 app.lang.menu = {};
@@ -11,6 +11,7 @@ app.lang.timer = {};
 app.lang.scoretitle = {};
 app.lang.settings = {};
 app.lang.settings.time = {};
+app.lang.carousel = {};
 app.lang.menu.menu = "Menu";
 app.lang.menu.home = "Home";
 app.lang.menu.users = "Users";
@@ -62,12 +63,21 @@ app.lang.table.d6 = "S";
 app.lang.settings.tranisionWait = 50;
 app.lang.settings.animationtype = 5;
 app.lang.settings.sixteenHeightPercentage = 40;
-app.lang.settings.sixteenScorePerHit = 
+app.lang.settings.sixteenScorePerHit = 10;
 app.lang.settings.sixteenTimeMultiplier = 50;
 app.lang.settings.time.showSmiley = 25;
 app.lang.settings.time.holdAfterSmileyShowFaceAgain = 111;
 // app.setting.gamestart = 50;
 
+app.lang.carousel.page1Title = "Carousel First Page Title";
+app.lang.carousel.page2Title = "Carousel Second Page Title";
+app.lang.carousel.page3Title = "Carousel Third Page Title";
+app.lang.carousel.page4Title = "Carousel Forth Page Title";
+
+app.lang.carousel.page1Body = "Carousel First Page Body";
+app.lang.carousel.page2Body = "Carousel Second Page Body";
+app.lang.carousel.page3Body = "Carousel Third Page Body";
+app.lang.carousel.page4Body = "Carousel Forth Page Body";
 
 UI.registerHelper("lang", function () {
 	Session.get("langrefresh");
