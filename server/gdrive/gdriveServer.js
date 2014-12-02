@@ -23,8 +23,9 @@ app.setting = {}
 
 Meteor.methods({
 	"sendLang" : function(lan){
-			if(app.debug)
-				return false;
+
+			// if(app.debug)
+			// 	return false;
 			var fut = new Future(); 
 			// this looks like it's called when meteor.startup, not every hour
 			// this doesn't work... drive isn't updating app
@@ -50,7 +51,7 @@ Meteor.methods({
 						}else{
 							if(!app.language.en[key[0]])
 								app.language.en[key[0]] = {};
-							app.language.en[key[0]][key[1]] = row_data[i].enM;
+							app.language.en[key[0]][key[1]] = row_data[i].enm;
 						}
 					}
 					
@@ -87,6 +88,37 @@ Meteor.methods({
 		var fut = new Future();
 		var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
 
+
+		//////////////display result/////////////////
+		my_sheet.getInfo( function(err, ss_info){
+			if (err) console.log( err );
+
+			console.log( ss_info.title + ' is loaded' );
+
+			// you can use the worksheet objects to add or read rows
+			ss_info.worksheets[0].getRows( function(err, rows){
+				console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
+			});
+		});
+
+
+		/////add row
+		my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
+			console.log("add row");
+			// console.log(score);
+			if (err) 
+				console.log(err);
+
+		    my_sheet.addRow( 1, { 
+				clientId: cid,
+				score: scr,
+				time: tme
+			});
+		});
+
+
+
+
 		// //////delete all rows///////////////////
 		// my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
 		// 	my_sheet.getInfo( function(err, ss_info){
@@ -118,17 +150,7 @@ Meteor.methods({
 		   
 		// });
 
-		//////////////display result/////////////////
-		my_sheet.getInfo( function(err, ss_info){
-			if (err) console.log( err );
-
-			console.log( ss_info.title + ' is loaded' );
-
-			// you can use the worksheet objects to add or read rows
-			ss_info.worksheets[0].getRows( function(err, rows){
-				console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
-			});
-		});
+		
 
 
 		// //////update rows
@@ -146,19 +168,7 @@ Meteor.methods({
 		// });
 
 
-		/////add row
-		my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
-			console.log("add row");
-			// console.log(score);
-			if (err) 
-				console.log(err);
-
-		    my_sheet.addRow( 1, { 
-				clientId: cid,
-				score: scr,
-				time: tme
-			});
-		});
+		
 	}
 
 });
