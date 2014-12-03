@@ -189,13 +189,13 @@ function setImages(){
 		}
 	}
 
-	for(var i=0,il=34;i<il;i++){
+	for(var i=0,il=19;i<il;i++){
 		var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/oldface/male/p1/non/" +expressionImage[i]  +".jpg";
 		assetManager.add(Random.id(), image);
 	}
-	for(var i=0,il=12;i<il;i++){
+	for(var i=0,il=1;i<il;i++){
 		// console.log(expressionImageJoy[i])
-		var image = "https://s3-us-west-2.amazonaws.com/youiest/"+folderName+"/joy/" +expressionImageJoy[i]  +".jpg";
+		var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/oldface/male/p1/joy/" +expressionImageJoy[i]  +".jpg";
 		assetManager.add(Random.id(), image);
 	}
 	assetManager.add(Random.id(),"./images/expression/smily.png")
