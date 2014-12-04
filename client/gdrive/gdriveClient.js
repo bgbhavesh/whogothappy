@@ -79,6 +79,11 @@ app.lang.carousel.page2Body = "Carousel Second Page Body";
 app.lang.carousel.page3Body = "Carousel Third Page Body";
 app.lang.carousel.page4Body = "Carousel Forth Page Body";
 
+
+if(app.get("lang"))
+	app.lang = app.get("lang");
+
+
 UI.registerHelper("lang", function () {
 	Session.get("langrefresh");
 	return app.lang;
@@ -97,6 +102,7 @@ Meteor.startup(function(){
 			if(data)
 			console.log(data)
 			app.lang = data;
+			app.set("lang",data);
 			Session.set("langrefresh",Random.id());
 		}else{
 			// console.log(err)
