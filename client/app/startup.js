@@ -1,5 +1,7 @@
 app.startup = function(){
-
+	app.resetStreak();
+	// app.arrangeDays()
+	setTimeout(app.arrangeDays, 3000);
 }
 Meteor.startup(app.startup);
 

@@ -95,7 +95,8 @@ Meteor.methods({
 			console.log(row_data);
 		});
 
-		//////////////display result/////////////////
+
+
 		// my_sheet.getInfo( function(err, ss_info){
 		// 	if (err) console.log( err );
 		// 	console.log(ss_info);
@@ -113,6 +114,7 @@ Meteor.methods({
 		// my_sheet.getInfo( function(err, ss_info){
 		// 	if (err) console.log( err );
 
+<<<<<<< HEAD
 		// 	console.log( ss_info.title + ' is loaded' );
 
 		// 	// you can use the worksheet objects to add or read rows
@@ -135,6 +137,30 @@ Meteor.methods({
 		// 	// 	time: tme
 		// 	// });
 		// });
+=======
+			// console.log( ss_info.title + ' is loaded' );
+
+			// you can use the worksheet objects to add or read rows
+			ss_info.worksheets[0].getRows( function(err, rows){
+				// console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
+			});
+		});
+
+
+		/////add row
+		my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
+			// console.log("add row");
+			// console.log(score);
+			if (err) 
+				console.log(err);
+
+		    my_sheet.addRow( 1, { 
+				clientId: cid,
+				score: scr,
+				time: tme
+			});
+		});
+>>>>>>> origin/master
 
 
 

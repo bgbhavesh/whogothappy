@@ -15,8 +15,8 @@
 	color: white;
 }
 .black{
-	background-color: cyan;
-	color: grey;
+	background-color: cyan !important;
+	color: grey !important;
 }
 tr{
 	background: white;
