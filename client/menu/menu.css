@@ -34,8 +34,14 @@ ul.off-canvas-list li label{
 	color: black !important;
 	border: 0px !important;
 }
+.grey:hover{
+	background-color: white;
+	color: grey;
+}
 ul.off-canvas-list li :hover{
-	background: transparent !important;
-	/*color: white !important;*/
-	/*border: 0px !important;*/
+	background: none !important;
+}
+.black:hover{
+	background-color: grey !important;
+	color: cyan !important;
 }

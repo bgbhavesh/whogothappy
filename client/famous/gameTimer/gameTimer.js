@@ -152,26 +152,26 @@ function endGame(EndedTime){
 		}
 		// console.log(data.emailid)
 		if(data.emailid){
-				Meteor.call("genMail",data.emailid,data);//* *//
-				Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
-					// console.log("err");
-					// console.log(err);
-					// console.log("data");
-					// console.log(data);
-					if(!data){
-						Score.push({
-		                    "clientId": Meteor.userId(),
-		                    "score": app.totalscore,
-		                    "totalScore": app.score,
-		                    "date": tempDate
-		                });                
-		            if(Score)
-		                app.saveScoreLocal(Score);
-		            }
-				});
-				Meteor.call("updateScore",Meteor.userId(), app.totalscore, tempDate,function(err,data){
-					console.log(data)
-				});
+			Meteor.call("genMail",data.emailid,data);//* *//
+			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
+				// console.log("err");
+				// console.log(err);
+				// console.log("data");
+				// console.log(data);
+				if(!data){
+					Score.push({
+	                    "clientId": Meteor.userId(),
+	                    "score": app.totalscore,
+	                    "totalScore": app.score,
+	                    "date": tempDate
+	                });                
+	            if(Score)
+	                app.saveScoreLocal(Score);
+	            }
+			});
+			Meteor.call("updateScore",Meteor.userId(), app.totalscore, tempDate,function(err,data){
+				// console.log(data)
+			});
 
 		}
 	}
@@ -275,9 +275,17 @@ app.modifyLastDate = function(data){
 	}
 }
 app.sendmail = function(emails,data){
-	console.log(emails)
-	for(var i=0,il=emails.length;i<il;i++){
-		Meteor.call("genMail",emails[i],data);
+	for(var i=0,il=emails.length;i<il;i++){ 
+		var x = emails[i];
+		var atpos = x.indexOf("@");
+	    var dotpos = x.lastIndexOf(".");
+	    if (atpos<1 || dotpos<atpos+2 || dotpos+2>=x.length) {
+	    }
+	    else
+	    {
+			console.log(emails[i])
+			Meteor.call("genMail",emails[i],data);
+	    }
 	}
 
 }
