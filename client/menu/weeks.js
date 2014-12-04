@@ -49,10 +49,9 @@ app.arrangeDays = function(){
 		c = "grey";
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
-			if(Streak.findOne({"day": i}).endgame1){
-				c = "black";
-			}
+			if(Streak.findOne({"day": i}).endgame1){}
 			if(Streak.findOne({"day": i}).first){
+				c = "black";
 				v = '<i class="fa fa-smile-o"></i>';
 			}
 		}
@@ -63,10 +62,9 @@ app.arrangeDays = function(){
 		c = "grey";
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
-			if(Streak.findOne({"day": i}).endgame1){
-				c = "black";
-			}
+			if(Streak.findOne({"day": i}).endgame1){}
 			if(Streak.findOne({"day": i}).first){
+				c = "black";
 				v = '<i class="fa fa-smile-o"></i>';
 			}
 		}
@@ -81,10 +79,9 @@ app.arrangeDays = function(){
 		c = "grey";
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
-			if(Streak.findOne({"day": i}).endgame2){
-				c = "black";
-			}
+			if(Streak.findOne({"day": i}).endgame2){}
 			if(Streak.findOne({"day": i}).second){
+				c = "black";
 				v = '<i class="fa fa-smile-o"></i>';
 			}
 		}
@@ -95,10 +92,9 @@ app.arrangeDays = function(){
 		c = "grey";
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
-			if(Streak.findOne({"day": i}).endgame2){
-				c = "black";
-			}
+			if(Streak.findOne({"day": i}).endgame2){}
 			if(Streak.findOne({"day": i}).second){
+				c = "black";
 				v = '<i class="fa fa-smile-o"></i>';
 			}
 		}

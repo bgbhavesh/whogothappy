@@ -32,7 +32,7 @@ ul.off-canvas-list li a:hover{
         position: relative;
         width: 95%;
         left: 2.5%;
-        top: 40%;
+        top: 50%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
         transform: translateY(-50%);
@@ -81,4 +81,34 @@ table{
 }
 .noPadding{
     padding: 0px;
+}
+/*@media only screen and (orientation: landscape) and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
+  .column{background: red}
+  #rest{
+    width: 48%;
+    float: right;
+    overflow: scroll;
+  }
+  #gameMain{
+    width: 50%;
+    float: left;
+    height: 100%;
+    overflow: scroll;
+  }
+}
+@media only screen and (orientation: portrait) and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : portrait){
+  .column{background: blue}
+  #rest{
+
+  }
+  #gameMain{
+
+  }
+}
+ 
+*/
+.panel{
+    border: 0px !important;
+    border-radius: 0px !important;
+    border-width: 0px !important; 
 }
