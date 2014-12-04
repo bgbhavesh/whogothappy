@@ -1,6 +1,6 @@
 #featured1{
 
 }
-.orbit-container .orbit-timer{
+.orbit-container .orbit-timer, .orbit-slide-number{
 	display: none;
 }

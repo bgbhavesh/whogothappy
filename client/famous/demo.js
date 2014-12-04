@@ -263,7 +263,7 @@ app.famousContent = function(flip){
 	return content;
 }
 app.famousContent(true);
-app.famousContent(false);
+app.famousContent(false);  
 Template.content.image = function(){
 	app.slideStartTime = new Date().getTime();
 
