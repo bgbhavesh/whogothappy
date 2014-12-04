@@ -70,13 +70,11 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
     //       console.log(xml);
     //   });
     var new_value = val;//xmlSafeValue(self.value);
-    var edit_id = 'https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R'+row+'C'+col;
-    var data_xml ='<entry>'+
-    '<id>'+edit_id+'</id>'+
-    '<link rel="edit" type="application/atom+xml" href="'+edit_id+'/version"/>'+
-    '<gs:cell row="'+row+'" col="'+col+'" inputValue="'+new_value+'"/></entry>'
-    data_xml = data_xml.replace('<entry>', "<entry xmlns='http://www.w3.org/2005/Atom' xmlns:gs='http://schemas.google.com/spreadsheets/2006'>");
-    // console.log(['edit']);
+    // var edit_id = 'https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R'+row+'C'+col;
+    // var data_xml ='<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gs="http://schemas.google.com/spreadsheets/2006">\n<id>'+edit_id+'</id>\n<link rel="edit" type="application/atom+xml" href="'+edit_id+'"/>\n<gs:cell row="'+row+'" col="'+col+'" inputValue="'+new_value+'"/>\n</entry>';
+    var edit_id = 'https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R2C4';
+    var data_xml = '<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gs="http://schemas.google.com/spreadsheets/2006"><id>https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R2C4</id><link rel="edit" type="application/atom+xml" href="https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R2C4"/><gs:cell row="2" col="4" inputValue="=SUM(A1:B6)"/></entry>';
+    // data_xml = data_xml.replace('<entry>', "<entry xmlns='http://www.w3.org/2005/Atom' xmlns:gs='http://schemas.google.com/spreadsheets/2006'>");
     self.makeFeedRequest(edit_id, 'PUT', data_xml,function(err, data, xml) {
           console.log("look here");
           console.log(err);
