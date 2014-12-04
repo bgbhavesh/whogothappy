@@ -118,7 +118,7 @@ Meteor.methods({
 
 
 		/////add row
-		my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
+		my_sheet.setAuth('yuiestllc@gmail.com','Wiber2wibing', function(err){
 			// console.log("add row");
 			// console.log(score);
 			if (err) 

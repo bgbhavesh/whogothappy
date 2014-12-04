@@ -29,11 +29,12 @@ Meteor.methods({
 		return id;
 	},
 	"resetStreak" : function(day){
+		console.log(day)
 		var id;
 		if(Meteor.userId()){
 			var cursor = Streak.findOne({"user":Meteor.userId(),"day": day});
 			if(cursor){
-				id = Streak.update({"user":Meteor.userId(),"day": day},{$set:{"first":false,"endgame1":false,"second":true,"endgame2":false}});
+				id = Streak.update({"user":Meteor.userId(),"day": day},{$set:{"first":false,"endgame1":false,"second":false,"endgame2":false}});
 			}
 		}
 		return id;
