@@ -281,6 +281,7 @@ app.modifyLastDate = function(data){
 	}
 }
 app.sendmail = function(emails,data){
+<<<<<<< HEAD
 	for(var i=0,il=emails.length;i<il;i++){ 
 		var x = emails[i];
 		var atpos = x.indexOf("@");
@@ -292,6 +293,12 @@ app.sendmail = function(emails,data){
 			console.log(emails[i])
 			Meteor.call("genMail",emails[i],data);
 	    }
+=======
+	console.log(emails)
+	for(var i=0,il=emails.length;i<il;i++){
+		console.log(emails[i])
+		Meteor.call("genMail",emails[i],data);
+>>>>>>> origin/master
 	}
 
 }

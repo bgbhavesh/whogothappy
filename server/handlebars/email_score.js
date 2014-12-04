@@ -1,8 +1,10 @@
 process.env.MAIL_URL = 'smtp://postmaster%40sandbox77539.mailgun.org:2l9s4cmzqic2@smtp.mailgun.org:587';
 function emailDailyGen(emails,data){
+    return;
      // Fiber(function () {
           //Accounts.oauth._middleware(req, res, next);
             console.log("emailDailyGen");
+            console.log(emails);
             var html = Handlebars.templates['email']({ "email": emails ,"username" : data.username, "gameEnd": data.gameEnd, "clicked" : data.clicked, "score" : data.score, "wrong": data.wrong})
     //         var html = 
     //         '<html>'

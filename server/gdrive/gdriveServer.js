@@ -29,6 +29,8 @@ Meteor.methods({
 			var fut = new Future(); 
 			// this looks like it's called when meteor.startup, not every hour
 			// this doesn't work... drive isn't updating app
+			// console.log(Spreadsheets);
+			// var GoogleSpreadsheet = Spreadsheets;
 	       	var my_sheet = new GoogleSpreadsheet('1Sn3TQLUaILVjp5KMy1cvDsfaH3ISUtkHAUg7VmMsAj8');
 			my_sheet.getRows( 1, function(err, row_data){
 				if(row_data){
@@ -84,13 +86,89 @@ Meteor.methods({
 	// 		});
 	// 		return fut.wait();
 	// },
-	"updateScore" : function(cid,scr,tme){
-		var fut = new Future();
+	"updateScore" : function(tme){
+		//var fut = new Future();
 		var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
+		
+		// my_sheet.getRows( 2, function(err, row_data){
+		// 	console.log(err);
+		// 	console.log(row_data);
+		// });
+
+
+		
+		///add worksheet
+		my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
+			// my_sheet.getInfo( function(err, ss_info){
+				
+			// });
+			my_sheet.addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv",function(err, data){
+				if (err) console.log( err );
+			});
+		});
+
+		// my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
+		// 	my_sheet.getInfo( function(err, ss_info){
+		// 		if (err) console.log( err );
+		// 		ss_info.worksheets[0].getRows( function( err, rows ){
+		// 			console.log("skdlnvlksndlknvlksdnlkv")
+		// 			rows[1].addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv");
+		//         });
+		// 	});
+		   
+		// });
+
+
+
+		// /////add row
+		// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
+		// 	// console.log("add row");
+		// 	// console.log(score);
+		// 	if (err) 
+		// 		console.log(err);
+
+		//     my_sheet.addRow(ss_info.worksheets.length, { 
+		// 		clientId: "cid",
+		// 		score: "scr",
+		// 		time: "tme"
+		// 	});
+		// });
 
 
 
 
+
+
+		// ////////////display result/////////////////
+		// my_sheet.getInfo( function(err, ss_info){
+		// 	if (err) {
+		// 		console.log( "err" );
+		// 		console.log( err );
+		// 	}
+		// 	// console.log(ss_info);
+		// 	// console.log(ss_info.worksheets.length);
+		// 	var worksheetsno = ss_info.worksheets.length - 1;
+		// 	console.log(worksheetsno);
+		// 	// // you can use the worksheet objects to add or read rows
+		// 	for(var i=0,il=worksheetsno;i<il;i++){
+		// 		ss_info.worksheets[i].getRows( function(err, rows){
+		// 			console.log( ss_info.worksheets[i].title + ' has '+rows.length + 'rows' );
+		// 		});
+		// 	};
+			
+			
+		// });
+
+		// ///add worksheet
+		// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
+		// 	if (err) 
+		// 		console.log(err.data);
+		// 	else
+		// 		my_sheet.addWorkSheet();
+		// });
+
+
+		// ////////////display result/////////////////
 		// my_sheet.getInfo( function(err, ss_info){
 		// 	if (err) console.log( err );
 		// 	console.log(ss_info);
@@ -105,31 +183,25 @@ Meteor.methods({
 
 
 		//////////////display result/////////////////
-		my_sheet.getInfo( function(err, ss_info){
-			if (err) console.log( err );
+		// my_sheet.getInfo( function(err, ss_info){
+		// 	if (err) console.log( err );
 
-			// console.log( ss_info.title + ' is loaded' );
+		// 	console.log( ss_info.title + ' is loaded' );
 
-			// you can use the worksheet objects to add or read rows
-			ss_info.worksheets[0].getRows( function(err, rows){
-				// console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
-			});
-		});
+		// 	// you can use the worksheet objects to add or read rows
+		// 	ss_info.worksheets[0].getRows( function(err, rows){
+		// 		console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
+		// 	});
+		// });
 
 
-		/////add row
-		my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
-			// console.log("add row");
-			// console.log(score);
-			if (err) 
-				console.log(err);
-
-		    my_sheet.addRow( 1, { 
-				clientId: cid,
-				score: scr,
-				time: tme
-			});
-		});
+		// ///add worksheet
+		// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
+		// 	if (err) 
+		// 		console.log(err.data);
+		// 	else
+		// 		my_sheet.addWorkSheet();
+		// });
 
 
 
