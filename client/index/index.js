@@ -13,3 +13,11 @@
         
  //    }
 
+$(window).bind("orientationchange", function(event){
+    // var orientation = window.orientation;
+    // var new_orientation = (orientation != 90 && orientation != -180 && orientation b != -90 ) ? 0 : 180 + orientation;
+    // $('body').css({
+    //     "-webkit-transform": "rotate(" + new_orientation + "deg)"
+    // });
+	event.preventDefault()
+});

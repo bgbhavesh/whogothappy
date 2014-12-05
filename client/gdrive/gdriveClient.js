@@ -12,6 +12,10 @@ app.lang.scoretitle = {};
 app.lang.settings = {};
 app.lang.settings.time = {};
 app.lang.carousel = {};
+app.lang.title = {};
+
+app.lang.title.htmlTitle = "Who Got Happy?";
+
 app.lang.menu.menu = "Menu";
 app.lang.menu.home = "Home";
 app.lang.menu.users = "Users";
@@ -60,13 +64,16 @@ app.lang.table.d4 = "T";
 app.lang.table.d5 = "F";
 app.lang.table.d6 = "S";
 
-app.lang.settings.tranisionWait = 50;
+app.lang.settings.bonus = 5;
+app.lang.settings.gameLast = 10;
+app.lang.settings.tranisionWait = 2000;
 app.lang.settings.animationtype = 5;
 app.lang.settings.sixteenHeightPercentage = 40;
 app.lang.settings.sixteenScorePerHit = 10;
-app.lang.settings.sixteenTimeMultiplier = 50;
-app.lang.settings.time.showSmiley = 25;
-app.lang.settings.time.holdAfterSmileyShowFaceAgain = 111;
+app.lang.settings.sixteenScorePerLateHit = 5;
+app.lang.settings.sixteenTimeMultiplier = 2;
+app.lang.settings.showSmiley = 25;
+app.lang.settings.holdAfterSmileyShowFaceAgain = 111;
 // app.setting.gamestart = 50;
 
 app.lang.carousel.page1Title = "Carousel First Page Title";

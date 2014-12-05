@@ -304,16 +304,13 @@ app.setAllMaleOrFemale = function(flip,gender,group,person){
 
 app.famousContent(true);
 app.famousContent(false);  
-Template.content.image = function(){
-	app.slideStartTime = new Date().getTime();
+Template.content.helpers({
+    image : function(){
+        // app.updateTheProfile();
+        return app.famousContent(Session.get("flip"));
+    },
+})
 
-	
-	// var starttime = new Date().getTime();
- //    log("Template.content.image started",null,arguments,1);
- //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
-	return app.famousContent(Session.get("flip"));
-	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
-}
 Session.setDefault('flip', ''); 
 Template.content.flip = function(){
 	return Session.get("flip");
@@ -386,7 +383,7 @@ var contentEvent = {
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
-					},500);
+					},parseInt(app.lang.settings.showSmiley));// correct into smile show s
 				}
 			}
 		}else{
@@ -398,27 +395,27 @@ var contentEvent = {
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
-					},500);
+					},parseInt(app.lang.settings.showSmiley));// correct into smile
 				}
 			}
 
 		}
 		endtime = new Date().getTime()
 		totalTime = endtime - app.slideStartTime;
-		var delay = 2000;
+		var delay = parseInt(app.lang.settings.tranisionWait);//2000
 		count--;
-
+		var late = parseInt(app.lang.settings.lateClick);
 		if(res){
 			// event.target.src = "/images/expression/smily.png"
 			if(app.score.method){
 				if(app.score.method.length!=0){
-					if(totalTime<3501){
-						result = 1;
+					if(totalTime<late){
+						result = parseInt(app.lang.settings.sixteenScorePerHit); 
 					}else{
-						result = 0.5;
+						result = parseInt(app.lang.settings.sixteenScorePerLateHit);
 					}
 				}else{
-						result = 1;
+						result = parseInt(app.lang.settings.sixteenScorePerHit);
 				}
 			}
 			// delay = 2000;

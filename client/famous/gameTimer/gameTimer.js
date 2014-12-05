@@ -61,13 +61,13 @@ app.getGameTimer = function(){
 							if(alarmflag != currentDate){
 								console.log("getGameTimer if")
 								// app.extraPoints += 4
-								app.totalscore += 5;
+								app.totalscore += parseInt(app.lang.settings.bonus);
 								app.set("alarmflag",currentDate);
 							}
 						}else{
 							console.log("getGameTimer else ")
 							// app.extraPoints += 4
-							app.totalscore += 5;
+							app.totalscore += parseInt(app.lang.settings.bonus);
 							app.set("alarmflag",currentDate);
 						}
 					}
@@ -94,7 +94,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(seconds >= 10){
+	  	if(seconds >= 20){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -103,7 +103,7 @@ function startTimer(){
 			startTimer();
 		}	        
   	}else{
-  		if(mins >= 10){
+  		if(mins >= parseInt(app.lang.settings.gameLast)){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();

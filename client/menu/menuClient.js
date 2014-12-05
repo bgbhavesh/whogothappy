@@ -112,6 +112,17 @@ Template.menuListPanel.helpers({
             $("#inviteFriends").css("display","none");               
         }
     },
+    "click .alarmHead" : function(){
+        var disp = $(".alarmBody").css("display");
+        if(disp == "none"){
+            $(".alarmBody").css("display","block");
+            $(".alarmFoot").css("display","block");            
+        }
+        else{
+            $(".alarmBody").css("display","none");
+            $(".alarmFoot").css("display","none");               
+        }
+    },
     "click .lastScore h5" : function(){
         var disp = $(".lastScore label").css("display");
         if(disp == "none"){
