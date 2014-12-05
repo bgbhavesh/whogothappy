@@ -289,7 +289,7 @@ app.sendmail = function(emails,data){
 	    }
 	    else
 	    {
-			console.log(emails[i])
+			console.log(emails[i]);
 			Meteor.call("genMail",emails[i],data);
 	    }
 	}

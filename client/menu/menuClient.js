@@ -187,6 +187,8 @@ Template.menuListPanel.events({
                 //     console.log(cursorMe.profile.emailsToSend)  
                 // }
             }
+        }else{
+            Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.emailsToSend":""}});
         }
     }
 });

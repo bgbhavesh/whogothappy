@@ -262,21 +262,66 @@ app.famousContent = function(flip){
 	// }
 	// console.log(content)
 	// return content;
-	return app.setAllMaleOrFemale(flip)
+	
+	switch(app.randomNumber(1,8)){
+		case 1 : 
+			console.log("1");
+			return app.setAllMaleOrFemale(flip,"female")///all female different group
+		break;
+		case 2 : 
+			console.log("2");
+			return app.setAllMaleOrFemale(flip,"male")///all male different group
+		break;
+		case 3 :
+			console.log("3"); 
+			return app.setAllMaleOrFemale(flip,"male","asian")///all male asian
+		break;
+		case 4 : 
+			console.log("4");
+			return app.setAllMaleOrFemale(flip,"male","asian")///all female asian
+		break;
+		case 5 : 
+			console.log("5");
+			return app.setAllMaleOrFemale(flip,"male","","","same")///all male same group
+		break;
+		case 6 : 
+			console.log("6");
+			return app.setAllMaleOrFemale(flip,"female","","","same")///all male same group
+		break;
+		case 7 : 
+			console.log("7");
+			return app.setAllMaleOrFemale(flip,"","","","same")///all same group
+		break;
+		case 8 : 
+			console.log("8");
+			return app.setAllMaleOrFemale(flip)///all complete random
+		break;
+	}
+	// return app.setAllMaleOrFemale(flip)
 }
 var genderArray = ["female","male","female"];
 var groupArray = ["asian","asian","black"]
 var personArray = [0,1,2,3,4]
-app.setAllMaleOrFemale = function(flip,gender,group,person){
+app.setAllMaleOrFemale = function(flip,gender,group,person,grouptype){
 	var joyFirstRandom = app.randomNumber(0,15);
 	var joySecondRandom = app.randomNumber(0,15);
 	var oldContent = "";
 	var tempGender = null;
 	var tempGroup = null;
 	var tempPerson = null;
+	if(grouptype=="same"){
+		// console.log(grouptype)
+		tempGroup = group || groupArray[app.randomNumber(0,2)];
+	}
 	for(var i=0,il=16;i<il;i++){ 
 		tempGender = gender || genderArray[app.randomNumber(0,2)];
-		tempGroup = group || groupArray[app.randomNumber(0,2)];
+		if(grouptype){
+			if(grouptype!="same"){
+				tempGroup = group || groupArray[app.randomNumber(0,2)];
+			}
+		}else{
+			tempGroup = group || groupArray[app.randomNumber(0,2)];
+		}
 		tempPerson = person || personArray[app.randomNumber(1,4)];
 		// console.log(tempGender)
 		if(joyFirstRandom == i)
@@ -361,10 +406,10 @@ app.getEdgerSwapper = function(){
 app.clickStart = true;
 var contentEvent = {
 	"slideLeft #clickEvent":function(){
-		console.log("123123132")
+		// console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
-		console.log(app.clickStart)
+		// console.log(app.clickStart)
 		if(app.clickStart == false)
 			return;
 		app.clickStart = false;
@@ -562,7 +607,7 @@ app.addFixedSizeImg = function(){
 	var widthWidow = $(window).width();
 	widthWidow = widthWidow - 110;
 	var eachImg = widthWidow/4;
-	console.log(eachImg)
+	// console.log(eachImg)
 	// $(".card").css("width",eachImg);
 	$(".card").css("height",eachImg);
 }
