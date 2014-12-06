@@ -85,7 +85,10 @@ app.arrangeDays = function(){
 		if(Streak.findOne({"day": i})){
 			if(Streak.findOne({"day": i}).second){
 				c = "stef"
+<<<<<<< HEAD
+=======
 				v = '<i class="fa fa-smile-o"></i>';
+>>>>>>> origin/bgbhavesh
 				if(Streak.findOne({"day": i}).endgame2){
 					c = "stet";
 				}
@@ -100,7 +103,10 @@ app.arrangeDays = function(){
 		if(Streak.findOne({"day": i})){
 			if(Streak.findOne({"day": i}).second){
 				c = "stef"
+<<<<<<< HEAD
+=======
 				v = '<i class="fa fa-smile-o"></i>';
+>>>>>>> origin/bgbhavesh
 				if(Streak.findOne({"day": i}).endgame2){
 					c = "stet";
 				}
