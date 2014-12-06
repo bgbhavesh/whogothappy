@@ -94,7 +94,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(mins >= 20){
+	  	if(seconds >= 20){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -148,6 +148,7 @@ function endGame(EndedTime){
 			data.gameEnd = EndedTime;
 		}else{
 			// if(!app.debug)
+			app.updateStreak("true");
 			data.gameEnd = "10:00";
 		}
 		// console.log(data.emailid)
@@ -176,7 +177,6 @@ function endGame(EndedTime){
 		}
 	}
 	app.modifyLastDate(data);
-	app.updateStreak("true");
 	// console.log(emails)
 	if(emails)
 		app.sendmail(emails,data);

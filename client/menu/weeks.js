@@ -84,7 +84,7 @@ app.arrangeDays = function(){
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
 			if(Streak.findOne({"day": i}).second){
-				s = "stef"
+				c = "stef"
 				if(Streak.findOne({"day": i}).endgame2){
 					c = "stet";
 					v = '<i class="fa fa-smile-o"></i>';
@@ -99,7 +99,7 @@ app.arrangeDays = function(){
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
 			if(Streak.findOne({"day": i}).second){
-				s = "stef"
+				c = "stef"
 				if(Streak.findOne({"day": i}).endgame2){
 					c = "stet";
 					v = '<i class="fa fa-smile-o"></i>';
