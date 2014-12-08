@@ -40,18 +40,18 @@ ul.off-canvas-list li :hover{
 
 .sfef{
 	background-color: grey !important;
-	color: grey !important;
+	color: white !important;
 }
 .sfef:hover{
 	background-color: white !important;
-	color: white !important;
+	color: grey !important;
 }
 .stef{
 	background-color: grey !important;
-	color: cyan !important;
+	color: white !important;
 }
 .stef:hover{
-	background-color: cyan !important;
+	background-color: white !important;
 	color: grey !important;
 }
 .stet{
