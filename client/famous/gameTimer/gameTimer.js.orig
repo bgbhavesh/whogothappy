@@ -94,7 +94,11 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
+<<<<<<< HEAD
+	  	if(mins >= 10){
+=======
 	  	if(seconds >= 20){
+>>>>>>> origin/bgbhavesh
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -291,6 +295,7 @@ app.sendmail = function(emails,data){
 	    }
 	    else
 	    {
+			console.log(emails[i]);
 			Meteor.call("genMail",emails[i],data);
 	    }
 	}

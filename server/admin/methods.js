@@ -60,8 +60,8 @@ Meteor.methods({
 		// if(oldcase)
 		// 	if(oldcase == newcase)
 		// 		newcase = app.randomNumber(1,8)
-			
-		return app.randomNumber(1,8);
+
+		return app.randomNumber(1,9);
 	},
 });
 

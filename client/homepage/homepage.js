@@ -52,12 +52,15 @@ Template.home.events({
     // }
     
 });
+app.updateTitle = function(){
+    document.title = app.lang.title.htmlTitle;
+}
+Template.home.rendered = app.updateTitle; 
 
 Template.home.place = function(){
 	// Session.get("reactivePlace");
 	// return app.places;
 }
-
 Template.home.helpers({
     user : function(){
         return Meteor.userId();

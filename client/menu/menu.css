@@ -1,11 +1,11 @@
 .Challange label{
-	display: none;
+	display: block;
 }
 #inviteFriends{
-	display: none;
+	display: block;
 }
 .lastScore label{
-	display: none;
+	display: block;
 }
 .lastResult{
 	padding-left: 10% !important;
