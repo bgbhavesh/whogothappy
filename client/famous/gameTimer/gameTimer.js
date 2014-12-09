@@ -121,7 +121,7 @@ function endGame(EndedTime){
 	$("#clickEvent").css("-webkit-filter","blur(5px)");
 	app.arrangeDays();
 	gamestart = false;
-	console.log("game Ended");
+	console.log("game Ending");
 	// app.toggleEndRefesh();
 	// console.log(app.totalscore);
 	// console.log(app.score);
@@ -183,6 +183,7 @@ function endGame(EndedTime){
 	app.updateTheMaxScoreProfile();
 	clearTimeout(timex);
 	$("#pin").text("3");
+	console.log("game Ended");
 }   
 app.endGame = endGame;
 app.saveScoreLocal = function(Score){
@@ -256,7 +257,7 @@ app.getWeek = function(){
 app.modifyLastDate = function(data){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	var currentDate = new Date().getDate();
-	console.log(cursorMe)
+	console.log(currentDate)
 	if(cursorMe){
 		if(cursorMe.profile){
 				var currenttime = new Date()//.getHours() +":"+new Date().getMinutes()
@@ -267,9 +268,10 @@ app.modifyLastDate = function(data){
 				if(cursorMe.profile.currentDate != currentDate){
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
 				}
-				if((cursorMe.profile.currentDate + 1)==currentDate){
+					
+				if((cursorMe.profile.lastPlayed.getDate() + 1)==currentDate){
 					if(cursorMe.profile.playContinuty){
-						var tDays = cursorMe.profile.playContinuty + 1;
+						var tDays = parseInt(cursorMe.profile.playContinuty) + 1;
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
 					}else{
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});

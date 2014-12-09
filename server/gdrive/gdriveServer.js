@@ -23,7 +23,7 @@ app.setting = {}
 
 Meteor.methods({
 	"sendLang" : function(lan){
-
+		
 			// if(app.debug)
 			// 	return false;
 			var fut = new Future(); 
@@ -41,18 +41,30 @@ Meteor.methods({
 						if(lan == "fr"){
 							if(!app.language.en[key[0]])
 								app.language.en[key[0]] = {};
-							app.language.en[key[0]][key[1]] = row_data[i].fr;
+
+								if(row_data[i].frm)
+									app.language.en[key[0]][key[1]] = row_data[i].frm;//if manual
+								else
+									app.language.en[key[0]][key[1]] = row_data[i].fr;
 						}else if(lan == "es"){
 							if(!app.language.en[key[0]])
 								app.language.en[key[0]] = {};
-							app.language.en[key[0]][key[1]] = row_data[i].es;
+
+								if(row_data[i].esm)
+									app.language.en[key[0]][key[1]] = row_data[i].esm;//if manual
+								else
+									app.language.en[key[0]][key[1]] = row_data[i].es;
 						}else if(lan == "ar"){
 							if(!app.language.en[key[0]])
 								app.language.en[key[0]] = {};
-							app.language.en[key[0]][key[1]] = row_data[i].ar;
+
+								if(row_data[i].arm)
+									app.language.en[key[0]][key[1]] = row_data[i].arm;//if manual
+								else
+									app.language.en[key[0]][key[1]] = row_data[i].ar;
 						}else{
 							if(!app.language.en[key[0]])
-								app.language.en[key[0]] = {};
+								app.language.en[key[0]] = {};							
 							app.language.en[key[0]][key[1]] = row_data[i].enm;
 						}
 					}
@@ -259,3 +271,4 @@ Meteor.methods({
 	}
 
 });
+

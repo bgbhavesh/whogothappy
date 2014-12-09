@@ -106,8 +106,8 @@ Meteor.startup(function(){
 			// why is this not in the database?
 			if(err)
 				console.log(err)
-			if(data)
-			console.log(data)
+			// if(data)
+			// console.log(data)
 			app.lang = data;
 			app.set("lang",data);
 			Session.set("langrefresh",Random.id());
