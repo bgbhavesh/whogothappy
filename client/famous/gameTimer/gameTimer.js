@@ -94,7 +94,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(seconds >= 10){
+	  	if(mins >= 10){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();

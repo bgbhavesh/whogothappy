@@ -1,12 +1,28 @@
 Meteor.methods({
 	"getPushId" : function(options){
+		if(app.language.en.time){
+			var title = app.language.en.time.alarmPushTitle;
+			var body = app.language.en.time.alarmPushBody;
+		}else
+		{
+			var title = "whogothappy";
+			var body = "whogothappy";
+		}
 		if(Meteor.userId())
 			console.log(options)
 			Meteor.users.update({"_id":Meteor.userId()},{$set:{"profile.pushId":options.pushId,"profile.pushServer":"android"}});
-			app.pushServer.sendAndroid("hello", [options.pushId], "whogothappy", "whogothappy", 1);
+			app.pushServer.sendAndroid(body, [options.pushId], title, body,  1);
 	},
 	"sendPush" : function(pushId){
-			app.pushServer.sendAndroid("Its Tme to play Game.", [pushId], "whogothappy", "whogothappy", 1);
+			if(app.language.en.time){
+				var title = app.language.en.time.alarmPushTitle;
+				var body = app.language.en.time.alarmPushBody;
+			}else
+			{
+				var title = "whogothappy";
+				var body = "whogothappy";
+			}
+			app.pushServer.sendAndroid(body, [pushId], title, body, 1);
 	},
 	"setStreak" : function(option){
 		var id;
@@ -39,8 +55,34 @@ Meteor.methods({
 		}
 		return id;
 	},
+	"getCase" : function(oldcase){
+		// var newcase = app.randomNumber(1,8)
+		// if(oldcase)
+		// 	if(oldcase == newcase)
+		// 		newcase = app.randomNumber(1,8)
+			
+		return app.randomNumber(1,8);
+	},
 });
 
 app.sendpushtouser = function (pushId){
-   app.pushServer.sendAndroid("Its Tme to play Game.", [pushId], "whogothappy", "whogothappy", 1);
+   if(app.language.en.time){
+		var title = app.language.en.time.alarmPushTitle;
+		var body = app.language.en.time.alarmPushBody;
+	}else
+	{
+		var title = "whogothappy";
+		var body = "whogothappy";
+	}
+	app.pushServer.sendAndroid(body, [pushId], title, body, 1);
+}
+
+app.randomNumber = function(snum, bnum){
+	var value = Math.floor((Math.random()*bnum)+1);
+	if(value >= snum && value <= bnum){
+		return value
+	}
+	else{
+		return randomNumber(snum, bnum);
+	}
 }
