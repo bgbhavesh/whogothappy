@@ -42,7 +42,7 @@ app.lang.timer.time = "Time";
 app.lang.timer.tf = "True or False";
 app.lang.timer.tt = "Time Taken";
 app.lang.timer.user = "Users";
-
+ 
 app.lang.scorebord.notyou = "Not you?";
 app.lang.scorebord.days = "Days in a Row";
 app.lang.scorebord.seen = "Last Seen";
@@ -66,13 +66,16 @@ app.lang.table.d6 = "S";
 
 app.lang.settings.bonus = 5;
 app.lang.settings.gameLast = 10;
-app.lang.settings.tranisionWait = 2000;
+app.lang.settings.showSmileyMax = 1000;
+app.lang.settings.showSmileyMin = 2000;
+app.lang.settings.tranisionWaitMin = 2000;
+app.lang.settings.tranisionWaitMax = 2500;
 app.lang.settings.animationtype = 5;
 app.lang.settings.sixteenHeightPercentage = 40;
 app.lang.settings.sixteenScorePerHit = 10;
 app.lang.settings.sixteenScorePerLateHit = 5;
 app.lang.settings.sixteenTimeMultiplier = 2;
-app.lang.settings.showSmiley = 25;
+// app.lang.settings.showSmiley = 25;
 app.lang.settings.holdAfterSmileyShowFaceAgain = 111;
 // app.setting.gamestart = 50;
 
@@ -87,8 +90,8 @@ app.lang.carousel.page3Body = "Carousel Third Page Body";
 app.lang.carousel.page4Body = "Carousel Forth Page Body";
 
 
-if(app.get("lang"))
-	app.lang = app.get("lang");
+// if(app.get("lang"))
+// 	app.lang = app.get("lang");
 
 
 UI.registerHelper("lang", function () {

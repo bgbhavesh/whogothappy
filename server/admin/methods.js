@@ -22,16 +22,13 @@ Meteor.methods({
 			}else
 			{
 				var title = "whogothappy";
-				var body = "whogothappy";
+				var body = "You have unseen Notification";
 			}
 			app.pushServer.sendAndroid(body, [pushId], title, body, 1);
 	},
 	"setStreak" : function(option){
-		console.log("call")
 		var id;
 		if(Meteor.userId()){
-			console.log("startcall")
-			console.log(option)
 			var cursor = Streak.findOne({"user":Meteor.userId(),"day": option.day});
 			if(!cursor){
 				if(option.first)
@@ -39,9 +36,7 @@ Meteor.methods({
 				else if(option.second)
 					id = Streak.insert({"user":Meteor.userId(),"day": option.day,"second":true,"endgame2":option.endgame});
 			}else{
-				console.log("else")
 				if(option.first){
-
 					if(option.endgame){
 							id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame1":true}});
 						}else{
@@ -96,14 +91,15 @@ Meteor.methods({
 		// 		newcase = app.randomNumber(1,8)
 
 
-		if(app.language.en){
-			if(app.language.en.time)
-				return app.language.en.time.alarmPushBody;
-			else
-				return "nothing"
-		}
-		else
-			return "nothing"
+		// if(app.language.en){
+		// 	if(app.language.en.time)
+		// 		return app.language.en.time.alarmPushBody;
+		// 	else
+		// 		return "nothing"
+		// }
+		// else
+		// 	return "nothing"
+		return app.randomNumber(1,8);
 	},
 });
 
@@ -115,7 +111,7 @@ app.sendpushtouser = function (pushId){
 	}else
 	{
 		var title = "whogothappy";
-		var body = "whogothappy";
+		var body = "You have unseen Notification";
 	}
 	app.pushServer.sendAndroid(body, [pushId], title, body, 1);
 }
