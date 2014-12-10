@@ -31,10 +31,9 @@ content[3] = "";
 // 	"https://scontent-a.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/s720x720/10599394_10154591744035691_8516022172893919916_n.jpg?oh=d8034b1959db5b5c29931d3e50b2ec14&oe=5465E0DF",
 // 	"https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xaf1/t31.0-8/s720x720/10608594_756378927752199_4853884118170546373_o.jpg"
 // ];
-
 var expressionImage = [];
 var expressionImageJoy = [];
-
+var smileDuration;
 
 //////////////////////////////////////////closed/////////////////////////////////////
 /*
@@ -362,6 +361,7 @@ app.famousContent(false);
 Template.content.helpers({
     image : function(){
         // app.updateTheProfile();
+        app.slideStartTime = new Date().getTime();
         return app.famousContent(Session.get("flip"));
     },
 })
@@ -416,14 +416,28 @@ var contentEvent = {
 		// console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
-		// console.log(event)
-		// console.log(event.target.x)
-		// console.log(event.target.y)
-		var smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
-		// console.log(smileDuration)
+		var element = event.currentTarget;
+		var $img = $(event.target);
+        var offset = $img.offset();
+        var xx = event.clientX - offset.left - 5;
+        var yy = event.offsetY-5;
+        var x = event.clientX - offset.left;
+        // var y = event.clientY - offset.top;
+        var y = event.offsetY;
+        x = Math.abs(parseInt(x, 10)) -50;
+        y = Math.abs(parseInt(y, 10)) -45;
+        x = Math.abs(x);
+        y = Math.abs(y);
+        $(element).parent().append('<div id="correctdotOnImg" style="position: absolute;top:45%;left:45%;height: 10px;width: 10px;background: green;opacity: 0.6; border-radius: 100%;"></div>');
+        $(element).parent().append('<div id="dotOnImg" style="position: absolute;top:'+yy+'px;left:'+xx+'px;height: 10px;width: 10px;background: red;opacity: 0.6; border-radius: 100%;"></div>');
+        // var y = event.clientY - offset.top;
+        // console.log('clicked at x: ' + x + ', y: ' + y);
+        var AccuracyPoints = Math.floor( (x + y) / 10 );
+        console.log('Accuracy at x: ' + AccuracyPoints);
 		if(app.clickStart == false)
 			return;
 		app.clickStart = false;
+		smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
 		var str = $(event.currentTarget).attr("src");
 		var res = str.match("joy");
 		var mainDiv = $("#clickEvent");
@@ -461,9 +475,9 @@ var contentEvent = {
 		}
 		endtime = new Date().getTime()
 		totalTime = endtime - app.slideStartTime;
-
 		// console.log(parseInt(app.lang.settings.tranisionWaitMin)+" "+parseInt(app.lang.settings.tranisionWaitMax))
-		var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));//wait duration after smile comes
+		var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));
+		// app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax))*100;//wait duration after smile comes
 
 		count--;
 		var late = parseInt(app.lang.settings.lateClick);
@@ -472,12 +486,12 @@ var contentEvent = {
 			if(app.score.method){
 				if(app.score.method.length!=0){
 					if(totalTime<late){
-						result = parseInt(app.lang.settings.sixteenScorePerHit); 
+						result = parseInt(app.lang.settings.sixteenScorePerHit - AccuracyPoints); 
 					}else{
 						result = parseInt(app.lang.settings.sixteenScorePerLateHit);
 					}
 				}else{
-						result = parseInt(app.lang.settings.sixteenScorePerHit);
+						result = parseInt(app.lang.settings.sixteenScorePerHit - AccuracyPoints);
 				}
 			}
 			// delay = 2000;
@@ -546,7 +560,15 @@ Template.secondContent.events(contentEvent);
 Template.content.events(contentEvent);
 
 app.animateFamousFlag = false; 
+app.resetDots = function(){
+	$("#dotOnImg").remove();
+	var count = $("#correctdotOnImg").remove();
+	if(count != 0)
+		$("#dotOnImg").remove();
+		$("#correctdotOnImg").remove();
+}
 app.animateFamousRandom = function(){
+	app.resetDots();
 	switch(app.randomNumber(1,4)){
 		case 1 : 
 			app.animateFamouseFirst();

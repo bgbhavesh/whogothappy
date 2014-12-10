@@ -240,7 +240,7 @@ app.updateStreak = function(endgame){
 		option.endgame = true;
 	else
 		option.endgame = false;
-	console.log(option)
+	// console.log(option)
 	Meteor.call("setStreak",option,function(err,data){
 		if(data)
 			setTimeout(app.arrangeDays, 100);
