@@ -27,6 +27,7 @@
         </div>
     </div>
 </template>
+    <!-- this is pop up which will show at time when the game is off by on time or the before thime -->
 <template name="gameEndPopUp">
     <div id="tapTapEnded" class=" overlay">
             <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
@@ -37,15 +38,29 @@
             </div>   
     </div>
 </template>
+<!-- this is the template in this game to show the current feedback of score -->
 <template name="onScore">
-    <div id="onScore" class=" overlay">
+    <div id="onScore" class="overlay">
             <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
                 <!-- {{> GamerTimerimer}} -->
                 <!-- <div id="endGame" class="button ui " style="background:cyan;">            
                     {{lang.gamePopUp.restart}}
                 </div> -->
-                <div id="" class="button ui " style="background:cyan;">            
-                    {{lang.gamePopUp.feedBackOnScore}}
+                <div id="onScoreValue" class=" " style="">            
+                    
+                </div>
+            </div>   
+    </div>
+</template>
+<template name="updated">
+    <div id="updated" class="">
+            <div data-alert="" class="popups  large-12 medium-12 small-12 columns textCenter">
+                <!-- {{> GamerTimerimer}} -->
+                <!-- <div id="endGame" class="button ui " style="background:cyan;">            
+                    {{lang.gamePopUp.restart}}
+                </div> -->
+                <div id="updatedValue" class=" " style="">            
+                    {{lang.gamePopUp.appUpdated}}
                 </div>
             </div>   
     </div>
