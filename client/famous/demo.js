@@ -463,8 +463,7 @@ var contentEvent = {
 		totalTime = endtime - app.slideStartTime;
 
 		// console.log(parseInt(app.lang.settings.tranisionWaitMin)+" "+parseInt(app.lang.settings.tranisionWaitMax))
-		var delay = 2000;
-		// app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax))*100;//wait duration after smile comes
+		var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));//wait duration after smile comes
 
 		count--;
 		var late = parseInt(app.lang.settings.lateClick);

@@ -3,6 +3,19 @@ app.closeGame = function(){
 }
 app.openOverlay = function(){
     $("#tapTapEnded").css("display","block");
+    $("#clickEvent").css("-webkit-filter", "blur(4px)");
+    $("#clickEvent").css("filter","blur(5px)");
+}
+app.openOnScore = function(){
+    $("#onScore").css("display","block");
+    $("#clickEvent").css("-webkit-filter", "blur(4px)");
+    $("#clickEvent").css("filter","blur(5px)");
+    setTimeout(function(){ app.closeOnScore() }, 3000);
+}
+app.closeOnScore = function(){
+    $("#onScore").css("display","none");
+    $("#clickEvent").css("-webkit-filter", "blur(0px)");
+    $("#clickEvent").css("filter","blur(0px)");
 }
 app.closeCounter = function(){
 	console.log("startGame")

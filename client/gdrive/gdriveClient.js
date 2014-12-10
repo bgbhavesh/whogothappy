@@ -27,6 +27,7 @@ app.lang.gamePopUp.restart = "Restart";
 app.lang.gamePopUp.close = "close";
 app.lang.gamePopUp.Start = "Start";
 app.lang.gamePopUp.mgs1 = "Tap the happiest, most pleasant, most joyful face in the bunch! →";
+app.lang.gamePopUp.feedBackOnScore = "hat trick";
 
 app.lang.alarm.head = "Two Alarms";
 app.lang.alarm.foot = "Thinks of two times ...";
