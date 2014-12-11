@@ -416,9 +416,26 @@ var contentEvent = {
 		// console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
-		console.log(event)
-		console.log(event.target.x)
-		console.log(event.target.y)
+		// console.log(event.pageX)
+		// console.log(event.pageY)
+		var element = event.currentTarget;
+		var $img = $(event.target);
+        var offset = $img.offset();
+        var xx = event.clientX - offset.left;
+        var yy = event.offsetY;
+        var x = event.clientX - offset.left;
+        // var y = event.clientY - offset.top;
+        var y = event.offsetY;
+        x = Math.abs(parseInt(x, 10)) -50;
+        y = Math.abs(parseInt(y, 10)) -45;
+        x = Math.abs(x);
+        y = Math.abs(y);
+        $(element).parent().append('<div id="correctdotOnImg" style="position: absolute;top:45%;left:45%;height: 10px;width: 10px;background: green;opacity: 0.6; border-radius: 100%;"></div>');
+        $(element).parent().append('<div id="dotOnImg" style="position: absolute;top:'+yy+'px;left:'+xx+'px;height: 10px;width: 10px;background: red;opacity: 0.6; border-radius: 100%;"></div>');
+        // var y = event.clientY - offset.top;
+        // console.log('clicked at x: ' + x + ', y: ' + y);
+        var z = x + y;
+        // console.log('Accuracy at x: ' + z);
 		if(app.clickStart == false)
 			return;
 		app.clickStart = false;
@@ -541,7 +558,15 @@ Template.secondContent.events(contentEvent);
 Template.content.events(contentEvent);
 
 app.animateFamousFlag = false; 
+app.resetDots = function(){
+	$("#dotOnImg").remove();
+	var count = $("#correctdotOnImg").remove();
+	if(count != 0)
+		$("#dotOnImg").remove();
+		$("#correctdotOnImg").remove();
+}
 app.animateFamousRandom = function(){
+	app.resetDots();
 	switch(app.randomNumber(1,4)){
 		case 1 : 
 			app.animateFamouseFirst();
