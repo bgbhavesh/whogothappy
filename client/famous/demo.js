@@ -209,7 +209,7 @@ function setImages(){
 var endtime;
 var totalTime;
 var result;
-var newcase;
+app.newcase;
 // var slideStartTime;
 app.score = {};
 app.score.method = [];
@@ -263,13 +263,13 @@ app.famousContent = function(flip){
 	// }
 	// console.log(content)
 	// return content;
-	if(!newcase)
-		newcase = app.randomNumber(1,8);;
-	Meteor.call("getCase",newcase,function(err,data){
-		newcase = data;
+	if(!app.newcase)
+		app.newcase = app.randomNumber(1,8);;
+	Meteor.call("getCase",app.newcase,function(err,data){
+		app.newcase = data;
 	});
-	newcase = 9;
-	switch(newcase){//app.randomNumber(1,8)){
+	// newcase = 9;
+	switch(app.newcase){//app.randomNumber(1,8)){
 		case 1 : 
 			console.log("1");
 			return app.setAllMaleOrFemale(flip,"female")///all female different group
@@ -416,7 +416,9 @@ var contentEvent = {
 		// console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
-		// console.log(app.clickStart)
+		console.log(event)
+		console.log(event.target.x)
+		console.log(event.target.y)
 		if(app.clickStart == false)
 			return;
 		app.clickStart = false;

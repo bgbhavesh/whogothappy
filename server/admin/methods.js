@@ -91,14 +91,15 @@ Meteor.methods({
 		// 		newcase = app.randomNumber(1,8)
 
 
-		if(app.language.en){
-			if(app.language.en.time)
-				return app.language.en.time.alarmPushBody;
-			else
-				return "nothing"
-		}
-		else
-			return "nothing"
+		// if(app.language.en){
+		// 	if(app.language.en.time)
+		// 		return app.language.en.time.alarmPushBody;
+		// 	else
+		// 		return "nothing"
+		// }
+		// else
+		// 	return "nothing"
+		return app.randomNumber(1,8);
 	},
 });
 
