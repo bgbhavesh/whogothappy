@@ -34,7 +34,7 @@ content[3] = "";
 
 var expressionImage = [];
 var expressionImageJoy = [];
-var smileDuration;
+
 
 //////////////////////////////////////////closed/////////////////////////////////////
 /*
@@ -362,7 +362,6 @@ app.famousContent(false);
 Template.content.helpers({
     image : function(){
         // app.updateTheProfile();
-        app.slideStartTime = new Date().getTime();
         return app.famousContent(Session.get("flip"));
     },
 })
@@ -417,11 +416,14 @@ var contentEvent = {
 		// console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
+<<<<<<< HEAD
+		// console.log(event.pageX)
+		// console.log(event.pageY)
 		var element = event.currentTarget;
 		var $img = $(event.target);
         var offset = $img.offset();
-        var xx = event.clientX - offset.left - 5;
-        var yy = event.offsetY-5;
+        var xx = event.clientX - offset.left;
+        var yy = event.offsetY;
         var x = event.clientX - offset.left;
         // var y = event.clientY - offset.top;
         var y = event.offsetY;
@@ -433,12 +435,18 @@ var contentEvent = {
         $(element).parent().append('<div id="dotOnImg" style="position: absolute;top:'+yy+'px;left:'+xx+'px;height: 10px;width: 10px;background: red;opacity: 0.6; border-radius: 100%;"></div>');
         // var y = event.clientY - offset.top;
         // console.log('clicked at x: ' + x + ', y: ' + y);
-        var AccuracyPoints = Math.floor( (x + y) / 10 );
-        console.log('Accuracy at x: ' + AccuracyPoints);
+        var z = x + y;
+        // console.log('Accuracy at x: ' + z);
+=======
+		// console.log(event)
+		// console.log(event.target.x)
+		// console.log(event.target.y)
+		var smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
+		// console.log(smileDuration)
+>>>>>>> origin/bgbhavesh
 		if(app.clickStart == false)
 			return;
 		app.clickStart = false;
-		smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
 		var str = $(event.currentTarget).attr("src");
 		var res = str.match("joy");
 		var mainDiv = $("#clickEvent");
@@ -476,8 +484,9 @@ var contentEvent = {
 		}
 		endtime = new Date().getTime()
 		totalTime = endtime - app.slideStartTime;
+
 		// console.log(parseInt(app.lang.settings.tranisionWaitMin)+" "+parseInt(app.lang.settings.tranisionWaitMax))
-		var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));
+		var delay = 2000;
 		// app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax))*100;//wait duration after smile comes
 
 		count--;
@@ -487,12 +496,12 @@ var contentEvent = {
 			if(app.score.method){
 				if(app.score.method.length!=0){
 					if(totalTime<late){
-						result = parseInt(app.lang.settings.sixteenScorePerHit - AccuracyPoints); 
+						result = parseInt(app.lang.settings.sixteenScorePerHit); 
 					}else{
 						result = parseInt(app.lang.settings.sixteenScorePerLateHit);
 					}
 				}else{
-						result = parseInt(app.lang.settings.sixteenScorePerHit - AccuracyPoints);
+						result = parseInt(app.lang.settings.sixteenScorePerHit);
 				}
 			}
 			// delay = 2000;
