@@ -166,6 +166,8 @@ Meteor.loginAsFacebook = function(options, callback) {
 	//create a login request with admin: true, so our loginHandler can handle this request
 	options.myFacebook = true;
 	//send the login request
+	// console.log(options);
+	// console.log(callback);
 	Accounts.callLoginMethod({
 		methodArguments: [options],
 		userCallback: callback

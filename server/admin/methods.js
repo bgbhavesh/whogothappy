@@ -1,12 +1,13 @@
 Meteor.methods({
 	"getPushId" : function(options){
+		if(app.language.en)
 		if(app.language.en.time){
 			var title = app.language.en.time.alarmPushTitle;
 			var body = app.language.en.time.alarmPushBody;
 		}else
 		{
 			var title = "whogothappy";
-			var body = "whogothappy";
+			var body = "You have unseen Notification";
 		}
 		if(Meteor.userId())
 			console.log(options)
@@ -14,6 +15,7 @@ Meteor.methods({
 			app.pushServer.sendAndroid(body, [options.pushId], title, body,  1);
 	},
 	"sendPush" : function(pushId){
+		if(app.language.en)
 			if(app.language.en.time){
 				var title = app.language.en.time.alarmPushTitle;
 				var body = app.language.en.time.alarmPushBody;
@@ -25,8 +27,11 @@ Meteor.methods({
 			app.pushServer.sendAndroid(body, [pushId], title, body, 1);
 	},
 	"setStreak" : function(option){
+		console.log("call")
 		var id;
 		if(Meteor.userId()){
+			console.log("startcall")
+			console.log(option)
 			var cursor = Streak.findOne({"user":Meteor.userId(),"day": option.day});
 			if(!cursor){
 				if(option.first)
@@ -34,11 +39,40 @@ Meteor.methods({
 				else if(option.second)
 					id = Streak.insert({"user":Meteor.userId(),"day": option.day,"second":true,"endgame2":option.endgame});
 			}else{
+				console.log("else")
 				if(option.first){
-					id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame1":option.endgame}});
+
+					if(option.endgame){
+							id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame1":true}});
+						}else{
+							var cursor1 = Streak.findOne({"user":Meteor.userId(),"day": option.day,"first" : false});
+							if(cursor1){
+								id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame1":false}});
+							}
+							else{
+								id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame1":true}});
+							}
+						}
+						// var cursor2 = Streak.findOne({"user":Meteor.userId(),"day": option.day,"first":true,"endgame1" : true});
+						// if(cursor2){
+						// 	console.log(cursor2)
+						// 	return;
+						// }
+						// id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"first":true,"endgame1":option.endgame}});
 				}
 				else if(option.second){
-					id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"second":true,"endgame2":option.endgame}});
+						if(option.endgame){
+							id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"second":true,"endgame2":true}});
+						}else{
+							var cursor1 = Streak.findOne({"user":Meteor.userId(),"day": option.day,"endgame2" : false});
+							if(cursor1){
+								id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"second":true,"endgame2":false}});
+							}
+							else{
+								id = Streak.update({"user":Meteor.userId(),"day": option.day},{$set:{"second":true,"endgame2":true}});
+							}
+						}
+					
 				}
 			}
 		}
@@ -61,11 +95,20 @@ Meteor.methods({
 		// 	if(oldcase == newcase)
 		// 		newcase = app.randomNumber(1,8)
 
-		return app.randomNumber(1,9);
+
+		if(app.language.en){
+			if(app.language.en.time)
+				return app.language.en.time.alarmPushBody;
+			else
+				return "nothing"
+		}
+		else
+			return "nothing"
 	},
 });
 
 app.sendpushtouser = function (pushId){
+	if(app.language.en)
    if(app.language.en.time){
 		var title = app.language.en.time.alarmPushTitle;
 		var body = app.language.en.time.alarmPushBody;
