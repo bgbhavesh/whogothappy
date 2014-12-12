@@ -35,7 +35,7 @@ function serverStartTime(){
     var time = new Date();
     Meteor.users.find({}).forEach(function(user){
         try{
-            console.log(user._id)
+            // console.log(user._id)
              Meteor.users.update({"_id":user._id},{$set:{"profile.serverStartTime": time}});
         }
         catch(err){}

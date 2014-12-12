@@ -206,11 +206,18 @@ Template.menuListPanel.events({
 
 
 app.clickOnInvMail = function() {
-    var id = Meteor.userId();
-    var challenger = Meteor.users.findOne({"_id":Meteor.userId()}).username;
-    var mailBody = 'You all are challenged to beat '+ challenger +' score \n http://whogothappy.com/#'+id+' Click here to install the application "who got happy"!';
-    var emailurl = 'mailto:tapmate@tapmate.mailgun.org?subject=You have been invited to join whogothappy&body=' + encodeURIComponent(mailBody);
-    window.open(emailurl, '_system');
+    var cursorMe = Meteor.user();
+    if(cursorMe){
+        for(var i=0,il=cursorMe.emails.length;i<il;i++){ 
+            Meteor.call("emailInvitGen",cursorMe.emails[i],cursorMe.username,cursorMe._id,function(err,data){});
+        }
+    }
+        
+    // var id = Meteor.userId();
+    // var challenger = Meteor.users.findOne({"_id":Meteor.userId()}).username;
+    // var mailBody = 'You all are challenged to beat '+ challenger +' score \n http://whogothappy.com/#'+id+' Click here to install the application "who got happy"!';
+    // var emailurl = 'mailto:tapmate@tapmate.mailgun.org?subject=You have been invited to join whogothappy&body=' + encodeURIComponent(mailBody);
+    // window.open(emailurl, '_system');
 }
 // $("#getEmails").keyup(function(event) {
 //     //     var val = $(this).val();

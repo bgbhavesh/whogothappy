@@ -1,6 +1,7 @@
-process.env.MAIL_URL = 'smtp://postmaster%40sandbox77539.mailgun.org:2l9s4cmzqic2@smtp.mailgun.org:587';
+// process.env.MAIL_URL = 'smtp://postmaster%40sandbox77539.mailgun.org:2l9s4cmzqic2@smtp.mailgun.org:587';
+process.env.MAIL_URL = 'smtp://postmaster@sandbox3b5d53e0d15b497ab2b27a2e3fadf564.mailgun.org:abc123123@smtp.mailgun.org:587';
+
 function emailDailyGen(emails,data){
-    // return;
      // Fiber(function () {
           //Accounts.oauth._middleware(req, res, next);
             console.log("emailDailyGen");
@@ -168,6 +169,12 @@ function emailDailyGen(emails,data){
         Meteor.call("sendEmail",html,emails);
    // }).run();
 }
+function emailInvitGen(emails,username,id){
+            console.log("emailInvitGen");
+            console.log(emails);
+            var html = Handlebars.templates['emailInvite']({"email": emails ,"username" : username,"id": id })   
+            Meteor.call("sendEmail",html,emails);
+}
 Meteor.methods({
     "sendEmail" : function(html,email){
 
@@ -189,6 +196,14 @@ Meteor.methods({
                 html : html
             });
             
+        }
+        catch(error){
+            console.log(error);
+        }
+    },
+    "sendInvitation" : function(emails,username,id){
+        try{
+            emailInvitGen(emails,username,id);            
         }
         catch(error){
             console.log(error);
