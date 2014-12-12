@@ -206,9 +206,9 @@ Template.menuListPanel.events({
 
 
 app.clickOnInvMail = function() {
-    var url = Meteor.userId();
+    var id = Meteor.userId();
     var challenger = Meteor.users.findOne({"_id":Meteor.userId()}).username;
-    var mailBody = 'You all are challenged to beat '+ challenger +' score \n   http://192.199.196.222:8000/#'+url+' Click here to install the application "who got happy"!';
+    var mailBody = 'You all are challenged to beat '+ challenger +' score \n http://whogothappy.com/#'+id+' Click here to install the application "who got happy"!';
     var emailurl = 'mailto:tapmate@tapmate.mailgun.org?subject=You have been invited to join whogothappy&body=' + encodeURIComponent(mailBody);
     window.open(emailurl, '_system');
 }
