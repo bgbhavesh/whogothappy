@@ -6,11 +6,20 @@ app.openOverlay = function(){
     $("#clickEvent").css("-webkit-filter", "blur(4px)");
     $("#clickEvent").css("filter","blur(5px)");
 }
+app.justOveray =function(){
+    $("#clickEvent").css("-webkit-filter", "blur(4px)");
+    $("#clickEvent").css("filter","blur(5px)");
+}
+app.noOveray =function(){
+    $("#clickEvent").css("-webkit-filter", "blur(0px)");
+    $("#clickEvent").css("filter","blur(0px)");
+}
 app.openOnScore = function(x){
+    app.justOveray();
     $("#onScore").css("display","block");
     $("#onScoreValue").text(x);
     // $("#clickEvent").css("filter","blur(5px)");
-    setTimeout(function(){ app.closeOnScore() }, 2500);
+    setTimeout(function(){ app.closeOnScore();app.noOveray() }, 2500);
 }
 app.closeOnScore = function(){
     $("#onScore").css("display","none");

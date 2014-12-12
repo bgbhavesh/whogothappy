@@ -1,6 +1,6 @@
 process.env.MAIL_URL = 'smtp://postmaster%40sandbox77539.mailgun.org:2l9s4cmzqic2@smtp.mailgun.org:587';
 function emailDailyGen(emails,data){
-    return;
+    // return;
      // Fiber(function () {
           //Accounts.oauth._middleware(req, res, next);
             console.log("emailDailyGen");
