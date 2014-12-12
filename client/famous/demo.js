@@ -433,7 +433,7 @@ var contentEvent = {
         $(element).parent().append('<div id="dotOnImg" style="position: absolute;top:'+yy+'px;left:'+xx+'px;height: 10px;width: 10px;background: red;opacity: 0.6; border-radius: 100%;"></div>');
         // var y = event.clientY - offset.top;
         // console.log('clicked at x: ' + x + ', y: ' + y);
-        var AccuracyPoints = Math.floor( (x + y) / 10 );
+        app.AccuracyPoints = Math.floor( (x + y) / 10 );
         console.log('Accuracy at x: ' + AccuracyPoints);
 		if(app.clickStart == false)
 			return;
@@ -487,12 +487,12 @@ var contentEvent = {
 			if(app.score.method){
 				if(app.score.method.length!=0){
 					if(totalTime<late){
-						result = parseInt(app.lang.settings.sixteenScorePerHit - AccuracyPoints); 
+						result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints); 
 					}else{
 						result = parseInt(app.lang.settings.sixteenScorePerLateHit);
 					}
 				}else{
-						result = parseInt(app.lang.settings.sixteenScorePerHit - AccuracyPoints);
+						result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints);
 				}
 			}
 			// delay = 2000;
@@ -521,8 +521,18 @@ var contentEvent = {
 		},delay);
 	}
 }
+app.displayProgress = function(count,Accuracy,reset){
+	var shoVar= count % 3;
+	if(shoVar == 0){
+		
+	}
 
+	// var app.AccuracyPointsOld = Accuracy;
+	// if(app.AccuracyPoints)
+	// 	if(app.AccuracyPoints )
+}
 app.changeFace = function(faceSrc,res){
+	app.displayProgress(1,app,app.AccuracyPoints)
 	if(Session.get("flip")){
 		var imgsUrl = $("#clickEvent div figure.back img");
 		for(var i=0,il=imgsUrl.length;i<il;i++){
