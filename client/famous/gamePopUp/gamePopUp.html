@@ -53,6 +53,8 @@
     </div>
 </template>
 <template name="updated">
+ {{#if lastupdate}}
+ <div class="large-12 small-12 medium-12 columns panel">
     <div id="updated" class="">
             <div data-alert="" class="popups  large-12 medium-12 small-12 columns textCenter">
                 <!-- {{> GamerTimerimer}} -->
@@ -60,8 +62,10 @@
                     {{lang.gamePopUp.restart}}
                 </div> -->
                 <div id="updatedValue" class=" " style="">            
-                    {{lang.gamePopUp.appUpdated}}
+                    {{lastupdate}}
                 </div>
             </div>   
     </div>
+    </div>
+    {{/if}} 
 </template>

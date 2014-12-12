@@ -100,7 +100,7 @@ Meteor.methods({
 		// else
 		// 	return "nothing"
 		return app.randomNumber(1,8);
-	},
+	}
 });
 
 app.sendpushtouser = function (pushId){

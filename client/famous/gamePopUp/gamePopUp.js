@@ -10,7 +10,7 @@ app.openOnScore = function(x){
     $("#onScore").css("display","block");
     $("#onScoreValue").text(x);
     // $("#clickEvent").css("filter","blur(5px)");
-    setTimeout(function(){ app.closeOnScore() }, 3000);
+    setTimeout(function(){ app.closeOnScore() }, 2500);
 }
 app.closeOnScore = function(){
     $("#onScore").css("display","none");
@@ -58,3 +58,15 @@ Template.gameEndPopUp.events({
     }
     
 });
+
+Template.updated.helpers({
+    "lastupdate" : function(){
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe)
+        if(cursorMe.profile){
+            if(cursorMe.profile.serverStartTime){
+                return "Auto updated "+$.timeago(cursorMe.profile.serverStartTime);
+            }
+        }
+    }
+})

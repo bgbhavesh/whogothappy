@@ -144,6 +144,7 @@ assetManager.downloadAll(function(){
 setImages();
 
 function setImages(){
+	calAccu = 0
 	for(var img=1,imgcount=20;img<=imgcount;img++){
 		expressionImage.push("jn"+img);
 	}
@@ -433,7 +434,8 @@ var contentEvent = {
         // var y = event.clientY - offset.top;
         // console.log('clicked at x: ' + x + ', y: ' + y);
         app.AccuracyPoints = Math.floor( (x + y) / 10 );
-        console.log('Accuracy at x: ' + AccuracyPoints);
+        // console.log('Accuracy at x: ' + AccuracyPoints);
+        // app.displayProgress(1,app.AccuracyPoints)
 		if(app.clickStart == false)
 			return;
 		app.clickStart = false;
@@ -499,6 +501,7 @@ var contentEvent = {
 		}else{
 			result = 0;
 		}
+		// console.log(result)
         app.score.method.push({
             "slideStartTime": app.slideStartTime,
             "endtime": endtime,
@@ -518,12 +521,34 @@ var contentEvent = {
 				Session.set("flip","flipped");
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
+		app.displayProgress(1,app.AccuracyPoints,result)
 	}
 }
-app.displayProgress = function(count,Accuracy,reset){
-	var shoVar= count % 3;
-	if(shoVar == 0){
-		
+var countclick = null;
+var calAccu = null;
+var showresult = null;
+var textToDisplay;
+app.displayProgress = function(count,Accuracy,result){
+	countclick = countclick + count;
+	calAccu = calAccu + Accuracy;
+	showresult = showresult + result;
+	if(calAccu == 0)
+		textToDisplay = "Awsome, Your accuracy is 100 %"
+	else if(calAccu > 0 && calAccu < 3)
+		textToDisplay = "Super, Your accuracy is 80%"
+	else if(calAccu > 2 && calAccu < 5)
+		textToDisplay = "Good, but need to click at center of Image"
+	else if(calAccu >= 5)
+		textToDisplay = "Try to click at center of Image to gain more points"
+
+	var hit= countclick % 3;
+	if(hit == 0){
+		app.openOnScore(textToDisplay)
+		calAccu = 0
+		showresult = 0;
+		setTimeout(function(){
+			app.openOnScore("you earned "+ showresult + " in last three clicks")
+		},2500);
 	}
 
 	// var app.AccuracyPointsOld = Accuracy;
@@ -531,7 +556,6 @@ app.displayProgress = function(count,Accuracy,reset){
 	// 	if(app.AccuracyPoints )
 }
 app.changeFace = function(faceSrc,res){
-	app.displayProgress(1,app,app.AccuracyPoints)
 	if(Session.get("flip")){
 		var imgsUrl = $("#clickEvent div figure.back img");
 		for(var i=0,il=imgsUrl.length;i<il;i++){
