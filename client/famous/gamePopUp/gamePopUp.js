@@ -15,11 +15,12 @@ app.noOveray =function(){
     $("#clickEvent").css("filter","blur(0px)");
 }
 app.openOnScore = function(x){
-    app.justOveray();
+    // app.justOveray();
     $("#onScore").css("display","block");
     $("#onScoreValue").text(x);
     // $("#clickEvent").css("filter","blur(5px)");
-    setTimeout(function(){ app.closeOnScore();app.noOveray() }, 2500);
+    setTimeout(function(){ app.closeOnScore()}, 2500);
+    // setTimeout(function(){ app.closeOnScore();app.noOveray() }, 2500);
 }
 app.closeOnScore = function(){
     $("#onScore").css("display","none");
@@ -58,6 +59,17 @@ Template.gamePopUp.events({
     },
     'click #startGame': function () {
         app.closeCounter();
+    },
+});
+
+Template.ratingPopup.events({
+    'click #rateAccept': function () {
+        console.log("accept");
+        $("#rating").hide();
+    },
+    'click #rateDecline': function () {
+        console.log("accept later")
+        $("#rating").hide();
     },
 });
 

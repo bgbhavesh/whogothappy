@@ -23,7 +23,7 @@ Template.home.events({
     },
     'mouseup': function (e){
         curDown = false;
-    }
+    },
 
     // 'click .move-left': function (e){
     //     $(".move-left").removeClass('move-left')                    

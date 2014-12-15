@@ -489,11 +489,16 @@ var contentEvent = {
 				if(app.score.method.length!=0){
 					if(totalTime<late){
 						result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints); 
+						// console.log(app.lang.settings.sixteenScorePerHit)
+						// console.log(app.AccuracyPoints)
 					}else{
 						result = parseInt(app.lang.settings.sixteenScorePerLateHit);
+						// console.log(app.lang.settings.sixteenScorePerLateHit)
 					}
 				}else{
 						result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints);
+						// console.log(app.lang.settings.sixteenScorePerHit)
+						// console.log(app.AccuracyPoints)
 				}
 			}
 			// delay = 2000;
@@ -501,7 +506,7 @@ var contentEvent = {
 		}else{
 			result = 0;
 		}
-		// console.log(result)
+		// console.log(app.AccuracyPoints)
         app.score.method.push({
             "slideStartTime": app.slideStartTime,
             "endtime": endtime,
@@ -545,9 +550,9 @@ app.displayProgress = function(count,Accuracy,result){
 	if(hit == 0){
 		app.openOnScore(textToDisplay)
 		calAccu = 0
-		showresult = 0;
 		setTimeout(function(){
 			app.openOnScore("you earned "+ showresult + " in last three clicks")
+			showresult = 0;
 		},2500);
 	}
 
