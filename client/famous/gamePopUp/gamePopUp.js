@@ -19,7 +19,7 @@ app.openOnScore = function(x){
     $("#onScore").css("display","block");
     $("#onScoreValue").text(x);
     // $("#clickEvent").css("filter","blur(5px)");
-    setTimeout(function(){ app.closeOnScore()}, 2500);
+    setTimeout(function(){ app.closeOnScore()}, 1500);
     // setTimeout(function(){ app.closeOnScore();app.noOveray() }, 2500);
 }
 app.closeOnScore = function(){

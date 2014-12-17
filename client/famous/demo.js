@@ -505,6 +505,7 @@ var contentEvent = {
 			app.totalscore = app.totalscore + result;
 		}else{
 			result = 0;
+			// console.log("wrong")
 		}
 		// console.log(app.AccuracyPoints)
         app.score.method.push({
@@ -553,7 +554,7 @@ app.displayProgress = function(count,Accuracy,result){
 		setTimeout(function(){
 			app.openOnScore("you earned "+ showresult + " in last three clicks")
 			showresult = 0;
-		},2500);
+		},1500);
 	}
 
 	// var app.AccuracyPointsOld = Accuracy;

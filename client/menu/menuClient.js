@@ -236,7 +236,7 @@ app.inviteFriends = function(){
         $("iframe").width($(window).width());
     },1000);
     return FB.ui({method: 'apprequests',
-      message: Meteor.user().username +' chanllenges you on sixteensmiles',
+      message: Meteor.user().username +' challenges you on whogothappy.com',
       // to : ["532514594","1797896033","100000488108267","100000440278021"] //still the browser opens in a popup.
     }, function(response){
         console.log(response);

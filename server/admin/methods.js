@@ -99,7 +99,7 @@ Meteor.methods({
 		// }
 		// else
 		// 	return "nothing"
-		return app.randomNumber(1,8);
+		return app.gameCase;//app.randomNumber(1,8);
 	}
 });
 
@@ -124,4 +124,9 @@ app.randomNumber = function(snum, bnum){
 	else{
 		return randomNumber(snum, bnum);
 	}
+}
+app.gameCase =app.randomNumber(1,8);
+app.changeCase = function(){
+	app.gameCase = app.randomNumber(1,9)
+	// console.log(app.gameCase);
 }

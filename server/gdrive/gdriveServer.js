@@ -20,7 +20,37 @@ app.setting = {}
 // 	});
 // })
 
-
+app.uploadDataToSheet = function(){
+	var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
+	var sheetno = null;
+	var MeArray = [];
+	var i=0;
+	var cursor = Meteor.users.find();
+	cursor.forEach(function(data) {
+		MeArray[i++] = data; 
+	});
+	// for(var i=0,il=MeArray.length;i<il;i++){
+	// 	if(MeArray[i].emails)
+	// 		console.log(MeArray[i].emails[0].address)
+	// }
+	my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
+		if (err) console.log( err );
+		for(var i=0,il=MeArray.length;i<il;i++){
+				my_sheet.addRow( 1, { 
+			    	clientId: MeArray[i]._id,
+					username: MeArray[i].username,
+					emails : MeArray[i].emails[0].address,
+					maxScore: MeArray[i].profile.maxScore,
+					lastPlayed: MeArray[i].profile.lastPlayed,
+					lastScore: MeArray[i].profile.lastScore,
+					lastTried: MeArray[i].profile.lastTried,
+					lastWrong:  MeArray[i].profile.lastWrong,
+					playContinuty: MeArray[i].profile.playContinuty
+			    });   
+			}
+	});
+	// return true;
+}
 Meteor.methods({
 	"sendLang" : function(lan){
 		
@@ -99,33 +129,8 @@ Meteor.methods({
 	// 		return fut.wait();
 	// },
 	"uploadDataToSheet" : function(){
-		var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
-		var sheetno = null;
-		var MeArray = [];
-		var i=0;
-		var cursor = Meteor.users.find();
-		cursor.forEach(function(data) {
-			MeArray[i++] = data; 
-		});
-		// for(var i=0,il=MeArray.length;i<il;i++){
-		// 	if(MeArray[i].emails)
-		// 		console.log(MeArray[i].emails[0].address)
-		// }
-		my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
-			if (err) console.log( err );
-			for(var i=0,il=MeArray.length;i<il;i++){
-					my_sheet.addRow( 1, { 
-				    	clientId: MeArray[i]._id,
-						username: MeArray[i].username,
-						maxScore: MeArray[i].profile.maxScore,
-						lastPlayed: MeArray[i].profile.lastPlayed,
-						lastScore: MeArray[i].profile.lastScore,
-						lastTried: MeArray[i].profile.lastTried,
-						lastWrong:  MeArray[i].profile.lastWrong,
-						playContinuty: MeArray[i].profile.playContinuty
-				    });   
-				}
-		});
+		app.uploadDataToSheet();
+		return true;
 	},
 	"updateScore" : function(tme){
 		//var fut = new Future();

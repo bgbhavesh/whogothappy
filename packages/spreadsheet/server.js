@@ -186,7 +186,7 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
       url = GOOGLE_FEED_URL + url_params.join("/");
     }
     console.log("google_auth");
-    console.log(google_auth);
+    // console.log(google_auth);
     if ( google_auth ) {
       if (google_auth.type === 'Bearer') {
         headers['Authorization'] = 'Bearer ' + google_auth.value;
@@ -202,11 +202,11 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
     if ( method == 'GET' && query_or_data ) {
       url += "?" + querystring.stringify( query_or_data );
     }    
-    console.log({
-      url: url,
-      method: method,
-      headers: headers,
-      body: method == 'POST' || method == 'PUT' ? query_or_data : null});
+    // console.log({
+    //   url: url,
+    //   method: method,
+    //   headers: headers,
+    //   body: method == 'POST' || method == 'PUT' ? query_or_data : null});
     request( {
       url: url,
       method: method,

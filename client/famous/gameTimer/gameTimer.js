@@ -94,7 +94,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(mins >= 20){
+	  	if(seconds >= 20){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -140,9 +140,14 @@ function endGame(EndedTime){
 			data.emailid = cursorMe.emails[0].address;
 		else
 			data.emailid = cursorMe.email;
+		var wrongcount=0
+		for (var i = 0; i < app.score.method.length; i++) {
+			if(app.score.method[i].result == 0)
+				wrongcount = wrongcount + 1;
+		};
 		data.score = app.totalscore;
 		data.clicked = app.score.method.length;
-		data.wrong = app.score.method.length - app.totalscore;
+		data.wrong = wrongcount;
 		data.allScore = app.score;
 		if(EndedTime){
 			data.gameEnd = EndedTime;
@@ -273,7 +278,7 @@ app.modifyLastDate = function(data){
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
 				}
 					
-				if((cursorMe.profile.lastPlayed + 1)==currentDate){
+				if((cursorMe.profile.currentDate + 1)==currentDate){
 					if(cursorMe.profile.playContinuty){
 						var tDays = parseInt(cursorMe.profile.playContinuty) + 1;
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
