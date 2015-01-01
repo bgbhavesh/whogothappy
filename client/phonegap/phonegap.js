@@ -1,4 +1,5 @@
 document.addEventListener('deviceready', function(){
+	app.phonegap = app.cordova = true;
 	app.alarm = new Alarm();
 	// var date = new Date().getTime() * 5000;
 	// app.alarm.setAlarm(date,function(){});

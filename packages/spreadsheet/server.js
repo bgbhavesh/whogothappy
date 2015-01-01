@@ -226,8 +226,8 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
       url_params.push( visibility, projection );
       url = GOOGLE_FEED_URL + url_params.join("/");
     }
-    console.log("google_auth");
-    console.log(google_auth);
+    // console.log("google_auth");
+    // console.log(google_auth);
     if ( google_auth ) {
       if (google_auth.type === 'Bearer') {
         headers['Authorization'] = 'Bearer ' + google_auth.value;

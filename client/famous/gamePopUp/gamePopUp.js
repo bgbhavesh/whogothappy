@@ -81,13 +81,6 @@ Template.gameEndPopUp.events({
         app.shareWithFacebook();
     } 
 });
-app.shareWithFacebook = function(){
-    FB.ui({
-    method: 'share',
-        href: "http://whogothapp.com",
-        display : 'iframe',
-    }, function(response){});
-}
 Template.updated.helpers({
     "lastupdate" : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});

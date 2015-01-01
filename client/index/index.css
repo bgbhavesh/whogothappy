@@ -31,7 +31,7 @@ ul.off-canvas-list li a:hover{
 .overlay .popups{
         position: relative;
         width: 95%;
-        left: 2.5%;
+        left: 2%;
         top: 50%;
         -webkit-transform: translateY(-50%);
         -ms-transform: translateY(-50%);
@@ -43,11 +43,11 @@ ul.off-canvas-list li a:hover{
 }
 .overlay{
         position: absolute;
-        width: 105%;
+        width: 104%;
         height: 94%;
         z-index: 21;
         top:3%;
-        left: -2.5%;
+        left: -2%;
         background-color: rgba(0,0,0,0.5);
 }
 .height40{

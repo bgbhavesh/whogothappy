@@ -1,4 +1,8 @@
 app.startGame = function(){
+	app.score = {};
+	app.score.method = [];
+	app.totalscore = 0;
+	Score = [];
 	startTimer();
 	app.updateStreak();
 	// console.log("game Started");
@@ -24,6 +28,15 @@ Template.GamerTimerimer.events({
     'click #reStart': function () {
 		// console.log("game reStart");
     	app.reStartGame();
+    },
+    'click #shareWithFacebook' : function(){
+    	app.shareWithFacebook();
+    },
+    'click #shareWithTwitter' : function(){
+    	app.shareWithTwitter();
+    },
+    'click #shareWithAny' : function(){
+    	app.shareWithAny();
     }
 });
 app.endBeforeTime = function(){
@@ -149,6 +162,7 @@ function endGame(EndedTime){
 		data.clicked = app.score.method.length;
 		data.wrong = wrongcount;
 		data.allScore = app.score;
+		data.corrected = data.clicked - wrongcount;
 		if(EndedTime){
 			data.gameEnd = EndedTime;
 		}else{
@@ -156,7 +170,7 @@ function endGame(EndedTime){
 			app.updateStreak("true");
 			data.gameEnd = "10:00";
 		}
-		// console.log(data.emailid)
+		console.log(data)
 		if(data.emailid){
 			Meteor.call("genMail",data.emailid,data);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
