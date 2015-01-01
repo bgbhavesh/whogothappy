@@ -212,6 +212,15 @@ app.resetStreak = function(){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	if(cursorMe){
 		if(cursorMe.profile){
+			// var curprofile = cursorMe.profile
+			// var monthDiff = Math.abs(curprofile.currentMonth - currentMonth);
+			// var dayDiff = Math.abs(curprofile.currentDate - currentDate);
+			// if(dayDiff > 7 ){
+			// 	if(monthDiff != 0)
+			// 	Meteor.call("resetStreak",currentDate,function(err,data){
+					
+			// 	});
+			// }
 			var curprofile = cursorMe.profile
 			if(curprofile.dayofweek || curprofile.dayofweek == 0){
 				if(cursorMe.profile.dayofweek != currentDate){
