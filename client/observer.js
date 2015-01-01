@@ -1,7 +1,7 @@
-app.startup(app.MeteorStartupObserver);
+app.MeteorStartupObserver()
 
 app.MeteorStartupObserver = function(){
-    console.log("")
+    console.log("sdknvlknslkd");
     Cases.find({}).observe({
         "added" : function(first){
             addCases(first);

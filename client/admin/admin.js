@@ -17,3 +17,11 @@ Template.admin.events({
 		Meteor.call("resetTwoHundered",function(err,data){});
 	}
 });
+// app.adminSetUi = function(){
+// 	var cursor = Cases.findOne({})
+// 	if(cursor)
+// 		var data = cursor.twoHundered
+// 	for (var i = 0; i < data.length; i++) {
+// 		return data[i];
+// 	};
+// }
