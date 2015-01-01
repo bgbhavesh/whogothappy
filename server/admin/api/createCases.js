@@ -80,7 +80,7 @@ function setImages(){
 }
 
 function createCases(){
-	console.log(app.settings);
+	// console.log(app.settings);
 	var twoHundered = [];
 	var data = null;
 	for(var i=0,il=200;i<il;i++){
@@ -200,9 +200,13 @@ Meteor.startup(function(){
 	},100);
 })
 
-
-// Meteor.methods({
-// 	"getTwoHundered" : function(){
-// 		return app.twoHundered;
-// 	}
-// });
+Meteor.setInterval(function(){
+	createCases();
+},600000);
+Meteor.methods({
+	"resetTwoHundered" : function(){
+		createCases();
+		return true;
+		// return app.twoHundered;
+	}
+});

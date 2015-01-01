@@ -11,3 +11,9 @@ Template.admin.helpers({
 		return this;
 	}
 });
+
+Template.admin.events({
+	"click #resetCases" : function(){
+		Meteor.call("resetTwoHundered",function(err,data){});
+	}
+});
