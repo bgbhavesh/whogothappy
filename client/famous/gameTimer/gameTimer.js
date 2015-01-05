@@ -212,9 +212,9 @@ app.resetStreak = function(){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	if(cursorMe){
 		if(cursorMe.profile){
-			if(cursorMe.profile.dayofweek){
+			var curprofile = cursorMe.profile
+			if(curprofile.dayofweek || curprofile.dayofweek == 0){
 				if(cursorMe.profile.dayofweek != currentDate){
-					// console.log("nskfnsknflkasnlkf")
 					Meteor.call("resetStreak",currentDate,function(err,data){
 						// console.log(err);
 						// console.log(data);

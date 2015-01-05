@@ -1,5 +1,5 @@
 Meteor.startup(function(){
-	locatationIntervalId = setInterval(app.changeCase, 600000);
+	locatationIntervalId = setInterval(app.changeCase, 10000);
 	locatationIntervalId = setInterval(app.uploadDataToSheet, 86400000);
 	// Meteor.users.remove({});
 	// Meteor.setTimeout(function(){
