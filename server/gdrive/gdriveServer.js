@@ -88,24 +88,35 @@ Meteor.methods({
 	// },
 	"updateScore" : function(tme){
 		//var fut = new Future();
-		var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
+		var spreadSheetId = "1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU";
+		var googleAuth = "DQAAAOoAAAAysHvyA16QqBdYKPey96TUPuT1yAwUMZxe5k1Q8AXsFri0vKeqJ-_hLdhVcd68mPwY-cLWSc7Dgca5XXHh1MUbmYPPVUmUW77rMgnoQBoK3AVr5HYJyg6ZR2wFkrO6xTYdi3RieIrqVw_te2Z3rK-isUJLEyHjaaqSJ4o85mq2hqOIW2mEy0RQdj9wjDseQLBJEAwamgTV7XlFopllJLvybCMdmEhdWjzaaVI7TdYJNlEiHIxdB4__5o2BR3qjDNFP78oSWpCn1l4TFSrmymrm9nAOLp4WUv0BTr-K-j0Dh_MFYPUSyMOq5I0_adQHAJg";
+		var my_sheet = new GoogleSpreadsheet(spreadSheetId,googleAuth);
 		
+		
+
+		/* WORKING CASES*/
+		// my_sheet.addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv");
+		my_sheet.changeRow();
 		// my_sheet.getRows( 2, function(err, row_data){
 		// 	console.log(err);
 		// 	console.log(row_data);
 		// });
+		// my_sheet.addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv",function(err, data){
+		// 	if (err) console.log( err );
+		// 	console.log(data);
+		// });
 
+		//my_sheet.changeRow();		
 
-		
-		///add worksheet
-		my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
-			// my_sheet.getInfo( function(err, ss_info){
+		// ///add worksheet
+		// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
+		// 	// my_sheet.getInfo( function(err, ss_info){
 				
-			// });
-			my_sheet.addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv",function(err, data){
-				if (err) console.log( err );
-			});
-		});
+		// 	// });
+		// 	my_sheet.addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv",function(err, data){
+		// 		if (err) console.log( err );
+		// 	});
+		// });
 
 		// my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
 		// 	my_sheet.getInfo( function(err, ss_info){
@@ -117,8 +128,12 @@ Meteor.methods({
 		// 	});
 		   
 		// });
-
-
+		
+		 // my_sheet.addRow(1,{ 
+			// 	clientId: "cid",
+			// 	score: "scr",
+			// 	time: "tme"
+			// });
 
 		// /////add row
 		// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){

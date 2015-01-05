@@ -42,13 +42,51 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
     new_auth.login();
   }
   this.addWorkSheet = function(){
-      var data = '<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gs="http://schemas.google.com/spreadsheets/2006">\n<title>\n' +Math.random() +'</title>\n<gs:rowCount>50</gs:rowCount>\n<gs:colCount>10</gs:colCount>\n</entry>\n';
+      var worksheetName = new Date().getTime();
+      var data = '<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gs="http://schemas.google.com/spreadsheets/2006">\n<title>\n' +worksheetName +'</title>\n<gs:rowCount>50</gs:rowCount>\n<gs:colCount>10</gs:colCount>\n</entry>\n';
       self.makeFeedRequest( ["worksheets", ss_key], 'POST', data, function(err, data, xml) {
-          // console.log("look here");
-          // console.log(err);
-          // console.log(data);
-          // console.log(xml);
+          console.log("look here addWorkSheet");
+          console.log(err);
+          console.log(data);
+          console.log(xml);
       });
+  }
+  this.changeRow = function(){
+      var spreadSheetId = "1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU";
+      var sheet = "1";
+      var data = '<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gs="http://schemas.google.com/spreadsheets/2006">'
+      +'<id>https://spreadsheets.google.com/feeds/cells/' +spreadSheetId +'/' +sheet +'/private/full/R2C2</id>'
+      +'<link rel="edit" type="application/atom+xml" href="https://spreadsheets.google.com/feeds/cells/' +spreadSheetId +'/' +sheet +'/private/full/R2C2"/>'
+      +'<gs:cell row="2" col="2" inputValue="=Hello World"/>'
+      +'</entry>';
+      
+      // https://spreadsheets.google.com/feeds/cells/key/worksheetId/private/full/cell
+      // https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R1C2
+
+      var url = 'https://spreadsheets.google.com/feeds/cells/' +spreadSheetId +'/' +sheet +'/private/full/R2C2';
+      var headers = {"Authorization": 'GoogleLogin auth=DQAAAOoAAAAysHvyA16QqBdYKPey96TUPuT1yAwUMZxe5k1Q8AXsFri0vKeqJ-_hLdhVcd68mPwY-cLWSc7Dgca5XXHh1MUbmYPPVUmUW77rMgnoQBoK3AVr5HYJyg6ZR2wFkrO6xTYdi3RieIrqVw_te2Z3rK-isUJLEyHjaaqSJ4o85mq2hqOIW2mEy0RQdj9wjDseQLBJEAwamgTV7XlFopllJLvybCMdmEhdWjzaaVI7TdYJNlEiHIxdB4__5o2BR3qjDNFP78oSWpCn1l4TFSrmymrm9nAOLp4WUv0BTr-K-j0Dh_MFYPUSyMOq5I0_adQHAJg',
+      'Content-Type': 'application/atom+xml',
+      'GData-Version' : '3.0',
+      'x-frame-options': 'SAMEORIGIN',
+      'Host' : 'spreadsheets.google.com',
+      "Connection" : "Keep-Alive",
+      "Cookie" : 'NID=67=vfKeWfdFCabAFJIHnV931x4dmXGOyTCJ0KabZ8qiuQqhZ2kL32b4l7IiKmZ2BsKmje4OJO6MjuA7NLThzaRUbT8HDA9p2BTvS_ETybQtQxpQUu7RYTVhW4aYt8Vh2Wy4;Domain=.google.com;Path=/;Expires=Sat, 06-Jun-2015 08:58:46 GMT;HttpOnly'
+    }
+      try{
+      var result = Meteor.http.call("PUT",url,{
+        "headers" : headers,
+        "body" : data
+      },function(err,data){
+      });
+      }catch(err){console.log("here")}
+      console.log(result);
+
+      // self.makeFeedRequest( url, 'PUT', data, function(err, data, xml) {
+      //     console.log("look here changeRow");
+      //     console.log(err);
+      //     console.log(data);
+      //     console.log(xml);
+      // });
   }
   this.addTitle = function(worksheets,row,col,val){
     // var new_value = val;//xmlSafeValue(self.value);
@@ -75,12 +113,15 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
     var edit_id = 'https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R2C4';
     var data_xml = '<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gs="http://schemas.google.com/spreadsheets/2006"><id>https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R2C4</id><link rel="edit" type="application/atom+xml" href="https://spreadsheets.google.com/feeds/cells/1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU/1/private/full/R2C4"/><gs:cell row="2" col="4" inputValue="=SUM(A1:B6)"/></entry>';
     // data_xml = data_xml.replace('<entry>', "<entry xmlns='http://www.w3.org/2005/Atom' xmlns:gs='http://schemas.google.com/spreadsheets/2006'>");
-    self.makeFeedRequest(edit_id, 'PUT', data_xml,function(err, data, xml) {
-          console.log("look here");
-          console.log(err);
-          console.log(data);
-          console.log(xml);
-      });
+    
+      
+
+    // self.makeFeedRequest(edit_id, 'PUT', data_xml,function(err, data, xml) {
+    //       console.log("look here");
+    //       console.log(err);
+    //       console.log(data);
+    //       console.log(xml);
+    //   });
     
   }
   this.getInfo = function( cb ){
@@ -185,8 +226,6 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
       url_params.push( visibility, projection );
       url = GOOGLE_FEED_URL + url_params.join("/");
     }
-    console.log("google_auth");
-    console.log(google_auth);
     if ( google_auth ) {
       if (google_auth.type === 'Bearer') {
         headers['Authorization'] = 'Bearer ' + google_auth.value;
@@ -202,11 +241,7 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
     if ( method == 'GET' && query_or_data ) {
       url += "?" + querystring.stringify( query_or_data );
     }    
-    console.log({
-      url: url,
-      method: method,
-      headers: headers,
-      body: method == 'POST' || method == 'PUT' ? query_or_data : null});
+  
     request( {
       url: url,
       method: method,
