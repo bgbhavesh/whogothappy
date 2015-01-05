@@ -3,6 +3,29 @@ app.closeGame = function(){
 }
 app.openOverlay = function(){
     $("#tapTapEnded").css("display","block");
+    $("#clickEvent").css("-webkit-filter", "blur(4px)");
+    $("#clickEvent").css("filter","blur(5px)");
+}
+app.justOveray =function(){
+    $("#clickEvent").css("-webkit-filter", "blur(4px)");
+    $("#clickEvent").css("filter","blur(5px)");
+}
+app.noOveray =function(){
+    $("#clickEvent").css("-webkit-filter", "blur(0px)");
+    $("#clickEvent").css("filter","blur(0px)");
+}
+app.openOnScore = function(x){
+    // app.justOveray();
+    $("#onScore").css("display","block");
+    $("#onScoreValue").text(x);
+    // $("#clickEvent").css("filter","blur(5px)");
+    setTimeout(function(){ app.closeOnScore()}, 1500);
+    // setTimeout(function(){ app.closeOnScore();app.noOveray() }, 2500);
+}
+app.closeOnScore = function(){
+    $("#onScore").css("display","none");
+    // $("#clickEvent").css("-webkit-filter", "blur(0px)");
+    // $("#clickEvent").css("filter","blur(0px)");
 }
 app.closeCounter = function(){
 	console.log("startGame")
@@ -39,9 +62,32 @@ Template.gamePopUp.events({
     },
 });
 
+Template.ratingPopup.events({
+    'click #rateAccept': function () {
+        console.log("accept");
+        $("#rating").hide();
+    },
+    'click #rateDecline': function () {
+        console.log("accept later")
+        $("#rating").hide();
+    },
+});
+
 Template.gameEndPopUp.events({
     'click #endGame': function () {
         app.reStartGame();
     }
     
 });
+
+Template.updated.helpers({
+    "lastupdate" : function(){
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe)
+        if(cursorMe.profile){
+            if(cursorMe.profile.serverStartTime){
+                return "Auto updated "+$.timeago(cursorMe.profile.serverStartTime);
+            }
+        }
+    }
+})

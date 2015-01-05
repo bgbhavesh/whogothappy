@@ -46,26 +46,30 @@ app.arrangeDays = function(){
 	$("#weeks tbody .endgame1").append("<th>"+app.lang.table.col1+"</th>");
 	for (var i = n+1; i <= 6; i++) {
 		var c, v;
-		c = "grey";
+		c = "sfef";
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
-			if(Streak.findOne({"day": i}).endgame1){}
-			if(Streak.findOne({"day": i}).first){
-				c = "black";
+			if(Streak.findOne({"day": i}).first ){
+				c = "stef";
 				v = '<i class="fa fa-smile-o"></i>';
+				if(Streak.findOne({"day": i}).endgame1){
+					c = "stet";
+				}
 			}
-		}
+		}		
 		$("#weeks tbody .endgame1").append('<td class="'+c+'">'+v+'</td>');	
 	};
 	for (var i = 0; i < n+1; i++) {
 		var c, v;
-		c = "grey";
+		c = "sfef";
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
-			if(Streak.findOne({"day": i}).endgame1){}
-			if(Streak.findOne({"day": i}).first){
-				c = "black";
+			if(Streak.findOne({"day": i}).first ){
+				c = "stef";
 				v = '<i class="fa fa-smile-o"></i>';
+				if(Streak.findOne({"day": i}).endgame1){
+					c = "stet";
+				}
 			}
 		}
 		$("#weeks tbody .endgame1").append('<td class="'+c+'">'+v+'</td>');	
@@ -76,26 +80,30 @@ app.arrangeDays = function(){
 	$("#weeks tbody .endgame2").append("<th>"+app.lang.table.col2+"</th>");
 	for (var i = n+1; i <= 6; i++) {
 		var c, v;
-		c = "grey";
+		c = "sfef";
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
-			if(Streak.findOne({"day": i}).endgame2){}
 			if(Streak.findOne({"day": i}).second){
-				c = "black";
+				c = "stef"
 				v = '<i class="fa fa-smile-o"></i>';
+				if(Streak.findOne({"day": i}).endgame2){
+					c = "stet";
+				}
 			}
 		}
 		$("#weeks tbody .endgame2").append('<td class="'+c+'">'+v+'</td>');	
 	};
 	for (var i = 0; i < n+1; i++) {
 		var c, v;
-		c = "grey";
+		c = "sfef";
 		v = '<i class="fa fa-frown-o"></i>';
 		if(Streak.findOne({"day": i})){
-			if(Streak.findOne({"day": i}).endgame2){}
 			if(Streak.findOne({"day": i}).second){
-				c = "black";
+				c = "stef"
 				v = '<i class="fa fa-smile-o"></i>';
+				if(Streak.findOne({"day": i}).endgame2){
+					c = "stet";
+				}
 			}
 		}
 		$("#weeks tbody .endgame2").append('<td class="'+c+'">'+v+'</td>');	

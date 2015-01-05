@@ -19,7 +19,7 @@ function isAdmin(user) {
     log("isAdmin" + (new Date().getTime() - setTime),1);
     return false;
 }
-
+serverStartTime();
 Meteor.users.find({}).observe({
     "added": function(user) {
         var setTime = new Date().getTime();
@@ -30,3 +30,14 @@ Meteor.users.find({}).observe({
         log("added" + (new Date().getTime() - setTime),1);
     }
 });
+
+function serverStartTime(){
+    var time = new Date();
+    Meteor.users.find({}).forEach(function(user){
+        try{
+            // console.log(user._id)
+             Meteor.users.update({"_id":user._id},{$set:{"profile.serverStartTime": time}});
+        }
+        catch(err){}
+    });
+}

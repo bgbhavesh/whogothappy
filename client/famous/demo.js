@@ -31,10 +31,9 @@ content[3] = "";
 // 	"https://scontent-a.xx.fbcdn.net/hphotos-xfa1/v/t1.0-9/s720x720/10599394_10154591744035691_8516022172893919916_n.jpg?oh=d8034b1959db5b5c29931d3e50b2ec14&oe=5465E0DF",
 // 	"https://fbcdn-sphotos-g-a.akamaihd.net/hphotos-ak-xaf1/t31.0-8/s720x720/10608594_756378927752199_4853884118170546373_o.jpg"
 // ];
-
 var expressionImage = [];
 var expressionImageJoy = [];
-
+var smileDuration;
 
 //////////////////////////////////////////closed/////////////////////////////////////
 /*
@@ -145,6 +144,7 @@ assetManager.downloadAll(function(){
 setImages();
 
 function setImages(){
+	calAccu = 0
 	for(var img=1,imgcount=20;img<=imgcount;img++){
 		expressionImage.push("jn"+img);
 	}
@@ -164,24 +164,24 @@ function setImages(){
 
 		for(var g=0,gen=1;g<gen;g++){
 			if(g==0){
-				for(var p=1,pcount=4;p<pcount;p++){
+				for(var p=1,pcount=6;p<pcount;p++){
 					for(var i=0,il=expressionImage.length;i<il;i++){
-						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/male/p"+p+"/non/" +expressionImage[i]  +".jpg";
+						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/male/p"+p+"/non/" +expressionImage[i]  +".jpg";
 						assetManager.add(Random.id(), image);
 					}
 					for(var i=0,il=expressionImageJoy.length;i<il;i++){
-						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/male/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
+						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/male/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
 						assetManager.add(Random.id(), image);
 					}
 				}
 			}else if(g==1){
-				for(var p=1,pcount=4;p<pcount;p++){
+				for(var p=1,pcount=6;p<pcount;p++){
 					for(var i=0,il=expressionImage.length;i<il;i++){
-						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/female/p"+p+"/non/" +expressionImage[i]  +".jpg";
+						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/female/p"+p+"/non/" +expressionImage[i]  +".jpg";
 						assetManager.add(Random.id(), image);
 					}
 					for(var i=0,il=expressionImageJoy.length;i<il;i++){
-						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/female/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
+						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/female/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
 						assetManager.add(Random.id(), image);
 					}
 				}
@@ -189,15 +189,15 @@ function setImages(){
 		}
 	}
 
-	// for(var i=0,il=expressionImage.length;i<il;i++){
-	// var image = "https://s3-us-west-2.amazonaws.com/youiest/"+folderName+"/non/" +expressionImage[i]  +".jpg";
-	// assetManager.add(Random.id(), image);
-	// }
-	// for(var i=0,il=expressionImageJoy.length;i<il;i++){
-	// 	// console.log(expressionImageJoy[i])
-	// 	var image = "https://s3-us-west-2.amazonaws.com/youiest/"+folderName+"/joy/" +expressionImageJoy[i]  +".jpg";
-	// 	assetManager.add(Random.id(), image);
-	// }
+	for(var i=0,il=19;i<il;i++){
+		var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/oldface/male/p1/non/" +expressionImage[i]  +".jpg";
+		assetManager.add(Random.id(), image);
+	}
+	for(var i=0,il=1;i<il;i++){
+		// console.log(expressionImageJoy[i])
+		var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/oldface/male/p1/joy/" +expressionImageJoy[i]  +".jpg";
+		assetManager.add(Random.id(), image);
+	}
 	assetManager.add(Random.id(),"./images/expression/smily.png")
 	assetManager.downloadAll(function(){
 		log("Images all downloaded complete",new Date().getTime() - downloadstarttime,arguments,1);
@@ -209,6 +209,7 @@ function setImages(){
 var endtime;
 var totalTime;
 var result;
+app.newcase;
 // var slideStartTime;
 app.score = {};
 app.score.method = [];
@@ -262,40 +263,94 @@ app.famousContent = function(flip){
 	// }
 	// console.log(content)
 	// return content;
-	return app.setAllMaleOrFemale(flip)
+	if(!app.newcase)
+		app.newcase = app.randomNumber(1,8);;
+	Meteor.call("getCase",app.newcase,function(err,data){
+		app.newcase = data;
+	});
+	// newcase = 9;
+	switch(app.newcase){//app.randomNumber(1,8)){
+		case 1 : 
+			// console.log("1");
+			return app.setAllMaleOrFemale(flip,"female")///all female different group
+		break;
+		case 2 : 
+			// console.log("2");
+			return app.setAllMaleOrFemale(flip,"male")///all male different group
+		break;
+		case 3 :
+			// console.log("3"); 
+			return app.setAllMaleOrFemale(flip,"male","asian")///all male asian
+		break;
+		case 4 : 
+			// console.log("4");
+			return app.setAllMaleOrFemale(flip,"female","asian")///all female asian
+		break;
+		case 5 : 
+			// console.log("5");
+			return app.setAllMaleOrFemale(flip,"male","","","same")///all male same group
+		break;
+		case 6 : 
+			// console.log("6");
+			return app.setAllMaleOrFemale(flip,"female","","","same")///all male same group
+		break;
+		case 7 : 
+			// console.log("7");
+			return app.setAllMaleOrFemale(flip,"","","","same")///all same group
+		break;
+		case 8 : 
+			// console.log("8");
+			return app.setAllMaleOrFemale(flip)///all complete random
+		break;
+		case 9 : 
+			// console.log("9");
+			return app.setAllMaleOrFemale(flip,"male","oldface","1")///all old faces
+		break;
+	}
+	// return app.setAllMaleOrFemale(flip)
 }
 var genderArray = ["female","male","female"];
 var groupArray = ["asian","asian","black"]
-var personArray = [0,1,2,3,4]
-app.setAllMaleOrFemale = function(flip,gender,group,person){
+var personArray = [0,1,2,3,4,5,6]
+app.setAllMaleOrFemale = function(flip,gender,group,person,grouptype){
 	var joyFirstRandom = app.randomNumber(0,15);
 	var joySecondRandom = app.randomNumber(0,15);
 	var oldContent = "";
 	var tempGender = null;
 	var tempGroup = null;
 	var tempPerson = null;
+	if(grouptype=="same"){
+		// console.log(grouptype)
+		tempGroup = group || groupArray[app.randomNumber(0,2)];
+	}
 	for(var i=0,il=16;i<il;i++){ 
 		tempGender = gender || genderArray[app.randomNumber(0,2)];
-		tempGroup = group || groupArray[app.randomNumber(0,2)];
-		tempPerson = person || personArray[app.randomNumber(1,4)];
+		if(grouptype){
+			if(grouptype!="same"){
+				tempGroup = group || groupArray[app.randomNumber(0,2)];
+			}
+		}else{
+			tempGroup = group || groupArray[app.randomNumber(0,2)];
+		}
+		tempPerson = person || personArray[app.randomNumber(1,6)];
 		// console.log(tempGender)
 		if(joyFirstRandom == i)
-			oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+			oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 		else
-				oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		if(!content[i])
 			content[i] = {};
 		if(flip){
 			if(joySecondRandom == i)
-			content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
 			else
-				content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		}
 		else{
 			if(joyFirstRandom == i)
-			content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
 			else
-				content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		}
 		
 	}
@@ -304,16 +359,14 @@ app.setAllMaleOrFemale = function(flip,gender,group,person){
 
 app.famousContent(true);
 app.famousContent(false);  
-Template.content.image = function(){
-	app.slideStartTime = new Date().getTime();
+Template.content.helpers({
+    image : function(){
+        // app.updateTheProfile();
+        app.slideStartTime = new Date().getTime();
+        return app.famousContent(Session.get("flip"));
+    },
+})
 
-	
-	// var starttime = new Date().getTime();
- //    log("Template.content.image started",null,arguments,1);
- //    log("Template.content.image ended",new Date().getTime() - starttime,arguments,1);
-	return app.famousContent(Session.get("flip"));
-	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
-}
 Session.setDefault('flip', ''); 
 Template.content.flip = function(){
 	return Session.get("flip");
@@ -361,13 +414,32 @@ app.getEdgerSwapper = function(){
 app.clickStart = true;
 var contentEvent = {
 	"slideLeft #clickEvent":function(){
-		console.log("123123132")
+		// console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
-		console.log(app.clickStart)
+		var element = event.currentTarget;
+		var $img = $(event.target);
+        var offset = $img.offset();
+        var xx = event.clientX - offset.left - 5;
+        var yy = event.offsetY-5;
+        var x = event.clientX - offset.left;
+        // var y = event.clientY - offset.top;
+        var y = event.offsetY;
+        x = Math.abs(parseInt(x, 10)) -50;
+        y = Math.abs(parseInt(y, 10)) -45;
+        x = Math.abs(x);
+        y = Math.abs(y);
+        $(element).parent().append('<div id="correctdotOnImg" style="position: absolute;top:45%;left:45%;height: 10px;width: 10px;background: green;opacity: 0.6; border-radius: 100%;"></div>');
+        $(element).parent().append('<div id="dotOnImg" style="position: absolute;top:'+yy+'px;left:'+xx+'px;height: 10px;width: 10px;background: red;opacity: 0.6; border-radius: 100%;"></div>');
+        // var y = event.clientY - offset.top;
+        // console.log('clicked at x: ' + x + ', y: ' + y);
+        app.AccuracyPoints = Math.floor( (x + y) / 10 );
+        // console.log('Accuracy at x: ' + AccuracyPoints);
+        // app.displayProgress(1,app.AccuracyPoints)
 		if(app.clickStart == false)
 			return;
 		app.clickStart = false;
+		smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
 		var str = $(event.currentTarget).attr("src");
 		var res = str.match("joy");
 		var mainDiv = $("#clickEvent");
@@ -386,7 +458,7 @@ var contentEvent = {
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
-					},500);
+					},smileDuration);// correct into smile show s
 				}
 			}
 		}else{
@@ -398,34 +470,44 @@ var contentEvent = {
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
-					},500);
+					},smileDuration);// correct into smile
 				}
 			}
 
 		}
 		endtime = new Date().getTime()
 		totalTime = endtime - app.slideStartTime;
-		var delay = 2000;
-		count--;
+		// console.log(parseInt(app.lang.settings.tranisionWaitMin)+" "+parseInt(app.lang.settings.tranisionWaitMax))
+		var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));
+		// app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax))*100;//wait duration after smile comes
 
-		if(res){
+		count--;
+		var late = parseInt(app.lang.settings.lateClick);
+		if(res){ 
 			// event.target.src = "/images/expression/smily.png"
 			if(app.score.method){
 				if(app.score.method.length!=0){
-					if(totalTime<3501){
-						result = 1;
+					if(totalTime<late){
+						result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints); 
+						// console.log(app.lang.settings.sixteenScorePerHit)
+						// console.log(app.AccuracyPoints)
 					}else{
-						result = 0.5;
+						result = parseInt(app.lang.settings.sixteenScorePerLateHit);
+						// console.log(app.lang.settings.sixteenScorePerLateHit)
 					}
 				}else{
-						result = 1;
+						result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints);
+						// console.log(app.lang.settings.sixteenScorePerHit)
+						// console.log(app.AccuracyPoints)
 				}
 			}
 			// delay = 2000;
 			app.totalscore = app.totalscore + result;
 		}else{
 			result = 0;
+			// console.log("wrong")
 		}
+		// console.log(app.AccuracyPoints)
         app.score.method.push({
             "slideStartTime": app.slideStartTime,
             "endtime": endtime,
@@ -445,9 +527,40 @@ var contentEvent = {
 				Session.set("flip","flipped");
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
+		app.displayProgress(1,app.AccuracyPoints,result)
 	}
 }
+var countclick = null;
+var calAccu = null;
+var showresult = null;
+var textToDisplay;
+app.displayProgress = function(count,Accuracy,result){
+	countclick = countclick + count;
+	calAccu = calAccu + Accuracy;
+	showresult = showresult + result;
+	if(calAccu == 0)
+		textToDisplay = "Awsome, Your accuracy is 100 %"
+	else if(calAccu > 0 && calAccu < 3)
+		textToDisplay = "Super, Your accuracy is 80%"
+	else if(calAccu > 2 && calAccu < 5)
+		textToDisplay = "Good, but need to click at center of Image"
+	else if(calAccu >= 5)
+		textToDisplay = "Try to click at center of Image to gain more points"
 
+	var hit= countclick % 3;
+	if(hit == 0){
+		app.openOnScore(textToDisplay)
+		calAccu = 0
+		setTimeout(function(){
+			app.openOnScore("you earned "+ showresult + " in last three clicks")
+			showresult = 0;
+		},1500);
+	}
+
+	// var app.AccuracyPointsOld = Accuracy;
+	// if(app.AccuracyPoints)
+	// 	if(app.AccuracyPoints )
+}
 app.changeFace = function(faceSrc,res){
 	if(Session.get("flip")){
 		var imgsUrl = $("#clickEvent div figure.back img");
@@ -487,7 +600,15 @@ Template.secondContent.events(contentEvent);
 Template.content.events(contentEvent);
 
 app.animateFamousFlag = false; 
+app.resetDots = function(){
+	$("#dotOnImg").remove();
+	var count = $("#correctdotOnImg").remove();
+	if(count != 0)
+		$("#dotOnImg").remove();
+		$("#correctdotOnImg").remove();
+}
 app.animateFamousRandom = function(){
+	app.resetDots();
 	switch(app.randomNumber(1,4)){
 		case 1 : 
 			app.animateFamouseFirst();
@@ -562,7 +683,7 @@ app.addFixedSizeImg = function(){
 	var widthWidow = $(window).width();
 	widthWidow = widthWidow - 110;
 	var eachImg = widthWidow/4;
-	console.log(eachImg)
+	// console.log(eachImg)
 	// $(".card").css("width",eachImg);
 	$(".card").css("height",eachImg);
 }

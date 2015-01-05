@@ -79,7 +79,7 @@ function facebookWallPost(word) {
     log("facebookWallPost started",null,arguments,1);
     var params = {
         method: 'feed',
-        name: 'SixteenSmiles',
+        name: 'whogothappy',
         link: 'http://whogothappy.com/',
         caption: 'HappyFace',
         description: ''

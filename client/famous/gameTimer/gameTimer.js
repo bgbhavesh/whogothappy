@@ -1,6 +1,7 @@
 app.startGame = function(){
 	startTimer();
-	console.log("game Started");
+	app.updateStreak();
+	// console.log("game Started");
 	gamestart = true;
 	app.getGameTimer()
 }
@@ -21,7 +22,7 @@ Template.GamerTimerimer.events({
     	app.endBeforeTime();
     },
     'click #reStart': function () {
-		console.log("game reStart");
+		// console.log("game reStart");
     	app.reStartGame();
     }
 });
@@ -59,15 +60,15 @@ app.getGameTimer = function(){
 						var alarmflag = app.get("alarmflag");
 						if(alarmflag){
 							if(alarmflag != currentDate){
-								console.log("getGameTimer if")
+								// console.log("getGameTimer if")
 								// app.extraPoints += 4
-								app.totalscore += 5;
+								app.totalscore += parseInt(app.lang.settings.bonus);
 								app.set("alarmflag",currentDate);
 							}
 						}else{
-							console.log("getGameTimer else ")
+							// console.log("getGameTimer else ")
 							// app.extraPoints += 4
-							app.totalscore += 5;
+							app.totalscore += parseInt(app.lang.settings.bonus);
 							app.set("alarmflag",currentDate);
 						}
 					}
@@ -77,7 +78,6 @@ app.getGameTimer = function(){
 	}
 }
 function startTimer(){
-	app.updateStreak();
   	timex = setTimeout(function(){
       seconds++;
     if(seconds >59){
@@ -94,7 +94,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(seconds >= 10){
+	  	if(seconds >= 20){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -103,7 +103,7 @@ function startTimer(){
 			startTimer();
 		}	        
   	}else{
-  		if(mins >= 10){
+  		if(mins >= parseInt(app.lang.settings.gameLast)){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -121,7 +121,7 @@ function endGame(EndedTime){
 	$("#clickEvent").css("-webkit-filter","blur(5px)");
 	app.arrangeDays();
 	gamestart = false;
-	console.log("game Ended");
+	// console.log("game Ending");
 	// app.toggleEndRefesh();
 	// console.log(app.totalscore);
 	// console.log(app.score);
@@ -140,14 +140,20 @@ function endGame(EndedTime){
 			data.emailid = cursorMe.emails[0].address;
 		else
 			data.emailid = cursorMe.email;
+		var wrongcount=0
+		for (var i = 0; i < app.score.method.length; i++) {
+			if(app.score.method[i].result == 0)
+				wrongcount = wrongcount + 1;
+		};
 		data.score = app.totalscore;
 		data.clicked = app.score.method.length;
-		data.wrong = app.score.method.length - app.totalscore;
+		data.wrong = wrongcount;
 		data.allScore = app.score;
 		if(EndedTime){
 			data.gameEnd = EndedTime;
 		}else{
 			// if(!app.debug)
+			app.updateStreak("true");
 			data.gameEnd = "10:00";
 		}
 		// console.log(data.emailid)
@@ -176,13 +182,13 @@ function endGame(EndedTime){
 		}
 	}
 	app.modifyLastDate(data);
-	app.updateStreak("true");
 	// console.log(emails)
 	if(emails)
 		app.sendmail(emails,data);
 	app.updateTheMaxScoreProfile();
 	clearTimeout(timex);
 	$("#pin").text("3");
+	console.log("game Ended");
 }   
 app.endGame = endGame;
 app.saveScoreLocal = function(Score){
@@ -206,8 +212,9 @@ app.resetStreak = function(){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	if(cursorMe){
 		if(cursorMe.profile){
-			if(cursorMe.profile.currentDate){
-				if(cursorMe.profile.currentDate != currentDate){
+			if(cursorMe.profile.dayofweek){
+				if(cursorMe.profile.dayofweek != currentDate){
+					// console.log("nskfnsknflkasnlkf")
 					Meteor.call("resetStreak",currentDate,function(err,data){
 						// console.log(err);
 						// console.log(data);
@@ -221,23 +228,25 @@ app.resetStreak = function(){
 }
 app.updateStreak = function(endgame){
 	var option = {};
+	var time;
 	option.day = new Date().getDay();
 
 	var hour = new Date().getHours()
-	if(hour < 9)
+	if(hour < 9){
 		option.first = true;
-	else
+		time = "first";
+	}else{
 		option.second = true;
+		time = "second";
+	}
 
 
 	if(endgame)
 		option.endgame = true;
 	else
 		option.endgame = false;
-
+	// console.log(option)
 	Meteor.call("setStreak",option,function(err,data){
-		// console.log(err);
-		// console.log(data);
 		if(data)
 			setTimeout(app.arrangeDays, 100);
 	});
@@ -256,20 +265,22 @@ app.getWeek = function(){
 app.modifyLastDate = function(data){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	var currentDate = new Date().getDate();
-	console.log(cursorMe)
+	var dayofweek = new Date().getDay();
+	// console.log(currentDate)
 	if(cursorMe){
 		if(cursorMe.profile){
 				var currenttime = new Date()//.getHours() +":"+new Date().getMinutes()
 				var currentWeek = app.getWeek();
-				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime,"profile.lastScore":data.score,"profile.lastTried":data.clicked,"profile.lastWrong":data.wrong,"profile.lastWeek":currentWeek}});
+				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime,"profile.lastScore":data.score,"profile.lastTried":data.clicked,"profile.lastWrong":data.wrong,"profile.lastWeek":currentWeek,"profile.dayofweek":dayofweek}});
 
 				
 				if(cursorMe.profile.currentDate != currentDate){
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
 				}
+					
 				if((cursorMe.profile.currentDate + 1)==currentDate){
 					if(cursorMe.profile.playContinuty){
-						var tDays = cursorMe.profile.playContinuty + 1;
+						var tDays = parseInt(cursorMe.profile.playContinuty) + 1;
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty":tDays}});
 					}else{
 						Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.playContinuty": 1}});
@@ -289,7 +300,6 @@ app.sendmail = function(emails,data){
 	    }
 	    else
 	    {
-			console.log(emails[i])
 			Meteor.call("genMail",emails[i],data);
 	    }
 	}
@@ -345,7 +355,7 @@ app.toggleEndRefesh = function(){
 		$(".restart").css("display","block");
 		$(".endGame").css("display","none");
 	}
-	console.log(app.EndRefesh+"app.EndRefesh")
+	// console.log(app.EndRefesh+"app.EndRefesh")
 }
 app.reStartGame = function(){	
 	// app.score ={};

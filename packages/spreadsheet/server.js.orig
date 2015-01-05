@@ -226,8 +226,11 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
       url_params.push( visibility, projection );
       url = GOOGLE_FEED_URL + url_params.join("/");
     }
+<<<<<<< HEAD
+=======
     console.log("google_auth");
-    console.log(google_auth);
+    // console.log(google_auth);
+>>>>>>> 80614150f03bbbc2da6cd30c6c03f1be54490252
     if ( google_auth ) {
       if (google_auth.type === 'Bearer') {
         headers['Authorization'] = 'Bearer ' + google_auth.value;
@@ -243,11 +246,15 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
     if ( method == 'GET' && query_or_data ) {
       url += "?" + querystring.stringify( query_or_data );
     }    
+<<<<<<< HEAD
+  
+=======
     // console.log({
     //   url: url,
     //   method: method,
     //   headers: headers,
     //   body: method == 'POST' || method == 'PUT' ? query_or_data : null});
+>>>>>>> 80614150f03bbbc2da6cd30c6c03f1be54490252
     request( {
       url: url,
       method: method,

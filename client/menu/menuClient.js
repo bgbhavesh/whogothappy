@@ -112,6 +112,17 @@ Template.menuListPanel.helpers({
             $("#inviteFriends").css("display","none");               
         }
     },
+    "click .alarmHead" : function(){
+        var disp = $(".alarmBody").css("display");
+        if(disp == "none"){
+            $(".alarmBody").css("display","block");
+            $(".alarmFoot").css("display","block");            
+        }
+        else{
+            $(".alarmBody").css("display","none");
+            $(".alarmFoot").css("display","none");               
+        }
+    },
     "click .lastScore h5" : function(){
         var disp = $(".lastScore label").css("display");
         if(disp == "none"){
@@ -187,15 +198,26 @@ Template.menuListPanel.events({
                 //     console.log(cursorMe.profile.emailsToSend)  
                 // }
             }
+        }else{
+            Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.emailsToSend":""}});
         }
     }
 });
 
 
 app.clickOnInvMail = function() {
-    var mailBody = 'You all are challenged to beat my score \n Click here to install the application "who got happy" !';
-    var emailurl = 'mailto:tapmate@tapmate.mailgun.org?subject=You have been invited to join whogothappy&body=' + encodeURIComponent(mailBody);
-    window.open(emailurl, '_system');
+    var cursorMe = Meteor.user();
+    if(cursorMe){
+        for(var i=0,il=cursorMe.emails.length;i<il;i++){ 
+            Meteor.call("emailInvitGen",cursorMe.emails[i],cursorMe.username,cursorMe._id,function(err,data){});
+        }
+    }
+        
+    // var id = Meteor.userId();
+    // var challenger = Meteor.users.findOne({"_id":Meteor.userId()}).username;
+    // var mailBody = 'You all are challenged to beat '+ challenger +' score \n http://whogothappy.com/#'+id+' Click here to install the application "who got happy"!';
+    // var emailurl = 'mailto:tapmate@tapmate.mailgun.org?subject=You have been invited to join whogothappy&body=' + encodeURIComponent(mailBody);
+    // window.open(emailurl, '_system');
 }
 // $("#getEmails").keyup(function(event) {
 //     //     var val = $(this).val();
@@ -214,7 +236,7 @@ app.inviteFriends = function(){
         $("iframe").width($(window).width());
     },1000);
     return FB.ui({method: 'apprequests',
-      message: Meteor.user().username +' chanllenges you on sixteensmiles',
+      message: Meteor.user().username +' challenges you on whogothappy.com',
       // to : ["532514594","1797896033","100000488108267","100000440278021"] //still the browser opens in a popup.
     }, function(response){
         console.log(response);

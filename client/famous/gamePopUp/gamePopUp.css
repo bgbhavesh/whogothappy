@@ -43,3 +43,27 @@
 #tapTapEnded{
         display: none;
 }
+#onScore{
+        display: none;
+        top: 280px;
+}
+#rating{
+    top: 50%;
+    left: 4%;
+    position: fixed;
+    z-index: 30;
+    background: #f2f2f2;
+    height: auto;
+    width: 92%;
+    border-color: #535353;
+    border: 3px;
+    border-style: solid;
+    display: none;
+    padding: 10px;
+}
+#rateDecline,#rateAccept{
+    margin-bottom: 0px;
+    width: 49%;
+    padding-right: 0.5rem;
+    padding-left: 0.5rem;
+}

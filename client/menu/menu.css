@@ -1,22 +1,14 @@
 .Challange label{
-	display: none;
+	display: block;
 }
 #inviteFriends{
-	display: none;
+	display: block;
 }
 .lastScore label{
-	display: none;
+	display: block;
 }
 .lastResult{
 	padding-left: 10% !important;
-}
-.grey{
-	background-color: grey;
-	color: white;
-}
-.black{
-	background-color: cyan !important;
-	color: grey !important;
 }
 tr{
 	background: white;
@@ -43,5 +35,30 @@ ul.off-canvas-list li :hover{
 }
 .black:hover{
 	background-color: grey !important;
+	color: cyan !important;
+}
+
+.sfef{
+	background-color: grey !important;
+	color: white !important;
+}
+.sfef:hover{
+	background-color: white !important;
+	color: grey !important;
+}
+.stef{
+	background-color: grey !important;
+	color: white !important;
+}
+.stef:hover{
+	background-color: white !important;
+	color: grey !important;
+}
+.stet{
+	background-color: cyan !important;
+	color: white !important;
+}
+.stet:hover{
+	background-color: white !important;
 	color: cyan !important;
 }
