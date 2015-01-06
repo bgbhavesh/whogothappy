@@ -267,6 +267,7 @@ app.famousContent = function(flip){
 		app.newcase = app.randomNumber(1,8);;
 	Meteor.call("getCase",app.newcase,function(err,data){
 		app.newcase = data;
+		console.log(data)
 	});
 	// newcase = 9;
 	switch(app.newcase){//app.randomNumber(1,8)){
