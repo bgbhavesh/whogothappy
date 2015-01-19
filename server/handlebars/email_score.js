@@ -6,7 +6,7 @@ function emailDailyGen(emails,data){
           //Accounts.oauth._middleware(req, res, next);
             console.log("emailDailyGen");
             console.log(emails);
-            var html = Handlebars.templates['email']({ "email": emails ,"username" : data.username, "gameEnd": data.gameEnd, "clicked" : data.clicked, "score" : data.score, "wrong": data.wrong})
+            var html = Handlebars.templates['email']({ "email": emails ,"username" : data.username, "gameEnd": data.gameEnd, "clicked" : data.clicked, "score" : data.score, "wrong": data.wrong, "corrected": data.corrected})
     //         var html = 
     //         '<html>'
     //         +'<head>'

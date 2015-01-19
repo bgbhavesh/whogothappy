@@ -162,6 +162,7 @@ function endGame(EndedTime){
 		data.clicked = app.score.method.length;
 		data.wrong = wrongcount;
 		data.allScore = app.score;
+		data.corrected = data.clicked - wrongcount;
 		if(EndedTime){
 			data.gameEnd = EndedTime;
 		}else{
@@ -169,7 +170,7 @@ function endGame(EndedTime){
 			app.updateStreak("true");
 			data.gameEnd = "10:00";
 		}
-		// console.log(data.emailid)
+		console.log(data)
 		if(data.emailid){
 			Meteor.call("genMail",data.emailid,data);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
