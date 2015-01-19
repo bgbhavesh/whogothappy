@@ -72,7 +72,7 @@ app.getFacebookAppId = function(){
     if(app.debug)
         return "679347035440335"
     else
-        return "738622862852250";
+        return "906351116043661";
 }
 
 
@@ -100,7 +100,7 @@ Meteor.startup(function(){
         $("head").append('<script type="text/javascript" src="/phonegap/facebook-ios-sdk.js"/>');
         app.fbInit = function(){
             FB.init({ 
-                appId: "738622862852250", 
+                appId: "906351116043661", 
                 nativeInterface: CDV.FB, 
                 useCachedDialogs: false 
             });
