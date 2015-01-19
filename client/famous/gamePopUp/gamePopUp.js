@@ -76,10 +76,18 @@ Template.ratingPopup.events({
 Template.gameEndPopUp.events({
     'click #endGame': function () {
         app.reStartGame();
-    }
-    
+    },
+    'click #shareWithFacebook' : function(){
+        app.shareWithFacebook();
+    } 
 });
-
+app.shareWithFacebook = function(){
+    FB.ui({
+    method: 'share',
+        href: "http://whogothapp.com",
+        display : 'iframe',
+    }, function(response){});
+}
 Template.updated.helpers({
     "lastupdate" : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});

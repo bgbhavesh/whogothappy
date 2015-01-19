@@ -21,34 +21,34 @@ app.setting = {}
 // })
 
 app.uploadDataToSheet = function(){
-	var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
-	var sheetno = null;
-	var MeArray = [];
-	var i=0;
-	var cursor = Meteor.users.find();
-	cursor.forEach(function(data) {
-		MeArray[i++] = data; 
-	});
-	// for(var i=0,il=MeArray.length;i<il;i++){
-	// 	if(MeArray[i].emails)
-	// 		console.log(MeArray[i].emails[0].address)
-	// }
-	my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
-		if (err) console.log( err );
-		for(var i=0,il=MeArray.length;i<il;i++){
-				my_sheet.addRow( 1, { 
-			    	clientId: MeArray[i]._id,
-					username: MeArray[i].username,
-					emails : MeArray[i].emails[0].address,
-					maxScore: MeArray[i].profile.maxScore,
-					lastPlayed: MeArray[i].profile.lastPlayed,
-					lastScore: MeArray[i].profile.lastScore,
-					lastTried: MeArray[i].profile.lastTried,
-					lastWrong:  MeArray[i].profile.lastWrong,
-					playContinuty: MeArray[i].profile.playContinuty
-			    });   
-			}
-	});
+	// var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
+	// var sheetno = null;
+	// var MeArray = [];
+	// var i=0;
+	// var cursor = Meteor.users.find();
+	// cursor.forEach(function(data) {
+	// 	MeArray[i++] = data; 
+	// });
+	// // for(var i=0,il=MeArray.length;i<il;i++){
+	// // 	if(MeArray[i].emails)
+	// // 		console.log(MeArray[i].emails[0].address)
+	// // }
+	// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
+	// 	if (err) console.log( err );
+	// 	for(var i=0,il=MeArray.length;i<il;i++){
+	// 			my_sheet.addRow( 1, { 
+	// 		    	clientId: MeArray[i]._id,
+	// 				username: MeArray[i].username,
+	// 				emails : MeArray[i].emails[0].address,
+	// 				maxScore: MeArray[i].profile.maxScore,
+	// 				lastPlayed: MeArray[i].profile.lastPlayed,
+	// 				lastScore: MeArray[i].profile.lastScore,
+	// 				lastTried: MeArray[i].profile.lastTried,
+	// 				lastWrong:  MeArray[i].profile.lastWrong,
+	// 				playContinuty: MeArray[i].profile.playContinuty
+	// 		    });   
+	// 		}
+	// });
 	// return true;
 }
 Meteor.methods({
@@ -134,7 +134,11 @@ Meteor.methods({
 	},
 	"updateScore" : function(tme){
 		//var fut = new Future();
-		var my_sheet = new GoogleSpreadsheet('1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU');
+		var spreadSheetId = "1-KuqgOLQu_8qv0plak91pZYprm4pqn3P9xBUefv__TU";
+		var googleAuth = "DQAAAOoAAAAysHvyA16QqBdYKPey96TUPuT1yAwUMZxe5k1Q8AXsFri0vKeqJ-_hLdhVcd68mPwY-cLWSc7Dgca5XXHh1MUbmYPPVUmUW77rMgnoQBoK3AVr5HYJyg6ZR2wFkrO6xTYdi3RieIrqVw_te2Z3rK-isUJLEyHjaaqSJ4o85mq2hqOIW2mEy0RQdj9wjDseQLBJEAwamgTV7XlFopllJLvybCMdmEhdWjzaaVI7TdYJNlEiHIxdB4__5o2BR3qjDNFP78oSWpCn1l4TFSrmymrm9nAOLp4WUv0BTr-K-j0Dh_MFYPUSyMOq5I0_adQHAJg";
+		var my_sheet = new GoogleSpreadsheet(spreadSheetId,googleAuth);
+		
+		
 
 
 
@@ -151,7 +155,12 @@ Meteor.methods({
 		// 	console.log(err);
 		// 	console.log(row_data);
 		// });
+		// my_sheet.addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv",function(err, data){
+		// 	if (err) console.log( err );
+		// 	console.log(data);
+		// });
 
+		//my_sheet.changeRow();		
 
 		
 		// ///add worksheet
@@ -174,8 +183,12 @@ Meteor.methods({
 		// 	});
 		   
 		// });
-
-
+		
+		 // my_sheet.addRow(1,{ 
+			// 	clientId: "cid",
+			// 	score: "scr",
+			// 	time: "tme"
+			// });
 
 		// /////add row
 		// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){

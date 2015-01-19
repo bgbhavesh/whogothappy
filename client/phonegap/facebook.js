@@ -1,124 +1,109 @@
-// if(Meteor.isClient){
-//   app.fbInit = function(){}
-//   // app.fbInit = function(){
-//   //     window.fbAsyncInit = function() {
-//   //             FB.init({
-//   //               appId      : app.getFacebookAppId(),
-//   //               xfbml      : true,
-//   //               version    : 'v1.0'
-//   //             });
-//   //           };
-
-//   //     (function(d, s, id){
-//   //      var js, fjs = d.getElementsByTagName(s)[0];
-//   //      if (d.getElementById(id)) {return;}
-//   //      js = d.createElement(s); js.id = id;
-//   //      js.src = "http://connect.facebook.net/en_US/sdk.js";
-//   //      fjs.parentNode.insertBefore(js, fjs);
-//   //     }(document, 'script', 'facebook-jssdk'));
-//   // }
-// }
-// else{
-//     app.fbInit = function(){
-//         FB.init({ 
-//             appId: "906351116043661", 
-//             nativeInterface: CDV.FB, 
-//             useCachedDialogs: false 
-//         });
-//     }
-// }
-
-
 app.fbNativeLogin = function() {
-    try{
-
-
-        var starttime = new Date().getTime();
-        log("app.fbNativeLogin started",null,arguments,1);
         FB.login( function(response) { 
         if (response.authResponse) {
             //alert('logged in now');
-            console.log('login response:' + response.authResponse);
-            me(response);
+            // console.log('login response:' + response.authResponse);
+            app.me(response);
         } else {
             //alert('not logged in on login');
-            console.log('login response:' + response.error);
+            // console.log('login response:' + response.error);
+            app.facebookCallback(true);
         }
+    },
+    {scope: "email"}
+    );
+}
+
+
+function me(response) {
+    FB.api('/me?fields=id,picture,name', function(user) {
+        var authResponse = response.authResponse
+        // alert(authResponse);
+        app.createFacebookUser(user,authResponse);
+    });
+}
+
+app.me = me;
+
+
+app.meupdate = function(response){
+    var authResponse = response.authResponse;
+    // alert("new me update");
+    facebookConnectPlugin.api( "me/?fields=picture,name", ["public_profile"],
+        function (user) { 
+            // alert("capture the next alert");
+            // alert(JSON.stringify(user)); 
+            // alert(authResponse);
+            
+            app.createFacebookUser(user,authResponse);
         },
-        { 
-            scope: "email" } //,publish_actions,read_stream //new bug for ios
-        );
-        log("app.fbNativeLogin ended",new Date().getTime() - starttime,arguments,1);
-    }
-    catch(err){
-        alert(err);
+        function (user) { 
+            // alert(JSON.stringify(response)) 
+            app.createFacebookUser(user,authResponse);
+        });
+}
+function facebookWallPost(word) {
+    var params = {
+        method: 'feed',
+        name: 'WORDdance',
+        link: app.ROOT_URL,
+        caption: 'Facebook Comment',
+        description: ''
+    };
+    //console.log(params);
+    FB.ui(params, function(obj) { console.log(obj);});
+}
+app.facebookWallPost = facebookWallPost;
+
+app.facebookStarup = function(){
+    if(Meteor.isCordova){
+        // if (device.platform == 'android' || device.platform == 'Android') {
+        //     $("head").append('<script type="text/javascript" src="/phonegap/facebook-js-sdk.js"/>');
+        //     $("head").append('<script type="text/javascript" src="/phonegap/cdv-plugin-fb-connect.js"/>');
+        // }
+        // else{
+            $("head").append('<script type="text/javascript" src="/phonegap/facebook-ios-sdk.js"/>');
+        // }
     }
 }
+Meteor.startup(app.facebookStarup);
+
 app.getFacebookAppId = function(){
     if(app.debug)
         return "679347035440335"
     else
-        return "906351116043661";
+        return "738622862852250";
 }
-
-
-
-function me(response) {
-    var starttime = new Date().getTime();
-    log("me started",null,arguments,1);
-    FB.api('/me?fields=picture,name,email', function(user) {
-        var authResponse = response.authResponse;
-        //alert(JSON.stringify(user));
-        app.createFacebookUser(user,authResponse);
-    }); 
-    log("me ended",new Date().getTime() - starttime,arguments,1);
-}
-
-function facebookWallPost(word) {
-    var starttime = new Date().getTime();
-    log("facebookWallPost started",null,arguments,1);
-    var params = {
-        method: 'feed',
-        name: 'whogothappy',
-        link: 'http://whogothappy.com/',
-        caption: 'HappyFace',
-        description: ''
-    };
-    FB.ui(params, function(obj) { alert(obj);});
-    log("facebookWallPost ended",new Date().getTime() - starttime,arguments,1);
-    // alert("complete");
-}
-app.facebookWallPost = facebookWallPost;
-
-
 
 
 Meteor.startup(function(){
-if(!Meteor.isCordova){
-    window.fbAsyncInit = function() {
-            FB.init({
-              appId      : app.getFacebookAppId(),
-              xfbml      : true,
-              version    : 'v1.0'
-            });
-          };
+    app.facebookStarup
+    if(!Meteor.isCordova){
+        window.fbAsyncInit = function() {
+                FB.init({
+                  appId      : app.getFacebookAppId(),
+                  xfbml      : true,
+                  version    : 'v2.2'
+                });
+              };
 
-    (function(d, s, id){
-     var js, fjs = d.getElementsByTagName(s)[0];
-     if (d.getElementById(id)) {return;}
-     js = d.createElement(s); js.id = id;
-     js.src = "http://connect.facebook.net/en_US/sdk.js";
-     fjs.parentNode.insertBefore(js, fjs);
-    }(document, 'script', 'facebook-jssdk'));
-    app.fbInit = function(){}
-}
-else{
-   app.fbInit = function(){
-        FB.init({ 
-            appId: "906351116043661", 
-            nativeInterface: CDV.FB, 
-            useCachedDialogs: false 
-        });
-    } 
-}    
+        (function(d, s, id){
+         var js, fjs = d.getElementsByTagName(s)[0];
+         if (d.getElementById(id)) {return;}
+         js = d.createElement(s); js.id = id;
+         js.src = "https://connect.facebook.net/en_US/sdk.js";
+         fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));
+        app.fbInit = function(){}
+    }
+    else{
+        $("head").append('<script type="text/javascript" src="/phonegap/facebook-ios-sdk.js"/>');
+        app.fbInit = function(){
+            FB.init({ 
+                appId: "738622862852250", 
+                nativeInterface: CDV.FB, 
+                useCachedDialogs: false 
+            });
+        }
+    }    
 })
