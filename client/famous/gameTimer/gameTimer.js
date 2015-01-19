@@ -1,4 +1,5 @@
 app.startGame = function(){
+	setTimeout(app.getcases, 1000);
 	app.score = {};
 	app.score.method = [];
 	app.totalscore = 0;

@@ -102,6 +102,9 @@ Meteor.methods({
 		// else
 		// 	return "nothing"
 		return app.gameCase;//app.randomNumber(1,8);
+	},
+	"sendCase" : function(){
+		return Cases.findOne({})
 	}
 });
 

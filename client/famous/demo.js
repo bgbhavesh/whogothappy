@@ -142,7 +142,6 @@ assetManager.downloadAll(function(){
 // 	setImages(16,920,"jb","jnb","black");//joyno = 16, sadnumber = 1240, joyname=ja, sadname=jna,folderName=asian;
 // }
 setImages();
-
 function setImages(){
 	calAccu = 0
 	for(var img=1,imgcount=20;img<=imgcount;img++){
@@ -267,7 +266,7 @@ app.famousContent = function(flip){
 		app.newcase = app.randomNumber(1,8);;
 	Meteor.call("getCase",app.newcase,function(err,data){
 		app.newcase = data;
-		// console.log(data)
+		console.log(data)
 	});
 	// newcase = 9;
 	switch(app.newcase){//app.randomNumber(1,8)){
@@ -358,13 +357,17 @@ app.setAllMaleOrFemale = function(flip,gender,group,person,grouptype){
 	return content;
 }
 
-app.famousContent(true);
-app.famousContent(false);  
+// app.famousContent(true);
+// app.famousContent(false);  
 Template.content.helpers({
+	// getcases : getcases(),
     image : function(){
         // app.updateTheProfile();
         app.slideStartTime = new Date().getTime();
-        return app.famousContent(Session.get("flip"));
+        // return app.famousContent(Session.get("flip"));
+        caseCount ++
+        console.log(caseCount)
+		return app.cases[caseCount]
     },
 })
 
@@ -372,12 +375,36 @@ Session.setDefault('flip', '');
 Template.content.flip = function(){
 	return Session.get("flip");
 }
+// app.getcases();
+// app.startup = function(){
+// 	setTimeout(app.getcases, 1000);
+// }
+// app.getcases = function(){
+// 	// Meteor.call("sendCase",function(err,data){
+// 	// 	console.log(data.twoHundered)
+// 	// 	app.cases = data.twoHundered;
+// 	// });
+// Cases.find({}).observe({
+//         "added" : function(first){
+//             conditionalFeeds(first);
+//         },
+//         app.cases = 
+//     });
+	
+// }
+var caseCount = 0
 Template.firstContent.content = function(){
-	return app.famousContent(); 
+	// return app.famousContent(); 
+	caseCount ++
+	console.log(caseCount)
+	return app.cases[caseCount]
 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
 }
 Template.secondContent.content = function(){
-	return app.famousContent(); 
+	// return app.famousContent(); 
+	caseCount ++
+	console.log(caseCount)
+	return app.cases[caseCount]
 }
 // Template.content.contentBoth = function(){
 // 	return app.famousContent();
