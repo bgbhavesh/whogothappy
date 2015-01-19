@@ -1,4 +1,8 @@
 app.startGame = function(){
+	app.score = {};
+	app.score.method = [];
+	app.totalscore = 0;
+	Score = [];
 	startTimer();
 	app.updateStreak();
 	// console.log("game Started");
