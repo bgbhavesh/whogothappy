@@ -45,7 +45,7 @@ app.meupdate = function(response){
 function facebookWallPost(word) {
     var params = {
         method: 'feed',
-        name: 'WORDdance',
+        name: 'WhoGotHappy',
         link: app.ROOT_URL,
         caption: 'Facebook Comment',
         description: ''
