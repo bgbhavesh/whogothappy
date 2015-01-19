@@ -194,6 +194,8 @@ function setAllMaleOrFemale(flip,gender,group,person,grouptype){
 // app.famousContent(false);  
 
 Meteor.startup(function(){
+	if(app.debug)
+		return;
 	Meteor.setTimeout(function(){
 		setImages();
 		createCases();
