@@ -1,3 +1,11 @@
 <template name="admin"> 
-	admin template
+	<table>
+	{{#each cases}}
+		<tr>
+		{{#each case}}
+			<td>{{{this}}}</td>
+		{{/each}}
+		</tr>
+	{{/each}}
+	</table>
 </template>
