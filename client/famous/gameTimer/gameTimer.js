@@ -28,6 +28,15 @@ Template.GamerTimerimer.events({
     'click #reStart': function () {
 		// console.log("game reStart");
     	app.reStartGame();
+    },
+    'click #shareWithFacebook' : function(){
+    	app.shareWithFacebook();
+    },
+    'click #shareWithTwitter' : function(){
+    	app.shareWithTwitter();
+    },
+    'click #shareWithAny' : function(){
+    	app.shareWithAny();
     }
 });
 app.endBeforeTime = function(){
