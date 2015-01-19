@@ -264,10 +264,10 @@ app.famousContent = function(flip){
 	// return content;
 	if(!app.newcase)
 		app.newcase = app.randomNumber(1,8);;
-	Meteor.call("getCase",app.newcase,function(err,data){
-		app.newcase = data;
-		console.log(data)
-	});
+	// Meteor.call("getCase",app.newcase,function(err,data){
+	// 	app.newcase = data;
+	// 	// console.log(data)
+	// });
 	// newcase = 9;
 	switch(app.newcase){//app.randomNumber(1,8)){
 		case 1 : 
@@ -357,17 +357,19 @@ app.setAllMaleOrFemale = function(flip,gender,group,person,grouptype){
 	return content;
 }
 
-// app.famousContent(true);
-// app.famousContent(false);  
+app.famousContent(true);
+app.famousContent(false);  
 Template.content.helpers({
 	// getcases : getcases(),
     image : function(){
+    	Session.get("startGameFlag");
+    	// ;
         // app.updateTheProfile();
         app.slideStartTime = new Date().getTime();
         // return app.famousContent(Session.get("flip"));
-        caseCount ++
-        console.log(caseCount)
-		return app.cases[caseCount]
+        // app.caseCount ++
+        // console.log(app.getCase(app.caseCount))
+		return app.getCase(app.caseCount,Session.get("flip"));//app.cases[caseCount]
     },
 })
 
@@ -392,20 +394,20 @@ Template.content.flip = function(){
 //     });
 	
 // }
-var caseCount = 0
-Template.firstContent.content = function(){
-	// return app.famousContent(); 
-	caseCount ++
-	console.log(caseCount)
-	return app.cases[caseCount]
-	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
-}
-Template.secondContent.content = function(){
-	// return app.famousContent(); 
-	caseCount ++
-	console.log(caseCount)
-	return app.cases[caseCount]
-}
+app.caseCount = 0;
+// Template.firstContent.content = function(){
+// 	// return app.famousContent(); 
+// 	caseCount +=2;
+// 	console.log(caseCount)
+// 	return app.getCase(caseCount+1);//app.cases[caseCount]
+// 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
+// }
+// Template.secondContent.content = function(){
+// 	// return app.famousContent(); 
+// 	caseCount +=2;
+// 	console.log(caseCount)
+// 	return app.cases[caseCount]
+// }
 // Template.content.contentBoth = function(){
 // 	return app.famousContent();
 // }
@@ -445,6 +447,7 @@ var contentEvent = {
 		// console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
+		app.caseCount++;
 		var element = event.currentTarget;
 		var $img = $(event.target);
         var offset = $img.offset();
@@ -637,6 +640,8 @@ app.resetDots = function(){
 }
 app.animateFamousRandom = function(){
 	app.resetDots();
+	app.animateFamouseFirst();
+	return;
 	switch(app.randomNumber(1,4)){
 		case 1 : 
 			app.animateFamouseFirst();
@@ -654,14 +659,15 @@ app.animateFamousRandom = function(){
 }
 app.animateFamouseFirst = function(){
 	var flipCount = 0;
+	console.log(Session.get("flip"));
     if(Session.get("flip")){
     	$(".card").each(function(index,element){
-    		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount++);
+    		setTimeout(function(){console.log($(element));$(element).removeClass("flipped");},100*flipCount++);
     	});
     }
     else{
     	$(".card").each(function(index,element){
-    		setTimeout(function(){$(element).addClass("flipped");},100*flipCount++);
+    		setTimeout(function(){console.log($(element));$(element).addClass("flipped");},100*flipCount++);
     	});
     }
 }

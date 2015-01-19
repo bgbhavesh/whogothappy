@@ -4,7 +4,12 @@
 	{{#each cases}}
 		<tr>
 		{{#each case}}
-			<td>{{{this}}}</td>
+			<td>{{{first}}}</td>
+		{{/each}}
+		</tr>
+		<tr>
+		{{#each case}}
+			<td>{{{second}}}</td>
 		{{/each}}
 		</tr>
 	{{/each}}
