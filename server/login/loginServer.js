@@ -16,6 +16,9 @@ Accounts.registerLoginHandler("myFacebook",function(options) {
         // Meteor.users.remove();
         options.userId = userId = user._id;
     }
+    if(app.isAdmin(user)){
+        Roles.addUsersToRoles(user._id,["admin"]);    
+    }
     // console.log(options)
     return options;
 });

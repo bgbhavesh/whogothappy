@@ -1,3 +1,19 @@
+Router.route('/', function () {
+	this.render('home', {
+		data: function () { 
+			// return Items.findOne({_id: this.params._id}); 
+		}
+	});
+});
+
+Router.route('/admin', function () {
+	if(Roles.userIsInRole(Meteor.userId(),["admin"])){
+		this.render('admin');
+	}
+	else{
+		this.render('home');
+	}
+});
 
 
 // Template.route.helpers({
@@ -17,18 +33,18 @@
 
 
 
-HashRouter.add({"route" : "#profile", "template" : "profile"});
-HashRouter.add({"route" : "#score", "template" : "score"});
-HashRouter.add({"route" : "#loger", "template" : "loger"});
-HashRouter.add({"route" : "#login", "template" : "login"});
-HashRouter.add({"route" : "#admin", "template" : "admin"});
-HashRouter.add({"route" : "#register", "template" : "register"});
-HashRouter.add({"route" : "#users", "template" : "users"});
-HashRouter.add({"route" : "#docs", "template" : "docs"});
-HashRouter.add({"route" : "#famous", "template" : "famous"});
-HashRouter.add({"route" : "#morpher", "template" : "morpher"});
-HashRouter.add({"route" : "#seeall", "template" : "morpher"});
-HashRouter.add({"route" : "#home", "template" : "home"});
+// HashRouter.add({"route" : "#profile", "template" : "profile"});
+// HashRouter.add({"route" : "#score", "template" : "score"});
+// HashRouter.add({"route" : "#loger", "template" : "loger"});
+// HashRouter.add({"route" : "#login", "template" : "login"});
+// HashRouter.add({"route" : "#admin", "template" : "admin"});
+// HashRouter.add({"route" : "#register", "template" : "register"});
+// HashRouter.add({"route" : "#users", "template" : "users"});
+// HashRouter.add({"route" : "#docs", "template" : "docs"});
+// HashRouter.add({"route" : "#famous", "template" : "famous"});
+// HashRouter.add({"route" : "#morpher", "template" : "morpher"});
+// HashRouter.add({"route" : "#seeall", "template" : "morpher"});
+// HashRouter.add({"route" : "#home", "template" : "home"});
 
 // app.router = {
 // 	"#login" : "login",
@@ -79,7 +95,7 @@ HashRouter.add({"route" : "#home", "template" : "home"});
 
 
 
-Router = {};
-Router.go = function(hash){
-	window.location.hash = hash;
-}
+// Router = {};
+// Router.go = function(hash){
+// 	window.location.hash = hash;
+// }
