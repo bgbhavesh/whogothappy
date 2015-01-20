@@ -33,7 +33,7 @@ Cases.find({}).observe({
 // }
 app.getCase = function(number){
 	if(app.twoHundered[number]){
-		return app.twoHundered[number];
+		return app.twoHundered[number].data;
 	}
 	else
 		return [];

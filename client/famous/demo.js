@@ -640,8 +640,8 @@ app.resetDots = function(){
 }
 app.animateFamousRandom = function(){
 	app.resetDots();
-	app.animateFamouseFirst();
-	return;
+	// app.animateFamouseFirst();
+	// return;
 	switch(app.randomNumber(1,4)){
 		case 1 : 
 			app.animateFamouseFirst();
@@ -659,15 +659,15 @@ app.animateFamousRandom = function(){
 }
 app.animateFamouseFirst = function(){
 	var flipCount = 0;
-	console.log(Session.get("flip"));
+	// console.log(Session.get("flip"));
     if(Session.get("flip")){
     	$(".card").each(function(index,element){
-    		setTimeout(function(){console.log($(element));$(element).removeClass("flipped");},100*flipCount++);
+    		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount++);
     	});
     }
     else{
     	$(".card").each(function(index,element){
-    		setTimeout(function(){console.log($(element));$(element).addClass("flipped");},100*flipCount++);
+    		setTimeout(function(){$(element).addClass("flipped");},100*flipCount++);
     	});
     }
 }
