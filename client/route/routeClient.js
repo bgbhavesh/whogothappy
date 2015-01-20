@@ -1,8 +1,8 @@
 Router.route('/', function () {
 	this.render('home', {
-		data: function () { 
-			// return Items.findOne({_id: this.params._id}); 
-		}
+		// data: function () { 
+		// 	// return Items.findOne({_id: this.params._id}); 
+		// }
 	});
 });
 
@@ -15,7 +15,10 @@ Router.route('/admin', function () {
 	}
 });
 
-
+Router.configure({
+ 	//layoutTemplate: 'home',
+ 	template: 'home'
+});
 // Template.route.helpers({
 // 	"route" : function(first){
 // 		if(Session.get("route") == first){

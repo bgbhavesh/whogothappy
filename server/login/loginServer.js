@@ -6,6 +6,8 @@ Accounts.registerLoginHandler("myFacebook",function(options) {
     }
     var userId = null;
     var user = Meteor.users.findOne({"_id": options._id});
+    if(!user)
+        user = Meteor.users.findOne({"username": options.username});
     // console.log(options)
     if(!user) {
         options.userId = userId = Meteor.users.insert(options);

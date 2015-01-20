@@ -16,7 +16,7 @@
           "version": "0.5.2"
         },
         "node-uuid": {
-          "version": "1.4.1"
+          "version": "1.4.2"
         },
         "mime": {
           "version": "1.2.11"
@@ -49,16 +49,16 @@
           "version": "0.3.0"
         },
         "http-signature": {
-          "version": "0.10.0",
+          "version": "0.10.1",
           "dependencies": {
             "assert-plus": {
-              "version": "0.1.2"
+              "version": "0.1.5"
             },
             "asn1": {
               "version": "0.1.11"
             },
             "ctype": {
-              "version": "0.5.2"
+              "version": "0.5.3"
             }
           }
         },
