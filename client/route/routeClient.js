@@ -15,7 +15,9 @@ Router.route('/admin', function () {
 	}
 });
 
-
+Router.configure({
+ 	layoutTemplate: 'home'
+});
 // Template.route.helpers({
 // 	"route" : function(first){
 // 		if(Session.get("route") == first){
