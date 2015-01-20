@@ -39,6 +39,7 @@ Meteor.startup(function(){
 })
 
 var bindFunction = Meteor.bindEnvironment(function(err, row_data){
+	return;
 	// console.log(row_data);
 	if(row_data){
 		for(var j=0,jl=langArray.length;j<jl;j++){

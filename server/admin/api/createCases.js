@@ -167,21 +167,21 @@ function setAllMaleOrFemale(flip,gender,group,person,grouptype){
 			tempGroup = group || groupArray[app.randomNumber(0,2)];
 		}
 		tempPerson = person || personArray[app.randomNumber(1,6)];
-		// if(!content[i])
-		// 	content[i] = {};
+		if(!content[i])
+			content[i] = {};
 		// if(flip){
-		// 	if(joySecondRandom == i)
-		// 	content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
-		// 	else
-		// 		content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+			if(joySecondRandom == i)
+			content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			else
+				content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		// }
 		// else{
 			// console.log(flip+"/"+gender+"/"+group+"/"+person+"/"+grouptype);
 	
 			if(joyFirstRandom == i)
-			content[i] = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>"; //.first
+			content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>"; //.first
 			else
-				content[i] = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>"; //.first
+				content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>"; //.first
 		// }
 		
 	}
@@ -194,6 +194,8 @@ function setAllMaleOrFemale(flip,gender,group,person,grouptype){
 // app.famousContent(false);  
 
 Meteor.startup(function(){
+	// if(app.debug)
+	// 	return;
 	Meteor.setTimeout(function(){
 		setImages();
 		createCases();
