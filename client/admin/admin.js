@@ -8,7 +8,7 @@ Template.admin.helpers({
 	},
 	"case" : function(){
 		// console.log(this);
-		return this;
+		return this.data;
 	}
 });
 

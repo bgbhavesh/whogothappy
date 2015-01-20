@@ -45,6 +45,8 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 		lan = langArray[j];
 			for(var i=0,il=row_data.length;i<il;i++){
 			var key = row_data[i].key;
+			if(!key)
+				continue;
 			key = key.split(".");
 				// console.log(key[0]);
 				if(lan){
@@ -103,7 +105,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 				}
 			}
 		}//i loop ends
-
+		if(app.settings)
 		app.settings = app.settings.settings;
 		app.language.en.lastupdate = lastupdate;
 		// console.log(app.language.en);

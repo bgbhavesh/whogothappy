@@ -85,7 +85,7 @@ function createCases(){
 	var data = null;
 	for(var i=0,il=200;i<il;i++){
 		data = famousContent(true);	
-		twoHundered.push(data);
+		twoHundered.push({"index":i,"data":data});
 	}
 	var insert = {"_id":"1","twoHundered":twoHundered};
 	app.insertCases(insert);
