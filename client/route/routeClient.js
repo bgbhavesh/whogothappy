@@ -16,7 +16,8 @@ Router.route('/admin', function () {
 });
 
 Router.configure({
- 	layoutTemplate: 'home'
+ 	//layoutTemplate: 'home',
+ 	template: 'home'
 });
 // Template.route.helpers({
 // 	"route" : function(first){
