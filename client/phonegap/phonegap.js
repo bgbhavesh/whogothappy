@@ -1,12 +1,17 @@
-document.addEventListener('deviceready', function(){
+// document.addEventListener('deviceready', function(){
+if(Meteor.isCordova)
+Meteor.startup(function(){
+	console.log("deviceready");
 	app.phonegap = app.cordova = true;
-	app.alarm = new Alarm();
+	//app.alarm = new Alarm();
 	// var date = new Date().getTime() * 5000;
 	// app.alarm.setAlarm(date,function(){});
 	// function(error,success){alert("error " +error);alert("success " +success);}
 	app.onRegisterPushNotification();
-}, false);
-
+})
+// }, false);
+app.phonegap = Meteor.isCordova;
+console.log(Meteor.isCordova);
 app.setAlarm = function(time,type){
 	var tempTime = time;
 	time = time.split(":");
@@ -43,6 +48,9 @@ app.setAlarm = function(time,type){
 
 app.convertServerTime = function (clientDate){
 	clientDate = new Date(clientDate);
+	if(app.debug){
+		return clientDate;	
+	}
 	//EST
 	offset = -5.0
 	utc = clientDate.getTime() + (clientDate.getTimezoneOffset() * 60000);

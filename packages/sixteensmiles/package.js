@@ -14,9 +14,9 @@ Cordova.depends({
     // 'org.apache.cordova.camera': '0.3.1',
     'org.apache.cordova.media': '0.2.13',
     'org.apache.cordova.inappbrowser': '0.5.2',
-    'nl.xservices.plugins.SocialSharing': 'https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/tarball/1c00b8f050fa113e4373a5065f78f525c69f5f52',
+    'nl.x-services.plugins.socialsharing': 'https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/tarball/1c00b8f050fa113e4373a5065f78f525c69f5f52',
     'com.trinisoft.alarm' : "https://github.com/nicolsondsouza/alarm/tarball/c75c8b3a706798ff25c2e8d7e9c032759eb57334",
-    'com.plugin.gcm.PushPlugin': 'https://github.com/phonegap-build/PushPlugin/tarball/1979d972b6ab37e28cf2077bc7ebfe706cc4dacd',
+    'com.phonegap.plugins.PushPlugin': 'https://github.com/phonegap-build/PushPlugin/tarball/1979d972b6ab37e28cf2077bc7ebfe706cc4dacd',
     // android
     'com.phonegap.plugins.facebookconnect': 'https://github.com/nicolsondsouza/facebook-wordDance/tarball/2e12d736d7bc27b8f6f0be544239f8002f094a49',
     // ios

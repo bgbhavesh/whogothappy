@@ -185,7 +185,7 @@ function endGame(EndedTime){
 	                    "score": app.totalscore,
 	                    "totalScore": app.score,
 	                    "date": tempDate
-	                });                
+	                });
 	            if(Score)
 	                app.saveScoreLocal(Score);
 	            }

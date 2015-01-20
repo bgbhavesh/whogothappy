@@ -21,7 +21,7 @@ app.shareWithFacebook = function(){
     message += " points! ";
     message += app.lang.facebook.shareEnd;
     
-    console.log(message);
+    console.log(app.phonegap);
     if(app.phonegap){
         app.onShareFacebook(message);
     }

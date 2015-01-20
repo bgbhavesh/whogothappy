@@ -1,3 +1,5 @@
+
+app.phonegap = Meteor.isCordova;
 app.fbNativeLogin = function() {
         FB.login( function(response) { 
         if (response.authResponse) {
@@ -76,8 +78,8 @@ app.getFacebookAppId = function(){
 }
 
 
-Meteor.startup(function(){
-    app.facebookStarup
+// Meteor.startup(function(){
+    // app.facebookStarup
     if(!Meteor.isCordova){
         window.fbAsyncInit = function() {
                 FB.init({
@@ -97,7 +99,6 @@ Meteor.startup(function(){
         app.fbInit = function(){}
     }
     else{
-        $("head").append('<script type="text/javascript" src="/phonegap/facebook-ios-sdk.js"/>');
         app.fbInit = function(){
             FB.init({ 
                 appId: "906351116043661", 
@@ -105,5 +106,8 @@ Meteor.startup(function(){
                 useCachedDialogs: false 
             });
         }
+        $("head").append('<script type="text/javascript" src="/phonegap/facebook-ios-sdk.js"/>');
     }    
-})
+// })
+
+// console.log(app.fbInit);

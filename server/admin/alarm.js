@@ -13,11 +13,12 @@ PushAlarm = function(options){
 	
 	self.onPushDay = function(){
 		console.log("onPushDay " +self.pushId);
+		// console.log(self);
 		if(self.pushId)
 			app.sendpushtouser(self.pushId);
 		// console.log(self);
 	}
-	
+	// console.log(self);
 	self.job = schedule.scheduleJob(self.rule, self.onPushDay);
 	return self;
 }
@@ -82,11 +83,14 @@ Meteor.methods({
 		}catch(err){}
 		
 		var user = Meteor.user();
-		if(user && user.profile && user.profile.alarm){
-			if(user.profile.alarm.first)
-			app.cancelAlarm(user.profile.alarm.first._id);
-			if(user.profile.alarm.second)
-			app.cancelAlarm(user.profile.alarm.second._id);
+		if(user && user.profile){
+			if(user.profile.alarm){
+				if(user.profile.alarm.first)
+				app.cancelAlarm(user.profile.alarm.first._id);
+				if(user.profile.alarm.second)
+				app.cancelAlarm(user.profile.alarm.second._id);
+			}
+			options.pushId = user.profile.pushId;
 		}
 		app.setAlarm(options);
 		var update = {};
