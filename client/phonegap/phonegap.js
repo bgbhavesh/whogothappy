@@ -1,7 +1,7 @@
 // document.addEventListener('deviceready', function(){
 if(Meteor.isCordova)
 Meteor.startup(function(){
-	console.log("deviceready");
+	// console.log("deviceready");
 	app.phonegap = app.cordova = true;
 	//app.alarm = new Alarm();
 	// var date = new Date().getTime() * 5000;
@@ -11,7 +11,7 @@ Meteor.startup(function(){
 })
 // }, false);
 app.phonegap = Meteor.isCordova;
-console.log(Meteor.isCordova);
+// console.log(Meteor.isCordova);
 app.setAlarm = function(time,type){
 	var tempTime = time;
 	time = time.split(":");
