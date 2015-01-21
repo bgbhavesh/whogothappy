@@ -73,14 +73,16 @@ Meteor.methods({
 		}
 		return id;
 	},
-	"resetStreak" : function(day){
-		console.log(day)
+	"resetStreak" : function(){
 		var id;
 		if(Meteor.userId()){
-			var cursor = Streak.findOne({"user":Meteor.userId(),"day": day});
-			if(cursor){
-				id = Streak.update({"user":Meteor.userId(),"day": day},{$set:{"first":false,"endgame1":false,"second":false,"endgame2":false}});
-			}
+			// var cursor = Streak.findOne({"user":Meteor.userId(),"day": day});
+			// if(cursor){
+				for (var i = 0; i < 5; i++) {
+					Streak.update({"user":Meteor.userId(),"day": i},{$set:{"first":false,"endgame1":false,"second":false,"endgame2":false}});
+				};
+				
+			// }
 		}
 		return id;
 	},
@@ -100,6 +102,9 @@ Meteor.methods({
 		// else
 		// 	return "nothing"
 		return app.gameCase;//app.randomNumber(1,8);
+	},
+	"sendCase" : function(){
+		return Cases.findOne({})
 	}
 });
 

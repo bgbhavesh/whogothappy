@@ -47,7 +47,11 @@
     width: 300px;
     position: relative;
 }
-
+.rotate180{
+    -ms-transform: rotate(180deg) !important;
+    -webkit-transform: rotate(180deg) !important;
+    transform: rotate(180deg) !important;
+}
 
 .card {
     /*width: 50px;*/

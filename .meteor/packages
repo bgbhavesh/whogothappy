@@ -10,10 +10,12 @@ accounts-password
 digilord:roles
 meteorhacks:kadira
 email
-nicolsondsouza:hashrouter
 cmather:handlebars-server
 phonegap-push
 linto:fontawesome
 spreadsheet
 ground:db
 
+iron:router
+alanning:roles
+service-configuration

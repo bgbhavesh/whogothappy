@@ -1,4 +1,9 @@
 app.startGame = function(){
+	setTimeout(app.getcases, 1000);
+	app.score = {};
+	app.score.method = [];
+	app.totalscore = 0;
+	Score = [];
 	startTimer();
 	app.updateStreak();
 	// console.log("game Started");
@@ -24,6 +29,15 @@ Template.GamerTimerimer.events({
     'click #reStart': function () {
 		// console.log("game reStart");
     	app.reStartGame();
+    },
+    'click #shareWithFacebook' : function(){
+    	app.shareWithFacebook();
+    },
+    'click #shareWithTwitter' : function(){
+    	app.shareWithTwitter();
+    },
+    'click #shareWithAny' : function(){
+    	app.shareWithAny();
     }
 });
 app.endBeforeTime = function(){
@@ -171,7 +185,7 @@ function endGame(EndedTime){
 	                    "score": app.totalscore,
 	                    "totalScore": app.score,
 	                    "date": tempDate
-	                });                
+	                });
 	            if(Score)
 	                app.saveScoreLocal(Score);
 	            }
@@ -213,6 +227,15 @@ app.resetStreak = function(){
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 	if(cursorMe){
 		if(cursorMe.profile){
+			// var curprofile = cursorMe.profile
+			// var monthDiff = Math.abs(curprofile.currentMonth - currentMonth);
+			// var dayDiff = Math.abs(curprofile.currentDate - currentDate);
+			// if(dayDiff > 7 ){
+			// 	if(monthDiff != 0)
+			// 	Meteor.call("resetStreak",currentDate,function(err,data){
+					
+			// 	});
+			// }
 			var curprofile = cursorMe.profile
 			if(curprofile.dayofweek || curprofile.dayofweek == 0){
 				if(cursorMe.profile.dayofweek != currentDate){
