@@ -53,7 +53,7 @@ Template.menuListPanel.helpers({
         }
     },
     "lastseen" : function(){
-        var user = Meteor.users.findOne({"_id":Meteor.userId()});
+        var user = Meteor.user();
         if(user)
             if(user.profile)
                 if(user.profile.lastPlayed)
