@@ -171,7 +171,7 @@ function endGame(EndedTime){
 			app.updateStreak("true");
 			data.gameEnd = "10:00";
 		}
-		console.log(data)
+		// console.log(data);
 		if(data.emailid){
 			Meteor.call("genMail",data.emailid,data);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
@@ -195,6 +195,7 @@ function endGame(EndedTime){
 			});
 
 		}
+
 	}
 	app.modifyLastDate(data);
 	// console.log(emails)
@@ -204,6 +205,20 @@ function endGame(EndedTime){
 	clearTimeout(timex);
 	$("#pin").text("3");
 	console.log("game Ended");
+	console.log(data);
+	app.test = data;
+	// sending info to drive
+	var username = "", message = "", score = null, difference = 0;
+	if(Meteor.user())
+		username = Meteor.user().username +" ";
+	else
+		username = "Guest "
+	for(var i=0,il=data.allScore.method.length;i<il;i++){
+		score = data.allScore.method[i];
+		difference = score.endtime - score.slideStartTime;
+		message = username +"scored " +score.result +" in " + difference;
+		app.pushToDrive(message);
+	}
 }   
 app.endGame = endGame;
 app.saveScoreLocal = function(Score){
