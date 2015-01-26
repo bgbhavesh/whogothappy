@@ -1,5 +1,3 @@
-
-
 app.lang.menu = {};
 app.lang.gamePopUp = {};
 app.lang.alarm = {};
@@ -41,7 +39,7 @@ app.lang.timer.time = "Time";
 app.lang.timer.tf = "True or False";
 app.lang.timer.tt = "Time Taken";
 app.lang.timer.user = "Users";
- 
+
 app.lang.scorebord.notyou = "Not you?";
 app.lang.scorebord.days = "Days in a Row";
 app.lang.scorebord.seen = "Last Seen";
@@ -77,7 +75,7 @@ app.lang.settings.sixteenScorePerLateHit = 5;
 app.lang.settings.sixteenTimeMultiplier = 2;
 app.lang.settings.showSmiley = 25;
 app.lang.settings.holdAfterSmileyShowFaceAgain = 111;
-app.setting.gamestart = 50;
+app.settings.gamestart = 50;
 
 app.lang.carousel.page1Title = "Carousel First Page Title";
 app.lang.carousel.page2Title = "Carousel Second Page Title";
@@ -95,23 +93,23 @@ app.lang.carousel.page4Body = "Carousel Forth Page Body";
 
 var lang = navigator.language;
 lang = lang.split("-");
-var language = "lang_" +lang[0];
+var language = "lang_" + lang[0];
 // console.log(language);
-Meteor.subscribe("language",language);
-Session.set("language",language);
+Meteor.subscribe("language", language);
+Session.set("language", language);
 UI.registerHelper("lang", function () {
-	// ;
-	try{
-		var lang = Session.get("language");
-		app.lang = Language.findOne({"_id":lang}) || app.lang;
-		app.settings = app.lang.settings;
-		// console.log(JSON.stringify(app.lang));
-	if(app.lang.lastupdate)
-		app.lang.lastupdateAgo = $.timeago(app.lang.lastupdate);
-	}catch(err){
-		return null;
-	}
-	return app.lang;
+    // ;
+    try {
+        var lang = Session.get("language");
+        app.lang = Language.findOne({"_id": lang}) || app.lang;
+        app.settings = app.lang.settings;
+        // console.log(JSON.stringify(app.lang));
+        if (app.lang.lastupdate)
+            app.lang.lastupdateAgo = $.timeago(app.lang.lastupdate);
+    } catch (err) {
+        return null;
+    }
+    return app.lang;
 });
 
 

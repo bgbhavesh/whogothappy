@@ -1,20 +1,25 @@
-Alarm = function(){
+Alarm = function () {
 
 }
 
-Alarm.prototype.setAlarm = function(date,callback){
-	var newdate = new Date(date).getTime();
-	if(!callback)
-		callback = function(){}
-	cordova.exec(function(success){callback(null,success)},function(error){callback(error,null)},"Alarm","setAlarm",[newdate]);
+Alarm.prototype.setAlarm = function (date, callback) {
+    var newdate = new Date(date).getTime();
+    if (!callback)
+        callback = function () {
+        }
+    cordova.exec(function (success) {
+        callback(null, success)
+    }, function (error) {
+        callback(error, null)
+    }, "Alarm", "setAlarm", [newdate]);
 }
-Alarm.prototype.success = function(arg){
-	// alert("success");
-	// alert(arg);
+Alarm.prototype.success = function (arg) {
+    // alert("success");
+    // alert(arg);
 }
-Alarm.prototype.error = function(err){
-	// alert("error");
-	// alert(err);
+Alarm.prototype.error = function (err) {
+    // alert("error");
+    // alert(err);
 }
 
 // // Alarm = function(){
@@ -65,6 +70,6 @@ Alarm.prototype.error = function(err){
 // 	// alert(error);
 // }
 // Alarm.demo = function(){
-	
+
 // }
 // document.addEventListener("deviceready", Alarm.deviceready, false);

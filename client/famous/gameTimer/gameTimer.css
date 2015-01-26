@@ -1,9 +1,11 @@
-#gametime div{
-	float: left;
+#gametime div {
+    float: left;
 }
-#endGame a span{
-	transform: rotateZ(180deg);
+
+#endGame a span {
+    transform: rotateZ(180deg);
 }
+
 /*.restart{
 	display: none;
 }*/

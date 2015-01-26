@@ -1,21 +1,22 @@
 Template.admin.helpers({
-	"cases" : function(){
-		var cas = Cases.findOne();
-		if(cas)
-			return cas.twoHundered;
-		else
-			[];
-	},
-	"case" : function(){
-		// console.log(this);
-		return this.data;
-	}
+    "cases": function () {
+        var cas = Cases.findOne();
+        if (cas)
+            return cas.twoHundered;
+        else
+            [];
+    },
+    "case": function () {
+        // console.log(this);
+        return this.data;
+    }
 });
 
 Template.admin.events({
-	"click #resetCases" : function(){
-		Meteor.call("resetTwoHundered",function(err,data){});
-	}
+    "click #resetCases": function () {
+        Meteor.call("resetTwoHundered", function (err, data) {
+        });
+    }
 });
 // app.adminSetUi = function(){
 // 	var cursor = Cases.findOne({})
@@ -58,10 +59,10 @@ Template.admin.events({
 // 			// 	linefirst = arrayFirst;
 // 			// 	linesecond = arraySecond;
 // 			// }
-			 
+
 // 			// $("table").append(linefirst);
 // 		}
-		
+
 // 		// arrayFirst = ""
 // 		// arraySecond = ""
 // 		// return arrayFirst

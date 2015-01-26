@@ -1,6 +1,6 @@
 <template name="gamePopUp">
     <div id="tapTap" class=" overlay">
-        
+
         <div data-alert="" class="popups panel large-12 medium-12 columns textCenter">
             <form onsubmit="">
                 <div class="beforeStartGame message row">
@@ -10,82 +10,83 @@
                             <p>{{lang.gamePopUp.mgs1}}</p>
                         </div>
                     </div>
-                    
-                </div>  
-                  
-                <div class=" textCenter large-12 medium-12 columns" style="">    
-                    <div id="startGame" class="button ui " style="background:cyan;">            
+
+                </div>
+
+                <div class=" textCenter large-12 medium-12 columns" style="">
+                    <div id="startGame" class="button ui " style="background:cyan;">
                         {{lang.gamePopUp.Start}}
                     </div>
                 </div>
-            </form >
+            </form>
             <div class="textCenter small-12 columns">
-                <div class="pin"  >
-                    <div class="" id="pin" >3</div>
+                <div class="pin">
+                    <div class="" id="pin">3</div>
                 </div>
             </div>
         </div>
     </div>
 </template>
-    <!-- this is pop up which will show at time when the game is off by on time or the before thime -->
+<!-- this is pop up which will show at time when the game is off by on time or the before thime -->
 <template name="gameEndPopUp">
     <div id="tapTapEnded" class=" overlay">
-            <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
-                <!-- {{> GamerTimerimer}} -->
-                <div id="endGame" class="button ui " style="background:cyan;">            
-                    {{lang.gamePopUp.restart}}
-                </div>
-                <a id="shareWithFacebook" class="large-4 small-4 medium-4 columns" ><i class="fa fa-facebook-square"></i> </a>
-            </div>   
+        <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
+            <!-- {{> GamerTimerimer}} -->
+            <div id="endGame" class="button ui " style="background:cyan;">
+                {{lang.gamePopUp.restart}}
+            </div>
+            <a id="shareWithFacebook" class="large-4 small-4 medium-4 columns"><i class="fa fa-facebook-square"></i>
+            </a>
+        </div>
     </div>
 </template>
 <!-- this is the template in this game to show the current feedback of score -->
 <template name="onScore">
     <div id="onScore" class="overlay">
-            <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
-                <!-- {{> GamerTimerimer}} -->
-                <!-- <div id="endGame" class="button ui " style="background:cyan;">            
+        <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
+            <!-- {{> GamerTimerimer}} -->
+            <!-- <div id="endGame" class="button ui " style="background:cyan;">
                     {{lang.gamePopUp.restart}}
                 </div> -->
-                <div id="onScoreValue" class=" " style="">            
-                    
-                </div>
-            </div>   
+            <div id="onScoreValue" class=" " style="">
+
+            </div>
+        </div>
     </div>
 </template>
 <template name="updated">
- {{#if lastupdate}}
- <div class="large-12 small-12 medium-12 columns panel">
-    <div id="updated" class="">
-            <div data-alert="" class="popups  large-12 medium-12 small-12 columns textCenter">
-                <!-- {{> GamerTimerimer}} -->
-                <!-- <div id="endGame" class="button ui " style="background:cyan;">            
+    {{#if lastupdate}}
+        <div class="large-12 small-12 medium-12 columns panel">
+            <div id="updated" class="">
+                <div data-alert="" class="popups  large-12 medium-12 small-12 columns textCenter">
+                    <!-- {{> GamerTimerimer}} -->
+                    <!-- <div id="endGame" class="button ui " style="background:cyan;">
                     {{lang.gamePopUp.restart}}
                 </div> -->
-                <div id="updatedValue" class=" " style="">            
-                    {{lastupdate}}
+                    <div id="updatedValue" class=" " style="">
+                        {{lastupdate}}
+                    </div>
                 </div>
-            </div>   
-    </div>
-    </div>
-    {{/if}} 
+            </div>
+        </div>
+    {{/if}}
 </template>
 
 
 <template name="ratingPopup">
     <div id="rating" class="">
-            <div data-alert="" class="popups  large-12 medium-12 small-12 columns textCenter">
-                Thanks! We'd love for you to share your feedback on the Play Store and help us make the Internet better.  
-                      
-            </div>   
-            <div data-alert="" class="popups  large-12 medium-12 small-12 textCenter">
-                <div id="rateDecline" class="button ui" style="background:cyan;">            
-                        No, Thanks
-                </div>
-                <div id="rateAccept" class="button ui" style="background:cyan;">            
-                    Rate Whogothappy
-                </div> 
+        <div data-alert="" class="popups  large-12 medium-12 small-12 columns textCenter">
+            Thanks! We'd love for you to share your feedback on the Play Store and help us make the Internet better.
+
+        </div>
+        <div data-alert="" class="popups  large-12 medium-12 small-12 textCenter">
+            <div id="rateDecline" class="button ui" style="background:cyan;">
+                No, Thanks
             </div>
+            <div id="rateAccept" class="button ui" style="background:cyan;">
+                Rate Whogothappy
+            </div>
+        </div>
 
     </div>
 </template>

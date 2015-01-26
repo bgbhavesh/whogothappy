@@ -1,5 +1,5 @@
 Template.profile.helpers({
-    user : function(){
+    user: function () {
         return Meteor.users.findOne();
     }
 })

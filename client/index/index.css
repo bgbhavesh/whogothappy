@@ -1,87 +1,104 @@
 /* CSS declarations go here */
- a:link, a:visited, a:hover, a:active, a:focus ,ul.off-canvas-list li a{
-   text-decoration: none !important;
+a:link, a:visited, a:hover, a:active, a:focus, ul.off-canvas-list li a {
+    text-decoration: none !important;
     color: black !important;
     background-color: none !important;
 }
-ul.off-canvas-list li a:hover{
-    color: white !important;
-}
-.whiteText{
+
+ul.off-canvas-list li a:hover {
     color: white !important;
 }
 
-.famous-container{
-	/*position: relative !important;*/
+.whiteText {
+    color: white !important;
 }
+
+.famous-container {
+    /*position: relative !important;*/
+}
+
 .famous-root {
-	/*overflow-x: hidden !important;*/
-	/*overflow-y: scroll !important; */
+    /*overflow-x: hidden !important;*/
+    /*overflow-y: scroll !important; */
     /*-webkit-user-select: none; -webkit-user-drag: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); touch-action: none;*/
 }
-.textRight{
-	text-align: right;
+
+.textRight {
+    text-align: right;
 }
-.textCenter{
-	text-align: center;
+
+.textCenter {
+    text-align: center;
 }
-.textLeft{
-	text-align: left;
+
+.textLeft {
+    text-align: left;
 }
-.overlay .popups{
-        position: relative;
-        width: 95%;
-        left: 2%;
-        top: 50%;
-        -webkit-transform: translateY(-50%);
-        -ms-transform: translateY(-50%);
-        transform: translateY(-50%);
-        -o-transform: translateY(-50%);
+
+.overlay .popups {
+    position: relative;
+    width: 95%;
+    left: 2%;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    -o-transform: translateY(-50%);
 }
-.overlay div{
-        position: relative;
+
+.overlay div {
+    position: relative;
 }
-.overlay{
-        position: absolute;
-        width: 104%;
-        height: 94%;
-        z-index: 21;
-        top:3%;
-        left: -2%;
-        background-color: rgba(0,0,0,0.5);
+
+.overlay {
+    position: absolute;
+    width: 104%;
+    height: 94%;
+    z-index: 21;
+    top: 3%;
+    left: -2%;
+    background-color: rgba(0, 0, 0, 0.5);
 }
-.height40{
+
+.height40 {
     height: 40px;
 }
-.height150{
+
+.height150 {
     /*padding: 0px;*/
 }
-.height150{
+
+.height150 {
     height: 140px;
 }
-table{
+
+table {
     margin: 0px;
-    margin-bottom:0px !important;
+    margin-bottom: 0px !important;
     background: none !important;
     border: 0px !important;
 }
-.scrolly .panel{
+
+.scrolly .panel {
     float: none;
     /*width: 105%;*/
     /*left: -2.5%;*/
 }
-.scrolly{
+
+.scrolly {
     height: 100% !important;
     -webkit-height: 100% !important;
     -webkit-overflow-scrolling: touch !important;
-    -webkit-overflow-y: scroll!important;
-    overflow-y: scroll!important;
+    -webkit-overflow-y: scroll !important;
+    overflow-y: scroll !important;
     background-attachment: scroll;
     margin-bottom: 1.25rem;
 }
-.noPadding{
+
+.noPadding {
     padding: 0px;
 }
+
 /*@media only screen and (orientation: landscape) and (min-device-width : 768px) and (max-device-width : 1024px) and (orientation : landscape){
   .column{background: red}
   #rest{
@@ -107,8 +124,8 @@ table{
 }
  
 */
-.panel{
+.panel {
     border: 0px !important;
     border-radius: 0px !important;
-    border-width: 0px !important; 
+    border-width: 0px !important;
 }

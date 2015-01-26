@@ -1,3 +1,3 @@
-app.inviteWithTwitter = function(){
-	Meteor.call("inviteWithTwitter");
+app.inviteWithTwitter = function () {
+    Meteor.call("inviteWithTwitter");
 }

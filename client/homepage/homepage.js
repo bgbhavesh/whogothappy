@@ -2,26 +2,26 @@ var curYPos = 0,
     curXPos = 0,
     curDown = false;
 Template.home.events({
-	// 'click .clickEvent': function () {
-	// 	Session.set("placeId",null);
-	// 	Session.set("placeId",this.place_id);
-	// 	Session.set("placeName",this.name);
-	// }
-    
-    'mousedown': function (e){
-        curDown = true; 
-        curYPos = e.clientY; 
+    // 'click .clickEvent': function () {
+    // 	Session.set("placeId",null);
+    // 	Session.set("placeId",this.place_id);
+    // 	Session.set("placeName",this.name);
+    // }
+
+    'mousedown': function (e) {
+        curDown = true;
+        curYPos = e.clientY;
         curXPos = e.clientX;
         // console.log(e);
     },
-    'mousemove': function (e){
-        if(curDown === true){
+    'mousemove': function (e) {
+        if (curDown === true) {
             var p = $(".scrolly")
-            $( ".scrolly" ).scrollTop = (curYPos + e.clientY);
+            $(".scrolly").scrollTop = (curYPos + e.clientY);
             // console.log(e.currentTarget);
         }
     },
-    'mouseup': function (e){
+    'mouseup': function (e) {
         curDown = false;
     },
 
@@ -50,24 +50,24 @@ Template.home.events({
     //         window.open("http://www.facebook.com/"+uname);
     //     }
     // }
-    
+
 });
-app.updateTitle = function(){
+app.updateTitle = function () {
     document.title = app.lang.title.htmlTitle;
 }
-Template.home.rendered = app.updateTitle; 
+Template.home.rendered = app.updateTitle;
 
-Template.home.place = function(){
-	// Session.get("reactivePlace");
-	// return app.places;
+Template.home.place = function () {
+    // Session.get("reactivePlace");
+    // return app.places;
 }
 Template.home.helpers({
-    user : function(){
+    user: function () {
         return Meteor.userId();
     },
-    myusername : function(){
-        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
-        if(cursorMe){
+    myusername: function () {
+        var cursorMe = Meteor.users.findOne({"_id": Meteor.userId()});
+        if (cursorMe) {
             var uname = cursorMe.username;
             // console.log(uname)
             return uname;

@@ -1,10 +1,10 @@
 App.info({
-  id: 'com.youiest.whogothappy',
-  name: 'Who Got Happy',
-  description: 'Get the right happy face!',
-  author: 'Youiest LLC',
-  email: 'elias@youiest.com',
-  website: 'http://whogothappy.com'
+    id: 'com.youiest.whogothappy',
+    name: 'Who Got Happy',
+    description: 'Get the right happy face!',
+    author: 'Youiest LLC',
+    email: 'elias@youiest.com',
+    website: 'http://whogothappy.com'
 });
 
 

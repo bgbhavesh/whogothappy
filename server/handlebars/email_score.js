@@ -1,12 +1,20 @@
 // process.env.MAIL_URL = 'smtp://postmaster%40sandbox77539.mailgun.org:2l9s4cmzqic2@smtp.mailgun.org:587';
 process.env.MAIL_URL = 'smtp://postmaster@sandbox3b5d53e0d15b497ab2b27a2e3fadf564.mailgun.org:abc123123@smtp.mailgun.org:587';
 
-function emailDailyGen(emails,data){
-     // Fiber(function () {
-          //Accounts.oauth._middleware(req, res, next);
-            console.log("emailDailyGen");
-            console.log(emails);
-            var html = Handlebars.templates['email']({ "email": emails ,"username" : data.username, "gameEnd": data.gameEnd, "clicked" : data.clicked, "score" : data.score, "wrong": data.wrong, "corrected": data.corrected})
+function emailDailyGen(emails, data) {
+    // Fiber(function () {
+    //Accounts.oauth._middleware(req, res, next);
+    console.log("emailDailyGen");
+    console.log(emails);
+    var html = Handlebars.templates['email']({
+        "email": emails,
+        "username": data.username,
+        "gameEnd": data.gameEnd,
+        "clicked": data.clicked,
+        "score": data.score,
+        "wrong": data.wrong,
+        "corrected": data.corrected
+    })
     //         var html = 
     //         '<html>'
     //         +'<head>'
@@ -164,84 +172,89 @@ function emailDailyGen(emails,data){
     //         +'</tbody></table>'
     //     +'</center>'
     //        +'</body> </html>';
-           // console.log("html generation edded");
-           // console.log(html);
-        Meteor.call("sendEmail",html,emails);
-   // }).run();
+    // console.log("html generation edded");
+    // console.log(html);
+    Meteor.call("sendEmail", html, emails);
+    // }).run();
 }
-function emailInvitGen(emails,username,id){
-            console.log("emailInvitGen");
-            console.log(emails);
-            var html = Handlebars.templates['emailInvite']({"email": emails ,"username" : username,"id": id })   
-            Meteor.call("sendEmail",html,emails);
+function emailInvitGen(emails, username, id) {
+    console.log("emailInvitGen");
+    console.log(emails);
+    var html = Handlebars.templates['emailInvite']({"email": emails, "username": username, "id": id})
+    Meteor.call("sendEmail", html, emails);
 }
 Meteor.methods({
-    "sendEmail" : function(html,email){
+    "sendEmail": function (html, email) {
 
-        try{
+        try {
             console.log("sendEmail from methods");
             this.unblock();
             Email.send({
                 from: 'Sixteensmiles <tapmate@youiest.com>',
-                to:   email,            
-                subject : "subjectEmail",
-                html : html
+                to: email,
+                subject: "subjectEmail",
+                html: html
             });
 
             // Duplicate copy sent
             Email.send({
                 from: 'Sixteensmiles <tapmate@youiest.com>',
-                to:   "decivote@gmail.com",            
-                subject : "Duplicate copy of " +email,
-                html : html
+                to: "decivote@gmail.com",
+                subject: "Duplicate copy of " + email,
+                html: html
             });
-            
+
         }
-        catch(error){
+        catch (error) {
             console.log(error);
         }
     },
-    "sendInvitation" : function(emails,username,id){
-        try{
-            emailInvitGen(emails,username,id);            
+    "sendInvitation": function (emails, username, id) {
+        try {
+            emailInvitGen(emails, username, id);
         }
-        catch(error){
+        catch (error) {
             console.log(error);
         }
     },
-    "genMail" : function(email,data){
-        try{
-            emailDailyGen(email,data);            
+    "genMail": function (email, data) {
+        try {
+            emailDailyGen(email, data);
         }
-        catch(error){
+        catch (error) {
             console.log(error);
         }
     },
-    "saveScore" : function(userId,totalscore,score,tempDate){
-            // Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
-            console.log(userId);
-            console.log(totalscore);
-            console.log(score);
-            console.log(tempDate);
-            
-            // try{
-                Score.insert({"clientId":userId,"score":totalscore,"totalScore":score,"date" :tempDate});
-                return true;     
-            // }
-            // catch(error){
-            //     console.log(error);
-            // }
+    "saveScore": function (userId, totalscore, score, tempDate) {
+        // Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
+        console.log(userId);
+        console.log(totalscore);
+        console.log(score);
+        console.log(tempDate);
+
+        // try{
+        Score.insert({"clientId": userId, "score": totalscore, "totalScore": score, "date": tempDate});
+        return true;
+        // }
+        // catch(error){
+        //     console.log(error);
+        // }
     },
-    "sendcacheData" : function(data){
-            data.forEach(function() {
-                console.log(data);
-                Score.insert({"clientId":data.clientId,"score":data.score,"totalScore":data.totalScore,"date" :data.date});
-            }); 
-            return true;     
-            // }
-            // catch(error){
-            //     console.log(error);
-            // }
+    "sendcacheData": function (data) {
+        data.forEach(function () {
+            console.log(data);
+            Score.insert({
+                "clientId": data.clientId,
+                "score": data.score,
+                "totalScore": data.totalScore,
+                "date": data.date
+            });
+        });
+        return true;
+        // }
+        // catch(error){
+        //     console.log(error);
+        // }
     },
 
 });

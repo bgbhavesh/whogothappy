@@ -27,7 +27,7 @@ if (!window.cordova) {
             //cordova.exec(s, f, "FacebookConnectPlugin", "login", permissions);
         },
 
-        getAccessToken: function(s, f) {
+        getAccessToken: function (s, f) {
             //cordova.exec(s, f, "FacebookConnectPlugin", "getAccessToken", []);
         },
 
@@ -40,14 +40,14 @@ if (!window.cordova) {
         },
 
         // Browser wrapper API ONLY
-        browserInit: function(appId, version) {
+        browserInit: function (appId, version) {
             if (!version) {
                 version = "v2.0";
             }
             FB.init({
-                appId      : appId,
-                xfbml      : true,
-                version    : version
+                appId: appId,
+                xfbml: true,
+                version: version
             });
         }
     };
@@ -57,12 +57,14 @@ if (!window.cordova) {
         console.log("boot browser");
         (function (d, s, id) {
             var js, fjs = d.getElementsByTagName(s)[0];
-            if (d.getElementById(id)) { return; }
+            if (d.getElementById(id)) {
+                return;
+            }
             js = d.createElement(s);
             js.id = id;
             js.src = "//connect.facebook.net/en_US/sdk.js";
             fjs.parentNode.insertBefore(js, fjs);
-        } (document, "script", "facebook-jssdk"));
+        }(document, "script", "facebook-jssdk"));
 
     }, false);
 
@@ -84,7 +86,7 @@ if (!window.cordova) {
             exec(s, f, "FacebookConnectPlugin", "login", permissions);
         },
 
-        logEvent: function(name, params, valueToSum, s, f) {
+        logEvent: function (name, params, valueToSum, s, f) {
             // Prevent NSNulls getting into iOS, messes up our [command.argument count]
             if (!params && !valueToSum) {
                 exec(s, f, "FacebookConnectPlugin", "logEvent", [name]);
@@ -97,11 +99,11 @@ if (!window.cordova) {
             }
         },
 
-        logPurchase: function(value, currency, s, f) {
+        logPurchase: function (value, currency, s, f) {
             exec(s, f, "FacebookConnectPlugin", "logPurchase", [value, currency]);
         },
 
-        getAccessToken: function(s, f) {
+        getAccessToken: function (s, f) {
             exec(s, f, "FacebookConnectPlugin", "getAccessToken", []);
         },
 
@@ -110,7 +112,9 @@ if (!window.cordova) {
         },
 
         api: function (graphPath, permissions, s, f) {
-            if (!permissions) { permissions = []; }
+            if (!permissions) {
+                permissions = [];
+            }
             exec(s, f, "FacebookConnectPlugin", "graphApi", [graphPath, permissions]);
         }
     };

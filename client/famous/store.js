@@ -14,8 +14,6 @@ app.store.BlackF = [];
 app.store.AsianF = ['1'];
 
 
-
-
 app.store.Hispanic = [];
 app.store.Multiracial = [];
 app.store.Caucasian = [];

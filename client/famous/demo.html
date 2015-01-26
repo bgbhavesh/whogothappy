@@ -1,70 +1,70 @@
 <template name="views_EdgeSwapper">
-	{{#EdgeSwapper size="[300,300]" translate="[0,0,5]"}}
-		{{> showTemplate name=esTemplate}}
-	{{/EdgeSwapper}}
+    {{#EdgeSwapper size="[300,300]" translate="[0,0,5]"}}
+        {{> showTemplate name=esTemplate}}
+    {{/EdgeSwapper}}
 </template>
 <template name="es_surface1">
-	{{#Surface size="[undefined,undefined]"}}
-		{{> content}}
-	{{/Surface}}
+    {{#Surface size="[undefined,undefined]"}}
+        {{> content}}
+    {{/Surface}}
 </template>
 <template name="es_surface2">
-	{{#Surface size="[undefined,undefined]"}}
-		{{> content}}
-	{{/Surface}}
+    {{#Surface size="[undefined,undefined]"}}
+        {{> content}}
+    {{/Surface}}
 </template>
 
 <template name="es_surface3">
-	{{#Surface size="[undefined,undefined]"}}
-		
-	{{/Surface}}
+    {{#Surface size="[undefined,undefined]"}}
+
+    {{/Surface}}
 </template>
 <!-- <template name="es_surface2">
 	{{#Surface size="[undefined,undefined]"}}
-		{{> content}}
-	{{/Surface}}
+    {{> content}}
+{{/Surface}}
 </template>
 <template name="es_surface3">
 	{{#Surface size="[undefined,undefined]"}}
-		{{> content}}
-	{{/Surface}}
+    {{> content}}
+{{/Surface}}
 </template> -->
 
-<template name="firstContent"> 
-	<div id="clickEvent"> 
-		{{#each content}}
-			{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]" position="relative"}}
-				{{> showTemplate name=esTemplateMy}}
-			{{/EdgeSwapper}}
-		{{/each}}
-	</div>
+<template name="firstContent">
+    <div id="clickEvent">
+        {{#each content}}
+            {{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]" position="relative"}}
+                {{> showTemplate name=esTemplateMy}}
+            {{/EdgeSwapper}}
+        {{/each}}
+    </div>
 </template>
 
-<template name="secondContent"> 
-	<div id="clickEvent"> 
-		{{#each content}}
-			
-		{{/each}}
-	</div>
+<template name="secondContent">
+    <div id="clickEvent">
+        {{#each content}}
+
+        {{/each}}
+    </div>
 </template>
-<template name="content"> 
-		<!-- <div id="endGame" class="textRight ">
-	    	<a  class="textRight" id="endGame">STOP</a>
-  		</div> -->
-	<div id="clickEvent" class="large-12 small-12 medium-12 columns"> 
-		{{#each image}}
-			<div class="card small-3 columns" >
-		    <figure class="front main">
-		    	{{{first}}}
-		    </figure>
-		    <figure class="back main">
-		    	{{{second}}}
-		    </figure>
-  		</div>
-		{{/each}}
-	</div>
-	<!-- <div class="large-12 small-12 medium-12 columns"> 
-	</div> -->
+<template name="content">
+    <!-- <div id="endGame" class="textRight ">
+        <a  class="textRight" id="endGame">STOP</a>
+      </div> -->
+    <div id="clickEvent" class="large-12 small-12 medium-12 columns">
+        {{#each image}}
+            <div class="card small-3 columns">
+                <figure class="front main">
+                    {{{first}}}
+                </figure>
+                <figure class="back main">
+                    {{{second}}}
+                </figure>
+            </div>
+        {{/each}}
+    </div>
+    <!-- <div class="large-12 small-12 medium-12 columns">
+    </div> -->
 </template>
 <!-- 
 	<template name="content"> 
@@ -73,21 +73,21 @@
 	</div>
 </template>
 	{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
-				{{>showTemplate name=esTemplateMy}}
-			{{/EdgeSwapper}}
-{{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
-				{{>showTemplate name=esTemplateMy}}
-			{{/EdgeSwapper}}
+    {{>showTemplate name=esTemplateMy}}
+{{/EdgeSwapper}}
+    {{#EdgeSwapper size="[undefined,undefined]" translate="[0,0,5]"}}
+        {{>showTemplate name=esTemplateMy}}
+    {{/EdgeSwapper}}
  -->
 <template name="transition">
-	<div class="famousContainer">
-		<div class="card">
-		    <figure class="front main">
-		    	{{> content}}
-		    </figure>
-		    <figure class="back main">
-		    	{{> content}}
-		    </figure>
-  		</div>
-	</div>
+    <div class="famousContainer">
+        <div class="card">
+            <figure class="front main">
+                {{> content}}
+            </figure>
+            <figure class="back main">
+                {{> content}}
+            </figure>
+        </div>
+    </div>
 </template>

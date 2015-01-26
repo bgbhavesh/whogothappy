@@ -4,17 +4,17 @@
 
 app.twoHundered = [];
 Cases.find({}).observe({
-    "added" : function(first){
+    "added": function (first) {
         app.twoHundered = first.twoHundered;
         // console.log(app.twoHundered);
         app.caseCount = 0;
-        Session.set("startGameFlag",Random.id());
+        Session.set("startGameFlag", Random.id());
     },
-    "changed" : function(first){
+    "changed": function (first) {
         app.twoHundered = first.twoHundered;
         // console.log(app.twoHundered);
         app.caseCount = 0;
-        Session.set("startGameFlag",Random.id());
+        Session.set("startGameFlag", Random.id());
     }
 });
 // app.startup(app.MeteorStartupObserver);
@@ -31,10 +31,10 @@ Cases.find({}).observe({
 //     });
 
 // }
-app.getCase = function(number){
-	if(app.twoHundered[number]){
-		return app.twoHundered[number].data;
-	}
-	else
-		return [];
+app.getCase = function (number) {
+    if (app.twoHundered[number]) {
+        return app.twoHundered[number].data;
+    }
+    else
+        return [];
 }

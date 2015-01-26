@@ -1,3 +1,3 @@
-Template.docs.place = function(){
-	
+Template.docs.place = function () {
+
 }

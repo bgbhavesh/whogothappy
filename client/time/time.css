@@ -1,12 +1,14 @@
-.daTe{
-	font-family: arial;
+.daTe {
+    font-family: arial;
 }
-.countDown{
-	font-family: arial;
-	display: none;
+
+.countDown {
+    font-family: arial;
+    display: none;
 }
+
 .hide {
-   position: absolute !important;
-   top: -9999px !important;
-   left: -9999px !important;
+    position: absolute !important;
+    top: -9999px !important;
+    left: -9999px !important;
 }

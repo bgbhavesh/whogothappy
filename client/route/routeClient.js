@@ -1,19 +1,19 @@
 Router.route('/', function () {
-	this.render('home');
+    this.render('home');
 });
 
 Router.route('/admin', function () {
-	if(Roles.userIsInRole(Meteor.userId(),["admin"])){
-		this.render('admin');
-	}
-	else{
-		this.render('home');
-	}
+    if (Roles.userIsInRole(Meteor.userId(), ["admin"])) {
+        this.render('admin');
+    }
+    else {
+        this.render('home');
+    }
 });
 
 Router.configure({
- 	//layoutTemplate: 'home',
- 	template: 'home'
+    //layoutTemplate: 'home',
+    template: 'home'
 });
 // Template.route.helpers({
 // 	"route" : function(first){
@@ -26,10 +26,6 @@ Router.configure({
 // 			return true;
 // 	}
 // });
-
-
-
-
 
 
 // HashRouter.add({"route" : "#profile", "template" : "profile"});
@@ -88,10 +84,6 @@ Router.configure({
 //     "#morpher" : function (pause) {
 //     }, 
 // }
-
-
-
-
 
 
 // Router = {};

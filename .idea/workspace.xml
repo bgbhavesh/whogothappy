@@ -2,9 +2,167 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="8d7f4f54-b30c-4448-a92f-125880c00a89" name="Default" comment="">
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/phonegap/Alarm.js" afterPath="$PROJECT_DIR$/client/phonegap/Alarm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/Spreadsheet.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/Spreadsheet.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/admin/admin.css" afterPath="$PROJECT_DIR$/client/admin/admin.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/admin/admin.html" afterPath="$PROJECT_DIR$/client/admin/admin.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/admin/admin.js" afterPath="$PROJECT_DIR$/client/admin/admin.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/admin/adminServer.js" afterPath="$PROJECT_DIR$/server/admin/adminServer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/login/adminUser.js" afterPath="$PROJECT_DIR$/server/login/adminUser.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/admin/alarm.js" afterPath="$PROJECT_DIR$/server/admin/alarm.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/phonegap-push/android.server.js" afterPath="$PROJECT_DIR$/packages/phonegap-push/android.server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/assestManagement.js" afterPath="$PROJECT_DIR$/client/app/assestManagement.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/observer/cases_observer.js" afterPath="$PROJECT_DIR$/client/observer/cases_observer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/collection_publish/cases_publish.js" afterPath="$PROJECT_DIR$/server/collection_publish/cases_publish.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/phonegap/cdv-plugin-fb-connect.js" afterPath="$PROJECT_DIR$/public/phonegap/cdv-plugin-fb-connect.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/collection.js" afterPath="$PROJECT_DIR$/lib/collection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/common.js" afterPath="$PROJECT_DIR$/lib/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/common.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/common.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/common_gdrive.js" afterPath="$PROJECT_DIR$/lib/common_gdrive.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/admin/api/createCases.js" afterPath="$PROJECT_DIR$/server/admin/api/createCases.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/demo.html" afterPath="$PROJECT_DIR$/client/famous/demo.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/demo.js" afterPath="$PROJECT_DIR$/client/famous/demo.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/docs/docs.html" afterPath="$PROJECT_DIR$/client/docs/docs.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/docs/docs.js" afterPath="$PROJECT_DIR$/client/docs/docs.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/email.handlebars" afterPath="$PROJECT_DIR$/server/email.handlebars" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/emailInvite.handlebars" afterPath="$PROJECT_DIR$/server/emailInvite.handlebars" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/route/emailInvite.handlebars" afterPath="$PROJECT_DIR$/server/route/emailInvite.handlebars" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/handlebars/email_score.js" afterPath="$PROJECT_DIR$/server/handlebars/email_score.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/phonegap/facebook-ios-sdk.js" afterPath="$PROJECT_DIR$/public/phonegap/facebook-ios-sdk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/phonegap/facebook-js-sdk.js" afterPath="$PROJECT_DIR$/public/phonegap/facebook-js-sdk.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/phonegap/facebook.js" afterPath="$PROJECT_DIR$/client/phonegap/facebook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/famous.css" afterPath="$PROJECT_DIR$/client/famous/famous.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/famous.html" afterPath="$PROJECT_DIR$/client/famous/famous.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/famousClient.js" afterPath="$PROJECT_DIR$/client/famous/famousClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/vendor/fastclick.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/vendor/fastclick.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.abide.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.abide.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.accordion.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.accordion.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.alert.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.alert.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.clearing.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.clearing.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/css/foundation.css" afterPath="$PROJECT_DIR$/public/library/foundation/css/foundation.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.dropdown.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.dropdown.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.equalizer.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.equalizer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.interchange.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.interchange.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.joyride.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.joyride.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.magellan.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.magellan.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/css/foundation.min.css" afterPath="$PROJECT_DIR$/public/library/foundation/css/foundation.min.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation.min.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.offcanvas.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.offcanvas.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.orbit.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.orbit.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.reveal.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.reveal.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.slider.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.slider.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.tab.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.tab.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.tooltip.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.tooltip.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.topbar.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/foundation/foundation.topbar.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.css" afterPath="$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.html" afterPath="$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.js" afterPath="$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/gameTimer/gameTimer.css" afterPath="$PROJECT_DIR$/client/famous/gameTimer/gameTimer.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/gameTimer/gameTimer.html" afterPath="$PROJECT_DIR$/client/famous/gameTimer/gameTimer.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/gameTimer/gameTimer.js" afterPath="$PROJECT_DIR$/client/famous/gameTimer/gameTimer.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/gdrive/gdriveClient.js" afterPath="$PROJECT_DIR$/client/gdrive/gdriveClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gdrive/gdriveServer.js" afterPath="$PROJECT_DIR$/server/gdrive/gdriveServer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/os/packages/hashrouter.js.map" afterPath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/os/packages/hashrouter.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/web.browser/packages/hashrouter.js.map" afterPath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/web.browser/packages/hashrouter.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/web.cordova/packages/hashrouter.js.map" afterPath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/web.cordova/packages/hashrouter.js.map" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/os/packages/hashrouter.js" afterPath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/os/packages/hashrouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/web.browser/packages/hashrouter.js" afterPath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/web.browser/packages/hashrouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/web.cordova/packages/hashrouter.js" afterPath="$PROJECT_DIR$/packages/hashrouter/.build.hashrouter/web.cordova/packages/hashrouter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/homepage/homepage.html" afterPath="$PROJECT_DIR$/client/homepage/homepage.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/homepage/homepage.js" afterPath="$PROJECT_DIR$/client/homepage/homepage.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index/index.css" afterPath="$PROJECT_DIR$/client/index/index.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index/index.html" afterPath="$PROJECT_DIR$/client/index/index.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/index/index.js" afterPath="$PROJECT_DIR$/client/index/index.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/social/invite_email.js" afterPath="$PROJECT_DIR$/client/social/invite_email.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/social/invite_facebook.js" afterPath="$PROJECT_DIR$/client/social/invite_facebook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/social/invite_twitter.js" afterPath="$PROJECT_DIR$/client/social/invite_twitter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/phonegap-push/ios.server.js" afterPath="$PROJECT_DIR$/packages/phonegap-push/ios.server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/server/job.js" afterPath="$PROJECT_DIR$/lib/server/job.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/owl/jquery-1.9.1.min.js" afterPath="$PROJECT_DIR$/public/owl/jquery-1.9.1.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/vendor/jquery.cookie.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/vendor/jquery.cookie.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/vendor/jquery.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/vendor/jquery.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/lib/jquery_1.5.2.min.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/lib/jquery_1.5.2.min.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/kadira/kadiraServer.js" afterPath="$PROJECT_DIR$/server/kadira/kadiraServer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/client/language.js" afterPath="$PROJECT_DIR$/lib/client/language.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/gdrive/language_publish.js" afterPath="$PROJECT_DIR$/server/gdrive/language_publish.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/debug/logServer.js" afterPath="$PROJECT_DIR$/server/debug/logServer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/debug/loger.html" afterPath="$PROJECT_DIR$/client/debug/loger.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/debug/loger.js" afterPath="$PROJECT_DIR$/client/debug/loger.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/login/login.css" afterPath="$PROJECT_DIR$/client/login/login.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/login/login.html" afterPath="$PROJECT_DIR$/client/login/login.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/login/loginClient.js" afterPath="$PROJECT_DIR$/client/login/loginClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/login/loginServer.js" afterPath="$PROJECT_DIR$/server/login/loginServer.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/main.js" afterPath="$PROJECT_DIR$/server/main.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/menu/menu.css" afterPath="$PROJECT_DIR$/client/menu/menu.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/menu/menu.html" afterPath="$PROJECT_DIR$/client/menu/menu.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/menu/menuClient.js" afterPath="$PROJECT_DIR$/client/menu/menuClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/phonegap-push/deprecated/meteor-phonegap.js" afterPath="$PROJECT_DIR$/packages/phonegap-push/deprecated/meteor-phonegap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/phonegap-push/plugin/meteor.cordova.push.js" afterPath="$PROJECT_DIR$/packages/phonegap-push/plugin/meteor.cordova.push.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/admin/methods.js" afterPath="$PROJECT_DIR$/server/admin/methods.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/mobile-config.js" afterPath="$PROJECT_DIR$/mobile-config.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/vendor/modernizr.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/vendor/modernizr.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/morpher/morpher.css" afterPath="$PROJECT_DIR$/client/morpher/morpher.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/morpher/morpher.html" afterPath="$PROJECT_DIR$/client/morpher/morpher.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/morpher/morpher.js" afterPath="$PROJECT_DIR$/client/morpher/morpher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/morpher.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/morpher.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/css/normalize.css" afterPath="$PROJECT_DIR$/public/library/foundation/css/normalize.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/client/owl/owl.carousel.css" afterPath="$PROJECT_DIR$/lib/client/owl/owl.carousel.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/owl/owl.carousel.css" afterPath="$PROJECT_DIR$/public/owl/owl.carousel.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/client/owl/owl.carousel.js" afterPath="$PROJECT_DIR$/lib/client/owl/owl.carousel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/owl/owl.carousel.js" afterPath="$PROJECT_DIR$/public/owl/owl.carousel.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/phonegap-push/package.js" afterPath="$PROJECT_DIR$/packages/phonegap-push/package.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/package.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/package.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/spreadsheet/package.js" afterPath="$PROJECT_DIR$/packages/spreadsheet/package.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/packages" afterPath="$PROJECT_DIR$/.meteor/packages" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/phonegap-push/deprecated/phonegap.client.js" afterPath="$PROJECT_DIR$/packages/phonegap-push/deprecated/phonegap.client.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/phonegap/phonegap.js" afterPath="$PROJECT_DIR$/client/phonegap/phonegap.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/public/library/foundation/js/vendor/placeholder.js" afterPath="$PROJECT_DIR$/public/library/foundation/js/vendor/placeholder.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/phonegap-push/plugin.xml" afterPath="$PROJECT_DIR$/packages/phonegap-push/plugin.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/profile/profile.html" afterPath="$PROJECT_DIR$/client/profile/profile.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/profile/profile.js" afterPath="$PROJECT_DIR$/client/profile/profile.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/phonegap-push/push.server.js" afterPath="$PROJECT_DIR$/packages/phonegap-push/push.server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/phonegap/pushnotification.js" afterPath="$PROJECT_DIR$/client/phonegap/pushnotification.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/admin/api/pushnotification.js" afterPath="$PROJECT_DIR$/server/admin/api/pushnotification.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/signup/register.css" afterPath="$PROJECT_DIR$/client/signup/register.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/signup/register.html" afterPath="$PROJECT_DIR$/client/signup/register.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/release" afterPath="$PROJECT_DIR$/.meteor/release" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/resize.js" afterPath="$PROJECT_DIR$/client/app/resize.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/route/routeClient.js" afterPath="$PROJECT_DIR$/client/route/routeClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/route/router.js" afterPath="$PROJECT_DIR$/server/route/router.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/score/score.html" afterPath="$PROJECT_DIR$/client/score/score.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/score/score.js" afterPath="$PROJECT_DIR$/client/score/score.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/collection_publish/score_collection.js" afterPath="$PROJECT_DIR$/server/collection_publish/score_collection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/seeall/seeall.js" afterPath="$PROJECT_DIR$/client/seeall/seeall.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/spreadsheet/server.js" afterPath="$PROJECT_DIR$/packages/spreadsheet/server.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/social/share_any.js" afterPath="$PROJECT_DIR$/client/social/share_any.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/social/share_email.js" afterPath="$PROJECT_DIR$/client/social/share_email.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/social/share_facebook.js" afterPath="$PROJECT_DIR$/client/social/share_facebook.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/social/share_google.js" afterPath="$PROJECT_DIR$/client/social/share_google.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/social/share_twitter.js" afterPath="$PROJECT_DIR$/client/social/share_twitter.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/sixteensmiles-tests.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/sixteensmiles-tests.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/menu/slider/slider.css" afterPath="$PROJECT_DIR$/client/menu/slider/slider.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/menu/slider/slider.html" afterPath="$PROJECT_DIR$/client/menu/slider/slider.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/phonegap/socialshare.js" afterPath="$PROJECT_DIR$/client/phonegap/socialshare.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/app/startup.js" afterPath="$PROJECT_DIR$/client/app/startup.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/famous/store.js" afterPath="$PROJECT_DIR$/client/famous/store.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/collection_publish/streak_collection.js" afterPath="$PROJECT_DIR$/server/collection_publish/streak_collection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/time/time.css" afterPath="$PROJECT_DIR$/client/time/time.css" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/time/timeClient.html" afterPath="$PROJECT_DIR$/client/time/timeClient.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/time/timeClient.js" afterPath="$PROJECT_DIR$/client/time/timeClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/lib/client/timeago.js" afterPath="$PROJECT_DIR$/lib/client/timeago.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/lib/timeago.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/lib/timeago.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update/server/update.js" afterPath="$PROJECT_DIR$/update/server/update.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/update/client/updateClient.js" afterPath="$PROJECT_DIR$/update/client/updateClient.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/server/collection_publish/user_collection.js" afterPath="$PROJECT_DIR$/server/collection_publish/user_collection.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/users/users.html" afterPath="$PROJECT_DIR$/client/users/users.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/users/users.js" afterPath="$PROJECT_DIR$/client/users/users.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/util.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/util.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/packages/sixteensmiles/lib/util.js" afterPath="$PROJECT_DIR$/packages/sixteensmiles/lib/util.js" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.meteor/versions" afterPath="$PROJECT_DIR$/.meteor/versions" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/menu/weeks.html" afterPath="$PROJECT_DIR$/client/menu/weeks.html" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/client/menu/weeks.js" afterPath="$PROJECT_DIR$/client/menu/weeks.js" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="whogothappy.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -30,86 +188,31 @@
     <splitter split-orientation="horizontal" split-proportion="0.5">
       <split-first>
         <leaf>
-          <file leaf-file-name="server.js" pinned="false" current-in-tab="true">
-            <entry file="file://$PROJECT_DIR$/packages/spreadsheet/server.js">
+          <file leaf-file-name="server.js" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages/sixteensmiles/server.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.31914893" vertical-offset="105" max-vertical-offset="6510">
-                  <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
+                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+                  <caret line="3" column="8" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="startup.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/app/startup.js">
+          <file leaf-file-name="packages.json" pinned="false" current-in-tab="false">
+            <entry file="file://$PROJECT_DIR$/packages.json">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="111" max-vertical-offset="1050">
-                  <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-                  <folding>
-                    <marker date="1418463340000" expanded="true" signature="24:105" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="450:454" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="479:645" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="482:643" placeholder="//..." />
-                    <marker date="1418463340000" expanded="true" signature="673:928" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="675:856" placeholder="//..." />
-                    <marker date="1418463340000" expanded="true" signature="899:926" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="953:1255" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="1002:1028" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="1069:1109" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="1149:1175" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="1222:1253" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="1280:1446" placeholder="{...}" />
-                    <marker date="1418463340000" expanded="true" signature="1283:1444" placeholder="//..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="routeClient.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/route/routeClient.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1575">
-                  <caret line="1" column="21" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="21" />
-                  <folding>
-                    <marker date="1422176451000" expanded="true" signature="30:55" placeholder="{...}" />
-                    <marker date="1422176451000" expanded="true" signature="94:209" placeholder="{...}" />
-                    <marker date="1422176451000" expanded="true" signature="146:174" placeholder="{...}" />
-                    <marker date="1422176451000" expanded="true" signature="180:207" placeholder="{...}" />
-                    <marker date="1422176451000" expanded="true" signature="230:280" placeholder="{&quot;template&quot;: 'home'...}" />
-                    <marker date="1422176451000" expanded="true" signature="283:517" placeholder="//..." />
-                    <marker date="1422176451000" expanded="true" signature="524:1294" placeholder="//..." />
-                    <marker date="1422176451000" expanded="true" signature="1296:2230" placeholder="//..." />
-                    <marker date="1422176451000" expanded="true" signature="2237:2321" placeholder="//..." />
-                  </folding>
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="weeks.html" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/menu/weeks.html">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-4.375" vertical-offset="45" max-vertical-offset="660">
-                  <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
+                <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="135">
+                  <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="gdriveClient.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/gdrive/gdriveClient.js">
+          <file leaf-file-name="app.less" pinned="false" current-in-tab="true">
+            <entry file="file://$PROJECT_DIR$/shared/touchstonejs/css/app.less">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="1317" max-vertical-offset="2325">
-                  <caret line="95" column="30" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
-                  <folding />
-                </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="gamePopUp.js" pinned="false" current-in-tab="false">
-            <entry file="file://$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.js">
-              <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="255" max-vertical-offset="1485">
-                  <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+                <state vertical-scroll-proportion="0.33665836" vertical-offset="0" max-vertical-offset="401">
+                  <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
                   <folding />
                 </state>
               </provider>
@@ -122,14 +225,9 @@
           <file leaf-file-name="gamePopUp.html" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.html">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="-53.125" vertical-offset="0" max-vertical-offset="1440">
+                <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="1455">
                   <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
-                  <folding>
-                    <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#1;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#4;n#!!top" expanded="true" />
-                    <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#4;n#!!top" expanded="true" />
-                  </folding>
+                  <folding />
                 </state>
               </provider>
             </entry>
@@ -137,18 +235,18 @@
           <file leaf-file-name="weeks.js" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/client/menu/weeks.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="362" max-vertical-offset="1770">
+                <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1860">
                   <caret line="35" column="58" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="58" />
                   <folding />
                 </state>
               </provider>
             </entry>
           </file>
-          <file leaf-file-name="common_gdrive.js" pinned="false" current-in-tab="false">
+          <file leaf-file-name="common_gdrive.js" pinned="false" current-in-tab="true">
             <entry file="file://$PROJECT_DIR$/lib/common_gdrive.js">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-                  <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+                <state vertical-scroll-proportion="0.1764706" vertical-offset="0" max-vertical-offset="825">
+                  <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
                   <folding />
                 </state>
               </provider>
@@ -169,17 +267,10 @@
           <file leaf-file-name=".gitignore" pinned="false" current-in-tab="false">
             <entry file="file://$PROJECT_DIR$/.gitignore">
               <provider selected="true" editor-type-id="text-editor">
-                <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="120">
+                <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
                   <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
                   <folding />
                 </state>
-              </provider>
-            </entry>
-          </file>
-          <file leaf-file-name="Local (1)" pinned="false" current-in-tab="true">
-            <entry file="mock:///Local (1)">
-              <provider selected="true" editor-type-id="terminal-session-editor">
-                <state />
               </provider>
             </entry>
           </file>
@@ -194,6 +285,11 @@
     <option name="CHANGED_PATHS">
       <list>
         <option value="$PROJECT_DIR$/client/gdrive/gdriveClient.js" />
+        <option value="$PROJECT_DIR$/shared/src/js/views/details.jsx" />
+        <option value="$PROJECT_DIR$/shared/touchstonejs/index.html" />
+        <option value="$PROJECT_DIR$/node_modules/touchstonejs/site/public/index.html" />
+        <option value="$PROJECT_DIR$/packages.json" />
+        <option value="$PROJECT_DIR$/shared/touchstonejs/css/app.less" />
       </list>
     </option>
   </component>
@@ -229,7 +325,6 @@
       <sortByType />
     </navigator>
     <panes>
-      <pane id="Scope" />
       <pane id="ProjectPane">
         <subPane>
           <PATH>
@@ -258,7 +353,11 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="packages" />
+              <option name="myItemId" value="shared" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="touchstonejs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
@@ -272,62 +371,21 @@
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whogothappy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whogothappy" />
+              <option name="myItemId" value="shared" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="lib" />
+              <option name="myItemId" value="touchstonejs" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
             <PATH_ELEMENT>
-              <option name="myItemId" value="server" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whogothappy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whogothappy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-          </PATH>
-          <PATH>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whogothappy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="whogothappy" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="client" />
-              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
-            </PATH_ELEMENT>
-            <PATH_ELEMENT>
-              <option name="myItemId" value="gdrive" />
+              <option name="myItemId" value="css" />
               <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
             </PATH_ELEMENT>
           </PATH>
         </subPane>
       </pane>
+      <pane id="Scope" />
     </panes>
   </component>
   <component name="PropertiesComponent">
@@ -337,10 +395,17 @@
     <property name="js.meteor.project" value="true" />
     <property name="js.meteor.library.was.enabled" value="true" />
     <property name="recentsLimit" value="5" />
-    <property name="restartRequiresConfirmation" value="true" />
+    <property name="restartRequiresConfirmation" value="false" />
     <property name="FullScreen" value="false" />
     <property name="editorconfig.notification" value="Applied .editorconfig settings" />
     <property name="JavaScriptLanguageLevel" value="JSX" />
+    <property name="LayoutCode.rearrangeEntriesJSX Harmony" value="false" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="$PROJECT_DIR$/node_modules" />
+      <recent name="$PROJECT_DIR$/shared" />
+    </key>
   </component>
   <component name="RunManager" selected="Meteor.h">
     <configuration default="false" name="weeks.js" type="NodeJSConfigurationType" factoryName="Node.js" temporary="true" path-to-node="/usr/local/bin/node" path-to-js-file="weeks.js" working-dir="$PROJECT_DIR$/client/menu">
@@ -350,14 +415,10 @@
       <ConfigurationWrapper RunnerId="debuggableProgram" />
       <method />
     </configuration>
-    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
-      <method />
-    </configuration>
     <configuration default="true" type="DartUnitRunConfigurationType" factoryName="DartUnit">
       <method />
     </configuration>
-    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
-      <envs />
+    <configuration default="true" type="DartCommandLineRunConfigurationType" factoryName="Dart Command Line Application">
       <method />
     </configuration>
     <configuration default="true" type="JSTestDriver:ConfigurationType" factoryName="JsTestDriver">
@@ -365,6 +426,10 @@
       <setting name="settingsFile" value="" />
       <setting name="serverType" value="INTERNAL" />
       <setting name="preferredDebugBrowser" value="Chrome" />
+      <method />
+    </configuration>
+    <configuration default="true" type="JavaScriptTestRunnerKarma" factoryName="Karma" config-file="">
+      <envs />
       <method />
     </configuration>
     <configuration default="true" type="meteor-app-runner" factoryName="Meteor">
@@ -465,14 +530,14 @@
     <frame x="-268" y="-1057" width="1920" height="1057" extended-state="6" />
     <editor active="false" />
     <layout>
-      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838982" sideWeight="0.4997367" order="7" side_tool="false" content_ui="tabs" />
-      <window_info id="Terminal" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12394068" sideWeight="0.5002633" order="0" side_tool="true" content_ui="tabs" x="-264" y="-661" width="1899" height="303" />
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32769555" sideWeight="0.4997367" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Terminal" active="false" anchor="top" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.12367865" sideWeight="0.5002633" order="0" side_tool="true" content_ui="tabs" x="-264" y="-661" width="1899" height="303" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32988626" sideWeight="0.4997367" order="6" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3983051" sideWeight="0.5002633" order="1" side_tool="true" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.397463" sideWeight="0.35966298" order="1" side_tool="true" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Application Servers" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="10" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.15218537" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
-      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.3983051" sideWeight="0.4997367" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Debug" active="true" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.397463" sideWeight="0.640337" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.3983051" sideWeight="0.5002633" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="true" content_ui="tabs" />
       <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32838982" sideWeight="0.5002633" order="8" side_tool="true" content_ui="tabs" />
@@ -481,8 +546,8 @@
       <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
-      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
       <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
     </layout>
   </component>
   <component name="Vcs.Log.UiProperties">
@@ -510,16 +575,54 @@
           <option name="timeStamp" value="2" />
         </line-breakpoint>
       </breakpoints>
-      <option name="time" value="3" />
+      <option name="time" value="4" />
     </breakpoint-manager>
-    <watches-manager />
+    <watches-manager>
+      <configuration name="meteor-app-runner">
+        <watch expression="app.lang.table.week" />
+        <watch expression="schedule" language="JavaScript" />
+      </configuration>
+    </watches-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/client/menu/weeks.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="525" max-vertical-offset="1860">
+          <caret line="35" column="58" selection-start-line="35" selection-start-column="54" selection-end-line="35" selection-end-column="58" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/common_gdrive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/server/SpreadSheet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="4035">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding>
+            <element signature="n#!!doc" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/.gitignore">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="30" max-vertical-offset="120">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/client/morpher/morpher.js">
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="375">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
@@ -535,22 +638,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="429" max-vertical-offset="1050">
           <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-          <folding>
-            <marker date="1418463340000" expanded="true" signature="24:105" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="450:454" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="479:645" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="482:643" placeholder="//..." />
-            <marker date="1418463340000" expanded="true" signature="673:928" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="675:856" placeholder="//..." />
-            <marker date="1418463340000" expanded="true" signature="899:926" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="953:1255" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1002:1028" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1069:1109" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1149:1175" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1222:1253" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1280:1446" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1283:1444" placeholder="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -558,17 +646,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="15" max-vertical-offset="1575">
           <caret line="1" column="21" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="21" />
-          <folding>
-            <marker date="1422176451000" expanded="true" signature="30:55" placeholder="{...}" />
-            <marker date="1422176451000" expanded="true" signature="94:209" placeholder="{...}" />
-            <marker date="1422176451000" expanded="true" signature="146:174" placeholder="{...}" />
-            <marker date="1422176451000" expanded="true" signature="180:207" placeholder="{...}" />
-            <marker date="1422176451000" expanded="true" signature="230:280" placeholder="{&quot;template&quot;: 'home'...}" />
-            <marker date="1422176451000" expanded="true" signature="283:517" placeholder="//..." />
-            <marker date="1422176451000" expanded="true" signature="524:1294" placeholder="//..." />
-            <marker date="1422176451000" expanded="true" signature="1296:2230" placeholder="//..." />
-            <marker date="1422176451000" expanded="true" signature="2237:2321" placeholder="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -576,12 +654,7 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="855" max-vertical-offset="1440">
           <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#4;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -619,40 +692,15 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1575">
           <caret line="1" column="21" selection-start-line="1" selection-start-column="17" selection-end-line="1" selection-end-column="21" />
-          <folding>
-            <marker date="1422176451000" expanded="true" signature="30:55" placeholder="{...}" />
-            <marker date="1422176451000" expanded="true" signature="94:209" placeholder="{...}" />
-            <marker date="1422176451000" expanded="true" signature="146:174" placeholder="{...}" />
-            <marker date="1422176451000" expanded="true" signature="180:207" placeholder="{...}" />
-            <marker date="1422176451000" expanded="true" signature="230:280" placeholder="{&quot;template&quot;: 'home'...}" />
-            <marker date="1422176451000" expanded="true" signature="283:517" placeholder="//..." />
-            <marker date="1422176451000" expanded="true" signature="524:1294" placeholder="//..." />
-            <marker date="1422176451000" expanded="true" signature="1296:2230" placeholder="//..." />
-            <marker date="1422176451000" expanded="true" signature="2237:2321" placeholder="//..." />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/app/startup.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="429" max-vertical-offset="1050">
-          <caret line="40" column="27" selection-start-line="40" selection-start-column="27" selection-end-line="40" selection-end-column="27" />
-          <folding>
-            <marker date="1418463340000" expanded="true" signature="24:105" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="450:454" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="479:645" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="482:643" placeholder="//..." />
-            <marker date="1418463340000" expanded="true" signature="673:928" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="675:856" placeholder="//..." />
-            <marker date="1418463340000" expanded="true" signature="899:926" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="953:1255" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1002:1028" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1069:1109" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1149:1175" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1222:1253" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1280:1446" placeholder="{...}" />
-            <marker date="1418463340000" expanded="true" signature="1283:1444" placeholder="//..." />
-          </folding>
+        <state vertical-scroll-proportion="0.0" vertical-offset="600" max-vertical-offset="1005">
+          <caret line="40" column="23" selection-start-line="40" selection-start-column="23" selection-end-line="40" selection-end-column="23" />
+          <folding />
         </state>
       </provider>
     </entry>
@@ -660,20 +708,14 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="621">
           <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
-          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/client/famous/gamePopUp/gamePopUp.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-53.125" vertical-offset="0" max-vertical-offset="1440">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1275" max-vertical-offset="1455">
           <caret line="85" column="35" selection-start-line="85" selection-start-column="35" selection-end-line="85" selection-end-column="35" />
-          <folding>
-            <element signature="n#style#0;n#div#0;n#div#1;n#form#0;n#div#0;n#div#0;n#template#0;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#0;n#div#0;n#template#1;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#0;n#div#1;n#div#0;n#template#4;n#!!top" expanded="true" />
-            <element signature="n#style#0;n#div#1;n#div#1;n#div#0;n#template#4;n#!!top" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
@@ -703,32 +745,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/client/menu/weeks.html">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="-4.375" vertical-offset="45" max-vertical-offset="660">
+        <state vertical-scroll-proportion="0.0" vertical-offset="45" max-vertical-offset="660">
           <caret line="10" column="49" selection-start-line="10" selection-start-column="49" selection-end-line="10" selection-end-column="49" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/client/gdrive/gdriveClient.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="1317" max-vertical-offset="2325">
-          <caret line="95" column="30" selection-start-line="95" selection-start-column="30" selection-end-line="95" selection-end-column="30" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/packages/spreadsheet/server.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.31914893" vertical-offset="105" max-vertical-offset="6510">
-          <caret line="16" column="21" selection-start-line="16" selection-start-column="21" selection-end-line="16" selection-end-column="21" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/lib/common_gdrive.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="825">
-          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
           <folding />
         </state>
       </provider>
@@ -740,6 +758,201 @@
           <folding>
             <element signature="n#!!doc" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/lib/common_gdrive.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.1764706" vertical-offset="0" max-vertical-offset="825">
+          <caret line="5" column="8" selection-start-line="5" selection-start-column="8" selection-end-line="5" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/public/phonegap/facebook-js-sdk.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33333334" vertical-offset="77664" max-vertical-offset="219645">
+          <caret line="5187" column="0" selection-start-line="5187" selection-start-column="0" selection-end-line="5187" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/spreadsheet/.npm/package/node_modules/googleclientlogin/index.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-0.9574468" vertical-offset="1695" max-vertical-offset="5010">
+          <caret line="86" column="4" selection-start-line="86" selection-start-column="4" selection-end-line="86" selection-end-column="4" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/sixteensmiles/sixteensmiles-tests.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="423">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/sixteensmiles/Spreadsheet.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.39007092" vertical-offset="90" max-vertical-offset="5055">
+          <caret line="17" column="24" selection-start-line="17" selection-start-column="24" selection-end-line="17" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/famous/store.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="801">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/famous/famousClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.29962546" vertical-offset="0" max-vertical-offset="1650">
+          <caret line="16" column="39" selection-start-line="16" selection-start-column="39" selection-end-line="16" selection-end-column="39" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/famous/demo.html">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1470">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/sixteensmiles/package.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.14981273" vertical-offset="0" max-vertical-offset="915">
+          <caret line="8" column="21" selection-start-line="8" selection-start-column="21" selection-end-line="8" selection-end-column="21" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/sixteensmiles/versions.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="423">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/spreadsheet/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="9" max-vertical-offset="6510">
+          <caret line="10" column="0" selection-start-line="10" selection-start-column="0" selection-end-line="10" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/client/gdrive/gdriveClient.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="1380" max-vertical-offset="2295">
+          <caret line="61" column="24" selection-start-line="61" selection-start-column="24" selection-end-line="61" selection-end-column="24" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/css/demo.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2340">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/data/people.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/data/months.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="425">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/js/app.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-2.6" vertical-offset="1105" max-vertical-offset="1725">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/js/views/transitions.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.3529412" vertical-offset="90" max-vertical-offset="810">
+          <caret line="16" column="20" selection-start-line="16" selection-start-column="20" selection-end-line="16" selection-end-column="20" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/js/views/details.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.1647059" vertical-offset="675" max-vertical-offset="1500">
+          <caret line="12" column="0" selection-start-line="12" selection-start-column="0" selection-end-line="12" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/index.htmlssss">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.4114713" vertical-offset="0" max-vertical-offset="600">
+          <caret line="11" column="41" selection-start-line="11" selection-start-column="41" selection-end-line="11" selection-end-column="41" />
+          <folding>
+            <marker date="1422258599000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1422258599000" expanded="true" signature="-1:-1" placeholder="..." />
+            <marker date="1422258599000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/js/views/home.jsx">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1875">
+          <caret line="0" column="0" selection-start-line="0" selection-start-column="0" selection-end-line="0" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/fonts/ionicons.svg">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.03529412" vertical-offset="0" max-vertical-offset="28575">
+          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages/sixteensmiles/server.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="135">
+          <caret line="3" column="8" selection-start-line="3" selection-start-column="0" selection-end-line="3" selection-end-column="8" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/packages.json">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="-1.25" vertical-offset="0" max-vertical-offset="135">
+          <caret line="2" column="0" selection-start-line="2" selection-start-column="0" selection-end-line="2" selection-end-column="0" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/shared/touchstonejs/css/app.less">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.33665836" vertical-offset="0" max-vertical-offset="401">
+          <caret line="9" column="20" selection-start-line="9" selection-start-column="20" selection-end-line="9" selection-end-column="20" />
+          <folding />
         </state>
       </provider>
     </entry>

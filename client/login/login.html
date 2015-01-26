@@ -1,5 +1,5 @@
 <template name="login">
-    <div class=" container page textCenter " id="loginContent"> 
+    <div class=" container page textCenter " id="loginContent">
         <form onsubmit="">
             <div class="loginPage message row">
                 <div class="errorMessage large-12 columns">
@@ -8,38 +8,39 @@
                         <p>You can only sign up for an account once with a given e-mail address.</p>
                     </div>
                 </div>
-                <div class="ui input listItem " >                    
+                <div class="ui input listItem ">
                     <div class="large-6 medium-6 columns">
-                        <input id="loginUsername" type="text" placeholder="username">                   
-                    </div>                    
-                </div>
-                <div class="ui input listItem ">                   
-                    <div class="large-6 medium-6 columns">
-                        <input id="loginPassword" type="password" placeholder="password" > 
+                        <input id="loginUsername" type="text" placeholder="username">
                     </div>
                 </div>
-            </div>  
-            <div class="huge forgot textCenter large-12 medium-12 columns" style="">            
-                <a class="item " href="#forgot">Forgot Password?</a>           
-            </div>   
-            <div class=" textCenter large-6 medium-6 columns" style="">    
-                <div id="loginButton" class="button ui " style="background:cyan; ">            
+                <div class="ui input listItem ">
+                    <div class="large-6 medium-6 columns">
+                        <input id="loginPassword" type="password" placeholder="password">
+                    </div>
+                </div>
+            </div>
+            <div class="huge forgot textCenter large-12 medium-12 columns" style="">
+                <a class="item " href="#forgot">Forgot Password?</a>
+            </div>
+            <div class=" textCenter large-6 medium-6 columns" style="">
+                <div id="loginButton" class="button ui " style="background:cyan; ">
                     Login
                 </div>
             </div>
-        </form >
+        </form>
         <a class="item" href="#register">
-            <div id="haveAnAcc"  class="button ui  ">            
-                sign up         
+            <div id="haveAnAcc" class="button ui  ">
+                sign up
             </div>
-        </a>  
+        </a>
+
         <div id="loginScreenFacebook" class="large-6 columns ">
-             {{#if user}}
+            {{#if user}}
                 <a class="button expand">hi {{myusername}}</a>
             {{else}}
                 <a class="button expand">Login with Facebook</a>
-             {{/if}}
-            
+            {{/if}}
+
         </div>
     </div>
 </template>
