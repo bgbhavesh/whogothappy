@@ -26,6 +26,16 @@ Template.menuListPanel.helpers({
         }
         return list;
     },
+    maxScore : function(){
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe){
+            var maxScore = cursorMe.profile.maxScore;
+            if(maxScore)
+                return maxScore;
+            else
+                return 0;
+        }
+    },
     myusername : function(){
         var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
         if(cursorMe){
