@@ -12,6 +12,8 @@ app.onResize = function(){
 	$("#dynamicCss").append(css);
 	css = ".card{height:" +width +"px;width:}";
 	$("#dynamicCss").append(css);
+	$("#famousSquare").width()
+	$("#famousSquare").css("height",$("#famousSquare").width())
 };
 
 $(window).resize(app.onResize);
