@@ -44,7 +44,7 @@ ul.off-canvas-list li a:hover{
 .overlay{
         position: absolute;
         width: 104%;
-        height: 94%;
+        height: 105%;
         z-index: 21;
         top:3%;
         left: -2%;

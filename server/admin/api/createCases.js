@@ -94,7 +94,7 @@ function createCases(){
 
 function famousContent(flip){
 	// if(!app.newcase)
-	app.newcase = app.randomNumber(1,8);;
+	app.newcase = app.randomNumber(1,9);;
 	// Meteor.call("getCase",app.newcase,function(err,data){
 	// 	// app.newcase = data;
 		// console.log(app.newcase)

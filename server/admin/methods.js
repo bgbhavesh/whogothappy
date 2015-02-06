@@ -78,13 +78,17 @@ Meteor.methods({
 		if(Meteor.userId()){
 			// var cursor = Streak.findOne({"user":Meteor.userId(),"day": day});
 			// if(cursor){
-				for (var i = 0; i < 5; i++) {
-					Streak.update({"user":Meteor.userId(),"day": i},{$set:{"first":false,"endgame1":false,"second":false,"endgame2":false}});
+				console.log("sdkjkjs")
+				for (var i = 0; i < 7; i++) {
+					console.log("i="+i)
+					var ids = Streak.update({"user":Meteor.userId(),"day": i},{$set:{"first":false,"endgame1":false,"second":false,"endgame2":false}});
+					console.log(ids)
 				};
 				
 			// }
 		}
-		return id;
+		var cursor = Streak.findOne({"user":Meteor.userId()});
+		return cursor;
 	},
 	"getCase" : function(oldcase){
 		// var newcase = app.randomNumber(1,8)

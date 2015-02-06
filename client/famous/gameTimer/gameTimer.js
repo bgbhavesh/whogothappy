@@ -9,6 +9,7 @@ app.startGame = function(){
 	// console.log("game Started");
 	gamestart = true;
 	app.getGameTimer()
+	app.onResize();
 }
 var gamestart;
 var hours =0;
@@ -108,7 +109,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(seconds >= 20){
+	  	if(mins >= 20){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -251,17 +252,27 @@ app.resetStreak = function(){
 					
 			// 	});
 			// }
+
 			var curprofile = cursorMe.profile
-			if(curprofile.dayofweek || curprofile.dayofweek == 0){
-				if(cursorMe.profile.dayofweek != currentDate){
-					Meteor.call("resetStreak",currentDate,function(err,data){
+			// if(curprofile.dayofweek || curprofile.dayofweek == 0){
+			// 	if(cursorMe.profile.dayofweek != currentDate){
+			// 		Meteor.call("resetStreak",currentDate,function(err,data){
+			// 			// console.log(err);
+			// 			// console.log(data);
+			// 			if(data)
+			// 				setTimeout(app.arrangeDays, 1000);
+			// 		});
+			// 	}
+			// }
+			var differenceTime = new Date().getTime() - new Date(curprofile.lastPlayed).getTime();
+			if(differenceTime >  86479000){//604000000
+				Meteor.call("resetStreak",currentDate,function(err,data){
 						// console.log(err);
-						// console.log(data);
+						console.log(data);
 						if(data)
 							setTimeout(app.arrangeDays, 1000);
 					});
-				}
-			}
+			}		
 		}
 	}
 }
