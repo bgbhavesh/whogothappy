@@ -78,11 +78,11 @@ Meteor.methods({
 		if(Meteor.userId()){
 			// var cursor = Streak.findOne({"user":Meteor.userId(),"day": day});
 			// if(cursor){
-				console.log("sdkjkjs")
+				// console.log("sdkjkjs")
 				for (var i = 0; i < 7; i++) {
-					console.log("i="+i)
+					// console.log("i="+i)
 					var ids = Streak.update({"user":Meteor.userId(),"day": i},{$set:{"first":false,"endgame1":false,"second":false,"endgame2":false}});
-					console.log(ids)
+					// console.log(ids)
 				};
 				
 			// }

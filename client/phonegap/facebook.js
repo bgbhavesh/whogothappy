@@ -1,21 +1,52 @@
 
 app.phonegap = Meteor.isCordova;
+// app.fbNativeLogin = function() {
+//         FB.login( function(response) { 
+//         if (response.authResponse) {
+//             //alert('logged in now');
+//             // console.log('login response:' + response.authResponse);
+//             app.me(response);
+//         } else {
+//             //alert('not logged in on login');
+//             // console.log('login response:' + response.error);
+//             app.facebookCallback(true);
+//         }
+//     },
+//     {scope: "email"}
+//     );
+// }
 app.fbNativeLogin = function() {
+    if(Meteor.isCordova){
+        facebookConnectPlugin.login( ["public_profile"], 
+            function (response) { 
+                // alert("first");
+                // alert(JSON.stringify(response));
+                app.meupdate(response); 
+            },
+            function (response) { 
+                // alert("second");
+                // alert(JSON.stringify(response)) ;
+                app.meupdate(response); 
+            });
+    }
+    else{
         FB.login( function(response) { 
-        if (response.authResponse) {
-            //alert('logged in now');
-            // console.log('login response:' + response.authResponse);
-            app.me(response);
-        } else {
-            //alert('not logged in on login');
-            // console.log('login response:' + response.error);
-            app.facebookCallback(true);
-        }
-    },
-    {scope: "email"}
-    );
-}
+            if (response.authResponse) {
+                //alert('logged in now');
+                // console.log('login response:' + response.authResponse);
+                app.me(response);
+            } else {
+                //alert('not logged in on login');
+                // console.log('login response:' + response.error);
+                app.facebookCallback(true);
+            }
+        },
+        {scope: "email"}
+        ); 
+            
+    }
 
+}
 
 function me(response) {
     FB.api('/me?fields=id,picture,name', function(user) {
