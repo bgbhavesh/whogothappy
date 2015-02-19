@@ -1,5 +1,6 @@
 // document.addEventListener('deviceready', function(){
 if(Meteor.isCordova)
+app.phonegap = app.cordova = true;
 Meteor.startup(function(){
 	// console.log("deviceready");
 	app.phonegap = app.cordova = true;

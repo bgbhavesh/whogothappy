@@ -131,11 +131,11 @@ app.getFacebookAppId = function(){
     }
     else{
         app.fbInit = function(){
-            FB.init({ 
-                appId: "906351116043661", 
-                nativeInterface: CDV.FB, 
-                useCachedDialogs: false 
-            });
+            // FB.init({ 
+            //     appId: "906351116043661", 
+            //     nativeInterface: CDV.FB, 
+            //     useCachedDialogs: false 
+            // });
         }
         $("head").append('<script type="text/javascript" src="/phonegap/facebook-ios-sdk.js"/>');
     }    

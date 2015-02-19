@@ -109,7 +109,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(mins >= 20){
+	  	if(seconds >= 20){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -151,10 +151,11 @@ function endGame(EndedTime){
 	if(cursorMe){
 		data._id = cursorMe._id;
 		data.username = cursorMe.username;
-		if(cursorMe.emails)
-			data.emailid = cursorMe.emails[0].address;
-		else
-			data.emailid = cursorMe.email;
+		// if(cursorMe.emails)
+		// 	data.emailid = cursorMe.emails[0].address;
+		// else
+		data.emailid = cursorMe.profile.email;
+		console.log(cursorMe.profile.email)
 		var wrongcount=0
 		for (var i = 0; i < app.score.method.length; i++) {
 			if(app.score.method[i].result == 0)

@@ -5,8 +5,8 @@ function emailDailyGen(emails,data){
      // Fiber(function () {
           //Accounts.oauth._middleware(req, res, next);
             console.log("emailDailyGen");
-            console.log(emails);
-            var html = Handlebars.templates['email']({ "email": emails ,"username" : data.username, "gameEnd": data.gameEnd, "clicked" : data.clicked, "score" : data.score, "wrong": data.wrong, "corrected": data.corrected})
+            // console.log(newusername);
+            var html = Handlebars.templates['email']({ "email": emails ,"username" : getUsername(emails), "gameEnd": data.gameEnd, "clicked" : data.clicked, "score" : data.score, "wrong": data.wrong, "corrected": data.corrected})
     //         var html = 
     //         '<html>'
     //         +'<head>'
@@ -174,6 +174,14 @@ function emailInvitGen(emails,username,id){
             console.log(emails);
             var html = Handlebars.templates['emailInvite']({"email": emails ,"username" : username,"id": id })   
             Meteor.call("sendEmail",html,emails);
+}
+function getUsername(emails){
+    var res = emails.split("@");
+    if(res[0])
+        return res[0];
+    else
+        return emails;
+
 }
 Meteor.methods({
     "sendEmail" : function(html,email){

@@ -38,6 +38,8 @@ Meteor.startup(function(){
 	},100);
 })
 
+
+
 var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 	// return;
 	// console.log(row_data);
@@ -116,7 +118,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 		// Meteor.bindEnvironment(function(){
 		var language = app.language.en;
 			// Meteor.bindEnvironment(function(){
-			// 	console.log(language._id); 
+				// console.log(language); 
 		app.insertLanguage(language);
 			// })();
 			// Meteor.setTimeout(function(){ 

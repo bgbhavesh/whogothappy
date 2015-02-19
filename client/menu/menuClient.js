@@ -164,7 +164,24 @@ Template.menuListPanel.helpers({
         var secondAlarm = $("#secondAlarm").val();        
         app.set("secondAlarm",secondAlarm);
         app.setAlarm(secondAlarm,"second");
-    }
+    },
+    "click .addEmailUser" : function(event){
+        console.log(event)
+        var currentTarget = $(event.currentTarget);
+        var currentchildren = currentTarget.next()
+        var emailText = $(currentchildren[1]).text()
+        // if(!emailText){
+            $(currentTarget).parent().append('<input type="text" id="addEmailAddress" class="large-9 small-9 medium-9 columns textRight" style="width: 70%;">');
+        // }
+    },
+    "blur #addEmailAddress" : function(event){
+        console.log("emailText")
+        var currentTarget = $(event.currentTarget);
+        var emailText = $(currentTarget).val()
+        Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.email": emailText}});
+        $("#addEmailAddress").remove();
+        
+    },
     // ,
     // "click #setAlarm" : function(){
     //     // var firstAlarm = $("#firstAlarm").val();
