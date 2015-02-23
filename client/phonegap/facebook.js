@@ -17,7 +17,7 @@ app.phonegap = Meteor.isCordova;
 // }
 app.fbNativeLogin = function() {
     if(Meteor.isCordova){
-        facebookConnectPlugin.login( ["public_profile"], 
+        facebookConnectPlugin.login( ["public_profile", "email", "user_friends"], 
             function (response) { 
                 // alert("first");
                 // alert(JSON.stringify(response));

@@ -213,6 +213,11 @@ app.facebookSDKWrapper = function(response){
 }
 
 app.createFacebookUser = function(user,authResponse){ 
+	if(typeof user == "string"){
+		console.error(user)
+		return;
+	}
+	
 	var starttime = new Date().getTime();
     log("app.createFacebookUser started",null,arguments,1);
 	var profilePictureUrl = null;
