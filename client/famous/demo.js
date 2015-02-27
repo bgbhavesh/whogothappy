@@ -643,12 +643,19 @@ app.animateFamousRandom = function(){
 	app.resetDots();
 	// app.animateFamouseFirst();
 	// return;
-	var  rotate = countclick % 6
-	if(rotate == 0)
-	{
+	// var  rotate = countclick % 6
+	// if(rotate == 0)
+	// {
+	// 	app.animateFamouseRotate();
+	// 	return
+	// }
+	var rotateNumber = app.randomNumber(1,4)
+	if(rotateNumber == 2){
 		app.animateFamouseRotate();
+
 		return
 	}
+	app.checkAutoRotate();
 	switch(app.randomNumber(1,4)){
 		case 1 : 
 			app.animateFamouseFirst();
@@ -662,6 +669,12 @@ app.animateFamousRandom = function(){
 		case 4 : 
 			app.animateFamouseFourth();
 		break;
+	}
+}
+app.checkAutoRotate =function(){
+	if(Session.get("rotate")) {
+		$(".card").removeClass("rotate180");
+		Session.set("rotate",false)
 	}
 }
 app.animateFamouseRotate = function(){
