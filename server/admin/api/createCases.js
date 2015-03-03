@@ -141,7 +141,7 @@ function famousContent(flip){
 	// return app.setAllMaleOrFemale(flip)
 }
 var genderArray = ["female","male","female"];
-var groupArray = ["asian","asian","black"];
+var groupArray = ["asian","asian","black","dutch"];
 var personArray = [0,1,2,3,4,5,6];
 function setAllMaleOrFemale(flip,gender,group,person,grouptype){
 	// console.log("sdvkjsdnkj")
@@ -155,16 +155,16 @@ function setAllMaleOrFemale(flip,gender,group,person,grouptype){
 
 	if(grouptype=="same"){
 		// console.log(grouptype)
-		tempGroup = group || groupArray[app.randomNumber(0,2)];
+		tempGroup = group || groupArray[app.randomNumber(0,3)];
 	}
 	for(var i=0,il=16;i<il;i++){ 
 		tempGender = gender || genderArray[app.randomNumber(0,2)];
 		if(grouptype){
 			if(grouptype!="same"){
-				tempGroup = group || groupArray[app.randomNumber(0,2)];
+				tempGroup = group || groupArray[app.randomNumber(0,3)];
 			}
 		}else{
-			tempGroup = group || groupArray[app.randomNumber(0,2)];
+			tempGroup = group || groupArray[app.randomNumber(0,3)];
 		}
 		tempPerson = person || personArray[app.randomNumber(1,6)];
 		if(!content[i])

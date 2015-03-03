@@ -448,6 +448,9 @@ var contentEvent = {
 		// console.log("123123132")
 	},
 	"click #clickEvent img" : function(event){
+		if(app.clickStart == false)
+			return;
+		app.clickStart = false;
 		app.caseCount++;
 		var element = event.currentTarget;
 		var $img = $(event.target);
@@ -468,25 +471,24 @@ var contentEvent = {
         app.AccuracyPoints = Math.floor( (x + y) / 10 );
         // console.log('Accuracy at x: ' + AccuracyPoints);
         // app.displayProgress(1,app.AccuracyPoints)
-		if(app.clickStart == false)
-			return;
-		app.clickStart = false;
 		smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
 		var str = $(event.currentTarget).attr("src");
 		var res = str.match("joy");
-		var mainDiv = $("#clickEvent");
+		// var mainDiv = $("#clickEvent");
 		var joySrc = "";
 		// console.log(mainDiv)
-		var imgs = mainDiv.children();
-		var imgState = mainDiv.children()[0].className.toString()//
+		// var imgs = mainDiv.children();
+		// var imgState = mainDiv.children()[0].className.toString()//
 		// console.log(imgState)
-		var flag  = imgState.match("flipped");
+		// var flag  = imgState.match("flipped");
+		// console.log(Session.get("flip"))
 		if(Session.get("flip")){
 			var imgsUrl = $("#clickEvent div figure.back img");
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
+					// console.log("if"+joySrc)
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
@@ -499,6 +501,7 @@ var contentEvent = {
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
+					// console.log("else"+joySrc)
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
@@ -553,14 +556,18 @@ var contentEvent = {
 		setTimeout(function(){
 			app.clickStart = true;
 			app.animateFamousRandom();
-			if(Session.get("flip"))
-				Session.set("flip","");
-			else
-				Session.set("flip","flipped");
+			app.chageFlipSession();
+			//
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
 		app.displayProgress(1,app.AccuracyPoints,result)
 	}
+}
+app.chageFlipSession = function(){
+	 if(Session.get("flip"))
+		Session.set("flip","");
+	else
+		Session.set("flip","flipped");
 }
 var countclick = null;
 var calAccu = null;
@@ -594,6 +601,9 @@ app.displayProgress = function(count,Accuracy,result){
 	// 	if(app.AccuracyPoints )
 }
 app.changeFace = function(faceSrc,res){
+	console.log(faceSrc);
+	console.log(res);
+	console.log(Session.get("flip"))
 	if(Session.get("flip")){
 		var imgsUrl = $("#clickEvent div figure.back img");
 		for(var i=0,il=imgsUrl.length;i<il;i++){
@@ -649,11 +659,10 @@ app.animateFamousRandom = function(){
 	// 	app.animateFamouseRotate();
 	// 	return
 	// }
-	var rotateNumber = app.randomNumber(1,4)
+	var rotateNumber = app.randomNumber(1,2)
 	if(rotateNumber == 2){
 		app.animateFamouseRotate();
-
-		return
+		return;
 	}
 	app.checkAutoRotate();
 	switch(app.randomNumber(1,4)){
