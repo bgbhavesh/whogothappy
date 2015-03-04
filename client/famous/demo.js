@@ -482,13 +482,15 @@ var contentEvent = {
 		// console.log(imgState)
 		// var flag  = imgState.match("flipped");
 		// console.log(Session.get("flip"))
-		if(Session.get("flip")){
+		var rotateFlag = Session.get("rotate");
+		if(Session.get("flip") && !rotateFlag){
 			var imgsUrl = $("#clickEvent div figure.back img");
+			console.log(imgsUrl)
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
-					// console.log("if"+joySrc)
+					console.log("if"+joySrc)
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
@@ -497,11 +499,12 @@ var contentEvent = {
 			}
 		}else{
 			var imgsUrl = $("#clickEvent div figure.front img");
+			console.log(imgsUrl)
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
-					// console.log("else"+joySrc)
+					console.log("else"+joySrc)
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
@@ -601,9 +604,9 @@ app.displayProgress = function(count,Accuracy,result){
 	// 	if(app.AccuracyPoints )
 }
 app.changeFace = function(faceSrc,res){
-	console.log(faceSrc);
-	console.log(res);
-	console.log(Session.get("flip"))
+	// console.log(faceSrc);
+	// console.log(res);
+	// console.log(Session.get("flip"))
 	if(Session.get("flip")){
 		var imgsUrl = $("#clickEvent div figure.back img");
 		for(var i=0,il=imgsUrl.length;i<il;i++){
