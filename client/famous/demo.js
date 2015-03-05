@@ -662,7 +662,7 @@ app.animateFamousRandom = function(){
 	// 	app.animateFamouseRotate();
 	// 	return
 	// }
-	var rotateNumber = app.randomNumber(1,2)
+	var rotateNumber = app.randomNumber(1,5)
 	if(rotateNumber == 2){
 		app.animateFamouseRotate();
 		return;
