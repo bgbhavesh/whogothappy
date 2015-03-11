@@ -269,7 +269,7 @@ app.resetStreak = function(){
 			if(differenceTime >  86479000){//604000000
 				Meteor.call("resetStreak",currentDate,function(err,data){
 						// console.log(err);
-						console.log(data);
+						// console.log(data);
 						if(data)
 							setTimeout(app.arrangeDays, 1000);
 					});

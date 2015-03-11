@@ -485,12 +485,12 @@ var contentEvent = {
 		var rotateFlag = Session.get("rotate");
 		if(Session.get("flip") && !rotateFlag){
 			var imgsUrl = $("#clickEvent div figure.back img");
-			console.log(imgsUrl)
+			// console.log(imgsUrl)
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
-					console.log("if"+joySrc)
+					// console.log("if"+joySrc)
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
@@ -499,12 +499,12 @@ var contentEvent = {
 			}
 		}else{
 			var imgsUrl = $("#clickEvent div figure.front img");
-			console.log(imgsUrl)
+			// console.log(imgsUrl)
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
-					console.log("else"+joySrc)
+					// console.log("else"+joySrc)
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
 						app.changeFace(joySrc,res);
@@ -656,17 +656,17 @@ app.animateFamousRandom = function(){
 	app.resetDots();
 	// app.animateFamouseFirst();
 	// return;
-	// var  rotate = countclick % 6
-	// if(rotate == 0)
-	// {
-	// 	app.animateFamouseRotate();
-	// 	return
-	// }
-	var rotateNumber = app.randomNumber(1,5)
-	if(rotateNumber == 2){
+	var  rotate = countclick % 6
+	if(rotate == 0)
+	{
 		app.animateFamouseRotate();
-		return;
+		return
 	}
+	// var rotateNumber = app.randomNumber(1,5)
+	// if(rotateNumber == 2){
+	// 	app.animateFamouseRotate();
+	// 	return;
+	// }
 	app.checkAutoRotate();
 	switch(app.randomNumber(1,4)){
 		case 1 : 
