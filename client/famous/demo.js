@@ -551,6 +551,7 @@ var contentEvent = {
             "endtime": endtime,
             "totalTime": totalTime,
             "result": result,
+            "caseId": app.caseCount,
             "extra": ""
         });
 		$(".myScore").text(app.totalscore);
