@@ -41,22 +41,22 @@ function setImages(){
 	// 		if(g==0){
 	// 			for(var p=1,pcount=6;p<pcount;p++){
 	// 				for(var i=0,il=expressionImage.length;i<il;i++){
-	// 					var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/male/p"+p+"/non/" +expressionImage[i]  +".jpg";
+	// 					var image = "./images/faces1/"+folderName+"/male/p"+p+"/non/" +expressionImage[i]  +".jpg";
 	// 					assetManager.add(Random.id(), image);
 	// 				}
 	// 				for(var i=0,il=expressionImageJoy.length;i<il;i++){
-	// 					var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/male/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
+	// 					var image = "./images/faces1/"+folderName+"/male/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
 	// 					assetManager.add(Random.id(), image);
 	// 				}
 	// 			}
 	// 		}else if(g==1){
 	// 			for(var p=1,pcount=6;p<pcount;p++){
 	// 				for(var i=0,il=expressionImage.length;i<il;i++){
-	// 					var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/female/p"+p+"/non/" +expressionImage[i]  +".jpg";
+	// 					var image = "./images/faces1/"+folderName+"/female/p"+p+"/non/" +expressionImage[i]  +".jpg";
 	// 					assetManager.add(Random.id(), image);
 	// 				}
 	// 				for(var i=0,il=expressionImageJoy.length;i<il;i++){
-	// 					var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/female/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
+	// 					var image = "./images/faces1/"+folderName+"/female/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
 	// 					assetManager.add(Random.id(), image);
 	// 				}
 	// 			}
@@ -65,12 +65,12 @@ function setImages(){
 	// }
 
 	// for(var i=0,il=19;i<il;i++){
-	// 	var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/oldface/male/p1/non/" +expressionImage[i]  +".jpg";
+	// 	var image = "./images/faces1/oldface/male/p1/non/" +expressionImage[i]  +".jpg";
 	// 	assetManager.add(Random.id(), image);
 	// }
 	// for(var i=0,il=1;i<il;i++){
 	// 	// console.log(expressionImageJoy[i])
-	// 	var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/oldface/male/p1/joy/" +expressionImageJoy[i]  +".jpg";
+	// 	var image = "./images/faces1/oldface/male/p1/joy/" +expressionImageJoy[i]  +".jpg";
 	// 	assetManager.add(Random.id(), image);
 	// }
 	// assetManager.add(Random.id(),"./images/expression/smily.png")
@@ -171,17 +171,17 @@ function setAllMaleOrFemale(flip,gender,group,person,grouptype){
 			content[i] = {};
 		// if(flip){
 			if(joySecondRandom == i)
-			content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			content[i].second = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
 			else
-				content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				content[i].second = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		// }
 		// else{
 			// console.log(flip+"/"+gender+"/"+group+"/"+person+"/"+grouptype);
 	
 			if(joyFirstRandom == i)
-			content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>"; //.first
+			content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>"; //.first
 			else
-				content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>"; //.first
+				content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>"; //.first
 		// }
 		
 	}

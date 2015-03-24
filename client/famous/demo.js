@@ -141,7 +141,7 @@ assetManager.downloadAll(function(){
 // 	app.foldername = "black";
 // 	setImages(16,920,"jb","jnb","black");//joyno = 16, sadnumber = 1240, joyname=ja, sadname=jna,folderName=asian;
 // }
-setImages();
+// setImages();
 function setImages(){
 	calAccu = 0
 	for(var img=1,imgcount=20;img<=imgcount;img++){
@@ -165,22 +165,22 @@ function setImages(){
 			if(g==0){
 				for(var p=1,pcount=6;p<pcount;p++){
 					for(var i=0,il=expressionImage.length;i<il;i++){
-						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/male/p"+p+"/non/" +expressionImage[i]  +".jpg";
+						var image = "./images/faces1/"+folderName+"/male/p"+p+"/non/" +expressionImage[i]  +".jpg";
 						assetManager.add(Random.id(), image);
 					}
 					for(var i=0,il=expressionImageJoy.length;i<il;i++){
-						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/male/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
+						var image = "./images/faces1/"+folderName+"/male/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
 						assetManager.add(Random.id(), image);
 					}
 				}
 			}else if(g==1){
 				for(var p=1,pcount=6;p<pcount;p++){
 					for(var i=0,il=expressionImage.length;i<il;i++){
-						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/female/p"+p+"/non/" +expressionImage[i]  +".jpg";
+						var image = "./images/faces1/"+folderName+"/female/p"+p+"/non/" +expressionImage[i]  +".jpg";
 						assetManager.add(Random.id(), image);
 					}
 					for(var i=0,il=expressionImageJoy.length;i<il;i++){
-						var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/"+folderName+"/female/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
+						var image = "./images/faces1/"+folderName+"/female/p"+p+"/joy/" +expressionImageJoy[i]  +".jpg";
 						assetManager.add(Random.id(), image);
 					}
 				}
@@ -189,12 +189,12 @@ function setImages(){
 	}
 
 	for(var i=0,il=19;i<il;i++){
-		var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/oldface/male/p1/non/" +expressionImage[i]  +".jpg";
+		var image = "./images/faces1/oldface/male/p1/non/" +expressionImage[i]  +".jpg";
 		assetManager.add(Random.id(), image);
 	}
 	for(var i=0,il=1;i<il;i++){
 		// console.log(expressionImageJoy[i])
-		var image = "https://s3-us-west-2.amazonaws.com/youiest/faces1/oldface/male/p1/joy/" +expressionImageJoy[i]  +".jpg";
+		var image = "./images/faces1/oldface/male/p1/joy/" +expressionImageJoy[i]  +".jpg";
 		assetManager.add(Random.id(), image);
 	}
 	assetManager.add(Random.id(),"./images/expression/smily.png")
@@ -237,26 +237,26 @@ app.famousContent = function(flip){
 	// 	folderName = "asian";
 	// else
 	// 	folderName = "black";
-	// //https://s3-us-west-2.amazonaws.com/youiest/faces/black/male/p3/non/jn11.jpg
+	// //./images/faces/black/male/p3/non/jn11.jpg
 
 	// for(var i=0,il=16;i<il;i++){ 
 	// 	if(joyFirstRandom == i)
-	// 		oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+	// 		oldContent += "<img src='./images/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 	// 	else
-	// 			oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+	// 			oldContent += "<img src='./images/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 	// 	if(!content[i])
 	// 		content[i] = {};
 	// 	if(flip){
 	// 		if(joySecondRandom == i)
-	// 		content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+	// 		content[i].second = "<img src='./images/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
 	// 		else
-	// 			content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+	// 			content[i].second = "<img src='./images/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 	// 	}
 	// 	else{
 	// 		if(joyFirstRandom == i)
-	// 		content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+	// 		content[i].first = "<img src='./images/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
 	// 		else
-	// 			content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+	// 			content[i].first = "<img src='./images/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 	// 	}
 		
 	// }
@@ -335,22 +335,22 @@ app.setAllMaleOrFemale = function(flip,gender,group,person,grouptype){
 		tempPerson = person || personArray[app.randomNumber(1,6)];
 		// console.log(tempGender)
 		if(joyFirstRandom == i)
-			oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+			oldContent += "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 		else
-				oldContent += "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				oldContent += "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		if(!content[i])
 			content[i] = {};
 		if(flip){
 			if(joySecondRandom == i)
-			content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			content[i].second = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
 			else
-				content[i].second = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				content[i].second = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		}
 		else{
 			if(joyFirstRandom == i)
-			content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
 			else
-				content[i].first = "<img src='https://s3-us-west-2.amazonaws.com/youiest/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		}
 		
 	}
