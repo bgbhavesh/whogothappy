@@ -774,3 +774,4 @@ app.addFixedSizeImg = function(){
 	// $(".card").css("width",eachImg);
 	$(".card").css("height",eachImg);
 }
+app.dragObj = false;

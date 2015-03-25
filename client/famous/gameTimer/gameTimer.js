@@ -21,8 +21,36 @@ var timex;
 Template.content.events({
     'click #endGame': function () {
         app.endBeforeTime();
+    },
+    'click .sortable figure img':function(event,tpl){
+    	// console.log(this)
+    	var element = event.currentTarget;
+    	console.log(event.currentTarget.clientWidth)
+        // var position = $(element).position();
+        console.log(element);
+        // var activeid = $(element).parent().attr("myid");
+        // Session.set("activeFollows",activeid);
+        // element = $(element).children("img");
+        element = $(element).clone();
+        $('.selected').append(element)
+        $('.selected figure').css("width",event.currentTarget.clientWidth/2)
+        $('.selected figure').css("height",event.currentTarget.clientWidth/2)
+        $('.selected figure img').css("width",event.currentTarget.clientWidth/2)
+        $('.selected img').css("width",event.currentTarget.clientWidth/2)
+        $('.selected figure img').css("height",event.currentTarget.clientWidth/2)
+        $('.selected img').css("height",event.currentTarget.clientWidth/2)
     }
 });
+
+// Template.content.gestures({
+//     'dragRight .sortable figure': function (ev,tpl) {
+//         // app.endBeforeTime();
+//         var forPlace = tpl;
+//     	console.log(forPlace)   
+//     	console.log(ev.gesture.deltaY)     
+// 	}
+// });
+
 Template.GamerTimerimer.events({
     'click #endGame': function () {
     	app.endBeforeTime();
@@ -51,6 +79,7 @@ app.endBeforeTime = function(){
 }
 app.getGameTimer = function(){
 	app.totalscore = 0;
+	// $(".sortable").makeCardsDraggable();
 	var cursorMe = Meteor.user()
 	if(cursorMe)
 	{

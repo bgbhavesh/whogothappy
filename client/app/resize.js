@@ -22,7 +22,13 @@ app.onResize = function(){
 		// $("#famousSquare").height(fullwidth)
 		var width = $(window).height()/4
 		$("#clickEvent div figure img").height(width)
-		$("#clickEvent div figure img").width(width)
+		$("#clickEvent div figure img").height(width)
+		$(".selected  figure ").height(width/2)
+		$(".selected  figure ").width(width/2)
+		$(".selected  img").height(width/2)
+		$(".selected  figure img").height(width/2)
+		$(".selected  img").width(width/2)
+		$(".selected  figure img").width(width/2)
 		$("#clickEvent").css({"width":fullwidth,"height":fullwidth})
 		// var css = "";
 		// css = ".card figure img{height:" +width +"px;width:" +width +"px;}";
@@ -40,6 +46,12 @@ app.onResize = function(){
 		$("#clickEvent div figure img").height(width)
 		$("#clickEvent div figure img").width(width)
 		$("#clickEvent").css({"width":fullwidth,"height":fullwidth})
+		$(".selected  figure ").height(width/2)
+		$(".selected  figure ").width(width/2)
+		$(".selected  figure img").height(width/2)
+		$(".selected  img").height(width/2)
+		$(".selected  figure img").width(width/2)
+		$(".selected  img").width(width/2)
 	}
 	
 };

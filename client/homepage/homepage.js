@@ -7,7 +7,23 @@ Template.home.events({
 	// 	Session.set("placeId",this.place_id);
 	// 	Session.set("placeName",this.name);
 	// }
-    
+    'click .zoomed':function(e){
+        $( ".zoomed" ).css("display","none")
+    },
+    'click .selected img':function(e){
+        var width = $("#clickEvent").width();
+        var height = $("#clickEvent").height();
+        var size = (height<width)?height:width;
+        console.log(e.currentTarget)
+        $( ".zoomed" ).css("display","block")
+        $( ".zoomed" ).css("background","white")
+        $( ".zoomed" ).css("top",0)
+        $( ".zoomed" ).html(e.currentTarget)
+        $( ".zoomed img" ).css("width",size)
+        $( ".zoomed img" ).css("height",size)
+
+
+    },
     'mousedown': function (e){
         curDown = true; 
         curYPos = e.clientY; 
