@@ -217,9 +217,10 @@ Meteor.methods({
             console.log(error);
         }
     },
-    "genMail" : function(email,data){
+    "genMail" : function(email,data,gameId){
         try{
-            emailDailyGen(email,data);            
+            emailDailyGen(email,data);
+            app.challangeToDrive(email,data,gameId)            
         }
         catch(error){
             console.log(error);
@@ -227,10 +228,10 @@ Meteor.methods({
     },
     "saveScore" : function(userId,totalscore,score,tempDate){
             // Score.insert({"clientId":Meteor.userId(),"score":app.totalscore,"totalScore":app.score,"date" :tempDate});
-            console.log(userId);
-            console.log(totalscore);
-            console.log(score);
-            console.log(tempDate);
+            // console.log(userId);
+            // console.log(totalscore);
+            // console.log(score);
+            // console.log(tempDate);
             
             // try{
                 Score.insert({"clientId":userId,"score":totalscore,"totalScore":score,"date" :tempDate});
@@ -242,7 +243,7 @@ Meteor.methods({
     },
     "sendcacheData" : function(data){
             data.forEach(function() {
-                console.log(data);
+                // console.log(data);
                 Score.insert({"clientId":data.clientId,"score":data.score,"totalScore":data.totalScore,"date" :data.date});
             }); 
             return true;     
