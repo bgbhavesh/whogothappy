@@ -60,7 +60,13 @@
                 <li class="textRight">
                     <a  class="height40">
                         <label class="large-3 small-3 medium-3 columns textLeft addEmailUser">{{lang.scorebord.email}}:</label>
-                        <label class="large-9 small-9 medium-9 columns textRight">{{profile.email}}</label>
+                        <label class="large-9 small-9 medium-9 columns textRight">
+                            
+                                <div id="emailEntered" class="large-10 small-10 medium-10 columns" contenteditable="false">
+                                    {{profile.email}}
+                                </div>
+                                <i class="fa fa-pencil"></i>
+                        </label>
                     </a>                
                 </li>
             </ul>  

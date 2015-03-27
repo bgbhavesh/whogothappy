@@ -3,6 +3,7 @@ UI.registerHelper("timeago", function () {
         return $.timeago(this.date);
 });
 Template.menuListPanel.helpers({
+
     user : function(){
         // app.updateTheProfile();
         return Meteor.userId();
@@ -88,6 +89,24 @@ Template.menuListPanel.helpers({
 })
  
  Template.menuListPanel.events({
+    "click .fa-pencil" :function(event){
+        console.log("Can edit email id")
+        $(event.currentTarget).removeClass("fa-pencil")
+        $(event.currentTarget).addClass("fa-check")
+        var target = $(event.currentTarget).parent().find("#emailEntered");
+        $(target).attr("contenteditable",true)
+        $(target).focus()
+
+    },
+    "blur #emailEntered":function(event){
+        var target = $(event.currentTarget).parent().find("i");
+        setTimeout( $(target).removeClass("fa-check"),100          );
+        $(target).addClass("fa-pencil");
+        var value = $(event.currentTarget).text();
+        $(event.currentTarget).text("");
+        app.updateEmailId(value);
+        // console.log(value);
+    },
     "click #LogoutApp" : function(){
         Meteor.logout();
     },
@@ -268,4 +287,16 @@ app.inviteFriends = function(){
     }, function(response){
         console.log(response);
     });
+}
+app.updateEmailId =function (email){
+    var reg = /^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,4})$/;
+    if (reg.test(email)){
+        console.log(email);
+        var update = {};
+        update["profile.email"] = email ;
+        Meteor.users.update({"_id":Meteor.userId()},{$set:update});
+    }
+    else{
+        console.log("sorry")
+    }
 }

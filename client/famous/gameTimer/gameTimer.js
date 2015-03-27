@@ -1,4 +1,5 @@
 app.startGame = function(){
+	$('.selected').html("");
 	setTimeout(app.getcases, 1000);
 	app.score = {};
 	app.score.method = [];
@@ -26,9 +27,9 @@ Template.content.events({
     'click .sortable figure img':function(event,tpl){
     	// console.log(this)
     	var element = event.currentTarget;
-    	console.log(event.currentTarget.clientWidth)
+    	// console.log(event.currentTarget.clientWidth)
         // var position = $(element).position();
-        console.log(element);
+        // console.log(element);
         // var activeid = $(element).parent().attr("myid");
         // Session.set("activeFollows",activeid);
         // element = $(element).children("img");
@@ -76,6 +77,8 @@ app.endBeforeTime = function(){
     	// console.log(time)
     	endGame(time);
     	clearTimeout(timex);
+	$('.selected').html("");
+
     }
 }
 app.getGameTimer = function(){
@@ -162,6 +165,8 @@ function startTimer(){
 var database;
 var Score = new Array();
 function endGame(EndedTime){
+	$('.selected').html("");
+	
 	$("#clickEvent").css("filter","blur(5px)");
 	$("#clickEvent").css("-webkit-filter","blur(5px)");
 	app.arrangeDays();
@@ -185,7 +190,7 @@ function endGame(EndedTime){
 		// 	data.emailid = cursorMe.emails[0].address;
 		// else
 		data.emailid = cursorMe.profile.email;
-		console.log(cursorMe.profile.email)
+		// console.log(cursorMe.profile.email)
 		var wrongcount=0
 		for (var i = 0; i < app.score.method.length; i++) {
 			if(app.score.method[i].result == 0)
