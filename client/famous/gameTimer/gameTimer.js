@@ -26,6 +26,8 @@ Template.content.events({
     },
     'click .sortable figure img':function(event,tpl){
     	// console.log(this)
+    	if(app.clickStart == false)
+			return;
     	var element = event.currentTarget;
     	// console.log(event.currentTarget.clientWidth)
         // var position = $(element).position();
