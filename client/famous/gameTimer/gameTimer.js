@@ -31,11 +31,15 @@ Template.content.events({
     	var element = event.currentTarget;
     	// console.log(event.currentTarget.clientWidth)
         // var position = $(element).position();
-        // console.log(element);
         // var activeid = $(element).parent().attr("myid");
         // Session.set("activeFollows",activeid);
         // element = $(element).children("img");
         element = $(element).clone();
+        var borderColor = borderColorFind(element) 
+        // console.log(borderColor)
+        // element = $(element).addClass("borderColor")
+        element = $(element).css("box-shadow"," 0 0 1em "+borderColor)
+        console.log(element);
         $('.selected').append(element)
         $('.selected figure').css("width",event.currentTarget.clientWidth/2)
         $('.selected figure').css("height",event.currentTarget.clientWidth/2)
@@ -45,7 +49,17 @@ Template.content.events({
         $('.selected img').css("height",event.currentTarget.clientWidth/2)
     }
 });
+function borderColorFind(element){
+	var src = $(element).attr("src");
+	var n = src.indexOf("joy");
+	if(n >= 0){
+		return "green";
+	}
+	else
+		return "red";
+	var n = src.indexOf("non");
 
+}
 // Template.content.gestures({
 //     'dragRight .sortable figure': function (ev,tpl) {
 //         // app.endBeforeTime();
