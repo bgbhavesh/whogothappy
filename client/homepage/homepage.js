@@ -14,13 +14,19 @@ Template.home.events({
         var width = $("#clickEvent").width();
         var height = $("#clickEvent").height();
         var size = (height<width)?height:width;
+        size = size *0.8;
         console.log(e.currentTarget)
+        var element = e.currentTarget;
+        element = $(element).clone();
         $( ".zoomed" ).css("display","block")
-        $( ".zoomed" ).css("background","white")
+        $( ".zoomed" ).css("background","transprant")
         $( ".zoomed" ).css("top",0)
-        $( ".zoomed" ).html(e.currentTarget)
+        $( ".zoomed" ).html(element)
         $( ".zoomed img" ).css("width",size)
         $( ".zoomed img" ).css("height",size)
+        $( ".zoomed img" ).css("margin-top",size*0.1)
+        $( ".zoomed img" ).css("margin-left",size*0.1)
+        $( ".zoomed img" ).css("margin-right",size*0.1)
 
 
     },
