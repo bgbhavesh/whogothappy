@@ -39,6 +39,7 @@ Template.content.events({
         // console.log(borderColor)
         // element = $(element).addClass("borderColor")
         element = $(element).css("box-shadow"," 0 0 1em "+borderColor)
+        element = $(element).css("opacity",""+borderColorFindOpacity(element))
         console.log(element);
         $('.selected').append(element)
         $('.selected figure').css("width",event.currentTarget.clientWidth/2)
@@ -57,6 +58,17 @@ function borderColorFind(element){
 	}
 	else
 		return "red";
+	var n = src.indexOf("non");
+
+}
+function borderColorFindOpacity(element){
+	var src = $(element).attr("src");
+	var n = src.indexOf("joy");
+	if(n >= 0){
+		return 1;
+	}
+	else
+		return 0.7;
 	var n = src.indexOf("non");
 
 }
