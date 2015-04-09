@@ -95,7 +95,11 @@ Template.menuListPanel.helpers({
         $(event.currentTarget).addClass("fa-check")
         var target = $(event.currentTarget).parent().find("#emailEntered");
         $(target).attr("contenteditable",true)
-        $(target).focus()
+        $(target).focus();
+        $(target).select();
+        var userEmail = $(target).text();
+        userEmail = userEmail.trim();
+        Session.set("userEmail",userEmail);
 
     },
     "blur #emailEntered":function(event){
@@ -103,9 +107,13 @@ Template.menuListPanel.helpers({
         setTimeout( $(target).removeClass("fa-check"),100          );
         $(target).addClass("fa-pencil");
         var value = $(event.currentTarget).text();
-        $(event.currentTarget).text("");
+        value = value.trim();
+        // $(event.currentTarget).text("");
+
+        if(value == "" || value == Session.get("userEmail"))
+            return;
+        console.log(value); 
         app.updateEmailId(value);
-        // console.log(value);
     },
     "click #LogoutApp" : function(){
         Meteor.logout();

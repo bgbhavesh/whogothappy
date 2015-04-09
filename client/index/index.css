@@ -112,3 +112,7 @@ table{
     border-radius: 0px !important;
     border-width: 0px !important; 
 }
+
+.lowerCase{
+    text-transform: lowercase !important;
+}
