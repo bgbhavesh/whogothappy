@@ -335,10 +335,10 @@ app.resetStreak = function(){
 			// 	}
 			// }
 			var differenceTime = new Date().getTime() - new Date(curprofile.lastPlayed).getTime();
-			if(differenceTime >  86479000){//604000000
+			if(differenceTime >  604800000){//604000000
 				Meteor.call("resetStreak",currentDate,function(err,data){
 						// console.log(err);
-						// console.log(data);
+						console.log("resetStreak");
 						if(data)
 							setTimeout(app.arrangeDays, 1000);
 					});
@@ -347,6 +347,7 @@ app.resetStreak = function(){
 	}
 }
 app.updateStreak = function(endgame){
+
 	var option = {};
 	var time;
 	option.day = new Date().getDay();
@@ -367,6 +368,7 @@ app.updateStreak = function(endgame){
 		option.endgame = false;
 	// console.log(option)
 	Meteor.call("setStreak",option,function(err,data){
+		console.log("updateStreak")
 		if(data)
 			setTimeout(app.arrangeDays, 100);
 	});
