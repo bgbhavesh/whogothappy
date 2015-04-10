@@ -1,4 +1,5 @@
 app.startGame = function(){
+	$('.selected').html("");
 	setTimeout(app.getcases, 1000);
 	app.score = {};
 	app.score.method = [];
@@ -25,14 +26,21 @@ Template.content.events({
     },
     'click .sortable figure img':function(event,tpl){
     	// console.log(this)
+    	if(app.clickStart == false)
+			return;
     	var element = event.currentTarget;
-    	console.log(event.currentTarget.clientWidth)
+    	// console.log(event.currentTarget.clientWidth)
         // var position = $(element).position();
-        console.log(element);
         // var activeid = $(element).parent().attr("myid");
         // Session.set("activeFollows",activeid);
         // element = $(element).children("img");
         element = $(element).clone();
+        var borderColor = borderColorFind(element) 
+        // console.log(borderColor)
+        // element = $(element).addClass("borderColor")
+        element = $(element).css("box-shadow"," 0 0 1em "+borderColor)
+        element = $(element).css("opacity",""+borderColorFindOpacity(element))
+        console.log(element);
         $('.selected').append(element)
         $('.selected figure').css("width",event.currentTarget.clientWidth/2)
         $('.selected figure').css("height",event.currentTarget.clientWidth/2)
@@ -42,7 +50,28 @@ Template.content.events({
         $('.selected img').css("height",event.currentTarget.clientWidth/2)
     }
 });
+function borderColorFind(element){
+	var src = $(element).attr("src");
+	var n = src.indexOf("joy");
+	if(n >= 0){
+		return "green";
+	}
+	else
+		return "red";
+	var n = src.indexOf("non");
 
+}
+function borderColorFindOpacity(element){
+	var src = $(element).attr("src");
+	var n = src.indexOf("joy");
+	if(n >= 0){
+		return 1;
+	}
+	else
+		return 0.7;
+	var n = src.indexOf("non");
+
+}
 // Template.content.gestures({
 //     'dragRight .sortable figure': function (ev,tpl) {
 //         // app.endBeforeTime();
@@ -76,6 +105,8 @@ app.endBeforeTime = function(){
     	// console.log(time)
     	endGame(time);
     	clearTimeout(timex);
+	$('.selected').html("");
+
     }
 }
 app.getGameTimer = function(){
@@ -162,6 +193,8 @@ function startTimer(){
 var database;
 var Score = new Array();
 function endGame(EndedTime){
+	$('.selected').html("");
+	
 	$("#clickEvent").css("filter","blur(5px)");
 	$("#clickEvent").css("-webkit-filter","blur(5px)");
 	app.arrangeDays();
@@ -185,7 +218,7 @@ function endGame(EndedTime){
 		// 	data.emailid = cursorMe.emails[0].address;
 		// else
 		data.emailid = cursorMe.profile.email;
-		console.log(cursorMe.profile.email)
+		// console.log(cursorMe.profile.email)
 		var wrongcount=0
 		for (var i = 0; i < app.score.method.length; i++) {
 			if(app.score.method[i].result == 0)
