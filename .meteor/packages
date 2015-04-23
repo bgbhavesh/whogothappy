@@ -1,5 +1,5 @@
 # Meteor packages used by this project, one per line.
-#
+#	meteorhacks:kadira
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
@@ -8,7 +8,6 @@ insecure
 sixteensmiles
 accounts-password
 digilord:roles
-meteorhacks:kadira
 email
 cmather:handlebars-server
 phonegap-push
