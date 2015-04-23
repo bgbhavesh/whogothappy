@@ -260,7 +260,7 @@ app.famousContent = function(flip){
 	// 	}
 		
 	// }
-	// console.log(content)
+	console.log(app.newcase)
 	// return content;
 	if(!app.newcase)
 		app.newcase = app.randomNumber(1,8);;
