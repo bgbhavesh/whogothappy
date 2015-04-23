@@ -8,7 +8,21 @@
 	display: none;
 }*/
 
-.selected figure{
+.selected .imgSelected.red{
+	box-shadow:	0 0 1em red;
+	opacity: 0.5;
+}
+.selected .imgSelected.green{
+	box-shadow:	0 0 1em green;
+	opacity: 1;
+}
+.selected .imgSelected .score{
+	float: right;
+}
+.selected .imgSelected,.selected .imgSelected img{
 	position: relative;
 	float: left;
+}
+.selected .imgSelected .score div{
+	/*float: left;*/
 }

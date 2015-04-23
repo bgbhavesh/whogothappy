@@ -453,6 +453,7 @@ var contentEvent = {
 		app.clickStart = false;
 		app.caseCount++;
 		var element = event.currentTarget;
+		// console.log(element)
 		var $img = $(event.target);
         var offset = $img.offset();
         var xx = event.clientX - offset.left - 5;
@@ -473,6 +474,7 @@ var contentEvent = {
         // app.displayProgress(1,app.AccuracyPoints)
 		smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
 		var str = $(event.currentTarget).attr("src");
+		// console.log(str)
 		var res = str.match("joy");
 		// var mainDiv = $("#clickEvent");
 		var joySrc = "";
@@ -565,6 +567,7 @@ var contentEvent = {
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
 		app.displayProgress(1,app.AccuracyPoints,result)
+		app.selectedImg(event,str)
 	}
 }
 app.chageFlipSession = function(){
@@ -776,3 +779,54 @@ app.addFixedSizeImg = function(){
 	$(".card").css("height",eachImg);
 }
 app.dragObj = false;
+
+app.selectedImg =  function(event,str){
+   //  	if(app.clickStart == false)
+			// return;
+		if(app.score){
+			if(app.score.method.length){
+				var scoreOfCurrent = app.score.method[app.score.method.length-1].result
+				var scoreOfCurrentCase = app.score.method[app.score.method.length-1].caseId
+			}
+		}
+		else
+			var scoreOfCurrent = 0
+	
+    	var element = event.currentTarget;
+		console.log(element)
+        element = $(element).clone();
+        var borderColor = borderColorFind(str) 
+        var temp = event.currentTarget.outerHTML
+        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrentCase+'</div><div>'+scoreOfCurrent+'</div></div></div>';
+        console.log(selection)
+        // console.log(borderColor)
+        $('.selected').append(selection)
+        // $('.selected figure').css("width",event.currentTarget.clientWidth/2)
+        // $('.selected figure').css("height",event.currentTarget.clientWidth/2)
+        // $('.selected figure img').css("width",event.currentTarget.clientWidth/2)
+        $('.selected img').css("width",event.currentTarget.clientWidth/2)
+        // $('.selected figure img').css("height",event.currentTarget.clientWidth/2)
+        $('.selected img').css("height",event.currentTarget.clientWidth/2)
+}
+
+function borderColorFind(src){
+	var n = src.indexOf("joy");
+	if(n >= 0){
+		return "green";
+	}
+	else
+		return "red";
+	var n = src.indexOf("non");
+
+}
+function borderColorFindOpacity(element){
+	var src = $(element).attr("src");
+	var n = src.indexOf("joy");
+	if(n >= 0){
+		return 1;
+	}
+	else
+		return 0.7;
+	var n = src.indexOf("non");
+
+}

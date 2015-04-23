@@ -24,31 +24,10 @@ Template.content.events({
     'click #endGame': function () {
         app.endBeforeTime();
     },
-    'click .sortable figure img':function(event,tpl){
-    	// console.log(this)
-    	if(app.clickStart == false)
-			return;
-    	var element = event.currentTarget;
-    	// console.log(event.currentTarget.clientWidth)
-        // var position = $(element).position();
-        // var activeid = $(element).parent().attr("myid");
-        // Session.set("activeFollows",activeid);
-        // element = $(element).children("img");
-        element = $(element).clone();
-        var borderColor = borderColorFind(element) 
-        // console.log(borderColor)
-        // element = $(element).addClass("borderColor")
-        element = $(element).css("box-shadow"," 0 0 1em "+borderColor)
-        element = $(element).css("opacity",""+borderColorFindOpacity(element))
-        console.log(element);
-        $('.selected').append(element)
-        $('.selected figure').css("width",event.currentTarget.clientWidth/2)
-        $('.selected figure').css("height",event.currentTarget.clientWidth/2)
-        $('.selected figure img').css("width",event.currentTarget.clientWidth/2)
-        $('.selected img').css("width",event.currentTarget.clientWidth/2)
-        $('.selected figure img').css("height",event.currentTarget.clientWidth/2)
-        $('.selected img').css("height",event.currentTarget.clientWidth/2)
-    }
+    // 'click .sortable figure img':function(event,tpl){
+    // 	// console.log(this)
+
+    // }
 });
 function borderColorFind(element){
 	var src = $(element).attr("src");
@@ -101,7 +80,7 @@ Template.GamerTimerimer.events({
 });
 app.endBeforeTime = function(){
 	if(gamestart){
-    	var time = mins +":"+seconds
+    	var time = mins +":"+seconds;
     	// console.log(time)
     	endGame(time);
     	clearTimeout(timex);
@@ -170,7 +149,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(mins >= 20){
+	  	if(mins >= 10){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
