@@ -1,3 +1,5 @@
 Meteor.publish(null,function(){
-	return Cases.find({});
+	// setTimeout(function(){
+		return Cases.find({});
+	// },60000);
 })

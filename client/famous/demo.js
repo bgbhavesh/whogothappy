@@ -141,7 +141,7 @@ assetManager.downloadAll(function(){
 // 	app.foldername = "black";
 // 	setImages(16,920,"jb","jnb","black");//joyno = 16, sadnumber = 1240, joyname=ja, sadname=jna,folderName=asian;
 // }
-// setImages();
+setImages();
 function setImages(){
 	calAccu = 0
 	for(var img=1,imgcount=20;img<=imgcount;img++){
@@ -262,7 +262,7 @@ app.famousContent = function(flip){
 	// }
 	console.log(app.newcase)
 	// return content;
-	if(!app.newcase)
+	// if(!app.newcase)
 		app.newcase = app.randomNumber(1,8);;
 	// Meteor.call("getCase",app.newcase,function(err,data){
 	// 	app.newcase = data;
@@ -369,7 +369,15 @@ Template.content.helpers({
         // return app.famousContent(Session.get("flip"));
         // app.caseCount ++
         // console.log(app.getCase(app.caseCount))
-		return app.getCase(app.caseCount,Session.get("flip"));//app.cases[caseCount]
+        var data = app.getCase(app.caseCount,Session.get("flip"));
+        if(data.length){
+        	console.log(data);
+        	return data
+        }else{
+        	console.log("no date");
+        	return app.famousContent(Session.get("flip"));
+        }
+		// return //app.cases[caseCount]
     },
 })
 
