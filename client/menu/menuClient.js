@@ -243,7 +243,7 @@ Template.menuListPanel.events({
                         ids.push({
                             "ids": res1[i]
                         });
-                    }
+                    } 
                    
                 }
                 Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.emailsToSend":ids}});

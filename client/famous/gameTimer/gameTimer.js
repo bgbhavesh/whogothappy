@@ -29,28 +29,7 @@ Template.content.events({
 
     // }
 });
-function borderColorFind(element){
-	var src = $(element).attr("src");
-	var n = src.indexOf("joy");
-	if(n >= 0){
-		return "green";
-	}
-	else
-		return "red";
-	var n = src.indexOf("non");
 
-}
-function borderColorFindOpacity(element){
-	var src = $(element).attr("src");
-	var n = src.indexOf("joy");
-	if(n >= 0){
-		return 1;
-	}
-	else
-		return 0.7;
-	var n = src.indexOf("non");
-
-}
 // Template.content.gestures({
 //     'dragRight .sortable figure': function (ev,tpl) {
 //         // app.endBeforeTime();
