@@ -1,0 +1,28 @@
+<template name="localPopUp">
+    <div id="tapTapLocal" class=" overlay">        
+        <div data-alert="" class="popups panel large-12 medium-12 columns textCenter">
+            <form onsubmit="">
+                <div class="beforeStartGame message row">
+                    <div class="remove textRight">{{app.lang.gamePopUp.close}}</div>
+                    <div class=" large-12 columns">
+                        <div class="" style="">
+                            <p>{{lang.gamePopUp.mgs1}}</p>
+                        </div>
+                    </div>
+                    
+                </div>  
+                  
+                <div class=" textCenter large-12 medium-12 columns" style="">    
+                    <div id="startLocalGame" class="button ui " style="background:cyan;">            
+                        {{lang.gamePopUp.Start}}
+                    </div>
+                </div>
+            </form >
+            <div class="textCenter small-12 columns">
+                <div class="pinLocal"  >
+                    <div class="" id="pinLocal" >3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
