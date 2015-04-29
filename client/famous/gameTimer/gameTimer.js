@@ -128,7 +128,7 @@ function startTimer(){
 		$(".gametimeseconds").text(seconds);
   	}
   	if(app.debug){
-	  	if(mins >= 10){
+	  	if(mins >= 1){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
@@ -155,6 +155,9 @@ function endGame(EndedTime){
 	
 	$("#clickEvent").css("filter","blur(5px)");
 	$("#clickEvent").css("-webkit-filter","blur(5px)");
+	
+	$("#clickEvent2").css("filter","blur(5px)");
+	$("#clickEvent2").css("-webkit-filter","blur(5px)");
 	app.arrangeDays();
 	gamestart = false;
 	// console.log("game Ending");
@@ -165,6 +168,7 @@ function endGame(EndedTime){
 	tempDate.setHours(tempDate.getHours()+12);
 	app.target_date = tempDate;
 	app.openOverlay();
+	app.openOverlay2();
 	var emails = {};
 	emails  = app.getTextAreaEmails();
 	var cursorMe = Meteor.user();

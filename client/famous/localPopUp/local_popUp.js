@@ -1,12 +1,17 @@
 Template.gamePopUp2.events({
     'click #tapTapLocal .remove': function () {
         app.closeGame2();
-        app.openOverlay();
+        app.openOverlay2();
     },
     'click #startGameLocal': function () {
         app.closeCounter2();
     },
 });
+app.openOverlay2 = function(){
+    $("#tapTapEnded2").css("display","block");
+    $("#clickEvent2").css("-webkit-filter", "blur(4px)");
+    $("#clickEvent2").css("filter","blur(5px)");
+}
 var count;
 var content = [];
 var firstContent = [];
@@ -142,4 +147,20 @@ app.closeCounter2 = function(){
 }
 app.closeGame2 = function(){
     $("#tapTapLocal").css("display","none");
+}
+app.reStartGame2 = function(){   
+    // app.score ={};
+    $("#tapTap2").css("display","block");
+    $("#tapTapEnded2").css("display","none");
+    $(".gametimemins").text("00");
+    $(".gametimeseconds").text(":00");  
+    $(".myScore").text("0");
+    app.closeCounter();
+    // app.startGame();
+    gamestart = false;
+    app.totalscore = 0;
+    seconds=0;
+    mins=0;
+    hours=0;
+    // app.toggleEndRefesh();
 }
