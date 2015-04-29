@@ -7,6 +7,9 @@ Template.gamePopUp2.events({
         app.closeCounter2();
     },
 });
+var count;
+var content = [];
+var firstContent = [];
 Template.content2.helpers({
     image : function(){
         Session.get("startGameFlag");
@@ -71,7 +74,6 @@ Template.content2.events({
         endtime = new Date().getTime()
         totalTime = endtime - app.slideStartTime;
         var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));
-
         count--;
         var late = parseInt(app.lang.settings.lateClick);
         if(res){ 
