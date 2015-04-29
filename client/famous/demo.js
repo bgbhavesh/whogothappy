@@ -380,7 +380,13 @@ Template.content.helpers({
 		// return //app.cases[caseCount]
     },
 })
-
+Template.content2.helpers({
+    image : function(){
+    	Session.get("startGameFlag");
+        app.slideStartTime = new Date().getTime();
+        return app.famousContent(Session.get("flip"));
+    },
+})
 Session.setDefault('flip', ''); 
 Session.set("rotate",false)
 Template.content.flip = function(){
