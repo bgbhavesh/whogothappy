@@ -1,5 +1,5 @@
 <template name="gamePopUp">
-    <div id="tapTap" class=" overlay">
+    <div id="tapTap" class="gamePopUp overlay">
         
         <div data-alert="" class="popups panel large-12 medium-12 columns textCenter">
             <form onsubmit="">
@@ -30,7 +30,7 @@
 
     <!-- this is pop up which will show at time when the game is off by on time or the before thime -->
 <template name="gameEndPopUp">
-    <div id="tapTapEnded" class=" overlay">
+    <div id="tapTapEnded" class="gameEndPopUp overlay">
             <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
                 <!-- {{> GamerTimerimer}} -->
                 <div id="endGame" class="button ui " style="background:cyan;">            
@@ -94,47 +94,7 @@
 </template>
 
 
-<template name="gamePopUp2">
-    <div id="tapTap" class=" overlay">
-        
-        <div data-alert="" class="popups panel large-12 medium-12 columns textCenter">
-            <form onsubmit="">
-                <div class="beforeStartGame message row">
-                    <div class="remove textRight">{{app.lang.gamePopUp.close}}</div>
-                    <div class=" large-12 columns">
-                        <div class="" style="">
-                            <p>{{lang.gamePopUp.mgs1}}</p>
-                        </div>
-                    </div>
-                    
-                </div>  
-                  
-                <div class=" textCenter large-12 medium-12 columns" style="">    
-                    <div id="startGame" class="button ui " style="background:cyan;">            
-                        {{lang.gamePopUp.Start}}
-                    </div>
-                </div>
-            </form >
-            <div class="textCenter small-12 columns">
-                <div class="pin"  >
-                    <div class="" id="pin" >3</div>
-                </div>
-            </div>
-        </div>
-    </div>
-</template>
-    <!-- this is pop up which will show at time when the game is off by on time or the before thime -->
-<template name="gameEndPopUp2">
-    <div id="tapTapEnded" class=" overlay">
-            <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
-                <!-- {{> GamerTimerimer}} -->
-                <div id="endGame" class="button ui " style="background:cyan;">            
-                    {{lang.gamePopUp.restart}}
-                </div>
-                <a id="shareWithFacebook" class="large-4 small-4 medium-4 columns" ><i class="fa fa-facebook-square"></i> </a>
-            </div>   
-    </div>
-</template>
+
 <!-- this is the template in this game to show the current feedback of score -->
 <template name="onScore">
     <div id="onScore" class="overlay">

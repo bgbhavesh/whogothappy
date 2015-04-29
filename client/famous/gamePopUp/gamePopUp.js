@@ -32,8 +32,8 @@ app.closeCounter = function(){
         var starttime = new Date().getTime();
         log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter started",null,arguments,1);
 
-    	$(".pin").css("display","block");
-    	$(".beforeStartGame").css("display","none");
+    	$(".gamePopUp .pin").css("display","block");
+    	$(".gamePopUp .beforeStartGame").css("display","none");
     	$("#startGame").css("display","none");
     	setTimeout(function(){
     		$("#pin").text(2);

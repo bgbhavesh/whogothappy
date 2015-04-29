@@ -23,7 +23,7 @@ app.onResize = function(){
 		var fullwidth = $(window).height();
 		var width = $(window).height()/4
 		$("#clickEvent div figure img").height(width)
-		$("#faceContainer div figure img").height(width)
+		$("#clickEvent2 div figure img").height(width)
 		$(".selected  figure ").height(width/2)
 		$(".selected  figure ").width(width/2)
 		$(".selected  img").height(width/2)
@@ -31,7 +31,7 @@ app.onResize = function(){
 		$(".selected  img").width(width/2)
 		$(".selected  figure img").width(width/2)
 		$("#clickEvent").css({"width":fullwidth,"height":fullwidth})
-		$("#faceContainer").css({"width":fullwidth,"height":fullwidth})
+		$("#clickEvent2").css({"width":fullwidth,"height":fullwidth})
 	}else{
 		var fullwidth = $("#famousSquare").width();
 		$("#famousSquare").height(fullwidth)
@@ -41,9 +41,9 @@ app.onResize = function(){
 		$("#clickEvent div figure img").height(width)
 		$("#clickEvent div figure img").width(width)
 		$("#clickEvent").css({"width":fullwidth,"height":fullwidth})
-		$("#faceContainer div figure img").height(width)
-		$("#faceContainer div figure img").width(width)
-		$("#faceContainer").css({"width":fullwidth,"height":fullwidth})
+		$("#clickEvent2 div figure img").height(width)
+		$("#clickEvent2 div figure img").width(width)
+		$("#clickEvent2").css({"width":fullwidth,"height":fullwidth})
 		$(".selected  figure ").height(width/2)
 		$(".selected  figure ").width(width/2)
 		$(".selected  figure img").height(width/2)
