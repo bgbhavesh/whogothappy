@@ -122,6 +122,7 @@ Template.menuListPanel.helpers({
         app.loginWithFacebook();
     },
      "click #inviteEmail" : function(){
+        console.log("sdjbvkjsdbkjvbkj")
         app.clickOnInvMail();
     },
     "click #OpenProfile" : function(){
