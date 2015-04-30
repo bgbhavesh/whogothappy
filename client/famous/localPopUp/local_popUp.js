@@ -15,6 +15,7 @@ app.openOverlay2 = function(){
 var count;
 var content = [];
 var firstContent = [];
+var game2 = false;
 Template.content2.helpers({
     image : function(){
         Session.get("startGameFlag");
@@ -149,18 +150,103 @@ app.closeGame2 = function(){
     $("#tapTapLocal").css("display","none");
 }
 app.reStartGame2 = function(){   
-    // app.score ={};
+    game2 = true;
     $("#tapTap2").css("display","block");
     $("#tapTapEnded2").css("display","none");
     $(".gametimemins").text("00");
     $(".gametimeseconds").text(":00");  
     $(".myScore").text("0");
     app.closeCounter();
-    // app.startGame();
     gamestart = false;
     app.totalscore = 0;
     seconds=0;
     mins=0;
     hours=0;
-    // app.toggleEndRefesh();
 }
+function endGame2(EndedTime){
+    $('.selected').html("");
+    
+    $("#clickEvent2").css("filter","blur(5px)");
+    $("#clickEvent2").css("-webkit-filter","blur(5px)");
+    app.arrangeDays();
+    gamestart = false;
+    var tempDate = new Date();
+    tempDate.setHours(tempDate.getHours()+12);
+    app.target_date = tempDate;
+    app.openOverlay();
+    app.openOverlay2();
+    var emails = {};
+    emails  = app.getTextAreaEmails();
+    var cursorMe = Meteor.user();
+    var data = {};
+    if(cursorMe){
+        data._id = cursorMe._id;
+        data.username = cursorMe.username;
+        data.emailid = cursorMe.profile.email;
+        var wrongcount=0
+        for (var i = 0; i < app.score.method.length; i++) {
+            if(app.score.method[i].result == 0)
+                wrongcount = wrongcount + 1;
+        };
+        data.score = app.totalscore;
+        data.clicked = app.score.method.length;
+        data.wrong = wrongcount;
+        data.allScore = app.score;
+        data.corrected = data.clicked - wrongcount;
+        if(EndedTime){
+            data.gameEnd = EndedTime;
+        }else{
+            // if(!app.debug)
+            app.updateStreak("true");
+            data.gameEnd = "10:00";
+        }
+        // console.log(data);
+        if(data.emailid){
+            Meteor.call("genMail",data.emailid,data,app.gameId);//* *//
+            Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
+                if(!data){
+                    Score.push({
+                        "clientId": Meteor.userId(),
+                        "score": app.totalscore,
+                        "totalScore": app.score,
+                        "date": tempDate
+                    });
+                if(Score)
+                    app.saveScoreLocal(Score);
+                }
+            });
+            Meteor.call("updateScore",Meteor.userId(), app.totalscore, tempDate,function(err,data){
+            });
+
+        }
+
+    }
+    app.modifyLastDate(data);
+    if(emails)
+        app.sendmail(emails,data);
+    app.updateTheMaxScoreProfile();
+    clearTimeout(timex);
+    $("#pinLocal").text("3");
+    console.log("game Ended");
+    // console.log(data);
+    app.test = data;
+    // sending info to drive
+    var username = "", message = "", score = null, difference = 0;
+    if(Meteor.user())
+        username = Meteor.user().username +" ";
+    else
+        username = "Guest "
+    var result;
+    for(var i=0,il=data.allScore.method.length;i<il;i++){
+        score = data.allScore.method[i];
+        difference = score.endtime - score.slideStartTime;
+        difference = Math.floor(difference/1000);
+        message = username +"scored " +score.result +" in " + difference + " seconds.";
+        if(score.result == 0)
+            result = "false";
+        else
+            result = "true";
+        app.pushToDrive(message,score.caseId,result,app.gameId);
+    }
+} 
+app.endGame2 = endGame2;

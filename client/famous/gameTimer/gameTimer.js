@@ -18,6 +18,7 @@ var hours =0;
 var mins =0;
 var seconds =0;
 var timex;
+var game1 = false;
 
 // app.extraPoints  = 0;
 Template.content.events({
@@ -62,6 +63,7 @@ app.endBeforeTime = function(){
     	var time = mins +":"+seconds;
     	// console.log(time)
     	endGame(time);
+    	app.endGame2(time);
     	clearTimeout(timex);
 	$('.selected').html("");
 
@@ -132,6 +134,7 @@ function startTimer(){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
+				app.endGame2();
 		}
 		else{
 			startTimer();
@@ -141,6 +144,7 @@ function startTimer(){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
+				app.endGame2();
 		}
 		else{
 			startTimer();
@@ -156,8 +160,8 @@ function endGame(EndedTime){
 	$("#clickEvent").css("filter","blur(5px)");
 	$("#clickEvent").css("-webkit-filter","blur(5px)");
 	
-	$("#clickEvent2").css("filter","blur(5px)");
-	$("#clickEvent2").css("-webkit-filter","blur(5px)");
+	// $("#clickEvent2").css("filter","blur(5px)");
+	// $("#clickEvent2").css("-webkit-filter","blur(5px)");
 	app.arrangeDays();
 	gamestart = false;
 	// console.log("game Ending");
@@ -309,11 +313,9 @@ app.resetStreak = function(){
 	}
 }
 app.updateStreak = function(endgame){
-
 	var option = {};
 	var time;
 	option.day = new Date().getDay();
-
 	var hour = new Date().getHours()
 	if(hour < 9){
 		option.first = true;
@@ -322,8 +324,6 @@ app.updateStreak = function(endgame){
 		option.second = true;
 		time = "second";
 	}
-
-
 	if(endgame)
 		option.endgame = true;
 	else
