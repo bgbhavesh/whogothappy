@@ -16,6 +16,11 @@ var count;
 var content = [];
 var firstContent = [];
 var game2 = false;
+var gamestart;
+var hours =0;
+var mins =0;
+var seconds =0;
+var timex;
 Template.content2.helpers({
     image : function(){
         Session.get("startGameFlag");
@@ -142,9 +147,64 @@ app.closeCounter2 = function(){
         setTimeout(function(){
            $("#tapTapLocal").css("display","none");
             log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter2 ended",new Date().getTime() - starttime,arguments,1);
-            app.startGame();
+            app.startGame2();
             $("#clickEvent2").css("-webkit-filter", "blur(0px)")
         },4000);
+}
+app.startGame2 = function(){
+    game2 = true;
+    $('.selected').html("");
+    setTimeout(app.getcases, 1000);
+    app.score = {};
+    app.score.method = [];
+    app.totalscore = 0;
+    Score = [];
+    startTimer2();
+    app.updateStreak();
+    // console.log("game Started");
+    gamestart = true;
+    app.getGameTimer()
+    app.onResize();
+    app.gameId = app.createId();
+}
+function startTimer2(){
+    timex = setTimeout(function(){
+      seconds++;
+    if(seconds >59){
+        seconds=0;
+        mins++;
+        if(mins<10){                     
+            $(".gametimemins").text('0'+mins+':');}       
+        else 
+            $(".gametimemins").text(mins+':');
+    }    
+    if(seconds <10) {
+        $(".gametimeseconds").text('0'+seconds);} 
+    else {
+        $(".gametimeseconds").text(seconds);
+    }
+    if(app.debug){
+        if(mins >= 1){
+            $(".gametimemins").text('10');
+            $(".gametimeseconds").text(':00');
+                // endGame();
+                app.endGame2();
+        }
+        else{
+            startTimer2();
+        }           
+    }else{
+        if(mins >= parseInt(app.lang.settings.gameLast)){
+            $(".gametimemins").text('10');
+            $(".gametimeseconds").text(':00');
+                // endGame();
+                app.endGame2();
+        }
+        else{
+            startTimer2();
+        }   
+    }
+  },1000);
 }
 app.closeGame2 = function(){
     $("#tapTapLocal").css("display","none");
@@ -165,7 +225,7 @@ app.reStartGame2 = function(){
 }
 function endGame2(EndedTime){
     $('.selected').html("");
-    
+    if(!game2) return;
     $("#clickEvent2").css("filter","blur(5px)");
     $("#clickEvent2").css("-webkit-filter","blur(5px)");
     app.arrangeDays();
@@ -173,7 +233,7 @@ function endGame2(EndedTime){
     var tempDate = new Date();
     tempDate.setHours(tempDate.getHours()+12);
     app.target_date = tempDate;
-    app.openOverlay();
+    // app.openOverlay();
     app.openOverlay2();
     var emails = {};
     emails  = app.getTextAreaEmails();

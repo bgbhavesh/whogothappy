@@ -1,5 +1,6 @@
 app.startGame = function(){
 	$('.selected').html("");
+	game1 = true;
 	setTimeout(app.getcases, 1000);
 	app.score = {};
 	app.score.method = [];
@@ -134,7 +135,7 @@ function startTimer(){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
-				app.endGame2();
+				// app.endGame2();
 		}
 		else{
 			startTimer();
@@ -144,7 +145,7 @@ function startTimer(){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
-				app.endGame2();
+				// app.endGame2();
 		}
 		else{
 			startTimer();
@@ -156,7 +157,7 @@ var database;
 var Score = new Array();
 function endGame(EndedTime){
 	$('.selected').html("");
-	
+	if (!game1) {return};
 	$("#clickEvent").css("filter","blur(5px)");
 	$("#clickEvent").css("-webkit-filter","blur(5px)");
 	
@@ -172,7 +173,7 @@ function endGame(EndedTime){
 	tempDate.setHours(tempDate.getHours()+12);
 	app.target_date = tempDate;
 	app.openOverlay();
-	app.openOverlay2();
+	// app.openOverlay2();
 	var emails = {};
 	emails  = app.getTextAreaEmails();
 	var cursorMe = Meteor.user();
