@@ -192,7 +192,7 @@ app.facebookResponse = null;
 app.facebookSDKWrapper = function(response){
 	app.facebookResponse = response;
 	FB.api('/me?fields=picture,name,email', function(response) {
-		
+		// console.log(response)
 		var user = {};
 		user.picture = "";
 		if(response.username)
@@ -236,6 +236,7 @@ app.createFacebookUser = function(user,authResponse){
 	users.profile.words = app.userWords;
 	users.profile.profile_picture  = profilePictureUrl;
 	Meteor.loginAsFacebook(users,app.facebookCallback); 
+	// console.log(users)
 	log("app.createFacebookUser ended",new Date().getTime() - starttime,arguments,1);
 }
 // Garbage

@@ -39,21 +39,23 @@ app.onSendPushId = function(){
     if(!app.phonegap)
         return;
     var pushDevice = null;
-    if (device.platform == 'android' || device.platform == 'Android') {
-        pushDevice = "android";
-    }
-    else{
-        pushDevice = "ios";
-    }
-    if(app.pushId && Meteor.user()){
-        if(!Meteor.user().profile.pushId){
-            var options = {"pushId":app.pushId,"pushDevice":pushDevice};
-            Meteor.call("getPushId",options,function(){});
-        }            
-    }
-    else{
-        if(Meteor.user())
-            app.onRegisterPushNotification();
+    if(Meteor.isCordova){
+        if (device.platform == 'android' || device.platform == 'Android') {
+            pushDevice = "android";
+        }
+        else{
+            pushDevice = "ios";
+        }
+        if(app.pushId && Meteor.user()){
+            if(!Meteor.user().profile.pushId){
+                var options = {"pushId":app.pushId,"pushDevice":pushDevice};
+                Meteor.call("getPushId",options,function(){});
+            }            
+        }
+        else{
+            if(Meteor.user())
+                app.onRegisterPushNotification();
+        }
     } 
     log("app.onSendPushId ended",new Date().getTime() - starttime,arguments,1);
 }

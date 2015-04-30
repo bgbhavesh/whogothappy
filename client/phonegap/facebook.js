@@ -49,9 +49,10 @@ app.fbNativeLogin = function() {
 }
 
 function me(response) {
-    FB.api('/me?fields=id,picture,name', function(user) {
+    FB.api('/me?fields=id,picture,name,email', function(user) {
         var authResponse = response.authResponse
         // alert(authResponse);
+        console.log(user)
         app.createFacebookUser(user,authResponse);
     });
 }
