@@ -26,10 +26,21 @@ Template.rankImg.events({
     },
     'click .overlayRank.rankImg':function(event){
         console.log(event)
-       $(".dragaAndImg").css({"top":event.clientY-30+"px","left":event.clientX-30+"px"});
-       $(".barVertical").css({"width":event.clientX-30+"px"})
-       var hig = event.currentTarget.clientHeight - event.clientY-30;
-       $(".barHorizontal").css({"height":hig+"px"})
+        var totalHeight = $(".rankImg").height()
+        var totalWidth = $(".rankImg").width()
+        var leftSpace = event.clientX -40;
+        var bottomSpace = totalHeight - event.clientY - 40;
+        var leftPer = leftSpace / totalWidth * 100;
+        var bottomPer = bottomSpace / totalHeight * 100;
+        leftPer = (leftPer>4)?leftPer:4;
+        bottomPer = (bottomPer>4)?bottomPer:4;
+        leftPer = (leftPer<90)?leftPer:90;
+        bottomPer = (bottomPer<90)?bottomPer:90;
+
+       $(".dragaAndImg").css({"bottom":bottomPer+"%","left":leftPer+"%"});
+       $(".barVertical").css({"width":leftPer+"%"})
+       var hig = event.currentTarget.clientHeight - event.clientY-40;
+       $(".barHorizontal").css({"height":bottomPer+"%"})
     },
     // 'dragstart .overlay .dragaAndImg':function(event){
     //     console.log(event)
@@ -194,7 +205,7 @@ app.closeCounter2 = function(){
     },2000);
     setTimeout(function(){
        $("#pinLocal").text(0);
-    },3000);
+    },4000);
     setTimeout(function(){
        $("#tapTapLocal").css("display","none");
         log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter2 ended",new Date().getTime() - starttime,arguments,1);
@@ -342,7 +353,7 @@ function endGame2(EndedTime){
         app.sendmail(emails,data);
     app.updateTheMaxScoreProfile();
     clearTimeout(timex);
-    $("#pinLocal").text("3");
+    $("#pinLocal").text("4");
     console.log("game Ended");
     // console.log(data);
     app.test = data;
@@ -404,11 +415,8 @@ app.swipeFunction = function (argument) {
 }
 app.getTheImageinNew = function(data){
     app.playAnewGame();     /// to set the background
-    // app.playAnewGame();
-    // var data = Session.get("imageClick")  
-        // if (data.element) {
-        var style = 'style="left:50%;top:50% ;width:'+data.size/2+'px; height:'+data.size/2+';" '
-        var selection = '<div class="dragaAndImg" '+data.style+' dragable="false" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
+        var style = 'style="left:50%;bottom:45% ;width:'+data.size/2+'px; height:'+data.size/2+'px;" '
+        var selection = '<div class="dragaAndImg" '+style+' dragable="false" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
         console.log(selection)
         $('.rankImg').append(selection)
     // };

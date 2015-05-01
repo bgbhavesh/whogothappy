@@ -18,6 +18,10 @@
     display: none;
     background: white !important;
 }
+.dragaAndImg img{
+    width: 100%;
+    height: 100%;
+}
 .dragaAndImg{
     position: absolute !important;
      -webkit-transition-duration: 1s; /* Safari */
