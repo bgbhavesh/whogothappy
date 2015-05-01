@@ -1,3 +1,6 @@
+app.showChallangeSent = function(){
+    $("#challengeSentDiv").show()
+}
 app.closeGame = function(){
     $("#tapTap").css("display","none");
 }
@@ -92,3 +95,27 @@ Template.updated.helpers({
         }
     }
 })
+
+Template.ChallengePopup.helpers({
+    "emails" : function(){
+        var data = [];
+        var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()});
+        if(cursorMe)
+        if(cursorMe.profile){
+            if(cursorMe.profile.emailsToSend){
+                var emails = cursorMe.profile.emailsToSend
+                for (var i = 0; i < emails.length; i++) {
+                     data.push(emails[i])
+                 }
+                 return data;
+            }
+        }
+        return ""
+    }
+});
+
+Template.ChallengePopup.events({
+    'click #challengeSentDivOK': function () {
+        $("#challengeSentDiv").hide();
+    }, 
+});

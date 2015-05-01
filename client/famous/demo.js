@@ -371,10 +371,10 @@ Template.content.helpers({
         // console.log(app.getCase(app.caseCount))
         var data = app.getCase(app.caseCount,Session.get("flip"));
         if(data.length){
-        	console.log(data);
+        	// console.log(data);
         	return data
         }else{
-        	console.log("no date");
+        	// console.log("no date");
         	return app.famousContent(Session.get("flip"));
         }
 		// return //app.cases[caseCount]
@@ -801,12 +801,12 @@ app.selectedImg =  function(event,str){
 			var scoreOfCurrent = 0
 	
     	var element = event.currentTarget;
-		console.log(element)
+		// console.log(element)
         element = $(element).clone();
         var borderColor = borderColorFind(str) 
         var temp = event.currentTarget.outerHTML
         var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrentCase+'</div><div>'+scoreOfCurrent+'</div></div></div>';
-        console.log(selection)
+        // console.log(selection)
         // console.log(borderColor)
         $('.selected').append(selection)
         // $('.selected figure').css("width",event.currentTarget.clientWidth/2)

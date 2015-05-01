@@ -71,3 +71,6 @@
     float: right;
     /*top: 15px;*/
 }
+#challengeSentDiv{
+    display: none;
+}

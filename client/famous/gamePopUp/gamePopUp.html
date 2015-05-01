@@ -93,3 +93,28 @@
     </div>
 </template>
 
+
+<template name="ChallengePopup">
+    <div id="challengeSentDiv" class="challengePopUp overlay">
+            <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
+                <!-- {{> GamerTimerimer}} -->
+                <div class="beforeStartGame message row">
+                    <div class="remove textRight"></div>
+                    <div class="large-12 columns">
+                        <div class="">
+                            <p>challange was sent to:</p>
+                        </div>
+                        {{#each emails}}
+                            {{ids}},
+                        {{/each}}
+                    </div>
+                    
+                </div>
+                <div id="challengeSentDivOK" class="button ui" style="background:cyan;">            
+                        Ok
+                </div>                
+            </div>
+    </div>
+</template>
+
+

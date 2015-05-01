@@ -203,8 +203,14 @@ function endGame(EndedTime){
 			app.updateStreak("true");
 			data.gameEnd = "10:00";
 		}
+<<<<<<< HEAD
 		// console.log(data);
 		if(data.emailid && !app.debug){
+=======
+		console.log(data);
+		if(data.emailid){
+			// app.showChallangeSent();
+>>>>>>> 5784e4c85947cf1d99d12a65e19b9e3bd2767196
 			Meteor.call("genMail",data.emailid,data,app.gameId);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
 				// console.log("err");
