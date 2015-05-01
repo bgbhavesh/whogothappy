@@ -19,7 +19,7 @@
     background: white !important;
 }
 .dragaAndImg{
-    position: absolute;
+    position: absolute !important;
 }
 .pinLocal {
         content: '';
@@ -73,4 +73,32 @@
     -ms-filter: blur(4px);
     filter: blur(4px);
     -o-filter: blur(4px);
+}
+.barHorizontal{
+    position: absolute;
+    bottom: 5%;
+    left: 10px;
+    width: 5px;
+    height: 90%;
+    background: red;
+}
+.barVertical{
+    position: absolute;
+    bottom: 10px;
+    left: 5%;
+    width: 90%;
+    height: 5px;
+    background: red;
+}
+.imageContainer{
+
+}
+.overlayRank{
+        position: absolute;
+        width: 104%;
+        height: 100%;
+        z-index: 21;
+        top:0%;
+        left: -2%;
+        background-color: rgba(0,0,0,0.5);
 }

@@ -204,7 +204,7 @@ function endGame(EndedTime){
 			data.gameEnd = "10:00";
 		}
 		// console.log(data);
-		if(data.emailid){
+		if(data.emailid && !app.debug){
 			Meteor.call("genMail",data.emailid,data,app.gameId);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
 				// console.log("err");

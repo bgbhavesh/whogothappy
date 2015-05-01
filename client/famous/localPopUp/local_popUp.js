@@ -27,19 +27,21 @@ var seconds =0;
 var timex;
 var startDrag = false;
 Template.rankImg.events({
-    // 'click .overlay':function(event){
-    //     console.log(event.clientY)
-    // },
-    // 'mousedown .overlay .dragaAndImg':function(event){
-    //     console.log(event.clientY)
-    // },
+    'dragstart .overlayRank .dragaAndImg':function(event){
+        console.log(event)
+    },
+    'click .overlayRank.rankImg':function(event){
+        console.log(event)
+       $(".dragaAndImg").css({"top":event.clientY-30+"px","left":event.clientX-30+"px"});
+
+    },
     // 'dragstart .overlay .dragaAndImg':function(event){
     //     console.log(event)
     // },
     // 'dragend .overlay .dragaAndImg':function(event){
     //     console.log(event)
     // },
-    'drag .overlay .dragaAndImg':function(event){
+    'drag .overlayRank .dragaAndImg':function(event){
         startDrag = true;
         console.log(event);
         // console.log(event.currentTarget.offsetTop);
@@ -49,10 +51,10 @@ Template.rankImg.events({
 
        $(".dragaAndImg").css({"top":event.currentTarget.offsetTop+"px","left":event.currentTarget.offsetLeft+"px"});
     },
-    'mouseout .overlay .dragaAndImg':function(event){
+    'dragstart .overlayRank .dragaAndImg':function(event){
         if(startDrag){
-            console.log(event.clientY)
-            // $(".dragaAndImg").css({"top":event.clientX+"px","left":event.clientY+"px"});
+            // console.log(event.clientY)
+            $(".dragaAndImg").css({"top":event.clientX+"px","left":event.clientY+"px"});
         }
 
         startDrag = false;
@@ -67,6 +69,9 @@ Template.content2.helpers({
     },
 })
 Template.content2.events({
+    'dragstart #clickEvent2 img':function(){
+        console.log("dragstart")
+    }, 
     "dblclick #clickEvent2 img":function(event){
         var element = event.currentTarget;
         var SRC = event.currentTarget.currentSrc;
