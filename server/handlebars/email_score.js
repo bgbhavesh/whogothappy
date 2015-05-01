@@ -220,7 +220,7 @@ Meteor.methods({
     "genMail" : function(email,data,gameId){
         try{
             emailDailyGen(email,data);
-            app.challangeToDrive(email,data,gameId)            
+            // app.challangeToDrive(email,data,gameId)            
         }
         catch(error){
             console.log(error);
