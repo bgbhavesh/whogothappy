@@ -67,7 +67,7 @@ Template.content2.helpers({
     },
 })
 Template.content2.events({
-    "dragstart #clickEvent2 img":function(event){
+    "dblclick #clickEvent2 img":function(event){
         var element = event.currentTarget;
         var SRC = event.currentTarget.currentSrc;
         var size = event.currentTarget.clientHeight;
