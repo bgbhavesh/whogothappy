@@ -7,15 +7,6 @@ Template.gamePopUp2.events({
         app.closeCounter2();
     },
 });
-app.closeOverlayImgRank = function(){
-    $(".rankImg").css("display","none");
-    
-}
-app.openOverlay2 = function(){
-    $("#tapTapEnded2").css("display","block");
-    $("#clickEvent2").css("-webkit-filter", "blur(4px)");
-    $("#clickEvent2").css("filter","blur(5px)");
-}
 var count;
 var content = [];
 var firstContent = [];
@@ -27,8 +18,11 @@ var seconds =0;
 var timex;
 var startDrag = false;
 Template.rankImg.events({
-    'dragstart .overlayRank .dragaAndImg':function(event){
-        console.log(event)
+    // 'dragstart .overlayRank .dragaAndImg':function(event){
+    //     console.log(event)
+    // },
+    'click  #backButton':function(event){
+        app.playBackGame();
     },
     'click .overlayRank.rankImg':function(event){
         console.log(event)
@@ -43,24 +37,24 @@ Template.rankImg.events({
     // 'dragend .overlay .dragaAndImg':function(event){
     //     console.log(event)
     // },
-    'drag .overlayRank .dragaAndImg':function(event){
-        startDrag = true;
-        console.log(event);
-        // console.log(event.currentTarget.offsetTop);
-        // console.log(event.currentTarget.offsetLeft);
-        // console.log(event.clientX);
-        // console.log(event.clientY);
+    // 'drag .overlayRank .dragaAndImg':function(event){
+    //     startDrag = true;
+    //     console.log(event);
+    //     // console.log(event.currentTarget.offsetTop);
+    //     // console.log(event.currentTarget.offsetLeft);
+    //     // console.log(event.clientX);
+    //     // console.log(event.clientY);
 
-       $(".dragaAndImg").css({"top":event.currentTarget.offsetTop+"px","left":event.currentTarget.offsetLeft+"px"});
-    },
-    'dragstart .overlayRank .dragaAndImg':function(event){
-        if(startDrag){
-            // console.log(event.clientY)
-            $(".dragaAndImg").css({"top":event.clientX+"px","left":event.clientY+"px"});
-        }
+    //    $(".dragaAndImg").css({"top":event.currentTarget.offsetTop+"px","left":event.currentTarget.offsetLeft+"px"});
+    // },
+    // 'dragstart .overlayRank .dragaAndImg':function(event){
+    //     if(startDrag){
+    //         // console.log(event.clientY)
+    //         $(".dragaAndImg").css({"top":event.clientX+"px","left":event.clientY+"px"});
+    //     }
 
-        startDrag = false;
-    },
+    //     startDrag = false;
+    // },
     
 })
 Template.content2.helpers({
@@ -71,20 +65,20 @@ Template.content2.helpers({
     },
 })
 Template.content2.events({
-    'hold #clickEvent2 img':function(){
-        console.log("dragstart")
-    }, 
+    // 'hold #clickEvent2 img':function(){
+    //     console.log("dragstart")
+    // }, 
     "click #clickEvent2 img":function(event){
         console.log(event)
-        var data = {};
-        // data.element = events.currentTarget;
-        data.SRC = event.currentTarget.currentSrc;
-        data.size = event.currentTarget.clientHeight;
-        data.max_height = $("#clickEvent2").width();
-        data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
-        data.leftscreenY = (event.clientY < data.max_height)?event.clientY:data.max_height-(data.max_height/8); 
-        Session.set("imageClick",data)        
-        console.log(data)
+        // var data = {};
+        // // data.element = events.currentTarget;
+        // data.SRC = event.currentTarget.currentSrc;
+        // data.size = event.currentTarget.clientHeight;
+        // data.max_height = $("#clickEvent2").width();
+        // data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
+        // data.leftscreenY = (event.clientY < data.max_height)?event.clientY:data.max_height-(data.max_height/8); 
+        // Session.set("imageClick",data)        
+        // console.log(data)
     // },
     // "click #clickEvent2 img" : function(event){
         if(app.clickStart == false)
@@ -217,11 +211,11 @@ app.startGame2 = function(){
     app.totalscore = 0;
     Score = [];
     startTimer2();
+    app.swipeFunction();
     app.updateStreak();
     // console.log("game Started");
     gamestart = true;
-    app.getGameTimer();
-    app.swipeFunction();
+    // app.getGameTimer();
     app.onResize();
     app.gameId = app.createId();
 }
@@ -229,6 +223,7 @@ function startTimer2(){
     timex = setTimeout(function(){
       seconds++;
     if(seconds >59){
+        app.swipeFunction();        // every min call the hold session
         seconds=0;
         mins++;
         if(mins<10){                     
@@ -269,6 +264,7 @@ app.closeGame2 = function(){
 }
 app.reStartGame2 = function(){   
     game2 = true;
+    app.swipeFunction();
     app.openOverlay2();
     // app.startGame2()
     $("#tapTap2").css("display","block");
@@ -378,39 +374,43 @@ Template.gameEndPopUp2.events({
         app.shareWithFacebook();
     } 
 });
-Template.gameEndPopUp2.rendered = function () {
-    app.swipeFunction();
-};
-app.playAnewGame = function(){
-    $("#rest").css("display","none")
-    $("#famousSquare").css("display","none")
-};
+
 
 app.swipeFunction = function (argument) {
     console.log("sdvbsdjkbkjvksdbk")
      $("#clickEvent2 img").swipe( {
-        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+        hold:function(event, target) {
               // alert("You swiped " + direction );  
-            // console.log(event);
+            console.log(event);
+            var data = {};
+        // data.element = events.currentTarget;
+            data.SRC = event.target.src;
+            data.size = event.target.clientHeight;
+            data.max_height = $("#clickEvent2").width();
+            data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
+            data.leftscreenY = (event.clientY < data.max_height)?event.clientY:data.max_height-(data.max_height/8); 
+            app.getTheImageinNew(data);
+            // Session.set("imageClick",data)        
+            // console.log(data)
             // console.log(direction);
             // console.log(distance);
-            console.log(duration)
-            if(duration>1000){
-            setTimeout(app.getTheImageinNew(),1000);
-            }
+            // console.log(duration)
+            // if(duration>500){
+            // setTimeout(app.getTheImageinNew(),1000);
+            // }
         },
          threshold:0
       });
 }
-app.getTheImageinNew = function(){
-    var data = Session.get("imageClick")  
+app.getTheImageinNew = function(data){
+    app.playAnewGame();     /// to set the background
+    // app.playAnewGame();
+    // var data = Session.get("imageClick")  
         // if (data.element) {
-        $(".rankImg").css("display","block");
-        var style = 'style="left:'+data.leftscreenX+'px;top:'+data.leftscreenY+'px ;width:'+data.size/2+'px; height:'+data.size/2+';" '
+        var style = 'style="left:50%;top:50% ;width:'+data.size/2+'px; height:'+data.size/2+';" '
         var selection = '<div class="dragaAndImg" '+data.style+' dragable="false" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
+        console.log(selection)
         $('.rankImg').append(selection)
-
-    app.playAnewGame();
     // };
 }
 
@@ -424,3 +424,28 @@ app.getTheImageinNew = function(){
 
 
 //         Session.set("imageClick",data)   
+app.playBackGame = function(){
+    app.swipeFunction();
+    $("#rest").css("display","block")
+    $("#famousSquare").css("display","block")
+    $(".backButton").css("display","none")
+    $(".overlayRank.rankImg").css("display","none")
+    $(".selected.row").css("display","block")
+    $(".dragaAndImg").remove()
+};
+app.closeOverlayImgRank = function(){
+    $(".rankImg").css("display","none");    
+}
+app.openOverlay2 = function(){
+    $("#tapTapEnded2").css("display","block");
+    $("#clickEvent2").css("-webkit-filter", "blur(4px)");
+    $("#clickEvent2").css("filter","blur(5px)");
+
+}
+app.playAnewGame = function(){
+    $(".rankImg").css("display","block");
+    $(".selected.row").css("display","none")
+    $("#rest").css("display","none")
+    $("#famousSquare").css("display","none")
+    $(".backButton").css("display","block")
+};

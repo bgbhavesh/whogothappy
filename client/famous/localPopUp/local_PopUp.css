@@ -82,7 +82,7 @@
     bottom: 5%;
     left: 10px;
     width: 5px;
-    height: 90%;
+    height: 50%;
     background: red;
      -webkit-transition-duration: 1s; /* Safari */
     transition-duration: 1s;
@@ -92,7 +92,7 @@
     position: absolute;
     bottom: 10px;
     left: 5%;
-    width: 90%;
+    width: 50%;
     height: 5px;
     background: red;
      -webkit-transition-duration: 1s; /* Safari */
@@ -110,4 +110,10 @@
         top:0%;
         left: -2%;
         background-color: rgba(0,0,0,0.5);
+}
+.backButton{
+    position: absolute;
+    bottom: -100px;
+    /*background: red;*/
+    display: none;
 }
