@@ -33,7 +33,9 @@ Template.rankImg.events({
     'click .overlayRank.rankImg':function(event){
         console.log(event)
        $(".dragaAndImg").css({"top":event.clientY-30+"px","left":event.clientX-30+"px"});
-
+       $(".barVertical").css({"width":event.clientX-30+"px"})
+       var hig = event.currentTarget.clientHeight - event.clientY-30;
+       $(".barHorizontal").css({"height":hig+"px"})
     },
     // 'dragstart .overlay .dragaAndImg':function(event){
     //     console.log(event)
