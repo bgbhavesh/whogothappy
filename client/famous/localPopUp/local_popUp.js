@@ -71,147 +71,142 @@ Template.content2.helpers({
     },
 })
 Template.content2.events({
-    'dragstart #clickEvent2 img':function(){
+    'hold #clickEvent2 img':function(){
         console.log("dragstart")
     }, 
-    "dblclick #clickEvent2 img":function(event){
-        var element = event.currentTarget;
-        var SRC = event.currentTarget.currentSrc;
-        var size = event.currentTarget.clientHeight;
-        var max_height = $("#clickEvent2").width();
-        var leftscreenX = (event.clientX < max_height)?event.clientX:max_height-(max_height/8);
-        var leftscreenY = (event.clientY < max_height)?event.clientY:max_height-(max_height/8); 
-        if (element) {
-            $(".rankImg").css("display","block");
-            var style = 'style="left:'+leftscreenX+'px;top:'+leftscreenY+'px ;width:'+size/2+'px; height:'+size/2+';" '
-            var selection = '<div class="dragaAndImg" '+style+' dragable="false" ><img src="'+SRC+'" width="'+size/2+'" height="'+size/2+'"></div>';
-            $('.rankImg').append(selection)
-
-        app.playAnewGame();
-        };
+    "click #clickEvent2 img":function(event){
         console.log(event)
-    },
+        var data = {};
+        // data.element = events.currentTarget;
+        data.SRC = event.currentTarget.currentSrc;
+        data.size = event.currentTarget.clientHeight;
+        data.max_height = $("#clickEvent2").width();
+        data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
+        data.leftscreenY = (event.clientY < data.max_height)?event.clientY:data.max_height-(data.max_height/8); 
+        Session.set("imageClick",data)        
+        console.log(data)
+    // },
     // "click #clickEvent2 img" : function(event){
-    //     if(app.clickStart == false)
-    //         return;
-    //     app.clickStart = false;
-    //     app.caseCount++;
-    //     var element = event.currentTarget;
-    //     var $img = $(event.target);
-    //     var offset = $img.offset();
-    //     var xx = event.clientX - offset.left - 5;
-    //     var yy = event.offsetY-5;
-    //     var x = event.clientX - offset.left;
-    //     var y = event.offsetY;
-    //     x = Math.abs(parseInt(x, 10)) -50;
-    //     y = Math.abs(parseInt(y, 10)) -45;
-    //     x = Math.abs(x);
-    //     y = Math.abs(y);
-    //     $(element).parent().append('<div id="correctdotOnImg" style="position: absolute;top:45%;left:45%;height: 10px;width: 10px;background: green;opacity: 0.6; border-radius: 100%;"></div>');
-    //     $(element).parent().append('<div id="dotOnImg" style="position: absolute;top:'+yy+'px;left:'+xx+'px;height: 10px;width: 10px;background: red;opacity: 0.6; border-radius: 100%;"></div>');
-    //     app.AccuracyPoints = Math.floor( (x + y) / 10 );
-    //     smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
-    //     var str = $(event.currentTarget).attr("src");
-    //     var res = str.match("joy");
-    //     var joySrc = "";
-    //     var rotateFlag = Session.get("rotate");
-    //     if(Session.get("flip") && !rotateFlag){
-    //         var imgsUrl = $("#clickEvent2 div figure.back img");
-    //         for(var i=0,il=imgsUrl.length;i<il;i++){
-    //             var imgSrc = imgsUrl[i].getAttribute("src")
-    //             if(imgSrc.match("joy")){
-    //                 joySrc = imgsUrl[i].src;
-    //                 // console.log("if"+joySrc)
-    //                 imgsUrl[i].src = "./images/expression/smily.png";
-    //                 setTimeout(function(){
-    //                     app.changeFace(joySrc,res);
-    //                 },smileDuration);// correct into smile show s
-    //             }
-    //         }
-    //     }else{
-    //         var imgsUrl = $("#clickEvent2 div figure.front img");
-    //         // console.log(imgsUrl)
-    //         for(var i=0,il=imgsUrl.length;i<il;i++){
-    //             var imgSrc = imgsUrl[i].getAttribute("src")
-    //             if(imgSrc.match("joy")){
-    //                 joySrc = imgsUrl[i].src;
-    //                 // console.log("else"+joySrc)
-    //                 imgsUrl[i].src = "./images/expression/smily.png";
-    //                 setTimeout(function(){
-    //                     app.changeFace(joySrc,res);
-    //                 },smileDuration);// correct into smile
-    //             }
-    //         }
+        if(app.clickStart == false)
+            return;
+        app.clickStart = false;
+        app.caseCount++;
+        var element = event.currentTarget;
+        var $img = $(event.target);
+        var offset = $img.offset();
+        var xx = event.clientX - offset.left - 5;
+        var yy = event.offsetY-5;
+        var x = event.clientX - offset.left;
+        var y = event.offsetY;
+        x = Math.abs(parseInt(x, 10)) -50;
+        y = Math.abs(parseInt(y, 10)) -45;
+        x = Math.abs(x);
+        y = Math.abs(y);
+        $(element).parent().append('<div id="correctdotOnImg" style="position: absolute;top:45%;left:45%;height: 10px;width: 10px;background: green;opacity: 0.6; border-radius: 100%;"></div>');
+        $(element).parent().append('<div id="dotOnImg" style="position: absolute;top:'+yy+'px;left:'+xx+'px;height: 10px;width: 10px;background: red;opacity: 0.6; border-radius: 100%;"></div>');
+        app.AccuracyPoints = Math.floor( (x + y) / 10 );
+        smileDuration = app.randomNumber(parseInt(app.lang.settings.showSmileyMax),parseInt(app.lang.settings.showSmileyMin))
+        var str = $(event.currentTarget).attr("src");
+        var res = str.match("joy");
+        var joySrc = "";
+        var rotateFlag = Session.get("rotate");
+        if(Session.get("flip") && !rotateFlag){
+            var imgsUrl = $("#clickEvent2 div figure.back img");
+            for(var i=0,il=imgsUrl.length;i<il;i++){
+                var imgSrc = imgsUrl[i].getAttribute("src")
+                if(imgSrc.match("joy")){
+                    joySrc = imgsUrl[i].src;
+                    // console.log("if"+joySrc)
+                    imgsUrl[i].src = "./images/expression/smily.png";
+                    setTimeout(function(){
+                        app.changeFace(joySrc,res);
+                    },smileDuration);// correct into smile show s
+                }
+            }
+        }else{
+            var imgsUrl = $("#clickEvent2 div figure.front img");
+            // console.log(imgsUrl)
+            for(var i=0,il=imgsUrl.length;i<il;i++){
+                var imgSrc = imgsUrl[i].getAttribute("src")
+                if(imgSrc.match("joy")){
+                    joySrc = imgsUrl[i].src;
+                    // console.log("else"+joySrc)
+                    imgsUrl[i].src = "./images/expression/smily.png";
+                    setTimeout(function(){
+                        app.changeFace(joySrc,res);
+                    },smileDuration);// correct into smile
+                }
+            }
 
-    //     }
-    //     endtime = new Date().getTime()
-    //     totalTime = endtime - app.slideStartTime;
-    //     var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));
-    //     count--;
-    //     var late = parseInt(app.lang.settings.lateClick);
-    //     if(res){ 
-    //         if(app.score.method){
-    //             if(app.score.method.length!=0){
-    //                 if(totalTime<late){
-    //                     result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints); 
-    //                 }else{
-    //                     result = parseInt(app.lang.settings.sixteenScorePerLateHit);
-    //                 }
-    //             }else{
-    //                     result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints);
-    //             }
-    //         }
-    //         // delay = 2000;
-    //         app.totalscore = app.totalscore + result;
-    //     }else{
-    //         result = 0;
-    //     }
-    //     // console.log(app.AccuracyPoints)
-    //     app.score.method.push({
-    //         "slideStartTime": app.slideStartTime,
-    //         "endtime": endtime,
-    //         "totalTime": totalTime,
-    //         "result": result,
-    //         "caseId": app.caseCount,
-    //         "extra": ""
-    //     });
-    //     $(".myScore").text(app.totalscore);
+        }
+        endtime = new Date().getTime()
+        totalTime = endtime - app.slideStartTime;
+        var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));
+        count--;
+        var late = parseInt(app.lang.settings.lateClick);
+        if(res){ 
+            if(app.score.method){
+                if(app.score.method.length!=0){
+                    if(totalTime<late){
+                        result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints); 
+                    }else{
+                        result = parseInt(app.lang.settings.sixteenScorePerLateHit);
+                    }
+                }else{
+                        result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints);
+                }
+            }
+            // delay = 2000;
+            app.totalscore = app.totalscore + result;
+        }else{
+            result = 0;
+        }
+        // console.log(app.AccuracyPoints)
+        app.score.method.push({
+            "slideStartTime": app.slideStartTime,
+            "endtime": endtime,
+            "totalTime": totalTime,
+            "result": result,
+            "caseId": app.caseCount,
+            "extra": ""
+        });
+        $(".myScore").text(app.totalscore);
        
         
-    //     setTimeout(function(){
-    //         app.clickStart = true;
-    //         app.animateFamousRandom();
-    //         app.chageFlipSession();
-    //         //
-    //         // Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
-    //     },delay);
-    //     app.displayProgress(1,app.AccuracyPoints,result)
-    //     app.selectedImg(event,str)
-    // }
+        setTimeout(function(){
+            app.clickStart = true;
+            app.animateFamousRandom();
+            app.chageFlipSession();
+            //
+            // Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
+        },delay);
+        app.displayProgress(1,app.AccuracyPoints,result)
+        app.selectedImg(event,str)
+    }
 })
 app.closeCounter2 = function(){
     console.log("startGameLocal")
-        var starttime = new Date().getTime();
-        log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter2 started",null,arguments,1);
+    var starttime = new Date().getTime();
+    log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter2 started",null,arguments,1);
 
-        $(".pinLocal").css("display","block");
-        $(".beforeStartGameLocal").css("display","none");
-        $("#startGameLocal").css("display","none");
-        setTimeout(function(){
-            $("#pinLocal").text(2);
-        },1000);
-        setTimeout(function(){
-            $("#pinLocal").text(1);
-        },2000);
-        setTimeout(function(){
-           $("#pinLocal").text(0);
-        },3000);
-        setTimeout(function(){
-           $("#tapTapLocal").css("display","none");
-            log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter2 ended",new Date().getTime() - starttime,arguments,1);
-            app.startGame2();
-            $("#clickEvent2").css("-webkit-filter", "blur(0px)")
-        },4000);
+    $(".pinLocal").css("display","block");
+    $(".beforeStartGameLocal").css("display","none");
+    $("#startGameLocal").css("display","none");
+    setTimeout(function(){
+        $("#pinLocal").text(2);
+    },1000);
+    setTimeout(function(){
+        $("#pinLocal").text(1);
+    },2000);
+    setTimeout(function(){
+       $("#pinLocal").text(0);
+    },3000);
+    setTimeout(function(){
+       $("#tapTapLocal").css("display","none");
+        log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter2 ended",new Date().getTime() - starttime,arguments,1);
+        app.startGame2();
+        $("#clickEvent2").css("-webkit-filter", "blur(0px)")
+    },4000);
 }
 app.startGame2 = function(){
     game2 = true;
@@ -225,7 +220,8 @@ app.startGame2 = function(){
     app.updateStreak();
     // console.log("game Started");
     gamestart = true;
-    app.getGameTimer()
+    app.getGameTimer();
+    app.swipeFunction();
     app.onResize();
     app.gameId = app.createId();
 }
@@ -382,7 +378,49 @@ Template.gameEndPopUp2.events({
         app.shareWithFacebook();
     } 
 });
+Template.gameEndPopUp2.rendered = function () {
+    app.swipeFunction();
+};
 app.playAnewGame = function(){
     $("#rest").css("display","none")
     $("#famousSquare").css("display","none")
 };
+
+app.swipeFunction = function (argument) {
+    console.log("sdvbsdjkbkjvksdbk")
+     $("#clickEvent2 img").swipe( {
+        swipe:function(event, direction, distance, duration, fingerCount, fingerData) {
+              // alert("You swiped " + direction );  
+            // console.log(event);
+            // console.log(direction);
+            // console.log(distance);
+            console.log(duration)
+            if(duration>1000){
+            setTimeout(app.getTheImageinNew(),1000);
+            }
+        },
+         threshold:0
+      });
+}
+app.getTheImageinNew = function(){
+    var data = Session.get("imageClick")  
+        // if (data.element) {
+        $(".rankImg").css("display","block");
+        var style = 'style="left:'+data.leftscreenX+'px;top:'+data.leftscreenY+'px ;width:'+data.size/2+'px; height:'+data.size/2+';" '
+        var selection = '<div class="dragaAndImg" '+data.style+' dragable="false" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
+        $('.rankImg').append(selection)
+
+    app.playAnewGame();
+    // };
+}
+
+
+// data.element = events.currentTarget;
+//         data.SRC = events.currentTarget.currentSrc;
+//         data.size = events.currentTarget.clientHeight;
+//         data.max_height = $("#clickEvent2").width();
+//         data.leftscreenX = (events.clientX < max_height)?events.clientX:max_height-(max_height/8);
+//         data.leftscreenY = (events.clientY < max_height)?events.clientY:max_height-(max_height/8); 
+
+
+//         Session.set("imageClick",data)   

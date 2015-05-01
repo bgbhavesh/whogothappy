@@ -20,6 +20,9 @@
 }
 .dragaAndImg{
     position: absolute !important;
+     -webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
+
 }
 .pinLocal {
         content: '';
@@ -81,6 +84,9 @@
     width: 5px;
     height: 90%;
     background: red;
+     -webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
+
 }
 .barVertical{
     position: absolute;
@@ -89,6 +95,9 @@
     width: 90%;
     height: 5px;
     background: red;
+     -webkit-transition-duration: 1s; /* Safari */
+    transition-duration: 1s;
+
 }
 .imageContainer{
 

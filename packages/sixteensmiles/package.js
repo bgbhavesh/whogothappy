@@ -29,6 +29,7 @@ Cordova.depends({
 
 Package.onUse(function(api) {
   api.versionsFrom('METEOR@0.9.3.1');
+  api.add_files('lib/jquery_1.5.2.min.js', 'client');
   //api.addFiles('sixteensmiles.js');
   api.add_files('common.js', ['client',"server"]);
   api.add_files('util.js', 'client');
@@ -39,9 +40,9 @@ Package.onUse(function(api) {
   
   // api.add_files('lib/jquery.transition.js', 'client');
   api.add_files('server.js', 'server');
+  // api.add_files('touchswipe.js', 'client');
   // api.add_files('lib/jquery.bxslider.js', 'client');
   // api.add_files('lib/jquery.bxslider.js', 'client');
-  api.add_files('lib/jquery_1.5.2.min.js', 'client');
   // api.add_files('lib/timeago.js', 'client');
   if(api.export){
 		api.export(["app","collection","log"],['client',"server"]);
