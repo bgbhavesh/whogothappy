@@ -14,7 +14,13 @@
     -o-transform: rotateZ(-45deg);
     -moz-transform: rotateZ(-45deg);
 }
-
+.rankImg{
+    display: none;
+    background: white !important;
+}
+.dragaAndImg{
+    position: absolute;
+}
 .pinLocal {
         content: '';
         display: none;
