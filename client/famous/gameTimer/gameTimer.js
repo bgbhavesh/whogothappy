@@ -184,7 +184,7 @@ function endGame(EndedTime){
 		// if(cursorMe.emails)
 		// 	data.emailid = cursorMe.emails[0].address;
 		// else
-		data.emailid = cursorMe.profile.email;
+		data.emailid = cursorMe.emails[0].address;
 		// console.log(cursorMe.profile.email)
 		var wrongcount=0
 		for (var i = 0; i < app.score.method.length; i++) {
@@ -203,8 +203,9 @@ function endGame(EndedTime){
 			app.updateStreak("true");
 			data.gameEnd = "10:00";
 		}
-		// console.log(data);
+		console.log(data);
 		if(data.emailid){
+			// app.showChallangeSent();
 			Meteor.call("genMail",data.emailid,data,app.gameId);//* *//
 			Meteor.call("saveScore",Meteor.userId(),app.totalscore,app.score,tempDate, function(err, data) {
 				// console.log("err");
@@ -385,6 +386,7 @@ app.sendmail = function(emails,data){
 	    }
 	    else
 	    {
+	    	app.showChallangeSent();
 			Meteor.call("genMail",emails[i],data,app.gameId);
 	    }
 	}
