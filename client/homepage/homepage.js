@@ -94,5 +94,12 @@ Template.home.helpers({
             // console.log(uname)
             return uname;
         }
-    }
+    },
+    cordova : function(){
+        // alert(Meteor.isCordova)
+        if(Meteor.isCordova)
+            return true;
+        else
+            return false;
+    },
 })
