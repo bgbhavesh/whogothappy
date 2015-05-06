@@ -72,6 +72,7 @@ Template.content2.helpers({
     image : function(){
         Session.get("startGameFlag");
         app.slideStartTime = new Date().getTime();
+        setTimeout(app.swipeFunction,400);
         return app.famousContent(Session.get("flip"));
     },
 })
@@ -395,7 +396,7 @@ Template.gameEndPopUp2.events({
 app.swipeFunction = function (argument) {
     console.log("sdvbsdjkbkjvksdbk")
      $("#clickEvent2 img").swipe( {
-        hold:function(event, target) {
+        longTap:function(event, target) {
               // alert("You swiped " + direction );  
             console.log(event);
             var data = {};
