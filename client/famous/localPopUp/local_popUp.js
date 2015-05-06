@@ -1,6 +1,6 @@
 Template.gamePopUp2.events({
     'click #tapTapLocal .remove': function () {
-        app.closeGame2();
+        app.closeGameCounter2();
         app.openOverlay2();
     },
     'click #startGameLocal': function () {
@@ -18,9 +18,9 @@ var seconds =0;
 var timex;
 var startDrag = false;
 Template.rankImg.events({
-    // 'dragstart .overlayRank .dragaAndImg':function(event){
-    //     console.log(event)
-    // },
+    'load #clickEvent2 img':function(event){
+        console.log("event")
+    },
     'click  #backButton':function(event){
         app.playBackGame();
     },
@@ -207,7 +207,8 @@ app.closeCounter2 = function(){
        $("#pinLocal").text(0);
     },4000);
     setTimeout(function(){
-       $("#tapTapLocal").css("display","none");
+        app.closeGameCounter2()
+       // $("#tapTapLocal").css("display","none");
         log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter2 ended",new Date().getTime() - starttime,arguments,1);
         app.startGame2();
         $("#clickEvent2").css("-webkit-filter", "blur(0px)")
@@ -222,7 +223,7 @@ app.startGame2 = function(){
     app.totalscore = 0;
     Score = [];
     startTimer2();
-    app.swipeFunction();
+    app.swipeFunction();    /// temp function to activate hold event
     app.updateStreak();
     // console.log("game Started");
     gamestart = true;
@@ -270,8 +271,11 @@ function startTimer2(){
     }
   },1000);
 }
-app.closeGame2 = function(){
+app.closeGameCounter2 = function(){
     $("#tapTapLocal").css("display","none");
+}
+app.openGameCounter2 = function(){
+    $("#tapTapLocal").css("display","block");
 }
 app.reStartGame2 = function(){   
     game2 = true;
@@ -279,6 +283,7 @@ app.reStartGame2 = function(){
     app.openOverlay2();
     // app.startGame2()
     $("#tapTap2").css("display","block");
+    app.openGameCounter2()
     $("#tapTapEnded2").css("display","none");
     $(".gametimemins").text("00");
     $(".gametimeseconds").text(":00");  
