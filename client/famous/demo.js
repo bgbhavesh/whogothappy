@@ -806,8 +806,9 @@ app.selectedImg =  function(event,str){
         var borderColor = borderColorFind(str) 
         var temp = event.currentTarget.outerHTML
         var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrentCase+'</div><div>'+scoreOfCurrent+'</div></div></div>';
-        // console.log(selection)
-        // console.log(borderColor)
+        console.log("http://localhost:3000/"+str)
+		var obj = ImageClicked.findOne({"src":str});
+        console.log(obj)
         $('.selected').append(selection)
         // $('.selected figure').css("width",event.currentTarget.clientWidth/2)
         // $('.selected figure').css("height",event.currentTarget.clientWidth/2)

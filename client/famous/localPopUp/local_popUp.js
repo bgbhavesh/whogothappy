@@ -19,13 +19,13 @@ var timex;
 var startDrag = false;
 Template.rankImg.events({
     'load #clickEvent2 img':function(event){
-        console.log("event img loaded")
+        // console.log("event img loaded")
     },
     'click  #backButton':function(event){
         app.playBackGame();
     },
     'click .overlayRank.rankImg':function(event){
-        console.log(event)
+        // console.log(event)
         var totalHeight = $(".rankImg").height()
         var totalWidth = $(".rankImg").width()
         var leftSpace = event.clientX -40;
@@ -57,7 +57,7 @@ Template.content2.events({
     //     console.log("dragstart")
     // }, 
     "click #clickEvent2 img":function(event){
-        console.log(event)
+        // console.log(event)
         var data = {};
         // data.element = events.currentTarget;
         data.SRC = event.currentTarget.currentSrc;
@@ -168,7 +168,7 @@ Template.content2.events({
     }
 })
 app.closeCounter2 = function(){
-    console.log("startGameLocal")
+    // console.log("startGameLocal")
     var starttime = new Date().getTime();
     log("Template.views_EdgeSwapper.gamePopUp.app.closeCounter2 started",null,arguments,1);
 
@@ -337,7 +337,7 @@ function endGame2(EndedTime){
     app.updateTheMaxScoreProfile();
     clearTimeout(timex);
     $("#pinLocal").text("4");
-    console.log("game Ended");
+    // console.log("game Ended2");
     // console.log(data);
     app.test = data;
     // sending info to drive
@@ -371,11 +371,11 @@ Template.gameEndPopUp2.events({
 
 
 app.swipeFunction = function (argument) {
-    console.log("sdvbsdjkbkjvksdbk")
+    // console.log("checck the hold")
      $("#clickEvent2 img").swipe( {
         longTap:function(event, target) {
               // alert("You swiped " + direction );  
-            console.log(event);
+            // console.log(event);
             var data = {};
         // data.element = events.currentTarget;
             data.SRC = event.target.src;
@@ -400,7 +400,7 @@ app.getTheImageinNew = function(data){
     app.playAnewGame();     /// to set the background
     var style = 'style="left:50%;bottom:45% ;width:'+data.size/2+'px; height:'+data.size/2+'px;" '
     var selection = '<div class="dragaAndImg" '+style+' dragable="false" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
-    console.log(selection)
+    // console.log(selection)
     $('.rankImg').append(selection)
 
 }
