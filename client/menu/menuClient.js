@@ -262,9 +262,12 @@ Template.menuListPanel.events({
 
 app.clickOnInvMail = function() {
     var cursorMe = Meteor.user();
+    var ids = app.getTextAreaEmails();
+    app.showChallangeSent("You have sent invitation to:")
     if(cursorMe){
-        for(var i=0,il=cursorMe.emails.length;i<il;i++){ 
-            Meteor.call("emailInvitGen",cursorMe.emails[i],cursorMe.username,cursorMe._id,function(err,data){});
+        for(var i=0,il=ids.length;i<il;i++){ 
+            if(ids[i])
+                Meteor.call("sendInvitation",ids[i],cursorMe.username,cursorMe._id,function(err,data){});
         }
     }
         

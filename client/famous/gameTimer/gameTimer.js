@@ -386,8 +386,9 @@ app.sendmail = function(emails,data){
 	    }
 	    else
 	    {
-	    	app.showChallangeSent();
-			Meteor.call("genMail",emails[i],data,app.gameId);
+	    	app.showChallangeSent("challange was sent to:");
+	    	if(emails[i])
+				Meteor.call("genMail",emails[i],data,app.gameId);
 	    }
 	}
 

@@ -1,4 +1,5 @@
-app.showChallangeSent = function(){
+app.showChallangeSent = function(message){
+    Session.set("popupmgs",message);
     $("#challengeSentDiv").show()
 }
 app.closeGame = function(){
@@ -111,6 +112,9 @@ Template.ChallengePopup.helpers({
             }
         }
         return ""
+    },
+    "message" : function(){
+        return  Session.get("popupmgs")
     }
 });
 
