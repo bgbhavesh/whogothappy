@@ -799,16 +799,20 @@ app.selectedImg =  function(event,str){
 		}
 		else
 			var scoreOfCurrent = 0
-	
     	var element = event.currentTarget;
 		// console.log(element)
         element = $(element).clone();
         var borderColor = borderColorFind(str) 
         var temp = event.currentTarget.outerHTML
-        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrentCase+'</div><div>'+scoreOfCurrent+'</div></div></div>';
-        console.log("http://localhost:3000/"+str)
+        str = "http://localhost:3000"+ str.substring(1);
+        // console.log("http://localhost:3000"+str)
 		var obj = ImageClicked.findOne({"src":str});
-        console.log(obj)
+        // console.log(obj)
+        var clickedTillNow;
+        if(obj){clickedTillNow = obj.click}
+        	else{clickedTillNow =0;}
+
+        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrentCase+'</div><div>'+(clickedTillNow+1)+'</div><div>'+scoreOfCurrent+'</div></div></div>';
         $('.selected').append(selection)
         // $('.selected figure').css("width",event.currentTarget.clientWidth/2)
         // $('.selected figure').css("height",event.currentTarget.clientWidth/2)
