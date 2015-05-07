@@ -19,7 +19,7 @@ var timex;
 var startDrag = false;
 Template.rankImg.events({
     'load #clickEvent2 img':function(event){
-        console.log("event")
+        console.log("event img loaded")
     },
     'click  #backButton':function(event){
         app.playBackGame();
@@ -42,31 +42,7 @@ Template.rankImg.events({
        var hig = event.currentTarget.clientHeight - event.clientY-40;
        $(".barHorizontal").css({"height":bottomPer+"%"})
     },
-    // 'dragstart .overlay .dragaAndImg':function(event){
-    //     console.log(event)
-    // },
-    // 'dragend .overlay .dragaAndImg':function(event){
-    //     console.log(event)
-    // },
-    // 'drag .overlayRank .dragaAndImg':function(event){
-    //     startDrag = true;
-    //     console.log(event);
-    //     // console.log(event.currentTarget.offsetTop);
-    //     // console.log(event.currentTarget.offsetLeft);
-    //     // console.log(event.clientX);
-    //     // console.log(event.clientY);
-
-    //    $(".dragaAndImg").css({"top":event.currentTarget.offsetTop+"px","left":event.currentTarget.offsetLeft+"px"});
-    // },
-    // 'dragstart .overlayRank .dragaAndImg':function(event){
-    //     if(startDrag){
-    //         // console.log(event.clientY)
-    //         $(".dragaAndImg").css({"top":event.clientX+"px","left":event.clientY+"px"});
-    //     }
-
-    //     startDrag = false;
-    // },
-    
+   
 })
 Template.content2.helpers({
     image : function(){
@@ -82,9 +58,10 @@ Template.content2.events({
     // }, 
     "click #clickEvent2 img":function(event){
         console.log(event)
-        // var data = {};
-        // // data.element = events.currentTarget;
-        // data.SRC = event.currentTarget.currentSrc;
+        var data = {};
+        // data.element = events.currentTarget;
+        data.SRC = event.currentTarget.currentSrc;
+        Meteor.call('imageClicked',data);
         // data.size = event.currentTarget.clientHeight;
         // data.max_height = $("#clickEvent2").width();
         // data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
@@ -421,11 +398,11 @@ app.swipeFunction = function (argument) {
 }
 app.getTheImageinNew = function(data){
     app.playAnewGame();     /// to set the background
-        var style = 'style="left:50%;bottom:45% ;width:'+data.size/2+'px; height:'+data.size/2+'px;" '
-        var selection = '<div class="dragaAndImg" '+style+' dragable="false" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
-        console.log(selection)
-        $('.rankImg').append(selection)
-    // };
+    var style = 'style="left:50%;bottom:45% ;width:'+data.size/2+'px; height:'+data.size/2+'px;" '
+    var selection = '<div class="dragaAndImg" '+style+' dragable="false" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
+    console.log(selection)
+    $('.rankImg').append(selection)
+
 }
 
 
