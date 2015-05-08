@@ -18,14 +18,19 @@ var seconds =0;
 var timex;
 var startDrag = false;
 Template.rankImg.events({
-    'load #clickEvent2 img':function(event){
+    'dragover .overlayRank.rankImg ':function(event){
         // console.log("event img loaded")
+        console.log(event)
+    },
+    'dragend .overlayRank.rankImg ':function(event){
+        // console.log("event img loaded")
+        console.log(event)
     },
     'click  #backButton':function(event){
         app.playBackGame();
     },
     'click .overlayRank.rankImg':function(event){
-        // console.log(event)
+        console.log(event)
         var totalHeight = $(".rankImg").height()
         var totalWidth = $(".rankImg").width()
         var leftSpace = event.clientX -40;
@@ -53,7 +58,7 @@ Template.content2.helpers({
     },
 })
 Template.content2.events({
-    'drag #clickEvent2 img':function(event){
+    'dragstart #clickEvent2 img':function(event){
         // console.log(event)
          var data = {};
             data.SRC = event.currentTarget.currentSrc;
