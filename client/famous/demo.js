@@ -335,22 +335,22 @@ app.setAllMaleOrFemale = function(flip,gender,group,person,grouptype){
 		tempPerson = person || personArray[app.randomNumber(1,6)];
 		// console.log(tempGender)
 		if(joyFirstRandom == i)
-			oldContent += "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
+			oldContent += "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='true'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 		else
-				oldContent += "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				oldContent += "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='true'/>";
 		if(!content[i])
 			content[i] = {};
 		if(flip){
 			if(joySecondRandom == i)
-			content[i].second = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			content[i].second = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='true'/>";
 			else
-				content[i].second = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				content[i].second = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='true'/>";
 		}
 		else{
 			if(joyFirstRandom == i)
-			content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";
+			content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='true'/>";
 			else
-				content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
+				content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='true'/>";
 		}
 		
 	}
@@ -799,12 +799,17 @@ app.selectedImg =  function(event,str){
 		}
 		else
 			var scoreOfCurrent = 0
+		var data = {};
+        // data.element = events.currentTarget;
+        data.SRC = str;
+        Meteor.call('imageClicked',data);
+
     	var element = event.currentTarget;
 		// console.log(element)
         element = $(element).clone();
         var borderColor = borderColorFind(str) 
         var temp = event.currentTarget.outerHTML
-        str = "http://localhost:3000"+ str.substring(1);
+        // str = "http://localhost:3000"+ str.substring(1);
         // console.log("http://localhost:3000"+str)
 		var obj = ImageClicked.findOne({"src":str});
         // console.log(obj)

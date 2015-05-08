@@ -53,15 +53,23 @@ Template.content2.helpers({
     },
 })
 Template.content2.events({
-    // 'hold #clickEvent2 img':function(){
-    //     console.log("dragstart")
-    // }, 
+    'drag #clickEvent2 img':function(event){
+        // console.log(event)
+         var data = {};
+            data.SRC = event.currentTarget.currentSrc;
+            // data.SRC = event.target.src;
+            data.size = event.currentTarget.clientHeight;
+            data.max_height = $("#clickEvent2").width();
+            data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
+            data.leftscreenY = (event.clientY < data.max_height)?event.clientY:data.max_height-(data.max_height/8); 
+            app.getTheImageinNew(data);
+    }, 
     "click #clickEvent2 img":function(event){
         // console.log(event)
-        var data = {};
-        // data.element = events.currentTarget;
-        data.SRC = event.currentTarget.currentSrc;
-        Meteor.call('imageClicked',data);
+        // var data = {};
+        // // data.element = events.currentTarget;
+        // data.SRC = event.currentTarget.currentSrc;
+        // Meteor.call('imageClicked',data);
         // data.size = event.currentTarget.clientHeight;
         // data.max_height = $("#clickEvent2").width();
         // data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
@@ -227,7 +235,7 @@ function startTimer2(){
         $(".gametimeseconds").text(seconds);
     }
     if(app.debug){
-        if(mins >= 1){
+        if(mins >= 10){
             $(".gametimemins").text('10');
             $(".gametimeseconds").text(':00');
                 // endGame();
@@ -371,30 +379,30 @@ Template.gameEndPopUp2.events({
 
 
 app.swipeFunction = function (argument) {
-    // console.log("checck the hold")
-     $("#clickEvent2 img").swipe( {
-        longTap:function(event, target) {
-              // alert("You swiped " + direction );  
-            // console.log(event);
-            var data = {};
-        // data.element = events.currentTarget;
-            data.SRC = event.target.src;
-            data.size = event.target.clientHeight;
-            data.max_height = $("#clickEvent2").width();
-            data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
-            data.leftscreenY = (event.clientY < data.max_height)?event.clientY:data.max_height-(data.max_height/8); 
-            app.getTheImageinNew(data);
-            // Session.set("imageClick",data)        
-            // console.log(data)
-            // console.log(direction);
-            // console.log(distance);
-            // console.log(duration)
-            // if(duration>500){
-            // setTimeout(app.getTheImageinNew(),1000);
-            // }
-        },
-         threshold:0
-      });
+    // // console.log("checck the hold")
+    //  $("#clickEvent2 img").swipe( {
+    //     'longTap':function(event, target) {
+    //           // alert("You swiped " + direction );  
+    //         // console.log(event);
+    //         var data = {};
+    //     // data.element = events.currentTarget;
+    //         data.SRC = event.target.src;
+    //         data.size = event.target.clientHeight;
+    //         data.max_height = $("#clickEvent2").width();
+    //         data.leftscreenX = (event.clientX < data.max_height)?event.clientX:data.max_height-(data.max_height/8);
+    //         data.leftscreenY = (event.clientY < data.max_height)?event.clientY:data.max_height-(data.max_height/8); 
+    //         app.getTheImageinNew(data);
+    //         // Session.set("imageClick",data)        
+    //         // console.log(data)
+    //         // console.log(direction);
+    //         // console.log(distance);
+    //         // console.log(duration)
+    //         // if(duration>500){
+    //         // setTimeout(app.getTheImageinNew(),1000);
+    //         // }
+    //     },
+    //      threshold:0
+    //   });
 }
 app.getTheImageinNew = function(data){
     app.playAnewGame();     /// to set the background
