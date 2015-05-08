@@ -17,35 +17,45 @@ var mins =0;
 var seconds =0;
 var timex;
 var startDrag = false;
+app.dragImage = function(clientX,clientY){
+    console.log(clientX+ "  "+clientY)
+    if(clientX == 0||clientY == 0) return ;
+    var totalHeight = $(".rankImg").height()
+    var totalWidth = $(".rankImg").width()
+    var leftSpace = clientX -40;
+    var bottomSpace = totalHeight - clientY - 40;
+    var leftPer = leftSpace / totalWidth * 100;
+    var bottomPer = bottomSpace / totalHeight * 100;
+    leftPer = (leftPer>4)?leftPer:4;
+    bottomPer = (bottomPer>4)?bottomPer:4;
+    leftPer = (leftPer<90)?leftPer:90;
+    bottomPer = (bottomPer<90)?bottomPer:90;
+    // $(".dragaAndImg").attr("dragable","true")
+   $(".dragaAndImg").css({"bottom":bottomPer+"%","left":leftPer+"%"});
+   $(".barVertical").css({"width":leftPer+"%"})
+   var hig = event.currentTarget.clientHeight - event.clientY-40;
+   $(".barHorizontal").css({"height":bottomPer+"%"})
+}
 Template.rankImg.events({
-    'dragover .overlayRank.rankImg ':function(event){
+    // 'dragover .dragaAndImg':function(event){
+    //     // console.log("event img loaded")
+    //     console.log(event)
+    // },
+    'drag .dragaAndImg':function(event){
         // console.log("event img loaded")
-        console.log(event)
+        app.dragImage(event.originalEvent.clientX,event.originalEvent.clientY)
+
     },
-    'dragend .overlayRank.rankImg ':function(event){
-        // console.log("event img loaded")
-        console.log(event)
-    },
+    // 'dragend .dragaAndImg':function(event){
+    //     // console.log("event img loaded")
+    //     console.log(event)
+    // },
     'click  #backButton':function(event){
         app.playBackGame();
     },
     'click .overlayRank.rankImg':function(event){
-        console.log(event)
-        var totalHeight = $(".rankImg").height()
-        var totalWidth = $(".rankImg").width()
-        var leftSpace = event.clientX -40;
-        var bottomSpace = totalHeight - event.clientY - 40;
-        var leftPer = leftSpace / totalWidth * 100;
-        var bottomPer = bottomSpace / totalHeight * 100;
-        leftPer = (leftPer>4)?leftPer:4;
-        bottomPer = (bottomPer>4)?bottomPer:4;
-        leftPer = (leftPer<90)?leftPer:90;
-        bottomPer = (bottomPer<90)?bottomPer:90;
-
-       $(".dragaAndImg").css({"bottom":bottomPer+"%","left":leftPer+"%"});
-       $(".barVertical").css({"width":leftPer+"%"})
-       var hig = event.currentTarget.clientHeight - event.clientY-40;
-       $(".barHorizontal").css({"height":bottomPer+"%"})
+        // console.log(event)
+        app.dragImage(event.clientX,event.clientY)
     },
    
 })
@@ -412,7 +422,7 @@ app.swipeFunction = function (argument) {
 app.getTheImageinNew = function(data){
     app.playAnewGame();     /// to set the background
     var style = 'style="left:50%;bottom:45% ;width:'+data.size/2+'px; height:'+data.size/2+'px;" '
-    var selection = '<div class="dragaAndImg" '+style+' dragable="false" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
+    var selection = '<div class="dragaAndImg" '+style+' dragable="true" ><img src="'+data.SRC+'" width="'+data.size/2+'" height="'+data.size/2+'"></div>';
     // console.log(selection)
     $('.rankImg').append(selection)
 
@@ -438,6 +448,7 @@ app.playBackGame = function(){
     $(".dragaAndImg").remove()
 };
 app.closeOverlayImgRank = function(){
+    $("#updated").parent().css("display","block");    
     $(".rankImg").css("display","none");    
 }
 app.openOverlay2 = function(){
@@ -447,6 +458,7 @@ app.openOverlay2 = function(){
 
 }
 app.playAnewGame = function(){
+    $("#updated").parent().css("display","none");    
     $(".rankImg").css("display","block");
     $(".selected.row").css("display","none")
     $("#rest").css("display","none")
