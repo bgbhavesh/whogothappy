@@ -109,7 +109,19 @@ Meteor.methods({
 	},
 	"sendCase" : function(){
 		return Cases.findOne({})
-	}
+	},
+	'imageClicked': function(data){
+		if(ImageClicked.findOne({"src":data.SRC}))
+		{
+			console.log(data)
+			var data = ImageClicked.findOne({"src":data.SRC});
+			data.click = Number(data.click) + 1 ;
+			ImageClicked.update({"src":data.src},{$set:{"click":data.click}})
+		}
+		else{
+			ImageClicked.insert({"src":data.SRC,"click":1})
+		}
+	},
 });
 
 app.sendpushtouser = function (pushId){

@@ -787,7 +787,6 @@ app.addFixedSizeImg = function(){
 	$(".card").css("height",eachImg);
 }
 app.dragObj = false;
-
 app.selectedImg =  function(event,str){
    //  	if(app.clickStart == false)
 			// return;
@@ -799,15 +798,49 @@ app.selectedImg =  function(event,str){
 		}
 		else
 			var scoreOfCurrent = 0
+		var data = {};
+        // data.element = events.currentTarget;
+        data.SRC = str;
+        Meteor.call('imageClicked',data);
+
     	var element = event.currentTarget;
+		// console.log(element)
         element = $(element).clone();
         var borderColor = borderColorFind(str) 
         var temp = event.currentTarget.outerHTML
-        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrent+'</div></div></div>';
+        // str = "http://localhost:3000"+ str.substring(1);
+        // console.log("http://localhost:3000"+str)
+		var obj = ImageClicked.findOne({"src":str});
+        // console.log(obj)
+        var clickedTillNow;
+        if(obj){clickedTillNow = obj.click}
+        	else{clickedTillNow =0;}
+        //scoreOfCurrentCase
+        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+(clickedTillNow+1)+'</div><div class="'+borderColor+'">'+scoreOfCurrent+'</div></div></div>';
         $('.selected').append(selection)
         $('.selected img').css("width",event.currentTarget.clientWidth/2)
         $('.selected img').css("height",event.currentTarget.clientWidth/2)
 }
+// app.selectedImg =  function(event,str){
+//    //  	if(app.clickStart == false)
+// 			// return;
+// 		if(app.score){
+// 			if(app.score.method.length){
+// 				var scoreOfCurrent = app.score.method[app.score.method.length-1].result
+// 				var scoreOfCurrentCase = app.score.method[app.score.method.length-1].caseId
+// 			}
+// 		}
+// 		else
+// 			var scoreOfCurrent = 0
+//     	var element = event.currentTarget;
+//         element = $(element).clone();
+//         var borderColor = borderColorFind(str) 
+//         var temp = event.currentTarget.outerHTML
+//         var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrent+'</div></div></div>';
+//         $('.selected').append(selection)
+//         $('.selected img').css("width",event.currentTarget.clientWidth/2)
+//         $('.selected img').css("height",event.currentTarget.clientWidth/2)
+// }
 
 function borderColorFind(src){
 	var n = src.indexOf("joy");
