@@ -1,3 +1,44 @@
+// var App = React.createClass({
+//     handleStart: function (event, ui) {
+//         console.log('Event: ', event);
+//         console.log('Position: ', ui.position);
+//     },
+
+//     handleDrag: function (event, ui) {
+//         console.log('Event: ', event);
+//         console.log('Position: ', ui.position);
+//     },
+
+//     handleStop: function (event, ui) {
+//         console.log('Event: ', event);
+//         console.log('Position: ', ui.position);
+//     },
+
+//     render: function () {
+//         return (
+//             <Draggable
+//                 axis="x"
+//                 handle=".handle"
+//                 start={{x: 0, y: 0}}
+//                 moveOnStartChange={false}
+//                 grid={[25, 25]}
+//                 zIndex={100}
+//                 onStart={this.handleStart}
+//                 onDrag={this.handleDrag}
+//                 onStop={this.handleStop}>
+//                 <div>
+//                     <div className="handle">Drag from here</div>
+//                     <div>Lorem ipsum...</div>
+//                 </div>
+//             </Draggable>
+//         );
+//     }
+// });
+
+
+
+
+
 Template.gamePopUp2.events({
     'click #tapTapLocal .remove': function () {
         app.closeGameCounter2();
@@ -250,7 +291,7 @@ function startTimer2(){
         $(".gametimeseconds").text(seconds);
     }
     if(app.debug){
-        if(mins >= 10){
+        if(mins >= 1){
             $(".gametimemins").text('10');
             $(".gametimeseconds").text(':00');
                 // endGame();

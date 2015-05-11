@@ -816,14 +816,10 @@ app.selectedImg =  function(event,str){
         var clickedTillNow;
         if(obj){clickedTillNow = obj.click}
         	else{clickedTillNow =0;}
-
-        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrentCase+'</div><div>'+(clickedTillNow+1)+'</div><div>'+scoreOfCurrent+'</div></div></div>';
+        //scoreOfCurrentCase
+        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+(clickedTillNow+1)+'</div><div class="'+borderColor+'">'+scoreOfCurrent+'</div></div></div>';
         $('.selected').append(selection)
-        // $('.selected figure').css("width",event.currentTarget.clientWidth/2)
-        // $('.selected figure').css("height",event.currentTarget.clientWidth/2)
-        // $('.selected figure img').css("width",event.currentTarget.clientWidth/2)
         $('.selected img').css("width",event.currentTarget.clientWidth/2)
-        // $('.selected figure img').css("height",event.currentTarget.clientWidth/2)
         $('.selected img').css("height",event.currentTarget.clientWidth/2)
 }
 
