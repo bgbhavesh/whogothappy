@@ -799,21 +799,13 @@ app.selectedImg =  function(event,str){
 		}
 		else
 			var scoreOfCurrent = 0
-	
     	var element = event.currentTarget;
-		// console.log(element)
         element = $(element).clone();
         var borderColor = borderColorFind(str) 
         var temp = event.currentTarget.outerHTML
         var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrent+'</div></div></div>';
-        // console.log(selection)
-        // console.log(borderColor)
         $('.selected').append(selection)
-        // $('.selected figure').css("width",event.currentTarget.clientWidth/2)
-        // $('.selected figure').css("height",event.currentTarget.clientWidth/2)
-        // $('.selected figure img').css("width",event.currentTarget.clientWidth/2)
         $('.selected img').css("width",event.currentTarget.clientWidth/2)
-        // $('.selected figure img').css("height",event.currentTarget.clientWidth/2)
         $('.selected img').css("height",event.currentTarget.clientWidth/2)
 }
 
