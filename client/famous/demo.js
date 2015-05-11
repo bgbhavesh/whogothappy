@@ -805,7 +805,7 @@ app.selectedImg =  function(event,str){
         element = $(element).clone();
         var borderColor = borderColorFind(str) 
         var temp = event.currentTarget.outerHTML
-        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrentCase+'</div><div>'+scoreOfCurrent+'</div></div></div>';
+        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrent+'</div></div></div>';
         // console.log(selection)
         // console.log(borderColor)
         $('.selected').append(selection)

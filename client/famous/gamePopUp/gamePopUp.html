@@ -33,10 +33,13 @@
     <div id="tapTapEnded" class="gameEndPopUp overlay">
             <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
                 <!-- {{> GamerTimerimer}} -->
-                <div id="endGame" class="button ui " style="background:cyan;">            
+                <div id="endGame" class="button ui large-6 small-6 medium-6 columns" style="background:cyan;">            
                     {{lang.gamePopUp.restart}}
                 </div>
-                <a id="shareWithFacebook" class="large-4 small-4 medium-4 columns" ><i class="fa fa-facebook-square"></i> </a>
+                <div id="shareWithFacebook" class="button ui large-6 small-6 medium-6 columns" style=";">            
+                    <i class="fa fa-facebook-square"></i> 
+                </div>
+                <!-- <a id="shareWithFacebook" class="large-4 small-4 medium-4 columns" ><i class="fa fa-facebook-square"></i> </a> -->
             </div>   
     </div>
 </template>
