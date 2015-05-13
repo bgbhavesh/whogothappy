@@ -58,7 +58,7 @@ var mins =0;
 var seconds =0;
 var timex;
 var startDrag = false;
-app.dragImage = function(clientX,clientY){
+app.dragImage = function(clientX,clientY,event){
     console.log(clientX+ "  "+clientY)
     if(clientX == 0||clientY == 0) return ;
     var totalHeight = $(".rankImg").height()
@@ -83,8 +83,11 @@ Template.rankImg.events({
     //     console.log(event)
     // },
     'drag .dragaAndImg':function(event){
-        // console.log("event img loaded")
-        app.dragImage(event.originalEvent.clientX,event.originalEvent.clientY)
+        // console.log(event)
+        app.dragImage(
+                    event.clientX || event.originalEvent.clientX, 
+                    event.clientY || event.originalEvent.clientY, 
+                    event);
 
     },
     // 'dragend .dragaAndImg':function(event){
@@ -96,7 +99,10 @@ Template.rankImg.events({
     },
     'click .overlayRank.rankImg':function(event){
         // console.log(event)
-        app.dragImage(event.clientX,event.clientY)
+        app.dragImage(
+                    event.clientX || event.originalEvent.clientX, 
+                    event.clientY || event.originalEvent.clientY, 
+                    event);
     },
    
 })
@@ -112,7 +118,8 @@ Template.content2.events({
     'dragstart #clickEvent2 img':function(event){
         // console.log(event)
          var data = {};
-            data.SRC = event.currentTarget.currentSrc;
+            event.preventDefault();
+            data.SRC = $(event.currentTarget).attr("src"); //.currentSrc;
             // data.SRC = event.target.src;
             data.size = event.currentTarget.clientHeight;
             data.max_height = $("#clickEvent2").width();
@@ -149,6 +156,7 @@ Template.content2.events({
         y = Math.abs(parseInt(y, 10)) -45;
         x = Math.abs(x);
         y = Math.abs(y);
+
         $(element).parent().append('<div id="correctdotOnImg" style="position: absolute;top:45%;left:45%;height: 10px;width: 10px;background: green;opacity: 0.6; border-radius: 100%;"></div>');
         $(element).parent().append('<div id="dotOnImg" style="position: absolute;top:'+yy+'px;left:'+xx+'px;height: 10px;width: 10px;background: red;opacity: 0.6; border-radius: 100%;"></div>');
         app.AccuracyPoints = Math.floor( (x + y) / 10 );
@@ -219,7 +227,6 @@ Template.content2.events({
         });
         $(".myScore").text(app.totalscore);
        
-        
         setTimeout(function(){
             app.clickStart = true;
             app.animateFamousRandom();

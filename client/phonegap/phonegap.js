@@ -1,9 +1,10 @@
 // document.addEventListener('deviceready', function(){
 if(Meteor.isCordova)
-app.phonegap = app.cordova = true;
+	app.phonegap = app.cordova = true;
 Meteor.startup(function(){
 	// console.log("deviceready");
-	app.phonegap = app.cordova = true;
+	if(Meteor.isCordova)
+		app.phonegap = app.cordova = true;
 	//app.alarm = new Alarm();
 	// var date = new Date().getTime() * 5000;
 	// app.alarm.setAlarm(date,function(){});
@@ -11,7 +12,7 @@ Meteor.startup(function(){
 	app.onRegisterPushNotification();
 })
 // }, false);
-app.phonegap = Meteor.isCordova;
+// app.phonegap = Meteor.isCordova;
 // console.log(Meteor.isCordova);
 app.setAlarm = function(time,type){
 	var tempTime = time;

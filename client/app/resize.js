@@ -3,7 +3,7 @@ app.onResize = function(){
 		setTimeout(app.onResize);
 		return;
 	}else{
-		console.log("3 reloaded resize")
+		// console.log("3 reloaded resize")
 		var width = $("#clickEvent div figure img:first").width();
 		var width = $(".card:first").width();
 		var css = "";

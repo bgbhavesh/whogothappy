@@ -805,6 +805,11 @@ app.selectedImg =  function(event,str){
         Meteor.call('imageClicked',data);
 
     	var element = event.currentTarget;
+
+      var rotate = "";
+      if($(element).parent().parent().hasClass("rotate180"))
+          rotate = "rotate180";
+        
 		// console.log(element)
         element = $(element).clone();
         var borderColor = borderColorFind(str) 
@@ -817,7 +822,10 @@ app.selectedImg =  function(event,str){
         if(obj){clickedTillNow = obj.click}
         	else{clickedTillNow =0;}
         //scoreOfCurrentCase
-        var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+(clickedTillNow+1)+'</div><div class="'+borderColor+'">'+scoreOfCurrent+'</div></div></div>';
+
+
+        console.log($(element).parent().parent())
+        var selection = '<div class="imgSelected ' +rotate +" " +borderColor+'"><img src="'+str+'"><div class="score"><div>'+(clickedTillNow+1)+'</div><div class="'+borderColor+'">'+scoreOfCurrent+'</div></div></div>';
         $('.selected').append(selection)
         $('.selected img').css("width",event.currentTarget.clientWidth/2)
         $('.selected img').css("height",event.currentTarget.clientWidth/2)
