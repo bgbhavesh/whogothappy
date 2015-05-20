@@ -6,3 +6,6 @@ Meteor.publish("imageclicked", function(id) {
 	return ImageClicked.find();
 })
 // Streak.remove({});
+Meteor.publish("imagemissed", function(id) {
+	return ImageMissed.find();
+})

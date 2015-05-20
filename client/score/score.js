@@ -1,6 +1,7 @@
 Meteor.subscribe("score");
 Meteor.subscribe("streak");
 Meteor.subscribe("imageclicked");
+Meteor.subscribe("imagemissed");
 
 Template.score.events({
 

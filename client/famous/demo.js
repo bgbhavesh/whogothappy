@@ -485,13 +485,14 @@ var contentEvent = {
 		// console.log(str)
 		var res = str.match("joy");
 		// var mainDiv = $("#clickEvent");
-		var joySrc = "";
-		// console.log(mainDiv)
+		// console.log(res)
 		// var imgs = mainDiv.children();
 		// var imgState = mainDiv.children()[0].className.toString()//
 		// console.log(imgState)
 		// var flag  = imgState.match("flipped");
 		// console.log(Session.get("flip"))
+		var joySrc = "";
+		var joyImgSrc = "";
 		var rotateFlag = Session.get("rotate");
 		if(Session.get("flip") && !rotateFlag){
 			var imgsUrl = $("#clickEvent div figure.back img");
@@ -500,6 +501,7 @@ var contentEvent = {
 				var imgSrc = imgsUrl[i].getAttribute("src")
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
+					joyImgSrc = imgsUrl[i].getAttribute("src");
 					// console.log("if"+joySrc)
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
@@ -512,8 +514,10 @@ var contentEvent = {
 			// console.log(imgsUrl)
 			for(var i=0,il=imgsUrl.length;i<il;i++){
 				var imgSrc = imgsUrl[i].getAttribute("src")
+
 				if(imgSrc.match("joy")){
 					joySrc = imgsUrl[i].src;
+					joyImgSrc = imgsUrl[i].getAttribute("src");
 					// console.log("else"+joySrc)
 					imgsUrl[i].src = "./images/expression/smily.png";
 					setTimeout(function(){
@@ -523,6 +527,7 @@ var contentEvent = {
 			}
 
 		}
+
 		endtime = new Date().getTime()
 		totalTime = endtime - app.slideStartTime;
 		// console.log(parseInt(app.lang.settings.tranisionWaitMin)+" "+parseInt(app.lang.settings.tranisionWaitMax))
@@ -574,8 +579,9 @@ var contentEvent = {
 			//
 			// Session.set("esTemplate", "es_surface" +app.getEdgerSwapper())
 		},delay);
+		// console.log("if"+joyImgSrc)
 		app.displayProgress(1,app.AccuracyPoints,result)
-		app.selectedImg(event,str)
+		app.selectedImg(event,str,joyImgSrc)
 	}
 }
 app.chageFlipSession = function(){
@@ -787,13 +793,17 @@ app.addFixedSizeImg = function(){
 	$(".card").css("height",eachImg);
 }
 app.dragObj = false;
-app.selectedImg =  function(event,str){
+app.selectedImg =  function(event,str,joySrc){
    //  	if(app.clickStart == false)
 			// return;
 		if(app.score){
 			if(app.score.method.length){
-				var scoreOfCurrent = app.score.method[app.score.method.length-1].result
-				var scoreOfCurrentCase = app.score.method[app.score.method.length-1].caseId
+				var scoreOfCurrent = app.score.method[app.score.method.length-1].result;
+				var scoreOfCurrentCase = app.score.method[app.score.method.length-1].caseId;
+				// if(app.score.method[app.score.method.length-2])
+				// var scoreTimeTaken = app.score.method[app.score.method.length-1].totalTime - app.score.method[app.score.method.length-2].totalTime;
+				// else
+				var scoreTimeTaken = app.score.method[app.score.method.length-1].totalTime;
 			}
 		}
 		else
@@ -801,8 +811,13 @@ app.selectedImg =  function(event,str){
 		var data = {};
         // data.element = events.currentTarget;
         data.SRC = str;
+        data.timePerSlide = scoreTimeTaken;
         Meteor.call('imageClicked',data);
-
+        
+        data.SRC = joySrc;		/// image missed
+        Meteor.call('imageMissed',data);
+        console.log(str +"clicked")
+        console.log(joySrc +"correct")
     	var element = event.currentTarget;
 		// console.log(element)
         element = $(element).clone();
