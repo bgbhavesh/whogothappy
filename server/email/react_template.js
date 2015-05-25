@@ -13,11 +13,11 @@ var emailTemplate = React.createClass({
 
     var emailData = this.props.emailData;
     for(var i=0,il=emailData.assImg.length;i<il;i++)
-      assImg.push(DOM.img({"src": emailData.assImg[i]}, null));
+      assImg.push(DOM.img({"src": emailData.assImg[i], key: emailData.assImg[i]}, null));
   	for(var i=0,il=emailData.desImg.length;i<il;i++)
-      desImg.push(DOM.img({"src": emailData.desImg[i]}, null));
+      desImg.push(DOM.img({"src": emailData.desImg[i], key: emailData.desImg[i]}, null));
     for(var i=0,il=emailData.missImg.length;i<il;i++)
-      missImg.push(DOM.img({"src": emailData.missImg[i]}, null));
+      missImg.push(DOM.img({"src": emailData.missImg[i], key: emailData.missImg[i]}, null));
     
     return div(null, 
         [
