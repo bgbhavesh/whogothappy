@@ -113,13 +113,29 @@ Meteor.methods({
 	'imageClicked': function(data){
 		if(ImageClicked.findOne({"src":data.SRC}))
 		{
-			console.log(data)
-			var data = ImageClicked.findOne({"src":data.SRC});
-			data.click = Number(data.click) + 1 ;
-			ImageClicked.update({"src":data.src},{$set:{"click":data.click}})
+			// console.log(data)
+
+			var obj = ImageClicked.findOne({"src":data.SRC});
+			obj.click = Number(data.click) + 1 ;
+			obj.timePerSlide = (obj.timePerSlide > data.timePerSlide)?obj.timePerSlide:data.timePerSlide;
+			ImageClicked.update({"src":data.src},{$set:{"click":obj.click,"timePerSlide":obj.timePerSlide}})
 		}
 		else{
-			ImageClicked.insert({"src":data.SRC,"click":1})
+			ImageClicked.insert({"src":data.SRC,"click":1,"timePerSlide":data.timePerSlide})
+		}
+	},
+	'imageMissed': function(data){
+		if(ImageMissed.findOne({"src":data.SRC}))
+		{
+			// console.log(data)
+
+			var obj = ImageMissed.findOne({"src":data.SRC});
+			obj.click = Number(data.click) + 1 ;
+			obj.timePerSlide = (obj.timePerSlide > data.timePerSlide)?obj.timePerSlide:data.timePerSlide;
+			ImageMissed.update({"src":data.src},{$set:{"click":obj.click,"timePerSlide":obj.timePerSlide}})
+		}
+		else{
+			ImageMissed.insert({"src":data.SRC,"click":1,"timePerSlide":data.timePerSlide})
 		}
 	},
 });
