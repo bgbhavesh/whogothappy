@@ -40,7 +40,7 @@ Meteor.methods({
         for (var i = 0; i < 5; i++) {
             // console.log(ass[i].src)
             ass[i].src = ass[i].src.substr(1);
-            assImg.push("http://www.whogothappy.com"+ass[i].src)
+            assImg.push(ass[i].src) //"http://www.whogothappy.com"+
         };
         collection.assImg =assImg;
         
@@ -50,7 +50,7 @@ Meteor.methods({
         for (var i = 0; i < 5; i++) {
             // console.log(des[i].src)
             des[i].src = des[i].src.substr(1);
-            desImg.push("http://www.whogothappy.com"+des[i].src)
+            desImg.push(des[i].src) //"http://www.whogothappy.com"+
         };
         collection.desImg =desImg;
 
@@ -59,12 +59,13 @@ Meteor.methods({
         for (var i = 0; i < 5; i++) {
             // console.log(des[i].src)
             miss[i].src = miss[i].src.substr(1);
-            missImg.push("http://www.whogothappy.com"+miss[i].src)
+            missImg.push(miss[i].src) //"http://www.whogothappy.com"+
         };
         collection.missImg =missImg;
 
         email = "bgbhavesh@gmail.com";
-        emailWeaklyGen(email,collection);
+        return collection;
+        // emailWeaklyGen(email,collection);
         // console.log("sendWeaklyReport")
     },
     "sendEmail" : function(html,email){
