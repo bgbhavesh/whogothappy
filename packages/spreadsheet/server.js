@@ -79,7 +79,7 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
       },function(err,data){
       });
       }catch(err){console.log("here")}
-      console.log(result);
+      // console.log(result);
 
       // self.makeFeedRequest( url, 'PUT', data, function(err, data, xml) {
       //     console.log("look here changeRow");

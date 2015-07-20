@@ -4,7 +4,8 @@ App.info({
   description: 'Get the right happy face!',
   author: 'Youiest LLC',
   email: 'elias@youiest.com',
-  website: 'http://whogothappy.com'
+  website: 'http://whogothappy.com',
+  version: "0.0.4"
 });
 
 App.icons({
@@ -39,6 +40,8 @@ App.launchScreens({
 
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#FFFFFF');
+App.setPreference('Fullscreen', 'true');
+App.setPreference('Orientation', 'portrait');
 // App.configurePlugin('com.phonegap.plugins.facebookconnect', {
 //   APP_ID: '1234567890',
 //   API_KEY: 'supersecretapikey'

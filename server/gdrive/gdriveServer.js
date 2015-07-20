@@ -31,7 +31,7 @@ Meteor.startup(function(){
 			my_sheet.getRows( 1, bindFunction);
        	}
        	catch(Error){
-       		console.log(Error)
+       		// console.log(Error)
 			//fut.return({});
        	}
 		//return fut.wait();
