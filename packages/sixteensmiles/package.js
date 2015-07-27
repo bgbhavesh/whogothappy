@@ -12,6 +12,8 @@ Npm.depends({
 Cordova.depends({
     // 'org.apache.cordova.camera': '0.3.1'
     // 'org.apache.cordova.camera': '0.3.1',
+    "org.apache.cordova.splashscreen" : "0.3.3",
+    "org.apache.cordova.device" : "0.2.12",
     'org.apache.cordova.media': '0.2.13',
     'org.apache.cordova.inappbrowser': '0.5.2',
     'nl.x-services.plugins.socialsharing': 'https://github.com/EddyVerbruggen/SocialSharing-PhoneGap-Plugin/tarball/1c00b8f050fa113e4373a5065f78f525c69f5f52',
