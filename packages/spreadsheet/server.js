@@ -46,9 +46,9 @@ GoogleSpreadsheet = function( ss_key, auth_id ){
       var data = '<entry xmlns="http://www.w3.org/2005/Atom" xmlns:gs="http://schemas.google.com/spreadsheets/2006">\n<title>\n' +worksheetName +'</title>\n<gs:rowCount>50</gs:rowCount>\n<gs:colCount>10</gs:colCount>\n</entry>\n';
       self.makeFeedRequest( ["worksheets", ss_key], 'POST', data, function(err, data, xml) {
           console.log("look here addWorkSheet");
-          console.log(err);
-          console.log(data);
-          console.log(xml);
+          // console.log(err);
+          // console.log(data);
+          // console.log(xml);
       });
   }
   this.changeRow = function(){
@@ -361,10 +361,10 @@ var SpreadsheetRow = function( spreadsheet, data, xml ){
     // console.log(data_xml);
 
     spreadsheet.makeFeedRequest(self['_links']['edit'], 'POST', data_xml,function(err, data, xml) {
-          console.log("look here");
-          console.log(err);
-          console.log(data);
-          console.log(xml);
+          console.log("spreadsheet.makeFeedRequest");
+          // console.log(err);
+          // console.log(data);
+          // console.log(xml);
       });
   }
 }
