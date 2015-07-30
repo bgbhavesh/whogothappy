@@ -24,7 +24,19 @@ Meteor.methods({
 				var title = "whogothappy";
 				var body = "You have unseen Notification";
 			}
-			app.pushServer.sendAndroid(body, [pushId], title, body, 1);
+		if(user.profile.pushId){
+			if(user.profile.pushDevice == "android"){
+				app.pushServer.sendAndroid(body, [pushId], title, body, 1);
+			}
+			else{
+				app.pushServer.sendIOS(
+					"message.description", 
+					user.profile.pushId, 
+					"message.title", 
+					"message.message", 
+					1);
+			}
+		}
 	},
 	"setStreak" : function(option){
 		var id;
@@ -150,7 +162,20 @@ app.sendpushtouser = function (pushId){
 		var title = "whogothappy";
 		var body = "You have unseen Notification";
 	}
-	app.pushServer.sendAndroid(body, [pushId], title, body, 1);
+	if(user.profile.pushId){
+		if(user.profile.pushDevice == "android"){
+			app.pushServer.sendAndroid(body, [pushId], title, body, 1);
+		}
+		else{
+			app.pushServer.sendIOS(
+				body, 
+				user.profile.pushId, 
+				title, 
+				body, 
+				1);
+		}
+	}
+	
 }
 
 app.randomNumber = function(snum, bnum){
