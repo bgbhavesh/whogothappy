@@ -28,7 +28,7 @@ app.onPushId = function(pushId){
     log("app.onPushId started",null,arguments,1);
     if(pushId == "OK" || pushId == "ok")
         return;
-    console.log(app.pushId);
+    console.log("app.onPushId " +app.pushId);
     app.pushId = pushId;
     app.onSendPushId(); 
     log("app.onPushId ended",new Date().getTime() - starttime,arguments,1);
@@ -74,7 +74,6 @@ app.onNotificationGCM = function(e){
     {
         case 'registered':
             if ( e.regid.length > 0 ){
-                console.log("Regid " + e.regid);
                 app.onPushId(e.regid);
             }
         break;
