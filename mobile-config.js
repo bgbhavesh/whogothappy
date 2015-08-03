@@ -21,20 +21,20 @@ App.icons({
 });
 
 App.launchScreens({
-  // iOS
-  'iphone': 'server/assets/splash-320x480.png',
-  'iphone_2x': 'server/assets/splash-320x480@2x.png',
-  'iphone5': 'server/assets/splash-320x568@2x.png',
+  // // iOS
+  // 'iphone': 'server/assets/splash-320x480.png',
+  // 'iphone_2x': 'server/assets/splash-320x480@2x.png',
+  // 'iphone5': 'server/assets/splash-320x568@2x.png',
 
-  // Android
-  'android_ldpi_portrait': 'server/assets/splash-200x320.png',
-  'android_ldpi_landscape': 'server/assets/splash-320x200.png',
-  'android_mdpi_portrait': 'server/assets/splash-320x480.png',
-  'android_mdpi_landscape': 'server/assets/splash-480x320.png',
-  'android_hdpi_portrait': 'server/assets/splash-480x800.png',
-  'android_hdpi_landscape': 'server/assets/splash-800x480.png',
-  'android_xhdpi_portrait': 'server/assets/splash-720x1280.png',
-  'android_xhdpi_landscape': 'server/assets/splash-1280x720.png'
+  // // Android
+  // 'android_ldpi_portrait': 'server/assets/splash-200x320.png',
+  // 'android_ldpi_landscape': 'server/assets/splash-320x200.png',
+  // 'android_mdpi_portrait': 'server/assets/splash-320x480.png',
+  // 'android_mdpi_landscape': 'server/assets/splash-480x320.png',
+  // 'android_hdpi_portrait': 'server/assets/splash-480x800.png',
+  // 'android_hdpi_landscape': 'server/assets/splash-800x480.png',
+  // 'android_xhdpi_portrait': 'server/assets/splash-720x1280.png',
+  // 'android_xhdpi_landscape': 'server/assets/splash-1280x720.png'
 });
 
 
