@@ -58,7 +58,7 @@ var emailTemplateInvite = React.createClass({
         [
           div({"style": {"background-color": "#3498db"}, "width": "100%"}, 
             [
-              div(null, "Sixteensmiles"),
+              div(null, "Whogothappy"),
               div(null, "See Smiles Everywhere!")
             ]
           ),
@@ -71,7 +71,7 @@ var emailTemplateInvite = React.createClass({
           ),
           div({"style": {"background-color": "#3498db"}, "width": "100%"}, 
             [
-              div(null, "Copyright Â© 2014 SixteenSmiles. All rights reserved."),
+              div(null, "Copyright Â© 2014 Whogothappy. All rights reserved."),
               div(null, "If you do not want to recieve emails from us, you can unsubscribe.")
             ]
           ),

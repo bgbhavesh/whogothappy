@@ -74,7 +74,7 @@ Meteor.methods({
             console.log("sendEmail from methods");
             this.unblock();
             Email.send({
-                from: 'Sixteensmiles <tapmate@youiest.com>',
+                from: 'Whogothappy <tapmate@youiest.com>',
                 to:   email,            
                 subject : "subjectEmail",
                 html : html
@@ -82,7 +82,7 @@ Meteor.methods({
 
             // Duplicate copy sent
             Email.send({
-                from: 'Sixteensmiles <tapmate@youiest.com>',
+                from: 'Whogothappy <tapmate@youiest.com>',
                 to:   "decivote@gmail.com",            
                 subject : "Duplicate copy of " +email,
                 html : html
