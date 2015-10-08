@@ -132,33 +132,39 @@ app.getGameTimer = function(){
 	}
 }
 function startTimer(){
+	var gameTimeout = 10;
+	if(Meteor.user())
+		gameTimeout = Meteor.user().getDefaultTime();
   	timex = setTimeout(function(){
       seconds++;
     if(seconds >59){
-		seconds=0;
-		mins++;
+			seconds=0;
+			mins++;
 	    if(mins<10){
-	      	$(".gametimemins").text('0'+mins+':');}
-		else
-			$(".gametimemins").text(mins+':');
-   	}
-	if(seconds <10) {
-		$(".gametimeseconds").text('0'+seconds);}
-	else {
-		$(".gametimeseconds").text(seconds);
-  	}
+      	$(".gametimemins").text('0'+mins+':');
+      }
+			else
+				$(".gametimemins").text(mins+':');
+	   	}
+		if(seconds <10) {
+			$(".gametimeseconds").text('0'+seconds);
+		}
+		else {
+			$(".gametimeseconds").text(seconds);
+		}
+		console.log(gameTimeout)
   	if(app.debug){
 	  	if(mins >= 1){
 	  		$(".gametimemins").text('10');
-			$(".gametimeseconds").text(':00');
+				$(".gametimeseconds").text(':00');
 				endGame();
 				// app.endGame2();
-		}
-		else{
-			startTimer();
-		}
+			}
+			else{
+				startTimer();
+			}
   	}else{
-  		if(mins >= parseInt(app.lang.settings.gameLast)){
+  		if(mins >= gameTimeout){
 	  		$(".gametimemins").text('10');
 			$(".gametimeseconds").text(':00');
 				endGame();
