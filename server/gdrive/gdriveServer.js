@@ -11,14 +11,14 @@ var lastupdate = new Date().getTime();
 // });
 // Language.remove({});
 Meteor.startup(function(){
-	// if(app.debug)
-	// 	return;
+	if(app.debug)
+		return;
 	Meteor.setTimeout(function(){
 		var lan = "en";
 		langArray = ["fr","es","ar","sv","fa","fi","tl","ko","ru","iw","de","ja","it","is","pl","el","ur","en"];
 		// if(app.debug)
 		// 	return false;
-		//var fut = new Future(); 
+		//var fut = new Future();
 		// this looks like it's called when meteor.startup, not every hour
 		// this doesn't work... drive isn't updating app
 		// console.log(Spreadsheets);
@@ -114,30 +114,30 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 		// console.log(app.language.en);
 		// console.log("lang_" +lan);
 		app.language.en._id = "lang_" +lan;
-			
+
 		// Meteor.bindEnvironment(function(){
 		var language = app.language.en;
 			// Meteor.bindEnvironment(function(){
-				// console.log(language); 
+				// console.log(language);
 		app.insertLanguage(language);
 			// })();
-			// Meteor.setTimeout(function(){ 
-			// 	console.log(language._id); 
+			// Meteor.setTimeout(function(){
+			// 	console.log(language._id);
 			// 	app.insertLanguage(language);
 			// },100);
 		// })();
-		
+
 		// Fiber(function(){
-		// 		
-		// }).run();	
-		
-	
+		//
+		// }).run();
+
+
 	} // j loop ends
 	// lan
 	// console.log(app.language.en)
 	// 1 should get all columns from sheet
 	// 2 if enMan manually entered english exists, use it
-	// 3 if not sue machine translation column 
+	// 3 if not sue machine translation column
 	// 4 enter each language into db objects
 	// 5 depending on apps language, insert from db into html
 	// all text in app needs to be variables ..
@@ -154,7 +154,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 		console.log(data)
 // 		var my_sheet = new GoogleSpreadsheet('1zrGln6KaqQpfkByGTRXoVaE9ywsdOle9e4Dc57nAP8U');
 // 		my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
-// 			if (err) 
+// 			if (err)
 // 				console.log(err);
 
 // 			 my_sheet.addRow(5, {
@@ -169,7 +169,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	var i=0;
 // 	// 	var cursor = Meteor.users.find();
 // 	// 	cursor.forEach(function(data) {
-// 	// 		MeArray[i++] = data; 
+// 	// 		MeArray[i++] = data;
 // 	// 	});
 // 	// 	// for(var i=0,il=MeArray.length;i<il;i++){
 // 	// 	// 	if(MeArray[i].emails)
@@ -178,7 +178,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
 // 	// 		if (err) console.log( err );
 // 	// 		for(var i=0,il=MeArray.length;i<il;i++){
-// 	// 				my_sheet.addRow( 1, { 
+// 	// 				my_sheet.addRow( 1, {
 // 	// 			    	clientId: MeArray[i]._id,
 // 	// 					username: MeArray[i].username,
 // 	// 					maxScore: MeArray[i].profile.maxScore,
@@ -187,7 +187,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 					lastTried: MeArray[i].profile.lastTried,
 // 	// 					lastWrong:  MeArray[i].profile.lastWrong,
 // 	// 					playContinuty: MeArray[i].profile.playContinuty
-// 	// 			    });   
+// 	// 			    });
 // 	// 			}
 // 	// 	});
 // 	// },
@@ -198,25 +198,25 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 
 
 
-// 	// 	my_sheet.addRow(1, { 
+// 	// 	my_sheet.addRow(1, {
 // 	// 		clientId: "cid",
 // 	// 		score: "scr",
 // 	// 		time: "tme"
 // 	// 	});
 
 
-		
+
 // 	// 	// my_sheet.getRows( 2, function(err, row_data){
 // 	// 	// 	console.log(err);
 // 	// 	// 	console.log(row_data);
 // 	// 	// });
 
 
-		
+
 // 	// 	// ///add worksheet
 // 	// 	// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
 // 	// 	// 	// my_sheet.getInfo( function(err, ss_info){
-				
+
 // 	// 	// 	// });
 // 	// 	// 	my_sheet.addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv",function(err, data){
 // 	// 	// 		if (err) console.log( err );
@@ -231,7 +231,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	// 			rows[1].addTitle(1,2,2,"sdnvlkfdbdfbdfbdfbdfbdfbdfbsdnlv");
 // 	// 	//         });
 // 	// 	// 	});
-		   
+
 // 	// 	// });
 
 
@@ -240,10 +240,10 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
 // 	// 	// 	// console.log("add row");
 // 	// 	// 	// console.log(score);
-// 	// 	// 	if (err) 
+// 	// 	// 	if (err)
 // 	// 	// 		console.log(err);
 
-// 	// 	//     my_sheet.addRow(ss_info.worksheets.length, { 
+// 	// 	//     my_sheet.addRow(ss_info.worksheets.length, {
 // 	// 	// 		clientId: "cid",
 // 	// 	// 		score: "scr",
 // 	// 	// 		time: "tme"
@@ -271,13 +271,13 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	// 			console.log( ss_info.worksheets[i].title + ' has '+rows.length + 'rows' );
 // 	// 	// 		});
 // 	// 	// 	};
-			
-			
+
+
 // 	// 	// });
 
 // 	// 	// ///add worksheet
 // 	// 	// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
-// 	// 	// 	if (err) 
+// 	// 	// 	if (err)
 // 	// 	// 		console.log(err.data);
 // 	// 	// 	else
 // 	// 	// 		my_sheet.addWorkSheet();
@@ -293,7 +293,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	// 	ss_info.worksheets[0].getRows( function(err, rows){
 // 	// 	// 		console.log( ss_info.worksheets[0].title + ' has '+rows.length + 'rows' );
 // 	// 	// 	});
-			
+
 // 	// 	// });
 
 
@@ -313,7 +313,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 
 // 	// 	// ///add worksheet
 // 	// 	// my_sheet.setAuth('decivote@gmail.com','Wibing2republic', function(err){
-// 	// 	// 	if (err) 
+// 	// 	// 	if (err)
 // 	// 	// 		console.log(err.data);
 // 	// 	// 	else
 // 	// 	// 		my_sheet.addWorkSheet();
@@ -333,7 +333,7 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	// 			}
 // 	// 	//         });
 // 	// 	// 	});
-		   
+
 // 	// 	// });
 // 	// 	// //////update rows ////////////////////
 // 	// 	// my_sheet.setAuth('decivote@gmail.com','Wiber2wibing', function(err){
@@ -350,10 +350,10 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	// 			});
 // 	// 	//         });
 // 	// 	// 	});
-		   
+
 // 	// 	// });
 
-		
+
 
 
 // 	// 	// //////update rows
@@ -367,11 +367,11 @@ var bindFunction = Meteor.bindEnvironment(function(err, row_data){
 // 	// 	//             // rows[0].del();
 // 	// 	//         });
 // 	// 	// 	});
-		   
+
 // 	// 	// });
 
 
-		
+
 // 	// }
 
 // });

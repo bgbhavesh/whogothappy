@@ -9,7 +9,7 @@ Template.gamePopUp2.events({
 });
 app.closeOverlayImgRank = function(){
     $(".rankImg").css("display","none");
-    
+
 }
 app.openOverlay2 = function(){
     $("#tapTapEnded2").css("display","block");
@@ -57,7 +57,7 @@ Template.rankImg.events({
 
         startDrag = false;
     },
-    
+
 })
 Template.content2.helpers({
     image : function(){
@@ -73,7 +73,7 @@ Template.content2.events({
         var size = event.currentTarget.clientHeight;
         var max_height = $("#clickEvent2").width();
         var leftscreenX = (event.clientX < max_height)?event.clientX:max_height-(max_height/8);
-        var leftscreenY = (event.clientY < max_height)?event.clientY:max_height-(max_height/8); 
+        var leftscreenY = (event.clientY < max_height)?event.clientY:max_height-(max_height/8);
         if (element) {
             $(".rankImg").css("display","block");
             var style = 'style="left:'+leftscreenX+'px;top:'+leftscreenY+'px ;width:'+size/2+'px; height:'+size/2+';" '
@@ -142,11 +142,11 @@ Template.content2.events({
     //     var delay = app.randomNumber(parseInt(app.lang.settings.tranisionWaitMin),parseInt(app.lang.settings.tranisionWaitMax));
     //     count--;
     //     var late = parseInt(app.lang.settings.lateClick);
-    //     if(res){ 
+    //     if(res){
     //         if(app.score.method){
     //             if(app.score.method.length!=0){
     //                 if(totalTime<late){
-    //                     result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints); 
+    //                     result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints);
     //                 }else{
     //                     result = parseInt(app.lang.settings.sixteenScorePerLateHit);
     //                 }
@@ -169,8 +169,8 @@ Template.content2.events({
     //         "extra": ""
     //     });
     //     $(".myScore").text(app.totalscore);
-       
-        
+
+
     //     setTimeout(function(){
     //         app.clickStart = true;
     //         app.animateFamousRandom();
@@ -228,13 +228,13 @@ function startTimer2(){
     if(seconds >59){
         seconds=0;
         mins++;
-        if(mins<10){                     
-            $(".gametimemins").text('0'+mins+':');}       
-        else 
+        if(mins<10){
+            $(".gametimemins").text('0'+mins+':');}
+        else
             $(".gametimemins").text(mins+':');
-    }    
+    }
     if(seconds <10) {
-        $(".gametimeseconds").text('0'+seconds);} 
+        $(".gametimeseconds").text('0'+seconds);}
     else {
         $(".gametimeseconds").text(seconds);
     }
@@ -247,7 +247,7 @@ function startTimer2(){
         }
         else{
             startTimer2();
-        }           
+        }
     }else{
         if(mins >= parseInt(app.lang.settings.gameLast)){
             $(".gametimemins").text('10');
@@ -257,21 +257,21 @@ function startTimer2(){
         }
         else{
             startTimer2();
-        }   
+        }
     }
   },1000);
 }
 app.closeGame2 = function(){
     $("#tapTapLocal").css("display","none");
 }
-app.reStartGame2 = function(){   
+app.reStartGame2 = function(){
     game2 = true;
     app.openOverlay2();
     // app.startGame2()
     $("#tapTap2").css("display","block");
     $("#tapTapEnded2").css("display","none");
     $(".gametimemins").text("00");
-    $(".gametimeseconds").text(":00");  
+    $(".gametimeseconds").text(":00");
     $(".myScore").text("0");
     app.closeCounter2();
     gamestart = false;
@@ -354,6 +354,9 @@ function endGame2(EndedTime){
     else
         username = "Guest "
     var result;
+    if(!data.allScore)
+        data.allScore = {method: []};
+
     for(var i=0,il=data.allScore.method.length;i<il;i++){
         score = data.allScore.method[i];
         difference = score.endtime - score.slideStartTime;
@@ -365,7 +368,7 @@ function endGame2(EndedTime){
             result = "true";
         app.pushToDrive(message,score.caseId,result,app.gameId);
     }
-} 
+}
 app.endGame2 = endGame2;
 Template.gameEndPopUp2.events({
     'click #endGame2': function () {
@@ -373,7 +376,7 @@ Template.gameEndPopUp2.events({
     },
     'click #shareWithFacebook' : function(){
         app.shareWithFacebook();
-    } 
+    }
 });
 app.playAnewGame = function(){
     $("#rest").css("display","none")

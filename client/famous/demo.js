@@ -150,7 +150,7 @@ function setImages(){
 	expressionImageJoy.push("j1");
 
 
-	
+
 	var folderName;
 	var assetManager = new AssetManager();
 	var downloadstarttime = new Date().getTime();
@@ -239,7 +239,7 @@ app.famousContent = function(flip){
 	// 	folderName = "black";
 	// //./images/faces/black/male/p3/non/jn11.jpg
 
-	// for(var i=0,il=16;i<il;i++){ 
+	// for(var i=0,il=16;i<il;i++){
 	// 	if(joyFirstRandom == i)
 	// 		oldContent += "<img src='./images/faces/"+folderName+"/"+gender+"/p"+person+"/joy/" +expressionImageJoy[0]  +".jpg' draggable='false'/>";//oldContent += "<img src='./images/joy/" +expressionImageJoy[app.randomNumber(0,12)]  +".jpg' draggable='false'/>";
 	// 	else
@@ -258,7 +258,7 @@ app.famousContent = function(flip){
 	// 		else
 	// 			content[i].first = "<img src='./images/faces/"+folderName+"/"+gender+"/p"+person+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 	// 	}
-		
+
 	// }
 	console.log(app.newcase)
 	// return content;
@@ -270,39 +270,39 @@ app.famousContent = function(flip){
 	// });
 	// newcase = 9;
 	switch(app.newcase){//app.randomNumber(1,8)){
-		case 1 : 
+		case 1 :
 			// console.log("1");
 			return app.setAllMaleOrFemale(flip,"female")///all female different group
 		break;
-		case 2 : 
+		case 2 :
 			// console.log("2");
 			return app.setAllMaleOrFemale(flip,"male")///all male different group
 		break;
 		case 3 :
-			// console.log("3"); 
+			// console.log("3");
 			return app.setAllMaleOrFemale(flip,"male","asian")///all male asian
 		break;
-		case 4 : 
+		case 4 :
 			// console.log("4");
 			return app.setAllMaleOrFemale(flip,"female","asian")///all female asian
 		break;
-		case 5 : 
+		case 5 :
 			// console.log("5");
 			return app.setAllMaleOrFemale(flip,"male","","","same")///all male same group
 		break;
-		case 6 : 
+		case 6 :
 			// console.log("6");
 			return app.setAllMaleOrFemale(flip,"female","","","same")///all male same group
 		break;
-		case 7 : 
+		case 7 :
 			// console.log("7");
 			return app.setAllMaleOrFemale(flip,"","","","same")///all same group
 		break;
-		case 8 : 
+		case 8 :
 			// console.log("8");
 			return app.setAllMaleOrFemale(flip)///all complete random
 		break;
-		case 9 : 
+		case 9 :
 			// console.log("9");
 			return app.setAllMaleOrFemale(flip,"male","oldface","1")///all old faces
 		break;
@@ -323,7 +323,7 @@ app.setAllMaleOrFemale = function(flip,gender,group,person,grouptype){
 		// console.log(grouptype)
 		tempGroup = group || groupArray[app.randomNumber(0,2)];
 	}
-	for(var i=0,il=16;i<il;i++){ 
+	for(var i=0,il=16;i<il;i++){
 		tempGender = gender || genderArray[app.randomNumber(0,2)];
 		if(grouptype){
 			if(grouptype!="same"){
@@ -352,13 +352,13 @@ app.setAllMaleOrFemale = function(flip,gender,group,person,grouptype){
 			else
 				content[i].first = "<img src='./images/faces1/"+tempGroup+"/"+tempGender+"/p"+tempPerson+"/non/" +expressionImage[app.randomNumber(0,19)]  +".jpg' draggable='false'/>";
 		}
-		
+
 	}
 	return content;
 }
 
 app.famousContent(true);
-app.famousContent(false);  
+app.famousContent(false);
 Template.content.helpers({
 	// getcases : getcases(),
     image : function(){
@@ -381,7 +381,7 @@ Template.content.helpers({
     },
 })
 
-Session.setDefault('flip', ''); 
+Session.setDefault('flip', '');
 Session.set("rotate",false)
 Template.content.flip = function(){
 	return Session.get("flip");
@@ -399,20 +399,20 @@ Template.content.flip = function(){
 //         "added" : function(first){
 //             conditionalFeeds(first);
 //         },
-//         app.cases = 
+//         app.cases =
 //     });
-	
+
 // }
 app.caseCount = 0;
 // Template.firstContent.content = function(){
-// 	// return app.famousContent(); 
+// 	// return app.famousContent();
 // 	caseCount +=2;
 // 	console.log(caseCount)
 // 	return app.getCase(caseCount+1);//app.cases[caseCount]
 // 	// "<img src='/images/expression/" +expressionImage[app.randomNumber(0,60)]  +".gif'/>";
 // }
 // Template.secondContent.content = function(){
-// 	// return app.famousContent(); 
+// 	// return app.famousContent();
 // 	caseCount +=2;
 // 	console.log(caseCount)
 // 	return app.cases[caseCount]
@@ -421,7 +421,7 @@ app.caseCount = 0;
 // 	return app.famousContent();
 // }
 
-Session.setDefault('esTemplate', 'es_surface1'); 
+Session.setDefault('esTemplate', 'es_surface1');
 Template.views_EdgeSwapper.esTemplate = function() {
 	return Session.get('esTemplate');
 }
@@ -536,12 +536,12 @@ var contentEvent = {
 
 		count--;
 		var late = parseInt(app.lang.settings.lateClick);
-		if(res){ 
+		if(res){
 			// event.target.src = "/images/expression/smily.png"
 			if(app.score.method){
 				if(app.score.method.length!=0){
 					if(totalTime<late){
-						result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints); 
+						result = parseInt(app.lang.settings.sixteenScorePerHit - app.AccuracyPoints);
 						// console.log(app.lang.settings.sixteenScorePerHit)
 						// console.log(app.AccuracyPoints)
 					}else{
@@ -570,8 +570,8 @@ var contentEvent = {
             "extra": ""
         });
 		$(".myScore").text(app.totalscore);
-       
-        
+
+
 		setTimeout(function(){
 			app.clickStart = true;
 			app.animateFamousRandom();
@@ -662,7 +662,7 @@ Template.firstContent.events(contentEvent);
 Template.secondContent.events(contentEvent);
 Template.content.events(contentEvent);
 
-app.animateFamousFlag = false; 
+app.animateFamousFlag = false;
 app.resetDots = function(){
 	$("#dotOnImg").remove();
 	var count = $("#correctdotOnImg").remove();
@@ -687,16 +687,16 @@ app.animateFamousRandom = function(){
 	// }
 	app.checkAutoRotate();
 	switch(app.randomNumber(1,4)){
-		case 1 : 
+		case 1 :
 			app.animateFamouseFirst();
 		break;
-		case 2 : 
+		case 2 :
 			app.animateFamouseSecond();
 		break;
-		case 3 : 
+		case 3 :
 			app.animateFamouseThird();
 		break;
-		case 4 : 
+		case 4 :
 			app.animateFamouseFourth();
 		break;
 	}
@@ -712,7 +712,7 @@ app.animateFamouseRotate = function(){
 	// console.log("lkdsnlvknsld");
     // if(Session.get("flip")){
     // 	$(".card").each(function(index,element){
-    // 		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount++);    		
+    // 		setTimeout(function(){$(element).removeClass("flipped");},100*flipCount++);
     // 	});
     // }
     // else{
@@ -813,15 +813,15 @@ app.selectedImg =  function(event,str,joySrc){
         data.SRC = str;
         data.timePerSlide = scoreTimeTaken;
         Meteor.call('imageClicked',data);
-        
+
         data.SRC = joySrc;		/// image missed
         Meteor.call('imageMissed',data);
-        console.log(str +"clicked")
-        console.log(joySrc +"correct")
+        // console.log(str +"clicked")
+        // console.log(joySrc +"correct")
     	var element = event.currentTarget;
 		// console.log(element)
         element = $(element).clone();
-        var borderColor = borderColorFind(str) 
+        var borderColor = borderColorFind(str)
         var temp = event.currentTarget.outerHTML
         // str = "http://localhost:3000"+ str.substring(1);
         // console.log("http://localhost:3000"+str)
@@ -849,7 +849,7 @@ app.selectedImg =  function(event,str,joySrc){
 // 			var scoreOfCurrent = 0
 //     	var element = event.currentTarget;
 //         element = $(element).clone();
-//         var borderColor = borderColorFind(str) 
+//         var borderColor = borderColorFind(str)
 //         var temp = event.currentTarget.outerHTML
 //         var selection = '<div class="imgSelected '+borderColor+'"><img src="'+str+'"><div class="score"><div>'+scoreOfCurrent+'</div></div></div>';
 //         $('.selected').append(selection)

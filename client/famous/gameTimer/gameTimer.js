@@ -36,11 +36,21 @@ Template.content.events({
 //     'dragRight .sortable figure': function (ev,tpl) {
 //         // app.endBeforeTime();
 //         var forPlace = tpl;
-//     	console.log(forPlace)   
-//     	console.log(ev.gesture.deltaY)     
+//     	console.log(forPlace)
+//     	console.log(ev.gesture.deltaY)
 // 	}
 // });
-
+Template.GamerTimerimer.helpers({
+	"isSelected": function(selector){
+		var selected = 10;
+		if(Meteor.user())
+			selected = Meteor.user().getDefaultTime();
+		if(selected == selector)
+			return "selected";
+		else
+			return false;
+	}
+});
 Template.GamerTimerimer.events({
     'click #endGame': function () {
     	app.endBeforeTime();
@@ -57,8 +67,15 @@ Template.GamerTimerimer.events({
     },
     'click #shareWithAny' : function(){
     	app.shareWithAny();
+    },
+    "change select": function(evt, tpl){
+    	console.log($(evt.currentTarget).val())
+    	Meteor.users.update(Meteor.userId(), {$set:
+    		{"profile.defaultTime": $(evt.currentTarget).val()}
+    	})
     }
 });
+
 app.endBeforeTime = function(){
 	if(gamestart){
     	var time = mins +":"+seconds;
@@ -120,13 +137,13 @@ function startTimer(){
     if(seconds >59){
 		seconds=0;
 		mins++;
-	    if(mins<10){                     
-	      	$(".gametimemins").text('0'+mins+':');}       
-		else 
+	    if(mins<10){
+	      	$(".gametimemins").text('0'+mins+':');}
+		else
 			$(".gametimemins").text(mins+':');
-   	}    
+   	}
 	if(seconds <10) {
-		$(".gametimeseconds").text('0'+seconds);} 
+		$(".gametimeseconds").text('0'+seconds);}
 	else {
 		$(".gametimeseconds").text(seconds);
   	}
@@ -139,7 +156,7 @@ function startTimer(){
 		}
 		else{
 			startTimer();
-		}	        
+		}
   	}else{
   		if(mins >= parseInt(app.lang.settings.gameLast)){
 	  		$(".gametimemins").text('10');
@@ -149,7 +166,7 @@ function startTimer(){
 		}
 		else{
 			startTimer();
-		}	
+		}
   	}
   },1000);
 }
@@ -160,7 +177,7 @@ function endGame(EndedTime){
 	if (!game1) {return};
 	$("#clickEvent").css("filter","blur(5px)");
 	$("#clickEvent").css("-webkit-filter","blur(5px)");
-	
+
 	// $("#clickEvent2").css("filter","blur(5px)");
 	// $("#clickEvent2").css("-webkit-filter","blur(5px)");
 	app.arrangeDays();
@@ -247,6 +264,10 @@ function endGame(EndedTime){
 	else
 		username = "Guest "
 	var result;
+
+  if(!data.allScore)
+      data.allScore = {method: []};
+
 	for(var i=0,il=data.allScore.method.length;i<il;i++){
 		score = data.allScore.method[i];
 		difference = score.endtime - score.slideStartTime;
@@ -258,7 +279,7 @@ function endGame(EndedTime){
 			result = "true";
 		app.pushToDrive(message,score.caseId,result,app.gameId);
 	}
-}   
+}
 app.endGame = endGame;
 app.saveScoreLocal = function(Score){
 	var cursor = app.get("Score")
@@ -275,7 +296,7 @@ sendcacheData = setTimeout(function(){
 		});
 	}
 },30000);
-/// the value of the class myScore is to be changed  
+/// the value of the class myScore is to be changed
 app.resetStreak = function(){
 	var currentDate = new Date().getDay();
 	var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
@@ -287,7 +308,7 @@ app.resetStreak = function(){
 			// if(dayDiff > 7 ){
 			// 	if(monthDiff != 0)
 			// 	Meteor.call("resetStreak",currentDate,function(err,data){
-					
+
 			// 	});
 			// }
 
@@ -310,7 +331,7 @@ app.resetStreak = function(){
 						if(data)
 							setTimeout(app.arrangeDays, 1000);
 					});
-			}		
+			}
 		}
 	}
 }
@@ -359,11 +380,11 @@ app.modifyLastDate = function(data){
 				var currentWeek = app.getWeek();
 				Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.lastPlayed":currenttime,"profile.lastScore":data.score,"profile.lastTried":data.clicked,"profile.lastWrong":data.wrong,"profile.lastWeek":currentWeek,"profile.dayofweek":dayofweek}});
 
-				
+
 				if(cursorMe.profile.currentDate != currentDate){
 					Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.currentDate":currentDate}});
 				}
-					
+
 				if((cursorMe.profile.currentDate + 1)==currentDate){
 					if(cursorMe.profile.playContinuty){
 						var tDays = parseInt(cursorMe.profile.playContinuty) + 1;
@@ -378,7 +399,7 @@ app.modifyLastDate = function(data){
 	}
 }
 app.sendmail = function(emails,data){
-	for(var i=0,il=emails.length;i<il;i++){ 
+	for(var i=0,il=emails.length;i<il;i++){
 		var x = emails[i];
 		var atpos = x.indexOf("@");
 	    var dotpos = x.lastIndexOf(".");
@@ -397,7 +418,7 @@ app.sendmail = function(emails,data){
 //     var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
 //     if(cursorMe){
 //     	if(cursorMe.profile.maxScore || cursorMe.profile.maxScore == 0){
-    		
+
 //     	}
 //     	else{
 //     		Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.maxScore":0}});
@@ -407,7 +428,7 @@ app.sendmail = function(emails,data){
 
 app.getTextAreaEmails = function(){
 	var emails = $("#getEmails").val();
-	
+
     if(emails){
         var res = emails.split(",");
         return(res);
@@ -417,7 +438,7 @@ app.updateTheMaxScoreProfile = function(){
     var cursorMe = Meteor.users.findOne({"_id":Meteor.userId()})
     if(cursorMe){
     	if(cursorMe.profile.maxScore || cursorMe.profile.maxScore == 0){
-    		if(app.totalscore > cursorMe.profile.maxScore){	
+    		if(app.totalscore > cursorMe.profile.maxScore){
     			Meteor.users.update({"_id":Meteor.userId()},{$set : {"profile.maxScore":app.totalscore}});
     		}
     	}
@@ -431,7 +452,7 @@ app.updateTheProfile = function(){
     $(".playContinuty").text(cursorMe.profile.playContinuty);
     $(".maxScore").text(cursorMe.profile.maxScore);
 }
-app.EndRefesh = true; 
+app.EndRefesh = true;
 app.toggleEndRefesh = function(){
 	app.EndRefesh = !app.EndRefesh;
 	if(app.EndRefesh)
@@ -445,12 +466,12 @@ app.toggleEndRefesh = function(){
 	}
 	// console.log(app.EndRefesh+"app.EndRefesh")
 }
-app.reStartGame = function(){	
+app.reStartGame = function(){
 	// app.score ={};
 	$("#tapTap").css("display","block");
 	$("#tapTapEnded").css("display","none");
 	$(".gametimemins").text("00");
-	$(".gametimeseconds").text(":00");	
+	$(".gametimeseconds").text(":00");
 	$(".myScore").text("0");
 	app.closeCounter();
 	// app.startGame();

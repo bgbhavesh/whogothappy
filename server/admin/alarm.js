@@ -10,7 +10,7 @@ PushAlarm = function(options){
 	self.rule.dayOfWeek = [0, new schedule.Range(1, 6)]; //[0,1,2,3,4,5,6];
 	self.rule.hour = Number(options.hour);
 	self.rule.minute = Number(options.min);
-	
+
 	self.onPushDay = function(){
 		console.log("onPushDay " +self.pushId);
 		// console.log(self);
@@ -29,7 +29,7 @@ PushAlarm.prototype.cancel = function() {
 			self.job.cancel();
 			delete self;
 			return true;
-		}	
+		}
 	}
 	catch(err){
 		return false;
@@ -66,7 +66,8 @@ app.restoreAlarm = function(){
 }
 
 Meteor.startup(function(){
-	app.restoreAlarm();
+	if(!app.debug)
+		app.restoreAlarm();
 });
 
 Meteor.methods({
@@ -76,12 +77,12 @@ Meteor.methods({
 			console.log("not a user");
 			return ;
 		}
-		
+
 		options._id = Random.id();
 		try{
 			options.userId = Meteor.userId();
 		}catch(err){}
-		
+
 		var user = Meteor.user();
 		if(user && user.profile){
 			if(user.profile.alarm){
