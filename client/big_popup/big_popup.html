@@ -1,0 +1,90 @@
+<template name="big_popup">
+  {{#if isBig}}
+<div class="ui dimmer modals page transition visible active">
+  <div
+    class="ui standard test modal transition visible active scrolling popupModel"
+    style="max-width: {{maxHeight}}px; margin-top: 0px !important;"
+  >
+    <div class="header">
+      <a href="{{image.bigImage.link}}" target="_system">
+        <i class="comment icon"></i>
+      </a>
+      <!-- <i class="add user icon"></i> -->
+      <a href="{{image.bigImage.std}}" download>
+        <i class="download icon"></i>
+      </a>
+      <i class="share alternate icon onSharePicture"></i>
+      <a href="/home" class="onClosePopup">
+        <i class="close icon"></i>
+      </a>
+    </div>
+    <center>
+    <div class="image content">
+      <div class="imageCover">
+        <img
+          class="ui fluid image bigImage"
+          src="{{image.bigImage.std}}"
+          onload="app.onPopupBigImageLoad(this);"
+          onerror="app.onPopupImageError();"
+          style="height: 50px; width: 50px;"
+        >
+        <img
+          class="ui fluid image justImage"
+          src="{{image.feed.low}}"
+          onload="app.onPopupImageLoad();"
+          onerror="app.onPopupImageError();"
+        >
+        {{> votes}}
+        {{> recommended}}
+        {{> recommending}}
+        {{> big_extra}}
+      </div>
+    </div>
+    </center>
+    <div class="description">
+      <img class="ui avatar image" src="{{image.bigImage.profile_picture}}" />
+      <span>{{image.bigImage.username}}</span>
+    </div>
+    <!-- <div class="actions">
+
+    </div> -->
+
+
+
+  </div>
+  <div class="ui active dimmer popupDimmer">
+    <div class="ui loader"></div>
+  </div>
+
+
+</div>
+  {{/if}}
+</template>
+
+<template name="big_extra">
+<img class="ui tiny image imageButton heart invisible" src="http://pngimg.com/upload/heart_PNG706.png">
+<img class="ui tiny image imageButton follow invisible" src="https://upload.wikimedia.org/wikipedia/commons/3/33/F-Am%C3%A9ricas.png">
+
+<!-- Share bar -->
+<div class="ui container progressBar">
+  <center>
+  <div class="ui labeled button" tabindex="0">
+    <div class="ui red button">
+      <i class="heart icon"></i> Like
+    </div>
+    <a class="ui basic red left pointing label progressLove">
+      100
+    </a>
+  </div>
+  <div class="ui left labeled button" tabindex="0">
+    <a class="ui basic right pointing green label progressShare">
+      100
+    </a>
+    <div class="ui green button">
+      <i class="thumbs up icon"></i> Share
+    </div>
+  </div>
+  </center>
+</div>
+<!-- Share bar -->
+</template>

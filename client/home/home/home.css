@@ -1,0 +1,37 @@
+body{
+  height: auto !important;
+  min-width: auto !important;
+
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+body.pushable{
+  background: #ffffff !important;
+}
+a{
+  color: rgba(255, 255, 255, 0.9);
+}
+.description a{
+  color: #4183c4;
+}
+.markAsRead{
+  position: absolute;
+  font-size: 2em !important;
+}
+
+.onUnFollow, .onStartChat{
+  font-size: 30px;
+}
+
+.pusher center .main{
+  /*position: absolute;
+  top: 0px;
+  bottom: 0px;
+  overflow-y: scroll;*/
+  min-height: 600px !important;
+}

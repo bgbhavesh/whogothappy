@@ -1,0 +1,8 @@
+.header.fixedSize{
+  max-width: 120px;
+  overflow: hidden;
+}
+.onUnFollow, .onStartChat{
+  font-size: 1.5em !important;
+  margin-left: 0px !important;
+}

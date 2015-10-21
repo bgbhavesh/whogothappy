@@ -1,0 +1,25 @@
+.recomm img{
+  border-radius: 8px;
+  box-shadow: 5px 5px 10px black;
+
+}
+.recomm{
+  height: 40px;
+  width: 60px;
+  position: absolute;
+  z-index: 2;
+}
+
+.sender{
+  width: 70%;
+  height: 100%;
+  float: left;
+  position: absolute;
+  background-size: 100% 100%;
+  left: 30%;
+}
+.receiver{
+  width: 60%;
+  height: 100%;
+  position: absolute;
+}

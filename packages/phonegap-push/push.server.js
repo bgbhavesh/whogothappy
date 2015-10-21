@@ -24,13 +24,6 @@ CordovaPush = function(androidServerKey, options) {
                         console.log('Remove token: ' + token);
                     };                    
 
-    if (!options['certData'] || !options['certData'].length)
-        console.log('Push server could not find certData');
-
-    if (!options['keyData'] || !options['keyData'].length)
-        console.log('Push server could not find keyData');
-
-
     // https://npmjs.org/package/apn
 
     // After requesting the certificate from Apple, export your private key as a .p12 file and download the .cer file from the iOS Provisioning Portal.
@@ -46,9 +39,7 @@ CordovaPush = function(androidServerKey, options) {
 
     var apnConnection = new apn.Connection( options );
     // (cert.pem and key.pem)
-    self.sendIOS = function(from, userToken, title, text, count, priority) {
-
-        priority = (priority || priority === 0)? priority : 10;
+    self.sendIOS = function(from, userToken, title, text, count) {
 
         var myDevice = new apn.Device(userToken);
 
@@ -56,10 +47,9 @@ CordovaPush = function(androidServerKey, options) {
 
         note.expiry = Math.floor(Date.now() / 1000) + 3600; // Expires 1 hour from now.
         note.badge = count;
-        //note.sound = ""; // XXX: Does this work?
+        //note.sound = "";
         note.alert = text;
         note.payload = {'messageFrom': from };
-        note.priority = priority;
 
         //console.log('I:Send message to: ' + userToken + ' count=' + count);
 

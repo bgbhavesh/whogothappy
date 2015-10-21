@@ -1,0 +1,14 @@
+.ui.inverted.menu{
+	background-color: #FF5F0F!important
+}
+
+.trinisoftFooter{
+  font-size: 15px !important;
+}
+
+.animate{
+  -webkit-animation: loader .6s linear;
+  animation: loader .6s linear;
+  -webkit-animation-iteration-count: infinite;
+  animation-iteration-count: infinite;
+}

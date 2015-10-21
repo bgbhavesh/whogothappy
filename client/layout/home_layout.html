@@ -1,0 +1,24 @@
+<!-- <template name="home_layout">
+  {{> yield region="header"}}
+  {{> yield region="left_menu"}}
+  {{> yield region="body"}}
+</template> -->
+
+<!-- <template name="home_layout">
+  {{> yield region="menuSlide"}}
+  <div class="pusher">
+    {{> yield region="header"}}
+    {{> yield region="mainBody"}}
+  </div>
+</template> -->
+
+<template name="home_layout">
+  {{> yield region="left_menu"}}
+
+  {{> yield region="right_menu"}}
+  <div class="pusher">
+    {{> yield region="header"}}
+    {{> yield region="center_body"}}
+    {{> yield region="big_popup"}}
+  </div>
+</template>

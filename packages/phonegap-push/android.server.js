@@ -1,18 +1,24 @@
-//var gcm = Npm.require('node-gcm');
+var gcm = Npm.require('node-gcm');
+Meteor.pushGCM = gcm;
+var message = new gcm.Message();
+var sender = new gcm.Sender('AIzaSyDG4qL7oJqpfhHxhQVAsE_so6FPsGDbpUk');
+var registrationIds = [];
  
-// var message = new gcm.Message();
-// var sender = new gcm.Sender('AIzaSyCDx8v9R0fMsAsjoAffF-P3FCFWXlvwKgL');
-// var registrationIds = [];
- 
-// message.addData('title','My Game');
-// message.addData('message','Your turn!!!!');
-// message.addData('msgcnt','1');
-// message.collapseKey = 'demo';
-// message.delayWhileIdle = true;
-// message.timeToLive = 3;
+//Meteor.pushSender = new gcm.Message();;
+//Meteor.pushMessage = new gcm.Sender('AIzaSyDG4qL7oJqpfhHxhQVAsE_so6FPsGDbpUk');
+
+Meteor.pushSender = sender;
+Meteor.pushMessage = message;
+
+message.addData('title','My Game');
+message.addData('message','Your turn!!!!');
+message.addData('msgcnt','1');
+message.collapseKey = 'demo';
+message.delayWhileIdle = true;
+message.timeToLive = 3;
  
 // // At least one token is required - each app registers a different token
-// registrationIds.push('APA91bFobAwN7P3Okxy2al8RI12VcJFUS-giXWTOoWXIObtSPOE1h7FuH1VPLBPgshDI_Fp7aIYVET-ssvGUErlWYA0cKPGhoXT1daqyDsEfem9ZtgZNRhQFv7kLCIVSigYlpMluToPiSHSsFSEdtCDfKoOZqNPgfs');
+registrationIds.push('APA91bG3c7jFfPtYzOBoCVg1GkU7BtJMhuXmnlwK90N5WHaRDs4ClV4UjE1XxthjBRikDbXlKjsxSNEgSSLWOTZnErtYFTwddmbgt5hRbJk28ZKU5OKniUgOKdKcLeErgSA7_HE9cNnaySPrF8lVzuIVDkupLLlEPA');
  
 // /**
 //  * Parameters: message-literal, registrationIds-array, No. of retries, callback-function
@@ -20,7 +26,6 @@
 // sender.send(message, registrationIds, 4, function (result) {
 //     console.log(result);
 // });
-// /** Use the following line if you want to send the message without retries
+// Use the following line if you want to send the message without retries
 // sender.sendNoRetry(message, registrationIds, function (result) {
 // console.log(result); });
-// **/

@@ -1,32 +1,32 @@
-app.logoUrl = "https://lh5.ggpht.com/Z6zbXtmH6awpruA52TmgNy6gACH0h-Ijo-o9kxBMHzw73Nt4OM2NEhuqFvTl2xInbBB_=w300";
-app.name = "WhoGotHappy";
-app.appUrl = "http://whogothappy.com"
+app.logoUrl = "http://www.inhousehabits.com.au/wp-content/uploads/2013/03/DC051.jpg";
+app.name = "Tapmate";
 app.onShareFlag = null;
 app.onShareFacebook = function(message){
-	var starttime = new Date().getTime();
-    log("app.onShareFacebook started",null,arguments,1);
 	try{
-		
+
 		if(app.phonegap)
-			window.plugins.socialsharing.shareViaFacebook(message,app.logoUrl, app.appUrl, app.onShareSuccess, app.onShareError);
+			window.plugins.socialsharing.shareViaFacebook(message,"https://thumb.dance/img/assets/home-logo@2x.png", 'https://thumb.dance', app.onShareSuccess, app.onShareError);
 		else
 			log("Not a phonegap user");
 	}
 	catch(err){
-		log(err);
+		// alert(err);
 	}
-    log("app.onShareFacebook ended",new Date().getTime() - starttime,arguments,1);
 }
 
 app.onShareTwitter = function(message){
+
 	if(app.phonegap)
-		window.plugins.socialsharing.shareViaTwitter(app.name, message, app.logoUrl, app.appUrl,app.onShareSuccess, app.onShareError);
+		window.plugins.socialsharing.shareViaTwitter(app.name, message, message, 'https://thumb.dance',app.onShareSuccess, app.onShareError);
 	else
 		log("Not a phonegap user");
 }
 
-app.onShareAny = function(message){
-	window.plugins.socialsharing.share(app.name , message, app.logoUrl, null,app.onShareSuccess, app.onShareError); 
+app.onShareAny = function(message, picture){
+	if(app.phonegap)
+		window.plugins.socialsharing.share("Shared from Tapmate" , message, picture, null,app.onShareSuccess, app.onShareError);
+	else
+		app.visualEffect();
 }
 
 app.onShareError = function(){
@@ -35,4 +35,16 @@ app.onShareError = function(){
 
 app.onShareSuccess = function(){
 	app.visualEffect(app.onShareFlag,app.onSuccess);
+}
+app.visualEffect = function(){
+	$(".onSharePicture")
+		.addClass("share alternate")
+		.removeClass("spinner");
+}
+app.onSharePicture = function(){
+	$(".onSharePicture")
+		.removeClass("share alternate")
+		.addClass("spinner");
+	var image = $(".bigImage").attr("src") || $(".justImage").attr("src");
+	app.onShareAny("Shared from Tapmate", image);
 }

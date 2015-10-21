@@ -1,0 +1,17 @@
+<template name="recommended">
+  {{#each imageFun.recommended}}
+    <div
+      class="recomm"
+      style="left : {{left}}%;top:{{top}}%;"
+    >
+        <img class="receiver" src="{{who}}">
+        <img class="sender" src="{{profile_picture}}">
+    </div>
+  {{/each}}
+</template>
+
+<!--
+      type="ed"
+
+      whoid="{{whoid}}"
+      recomid="{{_id}}" -->

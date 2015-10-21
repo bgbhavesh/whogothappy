@@ -1,4 +1,5 @@
 app.onResize = function(){
+	app.chatSize();
 	if(!$(".card:first")[0]){
 		setTimeout(app.onResize);
 		return;
@@ -51,9 +52,24 @@ app.onResize = function(){
 		$(".selected  figure img").width(width/2)
 		$(".selected  img").width(width/2)
 	}
-	
+
 };
 
 $(window).resize(app.onResize);
 
-app.onResize();
+// app.onResize();
+
+
+Meteor.startup(function(){
+  app.onResize();
+});
+
+app.chatSize = function(){
+  var chatSize = (window.innerHeight - 54 - 38 - 35);
+  $("#chatBoxCSS").remove();
+  $("head")
+    .append('<style id="chatBoxCSS" type="text/css">.relaxed.list{height: '
+      +chatSize
+      +'px !important;}</style>');
+  // console.log("app.onResize " +chatSize);
+}

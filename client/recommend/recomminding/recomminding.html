@@ -1,0 +1,16 @@
+<template name="recommending" >
+  {{#each imageFun.recommending}}
+    <div
+      class="recomm"
+      style="left : {{left}}%;top:{{top}}%;"
+    >
+        <img class="receiver" src="{{who}}">
+        <img class="sender" src="{{profile_picture}}">
+    </div>
+  {{/each}}
+</template>
+
+<!--
+      whoid="{{whoid}}"
+      type="ing"
+      recomid="{{_id}}" -->

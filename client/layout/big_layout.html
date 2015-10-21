@@ -1,0 +1,10 @@
+<template name="big_layout">
+  {{> yield region="left_menu"}}
+
+  {{> yield region="right_menu"}}
+  <div class="pusher">
+    {{> yield region="header"}}
+    {{> yield region="center_body"}}
+    {{> yield region="big_popup"}}
+  </div>
+</template>
