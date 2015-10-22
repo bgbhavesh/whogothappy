@@ -1,0 +1,18 @@
+<template name="history">
+<center>
+  <div class="ui small images">
+    {{#each feedHistory}}
+      <div class="image">
+        <a href="/image/{{likeid}}">
+          <img src="{{low}}" />
+        </a>
+      </div>
+    {{/each}}
+  </div>
+</center>
+<div class="ui large buttons">
+    <button class="ui button nextPrev" data-code="-1">Prev</button>
+    <div class="or"></div>
+    <button class="ui button nextPrev" data-code="1">Next</button>
+  </div>
+</template>

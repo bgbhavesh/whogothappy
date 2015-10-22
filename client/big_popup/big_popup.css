@@ -1,0 +1,56 @@
+.ui.modal.visible{
+  display: block;
+}
+
+.onClosePopup{
+
+  float: right;
+  /*
+  color: #0fc7ff!important;
+  font-size: 5em !important;
+  position: absolute;
+  right: 0px;
+  z-index: 10;
+  top: 0px;*/
+}
+
+.popupModel{
+  margin-top: 0px !important;
+}
+
+.imageButton{
+  position: absolute !important;
+  z-index: 3;
+}
+.imageButton.invisible{
+  display: none !important;
+}
+.download.icon{
+  color: black;
+}
+.bigImage{
+  position: absolute !important;
+}
+
+.ui.container.progressBar{
+  position: absolute;
+  left: 50%;
+  top: 35%;
+  z-index: 3;
+  display: none;
+  margin-left: -80px !important;
+  width: 160px !important;
+}
+
+.onSharePicture,
+.download.icon,
+.onClosePopup,
+.comment.icon
+{
+  font-size: 1.5em !important;
+  color: black !important;
+}
+
+.imageCover{
+  position: relative;
+}

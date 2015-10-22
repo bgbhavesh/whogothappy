@@ -1,0 +1,53 @@
+<template name="header">
+  <div class="ui inverted main menu">
+
+        <a class="launch item {{setLaunchButton}}" id="left_slide_submenu">
+            <i class="{{setLaunchButton}} icon"></i>
+        </a>
+        <a class="icon item" id="headerNamea" href="/">WhoGotHappy</a>
+        <div class="right menu">
+            <a class="launch item content" id="right_slide_submenu">
+              <i class="users icon"></i>
+            </a>
+        </div>
+  </div>
+
+</template>
+ <!--   <div id="headerSection">
+    <div class="header">
+        <div class="appname"> </div>
+        <div class="statename"> </div>
+        {{>server}}
+    </div>
+      <div id="toastArea">  </div>
+    </div>
+    <div class="allNotify">
+    {{> oneNotify}}
+
+  </div>
+
+  <div id="snapButton" >
+    <i class="icon list layout"></i>
+  </div> -->
+<template name="oneNotify">
+	{{#each eachNotify}}
+		<div class="notify " likeid="{{_id}}">
+			{{{message}}}
+		</div>
+	{{/each}}
+</template>
+<template name="server">
+	<div id="status" class="{{status}}Status" data-step="1" data-intro="Online / Offline" data-position="left">
+		{{> headerroute}}
+	</div>
+
+</template>
+
+<template name="headerroute">
+	<div id="tapmateLogo" class="{{status}}Status"> </div>
+	<div class="droplogo">
+      	<div class="droplogin item" href="#login"><i class="edit icon"></i>{{lang.header.login}}</div>
+
+      	<div class="drophome item" href="#homepage"><i class="delete icon"></i>{{lang.header.home}}</div>
+    </div>
+</template>

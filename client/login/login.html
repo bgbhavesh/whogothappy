@@ -1,45 +1,39 @@
 <template name="login">
-    <div class=" container page textCenter " id="loginContent"> 
-        <form onsubmit="">
-            <div class="loginPage message row">
-                <div class="errorMessage large-12 columns">
-                    <div class="ui error small  panel textLeft" style="">
-                        <div class="header ">Action Forbidden</div>
-                        <p>You can only sign up for an account once with a given e-mail address.</p>
-                    </div>
-                </div>
-                <div class="ui input listItem " >                    
-                    <div class="large-6 medium-6 columns">
-                        <input id="loginUsername" type="text" placeholder="username">                   
-                    </div>                    
-                </div>
-                <div class="ui input listItem ">                   
-                    <div class="large-6 medium-6 columns">
-                        <input id="loginPassword" type="password" placeholder="password" > 
-                    </div>
-                </div>
-            </div>  
-            <div class="huge forgot textCenter large-12 medium-12 columns" style="">            
-                <a class="item " href="#forgot">Forgot Password?</a>           
-            </div>   
-            <div class=" textCenter large-6 medium-6 columns" style="">    
-                <div id="loginButton" class="button ui " style="background:cyan; ">            
-                    Login
-                </div>
-            </div>
-        </form >
-        <a class="item" href="#register">
-            <div id="haveAnAcc"  class="button ui  ">            
-                sign up         
-            </div>
-        </a>  
-        <div id="loginScreenFacebook" class="large-6 columns ">
-             {{#if user}}
-                <a class="button expand">hi {{myusername}}</a>
-            {{else}}
-                <a class="button expand">Login with Facebook</a>
-             {{/if}}
-            
-        </div>
-    </div>
+	<div class="ui container landingPage" style="width: 100% !important; margin-left: 0px !important;">
+
+  </div>
 </template>
+<template name="loginWithFacebook">
+	<div id="loginButtonWithFacebook" class="ui facebook button loginButton loginFacebookHome">
+		<i class="facebook icon"></i>
+		{{lang.face.logface}}
+	</div>
+
+</template>
+
+<!-- <div class="introduction">
+			{{> loginWithFacebook}}
+		</div>
+		 -->
+<!-- <div id="loginAsTest" class="ui facebook button loginButton loginFacebookHome">
+		<i class="facebook icon"></i>
+		Login for Test
+	</div> -->
+<!-- <div id="loginLoader">
+			<img src="http://youtap.meteor.com/images/eagle.png">
+			<img src="http://youtap.meteor.com/images/rooster.png">
+			<img src="http://youtap.meteor.com/images/mouse.png">
+			<img src="http://youtap.meteor.com/images/seagul.png">
+		</div> -->
+				<!-- <div id="alreadyUser">
+					<div id="profilePic"> <img src=""> </div>
+					<div id="alreadyMessage"> {{lang.face.noYou}} <br><br> {{lang.face.logInsta}} </div>
+				</div> -->
+					<!--<div id="loginwithapp" class="button"> Login With App </div>-->
+	<!-- <div id="loginScreen">
+			<div id="loginWrapper">
+
+				<br>
+			</div>
+
+	</div> -->

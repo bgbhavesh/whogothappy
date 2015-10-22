@@ -1,0 +1,19 @@
+<template name="follow">
+  <div class="ui middle aligned selection list">
+    {{#each follows}}
+    <div class="item">
+      <i class="right floated remove icon onUnFollow"></i>
+      <a href="/chat/{{chatId}}">
+        <i class="right floated chat icon onStartChat"></i>
+        {{#if chatNotification}}
+          <div class="floating ui red label">{{chatNotification}}</div>
+        {{/if}}
+      </a>
+      <img class="ui avatar image" src="{{profile_picture}}">
+      <div class="content">
+        <div class="header fixedSize">{{username}}</div>
+      </div>
+    </div>
+    {{/each}}
+  </div>
+</template>

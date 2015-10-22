@@ -4,20 +4,32 @@
 # but you can also edit it by hand.
 
 meteor-platform
+underscore
+spiderable
 insecure
-sixteensmiles
-accounts-password
-digilord:roles
-email
-meteorhacks:kadira
-cmather:handlebars-server
-phonegap-push
-linto:fontawesome
-spreadsheet
-ground:db
-iron:router
-alanning:roles
 service-configuration
-pedrohenriquerls:reactjs
-mizzao:timesync
+jquery
+mongo
+
+phonegap-push
+youtap
+accounts-base
+semantic:ui-css
+http
+# accounts-instagram
+# accounts-facebook
+# accounts-twitter
+# accounts-google
+cmather:handlebars-server
+mizzao:user-status
+language
+# cw4gn3r:jquery-event-drag
+# mrt:joyride
+email
+iron:router
+coffeescript
 dburles:collection-helpers
+ground:db
+trinisofttechnologies:accounts-facebook
+trinisofttechnologies:roles
+trinisofttechnologies:keepalive

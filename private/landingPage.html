@@ -1,0 +1,65 @@
+  <style type="text/css">
+/*  .introduction{
+    position: relative;
+    clear: both;
+    display: block;
+    text-align: center;
+  }
+  .library{
+    display: block;
+    font-size: 1.75em;
+    font-weight: bold;
+  }
+  .tagline{
+    font-size: 0.75em;
+  }*/
+
+  /*#blue{
+    height: 100%;
+    width: 100%;
+    text-align: center;
+  }
+  .back{
+    background-color: #0FC7FF;
+
+  }*/
+  .landingPage{
+    position: absolute;
+    left: 0px;
+    top: 0px;
+    height: 100%;
+    width: 100% !important;
+    background-color: #0FC7FF;
+    margin: 0px !important;
+  }
+  </style>
+
+<center>
+  <div id="blue" class="ui noMar noPad ">
+    <h1 class="" onclick="app.initLoginWithTest()">
+      WhogotHappy
+    </h1>
+    <h2> Find the odd Pic from the pack!</h2>
+    <label>
+      How it works
+
+    </label><br />
+
+
+    <iframe width="275" height="275"
+       src="https://www.youtube.com/embed/D3GciFoK5to?autoplay=1">
+    </iframe><br />
+
+    <div id="loginButtonWithFacebook" class="ui facebook button loginButton loginFacebookHome" onclick="app.loginWithFacebook()">
+      <i class="facebook icon"></i>
+      Login with Facebook
+    </div>
+    <div id="loginButtonWithTest" class="ui facebook button loginButton loginFacebookHome" style="display: none;" onclick="app.testLogin()">
+      <i class="facebook icon"></i>
+      Login with Test
+    </div>
+  </div>
+</center>
+
+
+

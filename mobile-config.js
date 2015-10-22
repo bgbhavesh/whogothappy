@@ -1,50 +1,98 @@
+// This section sets up some basic app metadata,
+// the entire section is optional.
+
+//if ( typeof App !== 'undefined' ){
 App.info({
-  id: 'com.youiest.whogothappy',
-  name: 'Who Got Happy',
-  description: 'Get the right happy face!',
-  author: 'Youiest LLC',
-  email: 'elias@youiest.com',
-  website: 'http://whogothappy.com',
-  version: "0.0.4"
+  id: 'com.youiest.tapmatrix',
+  name: 'Tapmate',
+  description: 'Picture sharing app.',
+  author: 'Elias Moosman',
+  email: 'tapmate@youiest.com',
+  website: 'http://youtap.meteor.com'
 });
 
-App.icons({
-  // iOS
-  'iphone': 'server/assets/icon-60@2x.png',
-  'iphone_2x': 'server/assets/icon-76@2x.png',
+// App.icons({
+//   // iOS
+//   'iphone': 'assets/icons/icon-60.png',
+//   'iphone_2x': 'assets/icons/icon-60@2x.png',
+//   'iphone_3x': 'assets/icons/icon-60@2x.png',
+//   'ipad': 'assets/icons/icon-60@2x.png',
+//   'ipad_2x': 'assets/icons/icon-60@2x.png',
 
-  // Android
-  'android_ldpi': 'server/assets/icon-36x36.png',
-  'android_mdpi': 'server/assets/icon-48x48.png',
-  'android_hdpi': 'server/assets/icon-72x72.png',
-  'android_xhdpi': 'server/assets/icon-96x96.png'
-});
+//   // Android
+//   'android_ldpi': 'assets/icons/icon.png',
+//   'android_mdpi': 'assets/icons/icon.png',
+//   'android_hdpi': 'assets/icons/icon.png',
+//   'android_xhdpi': 'assets/icons/icon.png'
+// });
 
-App.launchScreens({
-  // // iOS
-  // 'iphone': 'server/assets/splash-320x480.png',
-  // 'iphone_2x': 'server/assets/splash-320x480@2x.png',
-  // 'iphone5': 'server/assets/splash-320x568@2x.png',
+// App.launchScreens({
+//   // iOS
+//   'iphone': 'assets/splash/Default-568h@2x~iphone.png',
+//   'iphone_2x': 'assets/splash/Default@2x~iphone.png',
+//   'iphone5': 'assets/splash/Default~iphone.png',
+//   'iphone6': 'assets/splash/Default~iphone.png',
+//   'iphone6p_portrait': 'assets/splash/Default~iphone.png',
+//   'iphone6p_landscape': 'assets/splash/Default~iphone.png',
+//   'ipad_portrait': 'assets/splash/Default~iphone.png',
+//   'ipad_portrait_2x': 'assets/splash/Default~iphone.png',
+//   'ipad_landscape': 'assets/splash/Default~iphone.png',
+//   'ipad_landscape_2x': 'assets/splash/Default~iphone.png',
 
-  // // Android
-  // 'android_ldpi_portrait': 'server/assets/splash-200x320.png',
-  // 'android_ldpi_landscape': 'server/assets/splash-320x200.png',
-  // 'android_mdpi_portrait': 'server/assets/splash-320x480.png',
-  // 'android_mdpi_landscape': 'server/assets/splash-480x320.png',
-  // 'android_hdpi_portrait': 'server/assets/splash-480x800.png',
-  // 'android_hdpi_landscape': 'server/assets/splash-800x480.png',
-  // 'android_xhdpi_portrait': 'server/assets/splash-720x1280.png',
-  // 'android_xhdpi_landscape': 'server/assets/splash-1280x720.png'
-});
+//   // Android
+//   'android_ldpi_portrait': 'assets/splash/default.png',
+//   'android_ldpi_landscape': 'assets/splash/default.png',
+//   'android_mdpi_portrait': 'assets/splash/default.png',
+//   'android_mdpi_landscape': 'assets/splash/default.png',
+//   'android_hdpi_portrait': 'assets/splash/default.png',
+//   'android_hdpi_landscape': 'assets/splash/default.png',
+//   'android_xhdpi_portrait': 'assets/splash/default.png',
+//   'android_xhdpi_landscape': 'assets/splash/default.png'
+// });
 
-
+App.accessRule("*");
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#FFFFFF');
-App.setPreference('Fullscreen', 'true');
-App.setPreference('Orientation', 'portrait');
+App.setPreference('fullscreen', 'false');
+//console.log(App);
+//}
 
-// App.accessRule("*");
-// App.configurePlugin('com.phonegap.plugins.facebookconnect', {
-//   APP_ID: '1234567890',
-//   API_KEY: 'supersecretapikey'
-// });
+App.configurePlugin('phonegap-facebook-plugin', {
+  APP_ID: '317297441740673',
+  APP_NAME: 'Tapmate'
+});
+// Icons
+
+// Name  Size
+// iphone_2x 120x120
+// iphone_3x 180x180
+// ipad  76x76
+// ipad_2x 152x152
+// android_ldpi  36x36
+// android_mdpi  48x48
+// android_hdpi  72x72
+// android_xhdpi 96x96
+// Launch Screens
+
+// Name  Size
+// iphone_2x 640x960
+// iphone5 640x1136
+// iphone6 750x1334
+// iphone6p_portrait 1242x2208
+// iphone6p_landscape  2208x1242
+// ipad_portrait 768x1024
+// ipad_portrait_2x  1536x2048
+// ipad_landscape  1024x768
+// ipad_landscape_2x 2048x1536
+// android_ldpi_portrait 200x320
+// android_ldpi_landscape  320x200
+// android_mdpi_portrait 320x480
+// android_mdpi_landscape  480x320
+// android_hdpi_portrait 480x800
+// android_hdpi_landscape  800x480
+// android_xhdpi_portrait  720x1280
+// android_xhdpi_landscape 1280x720
+// Other
+
+// Name  Size
+// App Store 1024x1024

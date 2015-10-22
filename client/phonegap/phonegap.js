@@ -1,61 +1,29 @@
-// document.addEventListener('deviceready', function(){
-if(Meteor.isCordova){
-app.phonegap = app.cordova = true;
-Meteor.startup(function(){
-	// console.log("deviceready");
-	app.phonegap = app.cordova = true;
-	//app.alarm = new Alarm();
-	// var date = new Date().getTime() * 5000;
-	// app.alarm.setAlarm(date,function(){});
-	// function(error,success){alert("error " +error);alert("success " +success);}
-	app.onRegisterPushNotification();
-});
+
+app.deviceready = function(){
+	app.phonegap = true;
+	app.device = device;
+	setTimeout(app.onRegisterPushNotification,50);
+	if(window.StatusBar){
+		StatusBar.hide();
+	}
+	if(navigator.splashscreen)
+	navigator.splashscreen.hide();
 }
-// }, false);
 app.phonegap = Meteor.isCordova;
-// console.log(Meteor.isCordova);
-app.setAlarm = function(time,type){
-	var tempTime = time;
-	time = time.split(":");
-	var hour = time[0];
-	var min = time[1];
-	var date = new Date();
-	date.setHours(hour);
-	date.setMinutes(min);
-	date.setSeconds(0);
+app.onPause = function(){
 
-	var nowDate = new Date().getTime();
-	if(date.getTime() < nowDate){
-		date = date + 86400000;
-	}
-	// if(app.alarm)
-	// 	app.alarm.setAlarm(date,function(){});
-
-
-	date = app.convertServerTime(date);
-	// var user = Meteor.users.findOne({"_id":Meteor.userId()});
-	// if(app.pushId){
-		var options = {};
-		options.hour = Number(date.getHours());
-		options.min = Number(date.getMinutes());
-		options.localtime = tempTime;
-		options.pushId = app.pushId;
-		options.type = type;
-		Meteor.call("setAlarm",options,function(){});
-	// }
-
-	console.log("setAlarm at " +date);
-	return true;
 }
 
-app.convertServerTime = function (clientDate){
-	clientDate = new Date(clientDate);
-	if(app.debug){
-		return clientDate;
-	}
-	//EST
-	offset = -5.0
-	utc = clientDate.getTime() + (clientDate.getTimezoneOffset() * 60000);
-	serverDate = new Date(utc + (3600000*offset));
-	return serverDate;
+app.onResume = function(){
+
 }
+
+Meteor.startup(function(){
+  if(Meteor.isCordova)
+    app.deviceready();
+});
+
+
+document.addEventListener("deviceready",app.deviceready, false);
+document.addEventListener("pause",app.onPause, false);
+document.addEventListener("resume",app.onResume, false);

@@ -20,9 +20,9 @@ document.addEventListener("resume", app.onResume, false);
 
 
 
-Template.docs.events({
+// Template.docs.events({
 
-});
+// });
 
 Template.home.events({
 	// 'click .clickEvent': function () {

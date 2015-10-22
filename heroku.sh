@@ -7,7 +7,7 @@ MAIL_URL=''
 METEOR_SETTINGS=$(cat ./settings.json)
 nodeVersion="0.10.36" ## not all node version works with some meteor version
 
-##### DELETE A LINE IF YOU DON"T WANT SOME ENV VAR #######
+##### PUT HASH IF YOU DON"T WANT SOME ENV VAR #######
 runSript="cd ./programs/server &&
 npm install &&
 cd ../../ &&
@@ -16,6 +16,7 @@ export ROOT_URL='"$ROOT_URL"' &&
 export MAIL_URL='"$MAIL_URL"' &&
 export METEOR_SETTINGS='"$METEOR_SETTINGS"' &&
 node ./main.js"
+
 
 ##### DON'T LOOK HERE IT'S ALL MY DOING #######
 rm -rf ./.meteor/local/heroku
@@ -47,7 +48,7 @@ packageText='{
 echo $packageText > ./package.json
 
 appText='{
-  "name": "Trinisoft Technologies Pvt. Ltd.",
+  "name": "'$HEROKU_APP'",
   "description": "Trinisoft Technologies Pvt. Ltd. Official app.",
   "repository": "https://git.heroku.com/"'$HEROKU_APP',
   "keywords": ["node", "express", "trinisoft"],
