@@ -2,12 +2,19 @@ app.dummyUser = [
   "http://semantic-ui.com/images/avatar2/large/kristy.png",
   "http://semantic-ui.com/images/avatar2/large/matthew.png",
   "http://semantic-ui.com/images/avatar2/large/molly.png",
-  "http://semantic-ui.com/images/avatar2/large/elyse.png"
+  "http://semantic-ui.com/images/avatar2/large/elyse.png",
+  "http://semantic-ui.com/images/avatar/large/elliot.jpg",
+  "http://semantic-ui.com/images/avatar/large/jenny.jpg",
+  "http://semantic-ui.com/images/avatar/large/steve.jpg",
+  "http://semantic-ui.com/images/avatar/large/daniel.jpg",
+  "http://semantic-ui.com/images/avatar/large/helen.jpg",
+  "http://semantic-ui.com/images/avatar/large/veronika.jpg",
+  "http://semantic-ui.com/images/avatar/large/stevie.jpg",
 ];
 app.dummyImages = function(){
   app.dummyImage = [];
   for(var i=0,il=16;i<il;i++)
-    app.dummyImage.push(app.dummyUser[app.randomNumber(0,3)]);
+    app.dummyImage.push(app.dummyUser[app.randomNumber(0,10)]);
   return app.dummyImage;
 }
 setInterval(function(){

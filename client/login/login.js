@@ -30,7 +30,7 @@ app.testFacebook = function(){
 }
 
 app.testLogin = function(){
-  var testUser = {"_id":"938522329491159"};
+  var testUser = {"_id":"938522329491159","profile":{"alarm":{"first":{"hour":8,"min":0,"localtime":"08:00","type":"first","_id":"opsp3o7fvicX2iPtC","userId":"938522329491159","pushId":null}},"createdAt":1444982413970,"emailsToSend":"","full_name":"Nicolson D'souza","profile_picture":"https://fbcdn-profile-a.akamaihd.net/hprofile-ak-xfa1/v/t1.0-1/p50x50/10355375_955071571169568_6002459298565668353_n.jpg?oh=a02673745dddc3ca1b4570d5b85f97ea&oe=56CD9B9A&__gda__=1452070346_60fa87d8d8e724be07be4dbbc15956e5","serverStartTime":"2015-10-21T06:45:14.771Z"}};
   testUser.loginWithFacebook = true;
   Accounts.callLoginMethod({
     methodArguments: [testUser],
