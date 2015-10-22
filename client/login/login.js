@@ -30,8 +30,11 @@ app.testFacebook = function(){
 }
 
 app.testLogin = function(){
-    var testUser = {"_id":"149863228697770"};
-    Meteor.loginAsFacebook(testUser,app.facebookCallback);
+  var testUser = {"_id":"938522329491159"};
+  testUser.loginWithFacebook = true;
+  Accounts.callLoginMethod({
+    methodArguments: [testUser],
+  });
 }
 app.getFacebookAppId = function(){
     if(app.debug)
