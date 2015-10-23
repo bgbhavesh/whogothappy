@@ -1,8 +1,8 @@
-// app.onResize = function(){
-//   setTimeout(function(){
+app.onResize = function(){
+  setTimeout(function(){
 
-//   },100);
-// }
+  },100);
+}
 
-// $(window).resize(app.onResize);
+$(window).resize(app.onResize);
 

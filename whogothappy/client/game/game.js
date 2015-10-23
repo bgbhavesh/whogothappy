@@ -12,23 +12,18 @@ app.dummyUser = [
   "http://semantic-ui.com/images/avatar/large/stevie.jpg",
 ];
 app.dummyImages = function(){
+  var truePosition = app.randomNumber(0,15);
   app.dummyImage = [];
-  for(var i=0,il=16;i<il;i++)
-    app.dummyImage.push(app.dummyUser[app.randomNumber(0,10)]);
+  for(var i=0,il=16;i<il;i++){
+    if(truePosition)
+      app.dummyImage.push(app.dummyUser[app.randomNumber(0,10)]);
+    else
+      app.dummyImage.push(app.dummyUser[app.randomNumber(0,10)]);
+  }
   return app.dummyImage;
 }
-// setInterval(function(){
-//   app.onEverySecond();
-// },5000);
-app.onEverySecond = function(){
-  $(".dimmer").addClass("active");
-  setTimeout(function(){$(".dimmer").removeClass("active");},1000);
-  $(".cards .card").transition('flash');
-  var images = app.dummyImages();
-  $(".cards .card .image img").each(function(i,ele){
-    $(ele).attr("src",images[i])
-  });
-}
+
+
 // Template.game.helpers({
 //   "images": function(){
 //     Session.get("refreshId");
@@ -44,5 +39,8 @@ Template.game.events({
     else
       $(evt.currentTarget).transition('shake');
     toggle++;
+  },
+  "click .onStartGame": function(){
+    app.onSetupGame();
   }
 });

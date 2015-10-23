@@ -7,6 +7,7 @@ Router.onBeforeAction(function(){
   if(!Meteor.userId()){
     Router.go("/");
   }
+  app.onStopGame();
   this.next();
   },{
     except: ["login"]

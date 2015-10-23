@@ -141,7 +141,7 @@ assetManager.downloadAll(function(){
 // 	app.foldername = "black";
 // 	setImages(16,920,"jb","jnb","black");//joyno = 16, sadnumber = 1240, joyname=ja, sadname=jna,folderName=asian;
 // }
-setImages();
+// setImages();
 function setImages(){
 	calAccu = 0
 	for(var img=1,imgcount=20;img<=imgcount;img++){

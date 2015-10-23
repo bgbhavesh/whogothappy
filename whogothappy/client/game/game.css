@@ -10,6 +10,14 @@
   margin-right: -1em;
   margin-top: 0em;
 }
-.model{
+.ui.dimmer{
+  margin-top: 54px;
+}
 
+.onStartGame{
+  left: 50%;
+  top: 50%;
+  position: absolute;
+  margin-left: -42px !important;
+  margin-top: -18px !important;
 }
