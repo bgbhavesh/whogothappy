@@ -17,10 +17,7 @@ app.dummyImages = function(){
     app.dummyImage.push(app.dummyUser[app.randomNumber(0,10)]);
   return app.dummyImage;
 }
-// setInterval(function(){
-//   app.onEverySecond();
-// },5000);
-app.onEverySecond = function(){
+setInterval(function(){
   $(".dimmer").addClass("active");
   setTimeout(function(){$(".dimmer").removeClass("active");},1000);
   $(".cards .card").transition('flash');
@@ -28,7 +25,7 @@ app.onEverySecond = function(){
   $(".cards .card .image img").each(function(i,ele){
     $(ele).attr("src",images[i])
   });
-}
+},5000);
 // Template.game.helpers({
 //   "images": function(){
 //     Session.get("refreshId");

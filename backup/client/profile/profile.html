@@ -1,0 +1,30 @@
+<template name="profile">
+<div class="ui card">
+  <div class="image">
+    <img src="{{user.getPicture}}">
+  </div>
+  <div class="content">
+    <a class="header">{{user.getName}}</a>
+    <div class="meta">
+      <span class="date">Joined in 2013</span>
+    </div>
+    <div class="description">
+      Hi there, I am on Tapmate!
+    </div>
+  </div>
+  <div class="extra content">
+    <a>
+      <i class="user icon"></i>
+      {{follows.count}} Friends
+    </a>
+    <a>
+      Available on
+      {{#if user.profile.pushDevice}}
+        <i class="{{user.profile.pushDevice}} icon"></i>
+      {{else}}
+        <i class="html5 icon"></i>
+      {{/if}}
+    </a>
+  </div>
+</div>
+</template>

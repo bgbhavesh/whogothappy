@@ -82,6 +82,17 @@ Template.header.events({
     //     app.toggelHeader();
     // }
 });
+Template.headerroute.events({
+    "click #tapmateLogo" : function(){
+        toggleMenuLogo();
+    },
+    "click .droplogin" : function(){
+        Router.go("/login")
+    },
+    "click .drophome" : function(){
+        Router.go("/home");
+    }
+});
 
 function toggleMenuLogo(){
     if(app.droplogoShow){

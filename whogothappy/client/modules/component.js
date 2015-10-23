@@ -1,9 +1,9 @@
-app.onMarkAsRead = function(opt){
-  var cursorFeed = Feed.find({
-    "likeid": app.routeParam("imageId") || opt.data._id,
-    "display": "y"
-  });
-  cursorFeed.forEach(function(data){
-    Feed.update(data._id, {$set: {"display": "n"}});
-  });
-};
+app.randomNumber = function(snum, bnum){
+  var value = Math.floor((Math.random()*bnum)+1);
+  if(value >= snum && value <= bnum){
+    return value
+  }
+  else{
+    return randomNumber(snum, bnum);
+  }
+}

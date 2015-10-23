@@ -62,26 +62,12 @@ Router.map(function () {
       'header': {to: 'header'},
       'left_menu': {to: 'left_menu'},
       'home_body': {to: 'center_body'},
-      'right_menu': {to: 'right_menu'},
+      // 'right_menu': {to: 'right_menu'},
     },
     // waitOn: app.onSubscribeHome
   });
 
-  this.route("image",{
-    path:"/image/:imageId",
-    template:"home_layout",
-    yieldTemplates:{
-      'header': {to: 'header'},
-      'left_menu': {to: 'left_menu'},
-      'home_body': {to: 'center_body'},
-      'right_menu': {to: 'right_menu'},
-      'big_popup': {to: 'big_popup'},
-    },
-    waitOn: app.onSubscribeImage,
-    onAfterAction: function(){
-      return Meteor.subscribe("bigImage", this.params.imageId);
-    }
-  });
+
 
   this.route("profile",{
     path:"/profile",
@@ -90,63 +76,76 @@ Router.map(function () {
       'header': {to: 'header'},
       'left_menu': {to: 'left_menu'},
       'profile': {to: 'center_body'},
-      'right_menu': {to: 'right_menu'},
+      // 'right_menu': {to: 'right_menu'},
       // 'big_popup': {to: 'big_popup'},
     },
     // waitOn: app.onSubscribeImage
   });
 
-  this.route("chat",{
-    path:"/chat/:chatId",
+  this.route("settings",{
+    path:"/settings",
     template:"home_layout",
     yieldTemplates:{
       'header': {to: 'header'},
       'left_menu': {to: 'left_menu'},
-      'chat': {to: 'center_body'},
-      'right_menu': {to: 'right_menu'},
+      'settings': {to: 'center_body'},
+      // 'right_menu': {to: 'right_menu'},
       // 'big_popup': {to: 'big_popup'},
     },
-    waitOn: function(){
-      return [
-        Meteor.subscribe("chat", this.params.chatId)
-      ]
-    },
-    onAfterAction: function(){
-      app.setChatFollowId(true);
-      app.removeChatNotification();
-    }
+    // waitOn: app.onSubscribeImage
   });
 
-  this.route("find_friends",{
-    path:"/find_friends/:pageNum",
-    template:"home_layout",
-    yieldTemplates:{
-      'header': {to: 'header'},
-      'left_menu': {to: 'left_menu'},
-      'find_friends': {to: 'center_body'},
-      'right_menu': {to: 'right_menu'},
-    },
-    waitOn: function(){
-      return [
-        Meteor.subscribe("find_friends", this.params.pageNum)
-      ];
-    }
-  });
+  // this.route("chat",{
+  //   path:"/chat/:chatId",
+  //   template:"home_layout",
+  //   yieldTemplates:{
+  //     'header': {to: 'header'},
+  //     'left_menu': {to: 'left_menu'},
+  //     'chat': {to: 'center_body'},
+  //     'right_menu': {to: 'right_menu'},
+  //     // 'big_popup': {to: 'big_popup'},
+  //   },
+  //   waitOn: function(){
+  //     return [
+  //       Meteor.subscribe("chat", this.params.chatId)
+  //     ]
+  //   },
+  //   onAfterAction: function(){
+  //     app.setChatFollowId(true);
+  //     app.removeChatNotification();
+  //   }
+  // });
 
-  this.route("history",{
-    path:"/history/:pageNum",
-    template:"home_layout",
-    yieldTemplates:{
-      'header': {to: 'header'},
-      'left_menu': {to: 'left_menu'},
-      'history': {to: 'center_body'},
-      'right_menu': {to: 'right_menu'},
-    },
-    waitOn: function(){
-      return [
-        Meteor.subscribe("history", this.params.pageNum)
-      ];
-    }
-  });
+  // this.route("find_friends",{
+  //   path:"/find_friends/:pageNum",
+  //   template:"home_layout",
+  //   yieldTemplates:{
+  //     'header': {to: 'header'},
+  //     'left_menu': {to: 'left_menu'},
+  //     'find_friends': {to: 'center_body'},
+  //     'right_menu': {to: 'right_menu'},
+  //   },
+  //   waitOn: function(){
+  //     return [
+  //       Meteor.subscribe("find_friends", this.params.pageNum)
+  //     ];
+  //   }
+  // });
+
+  // this.route("history",{
+  //   path:"/history/:pageNum",
+  //   template:"home_layout",
+  //   yieldTemplates:{
+  //     'header': {to: 'header'},
+  //     'left_menu': {to: 'left_menu'},
+  //     'history': {to: 'center_body'},
+  //     'right_menu': {to: 'right_menu'},
+  //   },
+  //   waitOn: function(){
+  //     return [
+  //       Meteor.subscribe("history", this.params.pageNum)
+  //     ];
+  //   }
+  // });
 
 });
