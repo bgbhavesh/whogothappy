@@ -1,3 +1,58 @@
 <template name="settings">
-
+<form class="ui form settings">
+  <div class="fields">
+    <h2 class="ui header">
+      <i class="signal icon"></i>
+      <div class="content">
+        Game Level
+      </div>
+    </h2>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <i class="dropdown icon"></i>
+      <div class="text">{{user.getLevel}}</div>
+      <div class="menu" data-change="level">
+        <div class="item" data-value="beginner">Beginner</div>
+        <div class="item" data-value="intermediate">Intermediate</div>
+        <div class="item" data-value="expert">Expert</div>
+      </div>
+    </div>
+  </div>
+  <div class="fields">
+    <h2 class="ui header">
+      <i class="wait icon"></i>
+      <div class="content">
+        Game Time
+      </div>
+    </h2>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <i class="dropdown icon"></i>
+      <div class="text">{{user.getTime}} mins</div>
+      <div class="menu" data-change="time">
+        <div class="item" data-value="2">2 mins</div>
+        <div class="item" data-value="5">5 mins</div>
+        <div class="item" data-value="10">10 mins</div>
+      </div>
+    </div>
+  </div>
+  <div class="fields">
+    <h2 class="ui header">
+      <i class="dashboard icon"></i>
+      <div class="content">
+        Game Speed
+      </div>
+    </h2>
+    <div class="ui selection dropdown">
+      <input type="hidden" name="gender">
+      <i class="dropdown icon"></i>
+      <div class="text">{{user.getSpeed}} Secs</div>
+      <div class="menu" data-change="speed">
+        <div class="item" data-value="5">5 Secs</div>
+        <div class="item" data-value="10">10 Secs</div>
+        <div class="item" data-value="20">20 Secs</div>
+      </div>
+    </div>
+  </div>
+</form>
 </template>

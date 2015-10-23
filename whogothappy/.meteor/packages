@@ -29,7 +29,6 @@ email
 iron:router
 coffeescript
 dburles:collection-helpers
-ground:db
 trinisofttechnologies:accounts-facebook
 trinisofttechnologies:roles
 trinisofttechnologies:keepalive
