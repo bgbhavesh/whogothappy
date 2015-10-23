@@ -18,6 +18,8 @@ app.dummyImages = function(){
   return app.dummyImage;
 }
 setInterval(function(){
+  $(".dimmer").addClass("active");
+  setTimeout(function(){$(".dimmer").removeClass("active");},1000);
   $(".cards .card").transition('flash');
   var images = app.dummyImages();
   $(".cards .card .image img").each(function(i,ele){

@@ -1,3 +1,15 @@
+.ui.four.cards > .card {
+  width: calc( 25% - 0.5em );
+  margin-left: 0.25em;
+  margin-right: 0.25em;
+  margin-top: 0.25em;
+  margin-bottom: 0.25em;
+}
+.ui.four.cards {
+  margin-left: -1em;
+  margin-right: -1em;
+  margin-top: 0em;
+}
 .model{
 
 }
