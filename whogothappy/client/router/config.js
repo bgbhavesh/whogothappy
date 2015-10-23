@@ -4,3 +4,4 @@ config.points = {
   "intermediator": 10,
   "expert": 20,
 };
+app.config = config;
