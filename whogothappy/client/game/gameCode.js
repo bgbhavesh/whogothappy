@@ -50,6 +50,7 @@ app.onEverySecond = function(){
     $(ele).attr("src",images[i])
   });
   app.isClickable = true;
+  app.onResize();
 }
 
 app.onStopGame = function(){
