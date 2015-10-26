@@ -9,7 +9,7 @@
 // });
 
 Template.game.events({
-  "click .cards .card": function(evt, tpl){
+  "click .imageContainer img": function(evt, tpl){
     if(app.isClickable){
       app[app.gameLevel].validate({evt: evt, tpl: tpl});
       app.isClickable = false;

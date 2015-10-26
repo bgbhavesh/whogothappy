@@ -4,6 +4,7 @@
   margin-right: 0.25em;
   margin-top: 0.25em;
   margin-bottom: 0.25em;
+  position: relative;
 }
 .ui.four.cards {
   margin-left: -1em;
@@ -20,4 +21,9 @@
   position: absolute;
   margin-left: -42px !important;
   margin-top: -18px !important;
+}
+
+.imageContainer img{
+  width: 24%;
+  margin: 0.50% !important;
 }

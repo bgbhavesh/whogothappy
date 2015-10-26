@@ -46,7 +46,7 @@ app.onEverySecond = function(){
   setTimeout(function(){$(".dimmer.pauser").removeClass("active");},1000);
   $(".cards .card").transition('flash');
   var images = app[app.gameLevel].get();
-  $(".cards .card .image img").each(function(i,ele){
+  $(".imageContainer img").each(function(i,ele){
     $(ele).attr("src",images[i])
   });
   app.isClickable = true;

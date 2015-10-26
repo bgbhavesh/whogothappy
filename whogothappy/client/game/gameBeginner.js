@@ -36,7 +36,8 @@ app.beginner.get = function(){
 app.beginner.validate = function(opt){
   var ele = opt.evt.currentTarget;
   var clickedPicture = $(ele)
-    .children(".image").children("img").attr("src");
+    // .children(".image").children("img")
+    .attr("src");
 
   if($("img[src='" +clickedPicture +"']").length == 1){
     $(ele).transition('tada');
