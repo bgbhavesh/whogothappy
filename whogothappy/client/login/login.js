@@ -40,7 +40,7 @@ app.getFacebookAppId = function(){
     if(app.debug)
         return "399034973608261"
     else
-        return "317297441740673";//"906351116043661";
+        return "906351116043661";
 }
 
 var testCount = 0;

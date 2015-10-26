@@ -47,6 +47,6 @@ app.beginner.validate = function(opt){
     $(ele).transition('shake');
   }
 
-  app.totalPoints += app.config.points[app.gameLevel];
+
   app.setScore();
 }

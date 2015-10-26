@@ -42,6 +42,8 @@ app.onStartGame = function(){
 };
 
 app.onEverySecond = function(){
+  app.totalPoints += app.config.points[app.gameLevel];
+  app.setScore();
   $(".dimmer.pauser").addClass("active");
   setTimeout(function(){$(".dimmer.pauser").removeClass("active");},1000);
   $(".cards .card").transition('flash');

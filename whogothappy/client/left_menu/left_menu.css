@@ -12,3 +12,9 @@
   -webkit-animation-iteration-count: infinite;
   animation-iteration-count: infinite;
 }
+.ui.scale.down.sidebar{
+  display: none;
+}
+.ui.visible.scale.down.sidebar{
+  display: block;
+}

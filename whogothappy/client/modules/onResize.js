@@ -1,7 +1,8 @@
 app.onResize = function(){
   setTimeout(function(){
-    if($(".cards").height() > window.innerHeight){
-      $(".cards").css("max-width", window.innerHeight - 57);
+    var imageContainer = $(".imageContainer");
+    if(imageContainer.height() > window.innerHeight){
+      imageContainer.css("max-width", window.innerHeight - 57);
     }
   },100);
 }
