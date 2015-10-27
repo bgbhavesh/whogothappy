@@ -3,15 +3,16 @@
 
 //if ( typeof App !== 'undefined' ){
 App.info({
-  id: 'com.youiest.tapmatrix',
-  name: 'Tapmate',
-  description: 'Picture sharing app.',
+  id: 'com.youiest.whogothappy',
+  name: 'WhoGotHappy',
+  description: 'Tap that happiest face.',
   author: 'Elias Moosman',
   email: 'tapmate@youiest.com',
-  website: 'http://youtap.meteor.com'
+  website: 'http://youtap.meteor.com',
+  version: "1.0.0"
 });
 
-// App.icons({
+App.icons({
 //   // iOS
 //   'iphone': 'assets/icons/icon-60.png',
 //   'iphone_2x': 'assets/icons/icon-60@2x.png',
@@ -22,11 +23,11 @@ App.info({
 //   // Android
 //   'android_ldpi': 'assets/icons/icon.png',
 //   'android_mdpi': 'assets/icons/icon.png',
-//   'android_hdpi': 'assets/icons/icon.png',
+  'android_hdpi': '../assets/icon.png',
 //   'android_xhdpi': 'assets/icons/icon.png'
-// });
+});
 
-// App.launchScreens({
+App.launchScreens({
 //   // iOS
 //   'iphone': 'assets/splash/Default-568h@2x~iphone.png',
 //   'iphone_2x': 'assets/splash/Default@2x~iphone.png',
@@ -44,11 +45,11 @@ App.info({
 //   'android_ldpi_landscape': 'assets/splash/default.png',
 //   'android_mdpi_portrait': 'assets/splash/default.png',
 //   'android_mdpi_landscape': 'assets/splash/default.png',
-//   'android_hdpi_portrait': 'assets/splash/default.png',
+  'android_hdpi_portrait': '../assets/screen.png',
 //   'android_hdpi_landscape': 'assets/splash/default.png',
 //   'android_xhdpi_portrait': 'assets/splash/default.png',
 //   'android_xhdpi_landscape': 'assets/splash/default.png'
-// });
+});
 
 App.accessRule("*");
 App.setPreference('StatusBarOverlaysWebView', 'false');
@@ -58,8 +59,8 @@ App.setPreference('fullscreen', 'false');
 //}
 
 App.configurePlugin('phonegap-facebook-plugin', {
-  APP_ID: '317297441740673',
-  APP_NAME: 'Tapmate'
+  APP_ID: '906351116043661',
+  APP_NAME: 'WhoGotHappy'
 });
 // Icons
 

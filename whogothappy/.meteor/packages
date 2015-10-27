@@ -3,7 +3,6 @@
 # 'meteor add' and 'meteor remove' will edit this file for you,
 # but you can also edit it by hand.
 
-meteor-platform
 underscore
 spiderable
 insecure
@@ -32,3 +31,16 @@ dburles:collection-helpers
 trinisofttechnologies:accounts-facebook
 trinisofttechnologies:roles
 trinisofttechnologies:keepalive
+
+standard-minifiers
+meteor-base
+mobile-experience
+blaze-html-templates
+session
+tracker
+logging
+reload
+random
+ejson
+spacebars
+check
