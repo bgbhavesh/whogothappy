@@ -10,3 +10,28 @@
 h2.ui.header{
   margin-right: 5px;
 }
+div.content{
+	font-size: 15px;
+	position: relative;
+	top: 10px;
+}
+div.ui.dropdown{
+	font-size: 15px;
+    font-family: 'Lato', 'Helvetica Neue', Arial, Helvetica, sans-serif;
+    border-radius: 0  !important;
+}
+div.item{
+	font-size: 10px;
+}
+i.signal.icon{
+	position: relative;
+		top: 10px;
+}
+i.dashboard.icon{
+	position: relative;
+		top: 10px;
+}
+i.wait.icon{
+	position: relative;
+		top: 10px;
+}

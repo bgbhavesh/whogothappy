@@ -26,9 +26,9 @@ app.beginner.get = function(){
   var images = [];
   for(var i=0,il=16;i<il;i++){
     if(i == truePosition)
-      images.push(app[app.gameLevel].image[app.randomNumber(0,18)]);
+      images.push({"image": app[app.gameLevel].image[app.randomNumber(0,18)], "winner": true});
     else
-      images.push(app[app.gameLevel].image[truePosition]);
+      images.push({"image": app[app.gameLevel].image[truePosition], "winner": false});
   }
   return images;
 }
@@ -37,9 +37,9 @@ app.beginner.validate = function(opt){
   var ele = opt.evt.currentTarget;
   var clickedPicture = $(ele)
     // .children(".image").children("img")
-    .attr("src");
+    .attr("winner");
 
-  if($("img[src='" +clickedPicture +"']").length == 1){
+   if(clickedPicture== "true"){
     $(ele).transition('tada');
     app.scoredPoints += app.config.points[app.gameLevel];
   }

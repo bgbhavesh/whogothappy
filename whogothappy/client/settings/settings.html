@@ -1,34 +1,39 @@
 <template name="settings">
+<div class="ui one column stackable center aligned page grid">
 <form class="ui form settings">
+    <br><br>
   <div class="fields">
-    <h2 class="ui header">
-      <i class="signal icon"></i>
+    <h2 class="small ui header">
+      <i class="small signal icon"></i>
       <div class="content">
         Game Level
       </div>
     </h2>
+
+     &nbsp;&nbsp;&nbsp;&nbsp;
     <div class="ui selection dropdown">
-      <input type="hidden" name="gender">
-      <i class="dropdown icon"></i>
       <div class="text">{{user.getLevel}}</div>
-      <div class="menu" data-change="level">
+        <i class="dropdown icon"></i>
+        <div class="menu" data-change="level">
         <div class="item" data-value="beginner">Beginner</div>
         <div class="item" data-value="intermediate">Intermediate</div>
         <div class="item" data-value="expert">Expert</div>
       </div>
     </div>
   </div>
+  <br>
   <div class="fields">
-    <h2 class="ui header">
-      <i class="wait icon"></i>
+    <h2 class="small ui header">
+      <i class="small wait icon"></i>
       <div class="content">
         Game Time
       </div>
     </h2>
+    &nbsp;&nbsp;&nbsp;&nbsp;
     <div class="ui selection dropdown">
       <input type="hidden" name="gender">
-      <i class="dropdown icon"></i>
       <div class="text">{{user.getTime}} mins</div>
+      <i class="dropdown icon"></i>
       <div class="menu" data-change="time">
         <div class="item" data-value="2">2 mins</div>
         <div class="item" data-value="5">5 mins</div>
@@ -36,17 +41,19 @@
       </div>
     </div>
   </div>
+  <br>  
   <div class="fields">
-    <h2 class="ui header">
-      <i class="dashboard icon"></i>
+    <h2 class="small ui header">
+      <i class="small dashboard icon"></i>
       <div class="content">
         Game Speed
       </div>
     </h2>
+    &nbsp;&nbsp;
     <div class="ui selection dropdown">
       <input type="hidden" name="gender">
-      <i class="dropdown icon"></i>
       <div class="text">{{user.getSpeed}} Secs</div>
+      <i class="dropdown icon"></i>
       <div class="menu" data-change="speed">
         <div class="item" data-value="5">5 Secs</div>
         <div class="item" data-value="10">10 Secs</div>
@@ -55,4 +62,5 @@
     </div>
   </div>
 </form>
+</div>
 </template>

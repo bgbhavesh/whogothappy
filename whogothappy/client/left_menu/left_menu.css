@@ -18,3 +18,7 @@
 .ui.visible.scale.down.sidebar{
   display: block;
 }
+a#profile{
+	float: right;
+	margin-right:30px; 
+}

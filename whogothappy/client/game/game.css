@@ -26,4 +26,9 @@
 .imageContainer img{
   width: 24%;
   margin: 0.50% !important;
+  height: 25%;
+}
+.ui.image{
+  height: 150px;
+  
 }

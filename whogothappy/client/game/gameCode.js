@@ -49,7 +49,9 @@ app.onEverySecond = function(){
   $(".cards .card").transition('flash');
   var images = app[app.gameLevel].get();
   $(".imageContainer img").each(function(i,ele){
-    $(ele).attr("src",images[i])
+    $(ele)
+      .attr("src",images[i].image)
+      .attr("winner", images[i].winner);
   });
   app.isClickable = true;
   app.onResize();
