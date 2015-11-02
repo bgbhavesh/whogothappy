@@ -30,13 +30,14 @@ app.beginner.get = function(){
     else
       images.push({"image": app[app.gameLevel].image[truePosition], "winner": false});
   }
+  console.log(images)
   return images;
 }
 
 app.beginner.validate = function(opt){
   var ele = opt.evt.currentTarget;
   var clickedPicture = $(ele)
-    // .children(".image").children("img")
+    //.children(".image").children("img")
     .attr("winner");
 
    if(clickedPicture== "true"){
