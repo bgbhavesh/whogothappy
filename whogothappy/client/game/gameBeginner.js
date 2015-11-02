@@ -30,7 +30,6 @@ app.beginner.get = function(){
     else
       images.push({"image": app[app.gameLevel].image[truePosition], "winner": false});
   }
-  console.log(images)
   return images;
 }
 

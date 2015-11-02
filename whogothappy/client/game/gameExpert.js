@@ -3,33 +3,28 @@ app.expert.image = [
 ];
 
 app.expert.get = function(){
-	
+
 	app.newcase = app.randomNumber(1,5);
 
 	switch(app.newcase){//app.randomNumber(1,8)){
 		case 1 :
-			// console.log("3");
 			return app.setAllMaleOrFemale("male","asian")///all male asian
 		break;
 		case 2 :
-			// console.log("4");
 			return app.setAllMaleOrFemale("female","asian")///all female asian
 		break;
 		case 3 :
-			// console.log("5");
 			return app.setAllMaleOrFemale("male","black")///all male same group
 		break;
 		case 4 :
-			// console.log("6");
 			return app.setAllMaleOrFemale("female","black")///all male same group
 		break;
 		case 5 :
-			// console.log("7");
 			return app.setAllMaleOrFemale("male","oldface")///all same group
 		break;
 
 	}
-	
+
 }
 
 
@@ -47,7 +42,7 @@ app.setAllMaleOrFemale = function(gender,folderName){
 
 			var prefix= "https://s3-us-west-2.amazonaws.com/youiest/";
 			// prefix = "./images/";
-		
+
 			gender=gender;
 			folderName=folderName;
 			var truePosition = app.randomNumber(0,15);
@@ -69,7 +64,7 @@ app.setAllMaleOrFemale = function(gender,folderName){
 	  var clickedPicture = $(ele)
 	   // .children(".image").children("img")
 	    .attr("winner");
-	   
+
 	   if(clickedPicture== "true"){
 	    $(ele).transition('tada');
 	    app.scoredPoints += app.config.points[app.gameLevel];

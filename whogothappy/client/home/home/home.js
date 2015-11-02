@@ -5,5 +5,5 @@ Template.home.events({
 });
 
 app.onFeedImageLoad = function(evt){
-  console.log(this, evt)
+  // console.log(this, evt)
 }

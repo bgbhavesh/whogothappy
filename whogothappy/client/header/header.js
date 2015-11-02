@@ -49,8 +49,6 @@ app.right_slide_menu = function(){
     $('.ui.sidebar.right').sidebar("show")
 }
 app.backToStart = function() {
-    // console.log("close everything");
-    //
     app.onClickClearCanvas();
     app.commentOneVote();
     app.closeFollows();
@@ -64,7 +62,6 @@ app.backToStart = function() {
 }
 Template.header.events({
     "click #snapButton" : function(){
-        console.log("snapy");
         app.openCloseSnapLeft();
     },
     "click .appname" : function(){
@@ -95,8 +92,6 @@ function toggleMenuLogo(){
         }
 }
 app.openCloseSnapLeft=function (){
-
-    console.log("snapy"+app.snapLeftFlag);
      if(app.snapLeftFlag)
         app.CloseSnapLeft();
     else
@@ -112,5 +107,4 @@ app.CloseSnapLeft = function (){
 }
 app.openSnapLeft = function(){
     setTimeout(function(){Router.go("/menuSlider")},100);
-    console.log("menuSlider")
 }
