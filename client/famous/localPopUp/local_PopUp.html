@@ -1,0 +1,63 @@
+<template name="gamePopUp2">
+    <div id="tapTapLocal" class="gamePopUp2 overlay">
+        
+        <div data-alert="" class="popups panel large-12 medium-12 columns textCenter">
+            <form onsubmit="">
+                <div class="beforeStartGameLocal message row">
+                    <div class="remove textRight">{{app.lang.gamePopUp.close}}</div>
+                    <div class=" large-12 columns">
+                        <div class="" style="">
+                            <p>{{lang.gamePopUp.mgs1}}</p>
+                        </div>
+                    </div>
+                    
+                </div>  
+                  
+                <div class=" textCenter large-12 medium-12 columns" style="">    
+                    <div id="startGameLocal" class="button ui " style="background:cyan;">            
+                        {{lang.gamePopUp.Start}}
+                    </div>
+                </div>
+            </form >
+            <div class="textCenter small-12 columns">
+                <div class="pinLocal"  >
+                    <div class="" id="pinLocal" >3</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</template>
+    <!-- this is pop up which will show at time when the game is off by on time or the before thime -->
+<template name="gameEndPopUp2">
+    <div id="tapTapEnded2" class="gameEndPopUp2 overlay">
+            <div data-alert="" class="popups panel large-12 medium-12 small-12 columns textCenter">
+                <!-- {{> GamerTimerimer}} -->
+                <div id="endGame2" class="button ui " style="background:cyan;">            
+                    {{lang.gamePopUp.restart}}
+                </div>
+                <a id="shareWithFacebook" class="large-4 small-4 medium-4 columns" ><i class="fa fa-facebook-square"></i> </a>
+            </div>   
+    </div>
+</template>
+<template name="content2"> 
+    <div id="clickEvent2" class="large-12 small-12 medium-12 large-centered small-centered medium-centered columns"> 
+        {{#each image}}
+            <div class="card small-3 columns sortable" >
+            <figure class="front main">
+                {{{first}}}
+            </figure>
+            <figure class="back main">
+                {{{second}}}
+            </figure>
+        </div>
+        {{/each}}
+    </div>
+    {{> rankImg}}
+    <!-- <div class="large-12 small-12 medium-12 columns"> 
+    </div> -->
+</template>
+<template name="rankImg">
+    <div class="overlay rankImg">
+        
+    </div>
+</template>

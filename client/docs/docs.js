@@ -1,0 +1,3 @@
+Template.docs.place = function(){
+	
+}

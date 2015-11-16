@@ -1,0 +1,23 @@
+# Meteor packages used by this project, one per line.
+#	meteorhacks:kadira
+# 'meteor add' and 'meteor remove' will edit this file for you,
+# but you can also edit it by hand.
+
+meteor-platform
+insecure
+sixteensmiles
+accounts-password
+digilord:roles
+email
+meteorhacks:kadira
+cmather:handlebars-server
+phonegap-push
+linto:fontawesome
+spreadsheet
+ground:db
+
+iron:router
+alanning:roles
+service-configuration
+sanjo:jasmine
+velocity:html-reporter

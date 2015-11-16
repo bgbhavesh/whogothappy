@@ -1,0 +1,37 @@
+<template name="admin"> 
+	<div class="small-12 large-12 columns">
+	<a id="resetCases" class="button">Reset Cases</a>
+	</div>
+	{{#each cases}}
+		<div class="small-12 medium-6 large-4 columns">
+		<div class="row admin">
+		<!-- <div class="row"> -->
+		<div class="small-12 large-12 columns">#{{index}}</div>
+		<!-- </div> -->
+		<div class="row">
+			{{#each case}}
+			<div class="small-3 columns">{{{first}}}</div>
+			{{/each}}
+		</div>
+		<!-- <div class="row">
+			{{#each case}}
+			<div class="small-3 columns">{{{second}}}</div>
+			{{/each}}
+		</div> -->
+		</div>
+		</div>
+		<!--<table>
+		<tr>
+		{{#each case}}
+			<td>{{{first}}}</td>
+		{{/each}}
+		</tr>
+		<tr>
+		{{#each case}}
+			<td>{{{second}}}</td>
+		{{/each}}
+		</tr>
+		</table> -->
+	{{/each}}
+	
+</template>

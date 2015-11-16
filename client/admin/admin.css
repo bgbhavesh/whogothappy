@@ -1,0 +1,10 @@
+.row.admin{
+	border: 1px solid grey;
+}
+.admin img{
+	width: 100px;
+	height: 100px;
+}
+.admin div.columns {
+	padding: 0px !important;
+}
