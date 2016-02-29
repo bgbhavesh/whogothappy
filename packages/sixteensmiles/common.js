@@ -1,14 +1,14 @@
 app = {};
 collection = {};
-collection.Log = new Meteor.Collection("logs");
+collection.Log = {}; // new Meteor.Collection("logs");
 if(Meteor.absoluteUrl.defaultOptions.rootUrl.match("localhost:3000") || Meteor.absoluteUrl.defaultOptions.rootUrl.match("192.168.")){
 	app.debug = true;
-}	
+}
 else{
 	app.debug = false;
 }
 	log = function(message,endtime,args,level){
-		if(app.debug){ 
+		if(app.debug){
 			if( (level && level < 1) || (level == 0) ){
 				var logs = console.log.bind(console);
 				logs(message);
@@ -34,7 +34,7 @@ else{
 	// 		string = arguments[0];
 	// 		level = arguments[1];
 	// 	}
-		
+
 	// }
 	var insert = {"log":message,"date": new Date().getTime()};
 	insert.level = level||1;
@@ -43,11 +43,11 @@ else{
 	if(Meteor.isClient)
 		insert.side = "client";
 	else if(Meteor.isCordova)
-		insert.side = "cordova";		
+		insert.side = "cordova";
 	else
 		insert.side = "server";
 	try{insert.userId = Meteor.userId();}catch(err){}
-		
+
 	collection.Log.insert(insert);
 
 	// var coll = collection.Log.find();
