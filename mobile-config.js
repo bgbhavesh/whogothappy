@@ -8,15 +8,15 @@ App.info({
 });
 
 App.icons({
-  // // iOS
-  // 'iphone': 'server/assets/icon-60@2x.png',
-  // 'iphone_2x': 'server/assets/icon-76@2x.png',
+  // iOS
+  'iphone': 'server/assets/icon-60@2x.png',
+  'iphone_2x': 'server/assets/icon-76@2x.png',
 
-  // // Android
-  // 'android_ldpi': 'server/assets/icon-36x36.png',
-  // 'android_mdpi': 'server/assets/icon-48x48.png',
-  // 'android_hdpi': 'server/assets/icon-72x72.png',
-  // 'android_xhdpi': 'server/assets/icon-96x96.png'
+  // Android
+  'android_ldpi': 'server/assets/icon-36x36.png',
+  'android_mdpi': 'server/assets/icon-48x48.png',
+  'android_hdpi': 'server/assets/icon-72x72.png',
+  'android_xhdpi': 'server/assets/icon-96x96.png'
 });
 
 App.launchScreens({
@@ -44,6 +44,6 @@ App.setPreference('StatusBarBackgroundColor', '#FFFFFF');
 //   API_KEY: 'supersecretapikey'
 // });
 App.configurePlugin('phonegap-facebook-plugin', {
-  APP_ID: '947050508662390',
+  APP_ID: '906351116043661',
   APP_NAME: 'WhoGotHappy'
 });
