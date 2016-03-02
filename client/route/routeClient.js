@@ -13,7 +13,8 @@ Router.route('/admin', function () {
 
 Router.configure({
  	//layoutTemplate: 'home',
- 	template: 'home'
+ 	template: 'home',
+  loadingTemplate: "loading"
 });
 // Template.route.helpers({
 // 	"route" : function(first){
@@ -84,9 +85,9 @@ Router.configure({
 //     "#famous" : function (pause) {
 //     },
 //     "#home" : function (pause) {
-//     }, 
+//     },
 //     "#morpher" : function (pause) {
-//     }, 
+//     },
 // }
 
 

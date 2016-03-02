@@ -6,14 +6,14 @@
 insecure
 sixteensmiles
 accounts-password
-digilord:roles
+# digilord:roles
 email
-meteorhacks:kadira
-cmather:handlebars-server
+# meteorhacks:kadira
+# cmather:handlebars-server
 phonegap-push
 linto:fontawesome
 spreadsheet
-ground:db
+# ground:db
 
 iron:router
 alanning:roles
@@ -29,9 +29,9 @@ session
 jquery
 tracker
 logging
-reload
+# reload
 random
 ejson
 spacebars
-check
+# check
 trinisofttechnologies:accounts-facebook

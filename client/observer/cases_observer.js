@@ -3,20 +3,20 @@
 // });
 
 app.twoHundered = [];
-Cases.find({}).observe({
-    "added" : function(first){
-        app.twoHundered = first.twoHundered;
-        // console.log(app.twoHundered);
-        app.caseCount = 0;
-        Session.set("startGameFlag",Random.id());
-    },
-    "changed" : function(first){
-        app.twoHundered = first.twoHundered;
-        // console.log(app.twoHundered);
-        app.caseCount = 0;
-        Session.set("startGameFlag",Random.id());
-    }
-});
+// Cases.find({}).observe({
+//     "added" : function(first){
+//         app.twoHundered = first.twoHundered;
+//         // console.log(app.twoHundered);
+//         app.caseCount = 0;
+//         Session.set("startGameFlag",Random.id());
+//     },
+//     "changed" : function(first){
+//         app.twoHundered = first.twoHundered;
+//         // console.log(app.twoHundered);
+//         app.caseCount = 0;
+//         Session.set("startGameFlag",Random.id());
+//     }
+// });
 // app.startup(app.MeteorStartupObserver);
 
 // app.MeteorStartupObserver = function(){
