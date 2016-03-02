@@ -1,0 +1,18 @@
+Site  type  user  password
+meteor.com  deploy  youiest youiestguidethewibe --same for atmospherejs
+gmail.com docs  decivote@gmail.com  Youiestguidethewibe
+https://itunesconnect.apple.com/WebObjects/iTunesConnect.woa/ra/ng/app  deploy  tapmate@youiest.com 2Youiestguidethewibe
+macincloud.com  build admin d7r7pfxemfr youiestwibing
+cloudinary.com    tapmate@youiest.com
+https://youiestllc.loggly.com/dashboards  log wiber wiber2wibing
+facebook.com  login decivote@gmail.com  youiestwibingbetter
+http://devdiggadog.meteor.com/  app 1595385540714651  295d8dde49e85896c3bbafc0ca6c2335  -- facebook credential
+react_material_diggadog.meteor.com  app 1565197130475765  98b61a8c41c5a154c820bab8b0a8b4e5  -- facebook credential
+http://du515.macincloud.com:3000/ app 798540970264308 a10f9798f6ea694e43aa8d27b3d4399c  -- facebook credential
+http://du515.macincloud.com:7000/ app 405896596271073 3ed1be8c7529f9fb1cc671913ea5b603  -- facebook credential
+http://whogothappy.meteor.com/    app 102196023464467 26edfc1bbe48040077b0b0575b883f38  -- facebook credential
+mongolab.com    tapmate@youiest.com 2Youiestguidethewibe
+digitalocean.com  hosting root  youiestwibingmore 128.199.143.222 128.199.143.222
+heroku    decivote@gmail.com  youiestwibingmore1?
+mongolab  decivote  decivote@gmail.com  youiestwibingmore1?
+digitalocean.com    decivote@gmail.com
