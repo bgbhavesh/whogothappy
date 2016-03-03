@@ -29,7 +29,7 @@ session
 jquery
 tracker
 logging
-# reload
+reload
 random
 ejson
 spacebars
