@@ -37,6 +37,7 @@ App.launchScreens({
 });
 
 
+App.accessRule("*");
 App.setPreference('StatusBarOverlaysWebView', 'false');
 App.setPreference('StatusBarBackgroundColor', '#FFFFFF');
 // App.configurePlugin('com.phonegap.plugins.facebookconnect', {

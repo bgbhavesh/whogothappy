@@ -1,8 +1,10 @@
-<template name="home"> 
+<template name="home">
 	<div class="column large-4 large-centered small-centered medium-centered small-12 medium-8">
 	    <!-- <div class="column large-12 small-12 medium-12 scrolly"> -->
     		<!-- {{> timeCount}}  -->
         <a id="iconButton" href="{{lang.settings.apkDownloadLink}}" class="button {{#if cordova}} hideItem {{else}}  {{/if}}"><img src="/images/happy.png"></a>
+
+        {{> camera}}
     	<div class="row" id="rest">
     		{{> menuListPanel}}
     	</div>
@@ -10,13 +12,13 @@
     		{{> famous}}
     	</div>
         <div class="selected row">
-                        
+
         </div>
         <div class="zoomed">
-            
+
         </div>
-         {{> updated}}
-         {{> ratingPopup}}
+        {{> updated}}
+        {{> ratingPopup}}
         <!-- </div> -->
     </div>
 </template>
