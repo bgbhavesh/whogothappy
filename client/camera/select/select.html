@@ -1,9 +1,28 @@
 <template name="select">
 <div class="row">
-    {{#each images}}
-        <div class="card small-3 columns sortable" >
-            <img src="{{this}}" />
-        </div>
-    {{/each}}
+    <div class="large-12 small-12 medium-12 columns panel textCenter">
+      {{#each images}}
+          <div class="card small-3 columns sortable" >
+              <img src="{{this}}" />
+          </div>
+      {{/each}}
+    </div>
 </div>
+</template>
+
+<template name="setImageTypePopup">
+    <div id="setImageTypePopup" class="">
+            <div data-alert="" class="popups  large-12 medium-12 small-12 columns textCenter">
+                What type of image is this?
+            </div>
+            <div data-alert="" class="popups  large-12 medium-12 small-12 textCenter">
+                <div id="rateSad" class="button ui" style="background:cyan;">
+                        Sad?
+                </div>
+                <div id="rateHappy" class="button ui" style="background:cyan;">
+                    Happy?
+                </div>
+            </div>
+
+    </div>
 </template>

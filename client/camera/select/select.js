@@ -7,7 +7,8 @@ var cameraImages = [
 ];
 Template.select.events({
     "click img": function(e, t){
-        $(e.currentTarget).parent("div").remove();
+        // $(e.currentTarget).parent("div").remove();
+        $("#setImageTypePopup").show();
     }
 });
 
@@ -15,4 +16,17 @@ Template.select.helpers({
     "images": function(){
         return cameraImages;
     }
+});
+
+
+
+Template.setImageTypePopup.events({
+    "click #rateSad": function(e, t){
+        // $(e.currentTarget).parent("div").remove();
+        $("#setImageTypePopup").hide();
+    },
+    "click #rateHappy": function(e, t){
+        // $(e.currentTarget).parent("div").remove();
+        $("#setImageTypePopup").hide();
+    },
 });
