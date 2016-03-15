@@ -6,4 +6,16 @@
         <img id="myPictureLocation" src="" />
     </div>
 </div>
+<div class="row">
+    <div class="large-12 small-12 medium-12 columns panel textCenter">
+      <div class="large-12 small-12 medium-12 textCenter">
+              Uploaded Images
+      </div>
+      {{#each images}}
+          <div class="card small-3 columns sortable" >
+              <img src="{{url}}" />
+          </div>
+      {{/each}}
+    </div>
+</div>
 </template>
