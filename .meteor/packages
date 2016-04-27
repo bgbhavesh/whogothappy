@@ -20,7 +20,6 @@ alanning:roles
 service-configuration
 # sanjo:jasmine
 # velocity:html-reporter
-standard-minifiers
 meteor-base
 mobile-experience
 mongo
@@ -35,3 +34,5 @@ ejson
 spacebars
 # check
 trinisofttechnologies:accounts-facebook
+standard-minifier-css
+standard-minifier-js
