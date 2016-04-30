@@ -1,4 +1,8 @@
-
+Template.camera.helpers({
+    "images": function(){
+        return UploadImages.find().fetch();
+    }
+});
 Template.camera.events({
     "click #takePicture": function(e, t){
         if(Meteor.isCordova){
