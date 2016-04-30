@@ -93,7 +93,7 @@ App.setPreference('StatusBarBackgroundColor', '#FFFFFF');
 //   APP_ID: '1234567890',
 //   API_KEY: 'supersecretapikey'
 // });
-App.configurePlugin('phonegap-facebook-plugin', {
+App.configurePlugin('com.phonegap.plugins.facebookconnect', {
     APP_ID: '906351116043661',
     APP_NAME: 'WhoGotHappy'
 });

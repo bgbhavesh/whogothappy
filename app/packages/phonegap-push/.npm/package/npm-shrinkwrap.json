@@ -2,14 +2,20 @@
   "dependencies": {
     "apn": {
       "version": "1.4.2",
+      "resolved": "https://registry.npmjs.org/apn/-/apn-1.4.2.tgz",
+      "from": "apn@1.4.2",
       "dependencies": {
         "q": {
-          "version": "0.9.7"
+          "version": "0.9.7",
+          "resolved": "https://registry.npmjs.org/q/-/q-0.9.7.tgz",
+          "from": "q@0.9.7"
         }
       }
     },
     "node-gcm": {
-      "version": "0.9.6"
+      "version": "0.9.6",
+      "resolved": "https://registry.npmjs.org/node-gcm/-/node-gcm-0.9.6.tgz",
+      "from": "node-gcm@0.9.6"
     }
   }
 }
