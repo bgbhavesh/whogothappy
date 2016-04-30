@@ -8,16 +8,16 @@ App.info({
 });
 
 App.icons({
-    iphone_2x: "../assets/ios_icon/icon-60@2x.png",
-    iphone_3x: "../assets/ios_icon/icon-60@3x.png",
+    iphone_2x: "../assets/ios_icon/icon-602x.png",
+    iphone_3x: "../assets/ios_icon/icon-603x.png",
     ipad: "../assets/ios_icon/icon-76.png",
-    ipad_2x: "../assets/ios_icon/icon-76@2x.png",
-    ipad_pro: "../assets/ios_icon/icon-83.5@2x.png",
+    ipad_2x: "../assets/ios_icon/icon-762x.png",
+    ipad_pro: "../assets/ios_icon/icon-8352x.png",
     ios_settings: "../assets/ios_icon/icon-small.png",
-    ios_settings_2x: "../assets/ios_icon/icon-small@2x.png",
-    ios_settings_3x: "../assets/ios_icon/icon-small@3x.png",
+    ios_settings_2x: "../assets/ios_icon/icon-small2x.png",
+    ios_settings_3x: "../assets/ios_icon/icon-small3x.png",
     ios_spotlight: "../assets/ios_icon/icon-40.png",
-    ios_spotlight_2x: "../assets/ios_icon/icon-40@2x.png",
+    ios_spotlight_2x: "../assets/ios_icon/icon-402x.png",
 
     // android_ldpi: '../assets/android_icon/android_ldpi.png',
     android_mdpi: "../assets/android_icon/android_mdpi.png",
