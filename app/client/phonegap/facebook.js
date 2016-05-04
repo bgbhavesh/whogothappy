@@ -1,7 +1,7 @@
 
 app.phonegap = Meteor.isCordova;
 // app.fbNativeLogin = function() {
-//         FB.login( function(response) { 
+//         FB.login( function(response) {
 //         if (response.authResponse) {
 //             //alert('logged in now');
 //             // console.log('login response:' + response.authResponse);
@@ -17,20 +17,20 @@ app.phonegap = Meteor.isCordova;
 // }
 app.fbNativeLogin = function() {
     if(Meteor.isCordova){
-        facebookConnectPlugin.login( ["public_profile", "email", "user_friends"], 
-            function (response) { 
+        facebookConnectPlugin.login( ["public_profile", "email", "user_friends"],
+            function (response) {
                 // alert("first");
                 // alert(JSON.stringify(response));
-                app.meupdate(response); 
+                app.meupdate(response);
             },
-            function (response) { 
+            function (response) {
                 // alert("second");
                 // alert(JSON.stringify(response)) ;
-                app.meupdate(response); 
+                app.meupdate(response);
             });
     }
     else{
-        FB.login( function(response) { 
+        FB.login( function(response) {
             if (response.authResponse) {
                 //alert('logged in now');
                 // console.log('login response:' + response.authResponse);
@@ -42,8 +42,8 @@ app.fbNativeLogin = function() {
             }
         },
         {scope: "email"}
-        ); 
-            
+        );
+
     }
 
 }
@@ -64,15 +64,15 @@ app.meupdate = function(response){
     var authResponse = response.authResponse;
     // alert("new me update");
     facebookConnectPlugin.api( "me/?fields=picture,name", ["public_profile"],
-        function (user) { 
+        function (user) {
             // alert("capture the next alert");
-            // alert(JSON.stringify(user)); 
+            // alert(JSON.stringify(user));
             // alert(authResponse);
-            
+
             app.createFacebookUser(user,authResponse);
         },
-        function (user) { 
-            // alert(JSON.stringify(response)) 
+        function (user) {
+            // alert(JSON.stringify(response))
             app.createFacebookUser(user,authResponse);
         });
 }
@@ -104,7 +104,7 @@ Meteor.startup(app.facebookStarup);
 
 app.getFacebookAppId = function(){
     if(app.debug)
-        return "399034973608261"
+        return "906351116043661"
     else
         return "906351116043661";
 }
@@ -132,14 +132,14 @@ app.getFacebookAppId = function(){
     }
     else{
         app.fbInit = function(){
-            // FB.init({ 
-            //     appId: "906351116043661", 
-            //     nativeInterface: CDV.FB, 
-            //     useCachedDialogs: false 
+            // FB.init({
+            //     appId: "906351116043661",
+            //     nativeInterface: CDV.FB,
+            //     useCachedDialogs: false
             // });
         }
         $("head").append('<script type="text/javascript" src="/phonegap/facebook-ios-sdk.js"/>');
-    }    
+    }
 // })
 
 // console.log(app.fbInit);

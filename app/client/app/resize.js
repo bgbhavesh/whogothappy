@@ -51,7 +51,7 @@ app.onResize = function(){
 		$(".selected  figure img").width(width/2)
 		$(".selected  img").width(width/2)
 	}
-	
+
 };
 
 $(window).resize(app.onResize);
