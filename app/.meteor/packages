@@ -15,7 +15,7 @@ linto:fontawesome
 spreadsheet
 # ground:db
 
-# iron:router
+iron:router
 alanning:roles
 service-configuration
 # sanjo:jasmine

@@ -2,6 +2,18 @@
 // 	this.render('home');
 // });
 
+
+
+
+Router.map(function(){
+  this.route("home",{
+    path:"/",
+    template:"basiclayout",
+    yieldTemplates:{
+      'home': {to: 'bodyTemplate'},
+    }
+  });
+});
 // Router.route('/admin', function () {
 // 	if(Roles.userIsInRole(Meteor.userId(),["admin"])){
 // 		this.render('admin');

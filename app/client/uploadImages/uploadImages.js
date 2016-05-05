@@ -5,6 +5,17 @@ Template.uploadImages.onRendered(function () {
 
 Template.uploadImages.helpers({
     "uploadImg" : function(){
-        return UploadImages.find().fetch()
+        return UploadImages.find({createdBy:Meteor.userId()}).fetch()
+    },
+    "uploadImg_disp" : function(){
+        if (Meteor.user())
+        {
+        	return " ";
+        }
+        else
+        {
+        	return "hide"
+        }
+
     },
 })
