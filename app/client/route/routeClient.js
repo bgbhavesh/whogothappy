@@ -2,7 +2,15 @@
 // 	this.render('home');
 // });
 
-
+Router.map(function(){
+  this.route("upload",{
+    path:"/upload",
+    template:"basiclayout",
+    yieldTemplates:{
+      'upload': {to: 'bodyTemplate'},
+    }
+  });
+});
 
 
 Router.map(function(){

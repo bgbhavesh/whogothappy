@@ -1,0 +1,35 @@
+.selectedimg{
+    box-shadow:0px 12px 22px 1px rgba(36, 142, 97, 0.42);
+    border:10px solid #067A6E;
+/*        border-top:10px solid #067A6E;
+    border-bottom:10px solid #067A6E;*/
+    /*width:150px;*/
+    /*height:135px;*/
+}
+.disabled{
+ color: grey;
+ opacity: 0.2;
+ pointer-events:none;
+
+}
+#game{
+	margin-top: 20px;
+	padding-left: 0!important;
+    padding-right: 0 !important;
+    background-color: white;
+    width: 100%;
+    left: 0%!important; 
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.75);
+    -webkit-filter: blur(4px);
+    -ms-filter: blur(4px);
+    filter: blur(4px);
+    -o-filter: blur(4px);
+
+}
+.disp
+{
+    display: none;
+}

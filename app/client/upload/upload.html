@@ -1,0 +1,57 @@
+<template name="upload">
+<div class="row " id="image_selector">
+    <div class="large-12 small-12 medium-12 columns panel textCenter">
+    <div id="select_img_button"  class="button ui {{buttonFlag}}" style="background:cyan;">
+          Select Image
+      </div>
+      <div class="large-12 small-12 medium-12 textCenter">
+              Uploaded Images
+      </div>
+      {{#each images}}
+          <div  class=" card small-3 columns sortable " >
+              <img id="uploaded_img" class="s {{display}}" src="{{url}}" name="{{_id}}" draggable="false"/>
+          </div>
+      {{/each}}
+    </div>
+</div>
+<div id="game" class="disabled hide large-12 small-12 medium-12 large-centered small-centered medium-centered columns " style="width: 400px; height: 450px; -webkit-filter: blur(0px);"> 
+  {{#each selected_images}}
+      <div id="choice" class="flip card small-3 columns sortable" style="height: 105px; padding: 10px">
+          <img id="image" class="s" src="{{url}}" draggable="false" style="height: 100.5px; width: 100.5px;"/>
+      </div> 
+  {{/each}}
+</div>
+<div class="row"> 
+  <div class="large-5 small-5 medium-5 columns " style="visibility:hidden">
+    1
+  </div>
+  <div id="start"  class="columns large-2 small-2 medium-2 button ui hide" style="background:cyan;top: -250px;">
+      start
+  </div>
+  <div class="columns large-5 small-5 medium-5 " style="visibility:hidden">
+  3
+  </div>
+</div>
+
+<div class="row"> 
+  <div class="large-2 small-2 medium-2 columns " style="visibility:hidden">
+    1
+  </div>
+  <div class="columns large-4 small-4 medium-4">
+      <div id="addflag"  class=" button ui hide" style="background:cyan;width: 200px;">
+          APPROVED
+      </div>
+  </div>
+  <div class="columns large-4 small-4 medium-4">
+      <div id="removeflag"  class=" button ui hide" style="background:cyan;width: 200px;">
+          DENIED
+      </div>
+  </div>
+  <div class="columns large-2 small-2 medium-2 " style="visibility:hidden">
+   3
+  <br/>
+</div>
+</div>
+
+
+</template>

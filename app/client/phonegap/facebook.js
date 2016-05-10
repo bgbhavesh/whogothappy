@@ -104,7 +104,7 @@ Meteor.startup(app.facebookStarup);
 
 app.getFacebookAppId = function(){
     if(app.debug)
-        return "906351116043661"
+        return "399034973608261"
     else
         return "906351116043661";
 }

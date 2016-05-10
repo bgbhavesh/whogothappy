@@ -6,6 +6,11 @@
                </label> 
             </div>
         </div>
+      <!--   <div class="textCenter large-12 medium-12 small-12  columns">
+            <div id="new"  class="button ui" style="background:cyan">
+               Start A New Game
+            </div>
+        </div> -->
             <input type="file" name="file" class="cloudinary-fileupload" data-cloudinary-field="pytzaemo" id="file-img" style="display:none"/>
 <!--         <div class="textCenter large-12 medium-12 small-12  columns">
             <div tabindex="500" class="btn btn-primary btn-file browsebtn"><i class="glyphicon glyphicon-folder-open"></i>
@@ -13,12 +18,12 @@
                 <input type="file" name="file" class="cloudinary-fileupload" data-cloudinary-field="pytzaemo" id="file-img" />
             </div>
         </div> -->
-        <div id="" class="large-12 small-12 medium-12 columns" style="width: 507px; height: auto;">
+        <div id="" class="large-12 small-12 medium-12 " style="width: inherit; height: auto;">
             {{#each uploadImg}}
-            <div class="card small-3 columns sortable">
-                <figure class="main">
-                    <img src="{{url}}" draggable="false">
-                </figure>
+            <div class="small-3 columns sortable" style="padding-left: 0px;padding-right: 0px;">
+                <!-- <figure class="main"> -->
+                    <img src="{{url}}" class="" draggable="false" style="padding: 10px;">
+                <!-- </figure> -->
             </div>
             {{/each}}
         </div>
