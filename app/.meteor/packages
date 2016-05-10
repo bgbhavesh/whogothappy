@@ -36,5 +36,6 @@ spacebars
 standard-minifier-css
 standard-minifier-js
 
-#chriswessels:hammer
+chriswessels:hammer
 #dsyko:jquery-ui-touch-punch
+#hammer:hammer

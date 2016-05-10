@@ -1,3 +1,8 @@
+// var d = new Date();
+// var start;
+// var end;
+// var time;
+
 var count = 1;
 Session.set("selected_image",[])
 Template.upload.helpers({
@@ -14,7 +19,7 @@ Template.upload.helpers({
     },
     "buttonFlag" : function(){
         var selected_image = Session.get("selected_image");
-        if(selected_image.length == 6){
+        if(selected_image.length == 16){
             return ""
         }else{
             return "hide"
@@ -44,35 +49,35 @@ Template.upload.helpers({
 
 Template.upload.events({
     "click #uploaded_img": function(event, t){
-        
-        var selected_image = Session.get("selected_image")
-        if ($(event.currentTarget).parent().find("#uploaded_img").hasClass('selectedimg')) {
-                $(event.currentTarget).parent().find("#uploaded_img").removeClass('selectedimg');
+        // event.preventDefault();
+        // var selected_image = Session.get("selected_image")
+        // if ($(event.currentTarget).parent().find("#uploaded_img").hasClass('selectedimg')) {
+        //         $(event.currentTarget).parent().find("#uploaded_img").removeClass('selectedimg');
 
-                var image =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
-                 // for (var s = 0; s < selected_image.length; s++) {
-                    // console.log(selected_image[s])
-                    // UploadImages.update({_id:image},{$set:{approve:"denied"}});
-                    // console.log(UploadImages.findOne({_id:image},{$set:{approve:"denied"}}))
-                // }; 
-                selected_image.pop(image);
-                // console.log(selected_image)
-                Session.set("selected_image",selected_image)
-        }else{
-            if(selected_image.length == 6){
-            return;
-            }
-            $(event.currentTarget).parent().find("#uploaded_img").addClass('selectedimg');
-            var image =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
-            selected_image.push(image);
+        //         var image =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
+        //          // for (var s = 0; s < selected_image.length; s++) {
+        //             // console.log(selected_image[s])
+        //             // UploadImages.update({_id:image},{$set:{approve:"denied"}});
+        //             // console.log(UploadImages.findOne({_id:image},{$set:{approve:"denied"}}))
+        //         // }; 
+        //         selected_image.pop(image);
+        //         // console.log(selected_image)
+        //         Session.set("selected_image",selected_image)
+        // }else{
+        //     if(selected_image.length == 6){
+        //     return;
+        //     }
+        //     $(event.currentTarget).parent().find("#uploaded_img").addClass('selectedimg');
+        //     var image =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
+        //     selected_image.push(image);
 
-        // var current_clicked =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
+        // // var current_clicked =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
 
-            // UploadImages.update({_id:image},{$set:{approve:"approved"}});
+        //     // UploadImages.update({_id:image},{$set:{approve:"approved"}});
 
-            Session.set("selected_image",selected_image)
-        }
-        // console.log(selected_image);
+        //     Session.set("selected_image",selected_image)
+        // }
+        // // console.log(selected_image);
     },
     "click #select_img_button": function(event, t){
         $("#image_selector").addClass("hide");
@@ -106,20 +111,53 @@ Template.upload.events({
             $(classfilter[i]).attr('src',s)
         };    
     },
-    "dblclick #uploaded_img": function(event, t){
+    "mouseup #uploaded_img": function(event, t){
         var current_clicked =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
-            // $(event.currentTarget).parent().find("#uploaded_img").addClass('hide');
-            // UploadImages.update({_id:current_clicked},{$set:{approve:"approved"}});
-            // console.log( UploadImages.update({_id:current_clicked},{$set:{approve:"approved"}}))
-        UploadImages.remove({_id:current_clicked});
+        Session.set("currentclickedImg",current_clicked)
+        var d = new Date();
+        var end;
+        end = d.getTime();
+        var start2= Session.get("startTime")
+        var time = end - start2;
+        console.log(time);
+        if (time > 2000){
+            longclick();
+        }
+        else{
+        event.preventDefault();
+        var selected_image = Session.get("selected_image")
+        if ($(event.currentTarget).parent().find("#uploaded_img").hasClass('selectedimg')) {
+                $(event.currentTarget).parent().find("#uploaded_img").removeClass('selectedimg');
+                var image =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
+                selected_image.pop(image);
+                Session.set("selected_image",selected_image)
+        }else{
+            if(selected_image.length == 16){
+            return;
+            }
+            $(event.currentTarget).parent().find("#uploaded_img").addClass('selectedimg');
+            var image =$(event.currentTarget).parent().find("#uploaded_img").attr("name");
+            selected_image.push(image);
+            Session.set("selected_image",selected_image)
+        }
+        }
+
+    },
+    "mousedown #uploaded_img": function(event, t){
+        var d = new Date();
+        var start;
+        var end;
+        start = d.getTime();
+        Session.set("startTime",start)
     },
     "click #addflag": function(event, t){
-        $("#game").addClass("hide");
-        $("#image_selector").removeClass("hide");
-     var imgid = Session.get("changeImageId")
+        // $("#game").addClass("hide");
+        // $("#image_selector").removeClass("hide");
+    var imgid = Session.get("changeImageId")
         for (var n = 0; n < imgid.length; n++) {
             UploadImages.update({_id:imgid[n]},{$set:{flag:true,approve:"approved"}});
         };
+        Router.go("/")
     },
     "click #removeflag": function(event, t){
         $("#game").addClass("hide");
@@ -132,5 +170,14 @@ Template.upload.events({
 });
 
 Template.upload.rendered = function() {
-    $('.datetimepicker').datetimepicker();
+}
+
+
+
+
+function longclick(){
+    
+    console.log("longclick")
+    var current_clicked =Session.get("currentclickedImg")
+    UploadImages.remove({_id:current_clicked});
 }

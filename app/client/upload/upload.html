@@ -9,7 +9,7 @@
       </div>
       {{#each images}}
           <div  class=" card small-3 columns sortable " >
-              <img id="uploaded_img" class="s {{display}}" src="{{url}}" name="{{_id}}" draggable="false"/>
+              <img id="uploaded_img" draggable="false" class="s {{display}}" src="{{url}}" name="{{_id}}"/>
           </div>
       {{/each}}
     </div>
@@ -52,6 +52,4 @@
   <br/>
 </div>
 </div>
-
-
 </template>

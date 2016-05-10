@@ -1,0 +1,27 @@
+<template name="admin_approved">
+<div id="AdminGame" class="{{gamedisplay}}">
+<div id="GameUser" class="large-12 small-12 medium-12 large-centered small-centered medium-centered columns disabled"> 
+		{{#each image}}
+		<div  class="s card small-3 columns sortable" >
+		    <img id="clickImg" class="m" src="{{url}}">
+  		</div>
+		{{/each}}
+	</div>
+		<div id="startdiv" data-alert="" class="popups panel large-12 medium-12 columns textCenter" style="
+    top: -350px;
+">
+            <!-- <form onsubmit=""> -->
+                <div class="textCenter large-12 medium-12 columns">
+                    <div id="startGameUser" class="button ui" style="background:cyan;">
+                        Start
+                    </div>
+                </div>
+            <!-- </form> -->
+            <div class="textCenter small-12 columns">
+                <div class="pin">
+                    <div class="" id="pin">3</div>
+                </div>
+            </div>
+        </div>	
+</div>
+</template>
